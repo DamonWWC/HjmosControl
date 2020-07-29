@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HjmosControl.Controls"
+                    xmlns:interactivity="clr-namespace:HjmosControl.Interactivity">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Button.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="controls:NumericUpDown" x:Key="NumericUpDownBaseStyle">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="10"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Once"/>
+        <Setter Property="IsTabStop" Value="False"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:NumericUpDown">
+                    <Border x:Name="templateRoot" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <controls:WatermarkTextBox Focusable="True"  Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" x:Name="PART_TextBox" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Button x:Name="UpButton" Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Prev" Padding="5,7,5,1" Margin="0,0,0,14" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource UpGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
+                            <Button x:Name="DownButton"  Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Next" Padding="5,1,5,7" Margin="0,14,0,0" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource DownGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                        <Trigger Property="ShowUpDownButton" Value="False">
+                            <Setter Property="Margin" TargetName="PART_TextBox" Value="2,0,2,1"/>
+                        </Trigger>
+                        <Trigger Property="IsReadOnly" Value="True">
+                            <Setter Property="IsEnabled" TargetName="UpButton" Value="False"/>
+                            <Setter Property="IsEnabled" TargetName="DownButton" Value="False"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+    
+    
+</ResourceDictionary>

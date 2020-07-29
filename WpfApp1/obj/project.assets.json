@@ -1,0 +1,263 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.7.2": {
+      "HandyControl/2.5.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "runtime": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "resource": {
+          "lib/net47/en/HandyControl.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net47/fa/HandyControl.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net47/fr/HandyControl.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net47/ko-KR/HandyControl.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "lib/net47/ru/HandyControl.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net47/tr/HandyControl.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win": {
+      "HandyControl/2.5.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "runtime": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "resource": {
+          "lib/net47/en/HandyControl.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net47/fa/HandyControl.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net47/fr/HandyControl.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net47/ko-KR/HandyControl.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "lib/net47/ru/HandyControl.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net47/tr/HandyControl.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x64": {
+      "HandyControl/2.5.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "runtime": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "resource": {
+          "lib/net47/en/HandyControl.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net47/fa/HandyControl.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net47/fr/HandyControl.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net47/ko-KR/HandyControl.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "lib/net47/ru/HandyControl.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net47/tr/HandyControl.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "HandyControl/2.5.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "runtime": {
+          "lib/net47/HandyControl.dll": {}
+        },
+        "resource": {
+          "lib/net47/en/HandyControl.resources.dll": {
+            "locale": "en"
+          },
+          "lib/net47/fa/HandyControl.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net47/fr/HandyControl.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net47/ko-KR/HandyControl.resources.dll": {
+            "locale": "ko-KR"
+          },
+          "lib/net47/ru/HandyControl.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net47/tr/HandyControl.resources.dll": {
+            "locale": "tr"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HandyControl/2.5.0.2": {
+      "sha512": "1HjM5AcIdtuKahAGVEKQA6Fs6g9t/Ex/i+3Zc3FDHLmPpahc5/r6TFgVWFD8qthE9eI/HGBS/n/NuU+RY+fyuA==",
+      "type": "package",
+      "path": "handycontrol/2.5.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "handycontrol.2.5.0.2.nupkg.sha512",
+        "handycontrol.nuspec",
+        "icon.png",
+        "lib/net40/HandyControl.dll",
+        "lib/net40/HandyControl.xml",
+        "lib/net40/Microsoft.Windows.Shell.dll",
+        "lib/net40/en/HandyControl.resources.dll",
+        "lib/net40/fa/HandyControl.resources.dll",
+        "lib/net40/fr/HandyControl.resources.dll",
+        "lib/net40/ko-KR/HandyControl.resources.dll",
+        "lib/net40/ru/HandyControl.resources.dll",
+        "lib/net40/tr/HandyControl.resources.dll",
+        "lib/net45/HandyControl.dll",
+        "lib/net45/HandyControl.xml",
+        "lib/net45/en/HandyControl.resources.dll",
+        "lib/net45/fa/HandyControl.resources.dll",
+        "lib/net45/fr/HandyControl.resources.dll",
+        "lib/net45/ko-KR/HandyControl.resources.dll",
+        "lib/net45/ru/HandyControl.resources.dll",
+        "lib/net45/tr/HandyControl.resources.dll",
+        "lib/net462/HandyControl.dll",
+        "lib/net462/HandyControl.xml",
+        "lib/net462/en/HandyControl.resources.dll",
+        "lib/net462/fa/HandyControl.resources.dll",
+        "lib/net462/fr/HandyControl.resources.dll",
+        "lib/net462/ko-KR/HandyControl.resources.dll",
+        "lib/net462/ru/HandyControl.resources.dll",
+        "lib/net462/tr/HandyControl.resources.dll",
+        "lib/net47/HandyControl.dll",
+        "lib/net47/HandyControl.xml",
+        "lib/net47/en/HandyControl.resources.dll",
+        "lib/net47/fa/HandyControl.resources.dll",
+        "lib/net47/fr/HandyControl.resources.dll",
+        "lib/net47/ko-KR/HandyControl.resources.dll",
+        "lib/net47/ru/HandyControl.resources.dll",
+        "lib/net47/tr/HandyControl.resources.dll",
+        "lib/net48/HandyControl.dll",
+        "lib/net48/HandyControl.xml",
+        "lib/net48/en/HandyControl.resources.dll",
+        "lib/net48/fa/HandyControl.resources.dll",
+        "lib/net48/fr/HandyControl.resources.dll",
+        "lib/net48/ko-KR/HandyControl.resources.dll",
+        "lib/net48/ru/HandyControl.resources.dll",
+        "lib/net48/tr/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/HandyControl.deps.json",
+        "lib/netcoreapp3.0/HandyControl.dll",
+        "lib/netcoreapp3.0/HandyControl.xml",
+        "lib/netcoreapp3.0/en/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/fa/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/fr/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/ko-KR/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/ru/HandyControl.resources.dll",
+        "lib/netcoreapp3.0/tr/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/HandyControl.deps.json",
+        "lib/netcoreapp3.1/HandyControl.dll",
+        "lib/netcoreapp3.1/HandyControl.xml",
+        "lib/netcoreapp3.1/en/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/fa/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/fr/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/ko-KR/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/ru/HandyControl.resources.dll",
+        "lib/netcoreapp3.1/tr/HandyControl.resources.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.7.2": [
+      "HandyControl >= 2.5.0.2"
+    ]
+  },
+  "packageFolders": {
+    "D:\\program files (x86)\\NeGet\\NuGetPackages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\A日常编程练习\\C#\\自定义控件库\\HjmosControl\\WpfApp1\\WpfApp1.csproj",
+      "projectName": "WpfApp1",
+      "projectPath": "D:\\A日常编程练习\\C#\\自定义控件库\\HjmosControl\\WpfApp1\\WpfApp1.csproj",
+      "packagesPath": "D:\\program files (x86)\\NeGet\\NuGetPackages\\",
+      "outputPath": "D:\\A日常编程练习\\C#\\自定义控件库\\HjmosControl\\WpfApp1\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\90462\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 18.2.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net472"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\90462\\AppData\\Local\\Esri\\NuGet": {},
+        "D:\\Program Files (x86)\\DevExpress 18.2\\Components\\System\\Components\\Packages": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net472": {
+          "projectReferences": {}
+        }
+      }
+    },
+    "frameworks": {
+      "net472": {
+        "dependencies": {
+          "HandyControl": {
+            "target": "Package",
+            "version": "[2.5.0.2, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

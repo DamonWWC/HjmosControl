@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HjmosControl.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="controls:RunningBlock" x:Key="RunningBlockBaseStyle">
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="0,10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:RunningBlock">
+                    <Border CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" ClipToBounds="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="PART_Title" Visibility="{TemplateBinding Title,Converter={StaticResource Object2VisibilityConverter}}"  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <ContentPresenter Margin="0,0,5,0" ContentSource="Title" HorizontalAlignment="Center" ContentTemplate="{TemplateBinding TitleTemplate}" ContentTemplateSelector="{TemplateBinding TitleTemplateSelector}" ContentStringFormat="{TemplateBinding TitleStringFormat}"/>
+                            </Border>
+                            <controls:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel" Grid.Column="1">
+                                <ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <ContentPresenter.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                            </controls:SimplePanel>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Padding" Value="10.0"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

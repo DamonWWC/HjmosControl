@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "TynWiPPqWMAtAqNQZksAlWCWIZ7KR0jvQZOjdVNnzjJ3LTaz0fETsS9df8CTNE6XLjORPF7H8AMufF0D8q193w==",
+  "success": true,
+  "projectFilePath": "D:\\A日常编程练习\\C#\\自定义控件库\\HjmosControl\\WpfApp1\\WpfApp1.csproj",
+  "expectedPackageFiles": [
+    "D:\\program files (x86)\\NeGet\\NuGetPackages\\handycontrol\\2.5.0.2\\handycontrol.2.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
