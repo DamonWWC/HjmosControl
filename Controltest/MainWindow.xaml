@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Controltest"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="Controltest.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="797" Width="1194">
+        Title="MainWindow" Height="1000" Width="2000">
     <Window.Resources>
         <ResourceDictionary>
             <Geometry x:Key="aa">M801.895 481.895h-259.79v-259.79C542.105 205.479 528.627 192 512 192s-30.105 13.479-30.105 30.105v259.789h-259.79C205.479 481.895 192 495.373 192 512c0 16.627 13.479 30.105 30.105 30.105h259.789v259.789C481.895 818.521 495.373 832 512 832s30.105-13.479 30.105-30.105v-259.79h259.789C818.521 542.105 832 528.627 832 512c0-16.627-13.479-30.105-30.105-30.105z</Geometry>
@@ -67,6 +67,6 @@
         <Slider Margin="140,610,696,121" TickFrequency="5" IsSnapToTickEnabled="True" Value="80" Maximum="100" Minimum="0"/>
         <controls:NumericUpDown Margin="750,10,261,726" />
         <controls:ColorPicker Name="colorPicker" Margin="97,97,651,291" />
-   
+        <TextBox Text="This is the content" Margin="48,493,1762,439" />
     </Grid>
 </Window>

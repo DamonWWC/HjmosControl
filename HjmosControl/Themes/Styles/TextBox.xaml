@@ -6,4 +6,5 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:WatermarkTextBox" BasedOn="{StaticResource WatermarkTextBoxBaseStyle}"/>
+    <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}"/>
 </ResourceDictionary>

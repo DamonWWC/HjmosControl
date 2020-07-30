@@ -62,6 +62,7 @@
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
+    <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
@@ -131,6 +132,8 @@
     <Compile Include="Tools\Interop\Handle\WpfSafeHandle.cs" />
     <Compile Include="Tools\Interop\InteropMethods.cs" />
     <Compile Include="Tools\Interop\InteropValues.cs" />
+    <Compile Include="Tools\RegularJudgment.cs" />
+    <Compile Include="Tools\RegularPatterns.cs" />
     <Page Include="Themes\Basic\Basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
