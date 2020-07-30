@@ -13,8 +13,10 @@
         <ResourceDictionary Source="FloatingBlock.xaml"/>
         <ResourceDictionary Source="Growl.xaml"/>
         <ResourceDictionary Source="Slider.xaml"/>
+        <ResourceDictionary Source="ScrollViewer.xaml"/>
         <ResourceDictionary Source="NumericUpDown.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
         <ResourceDictionary Source="ColorPicker.xaml"/>
+        
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

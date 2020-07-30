@@ -67,6 +67,7 @@
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
+    <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
@@ -171,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\BaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ScrollViewerBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -293,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\RunningBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ScrollViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -47,7 +47,7 @@
                 <ControlTemplate TargetType="TextBox">
                     <Border x:Name="border" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ScrollViewer Padding="{TemplateBinding Padding}" Margin="-2,0,-1,0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PAET_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        <ScrollViewer Padding="{TemplateBinding Padding}" Margin="-2,0,-1,0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
