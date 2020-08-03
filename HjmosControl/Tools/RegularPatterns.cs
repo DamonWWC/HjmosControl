@@ -150,5 +150,8 @@ namespace HjmosControl.Tools
         /// <param name="propertyName"></param>
         /// <returns></returns>
         public object GetValue(string propertyName) => GetType().GetField(propertyName).GetValue(null);
+
+       
     }
+    
 }
