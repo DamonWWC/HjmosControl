@@ -17,6 +17,6 @@
         <ResourceDictionary Source="NumericUpDown.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
         <ResourceDictionary Source="ColorPicker.xaml"/>
-        
+        <ResourceDictionary Source="Loading.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

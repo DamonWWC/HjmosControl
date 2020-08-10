@@ -4,6 +4,7 @@
     
     <Style x:Key="ButtonBaseStyle" TargetType="Button">
         <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
