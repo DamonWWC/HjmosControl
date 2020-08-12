@@ -6,7 +6,6 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using HjmosControl.Controls.Attach;
 
 namespace HjmosControl.Controls
 {

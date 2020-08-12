@@ -1,9 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HjmosControl.Controls">
+                    xmlns:controls="clr-namespace:HjmosControl.Controls"
+                    xmlns:interactivity="clr-namespace:HjmosControl.Interactivity">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
         <ResourceDictionary Source="../TextBlock.xaml"/>
+        <ResourceDictionary Source="../Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <Style x:Key="WatermarkTextBoxBaseStyle" TargetType="controls:WatermarkTextBox">
@@ -64,5 +67,77 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
+    <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxBaseStyle}" x:Key="TextBoxIcon">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:TextBox">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="StoryboardShow">
+                            <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
+                        </Storyboard>
+                        <Storyboard x:Key="StoryboardHidden">
+                            <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{TemplateBinding controls:InfoElement.TitleWidth}"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{TemplateBinding ErrorStr}" FontSize="12" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
+                        <TextBlock x:Name="Title" Grid.Column="0" Text="{TemplateBinding controls:InfoElement.Title}"
+                                        Margin="0,7,6,7" Visibility="{TemplateBinding controls:InfoElement.Title ,Converter={StaticResource String2VisibilityConverter}}" VerticalAlignment="Center"/>
+                        <Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                            <Grid SnapsToDevicePixels="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Path x:Name="PathMain" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}"
+                                  Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform"  Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                                <controls:SimplePanel Grid.Column="1">
+                                    <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{TemplateBinding controls:InfoElement.Placeholder}"/>
+                                    <ScrollViewer Padding="{TemplateBinding Padding}" Margin="-2,0,-1,0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                </controls:SimplePanel>
+                                <Button Height="NaN" Command="interactivity:ControlCommands.Clear" Margin="0,0,7,0" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="2" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding ElementName=templateRoot,Path=BorderBrush}"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="templateRoot" Value="0.4"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" SourceName="templateRoot"/>
+                                <Condition Property="ShowClearButton" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="ButtonClear" Value="Visible"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PathMain" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsError" Value="True">
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource DangerBrush}"/>
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardShow}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardHidden}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

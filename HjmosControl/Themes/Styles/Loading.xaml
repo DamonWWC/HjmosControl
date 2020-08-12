@@ -3,9 +3,12 @@
                     xmlns:controls="clr-namespace:HjmosControl.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/LoadingCircleBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/LoadingLineBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <!--圆形加载条样式-->
     <Style TargetType="controls:LoadingCircle" BasedOn="{StaticResource LoadingCircleBaseStyle}"/>
-    
-    
+
+    <!--直线加载条样式-->
+    <Style TargetType="controls:LoadingLine" BasedOn="{StaticResource LoadingLineBaseStyle}"/>
 </ResourceDictionary>

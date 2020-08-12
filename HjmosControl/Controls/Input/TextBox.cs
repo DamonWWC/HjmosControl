@@ -1,4 +1,4 @@
-﻿using HjmosControl.Controls.Attach;
+﻿using HjmosControl.Controls;
 using HjmosControl.Data;
 using HjmosControl.Interactivity;
 using HjmosControl.Tools;
@@ -19,10 +19,16 @@ namespace HjmosControl.Controls
             }));
         }
 
+        protected override void OnLostFocus(RoutedEventArgs e)
+        {
+            base.OnLostFocus(e);
+            VerifyData();
+        }
+
         protected override void OnTextChanged(TextChangedEventArgs e)
         {
             base.OnTextChanged(e);
-            VerifyData();
+            //VerifyData();
         }
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
@@ -89,7 +95,7 @@ namespace HjmosControl.Controls
                 {
                     if (TextType != TextType.Common)
                     {
-                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed();
+                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed("格式错误！");
                     }
                     else
                     {
@@ -98,7 +104,7 @@ namespace HjmosControl.Controls
                 }
                 else if (InfoElement.GetNecessary(this))
                 {
-                    result = OperationResult.Failed();
+                    result = OperationResult.Failed("不能为空");
                 }
                 else
                 {

@@ -67,6 +67,7 @@
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
+    <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
@@ -112,7 +113,9 @@
     <Compile Include="Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStringConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
+    <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Extension\ColLayout.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
@@ -182,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\LoadingCircleBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\LoadingLineBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

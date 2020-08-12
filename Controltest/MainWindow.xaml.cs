@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Controltest
 {
@@ -55,7 +45,7 @@ namespace Controltest
 
         private void colorPicker_SelectedColorChanged(object sender, HjmosControl.Data.FunctionEventArgs<Color> e)
         {
-
+            
         }
 
         private void colorPicker_Canceled(object sender, EventArgs e)

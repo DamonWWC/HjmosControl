@@ -67,6 +67,7 @@
         <Slider Margin="140,610,696,121" TickFrequency="5" IsSnapToTickEnabled="True" Value="80" Maximum="100" Minimum="0"/>
         <controls:NumericUpDown Margin="1110,22,306,807" />
         <controls:ColorPicker Name="colorPicker" Margin="265,70,1497,543" Background="White" />
-        <TextBox Text="This is the content" Margin="48,493,1762,439" />
+        <TextBox Text="This is the content" Margin="48,493,1762,439"/>
+        <controls:TextBox Margin="650,227,1037,704" TextType="Mail" controls:InfoElement.Placeholder="ewjikl33333333" ShowClearButton="True"  controls:IconElement.Width="20" controls:IconElement.Height="20" controls:InfoElement.Title="www"  />
     </Grid>
 </Window>

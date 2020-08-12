@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
-namespace HjmosControl.Controls.Attach
+namespace HjmosControl.Controls
 {
-    public class InfoElement:TitleElement
+    public class InfoElement : TitleElement
     {
+
+        /// <summary>
+        ///     占位符
+        /// </summary>
+        public static readonly DependencyProperty PlaceholderProperty = DependencyProperty.RegisterAttached(
+            "Placeholder", typeof(string), typeof(InfoElement), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetPlaceholder(DependencyObject element, string value) => element.SetValue(PlaceholderProperty, value);
+
+        public static string GetPlaceholder(DependencyObject element) => (string)element.GetValue(PlaceholderProperty);
+
         /// <summary>
         ///     是否必填
         /// </summary>
