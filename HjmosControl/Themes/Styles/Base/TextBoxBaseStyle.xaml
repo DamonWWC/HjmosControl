@@ -87,7 +87,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{TemplateBinding ErrorStr}" FontSize="12" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
                         <TextBlock x:Name="Title" Grid.Column="0" Text="{TemplateBinding controls:InfoElement.Title}"
-                                        Margin="0,7,6,7" Visibility="{TemplateBinding controls:InfoElement.Title ,Converter={StaticResource String2VisibilityConverter}}" VerticalAlignment="Center"/>
+                                   Margin="0,7,6,7" Visibility="{TemplateBinding controls:InfoElement.Title ,Converter={StaticResource String2VisibilityConverter}}" VerticalAlignment="Center"/>
                         <Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                             <Grid SnapsToDevicePixels="True">
@@ -125,6 +125,9 @@
                         </Trigger>
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" TargetName="PathMain" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="controls:InfoElement.Title" Value="{x:Null}">
+                            <Setter Property="controls:InfoElement.TitleWidth" Value="0"/>
                         </Trigger>
                         <Trigger Property="IsError" Value="True">
                             <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource DangerBrush}"/>

@@ -18,6 +18,14 @@ namespace Controltest
             this.DataContext = this;
            
         }
+
+        bool _enable;
+
+        public bool Enable
+        {
+            get { return _enable; }
+            set { _enable = value; }
+        }
         string[] _data;
         public string[] data
         {

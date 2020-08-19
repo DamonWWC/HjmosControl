@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
+    <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Attach\TitleElement.cs" />
@@ -62,6 +63,7 @@
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
+    <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Interactivity\TriggerActionCollection.cs" />
     <Compile Include="Interactivity\TriggerBase.cs" />
     <Compile Include="Interactivity\TriggerCollection.cs" />
+    <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStringConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
@@ -189,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\LoadingLineBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\PasswordBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -311,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\PasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

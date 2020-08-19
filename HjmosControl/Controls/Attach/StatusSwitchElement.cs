@@ -2,7 +2,7 @@
 
 namespace HjmosControl.Controls
 {
-    public class StatusSwitchElement
+    public class StatusSwitchElement:IconElement
     {
         /// <summary>
         ///     选中时展示的元素
@@ -23,5 +23,15 @@ namespace HjmosControl.Controls
         public static void SetHideUncheckedElement(DependencyObject element, bool value) => element.SetValue(HideUncheckedElementProperty, value);
 
         public static bool GetHideUncheckedElement(DependencyObject element) => (bool)element.GetValue(HideUncheckedElementProperty);
+
+        /// <summary>
+        ///     是否Check后是控件失效
+        /// </summary>
+        public static readonly DependencyProperty CheckEnableElementProperty = DependencyProperty.RegisterAttached(
+            "CheckEnableElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(false));
+
+        public static void SetCheckEnableElement(DependencyObject element, bool value) => element.SetValue(HideUncheckedElementProperty, value);
+
+        public static bool GetCheckEnableElement(DependencyObject element) => (bool)element.GetValue(HideUncheckedElementProperty);
     }
 }

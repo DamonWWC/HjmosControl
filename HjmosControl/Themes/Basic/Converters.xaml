@@ -8,4 +8,5 @@
     <converter:Color2HexStringConverter x:Key="Color2HexStringConverter"/>
     <converter:String2VisibilityConverter x:Key="String2VisibilityConverter"/>
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
+    <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
 </ResourceDictionary>

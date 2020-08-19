@@ -19,10 +19,14 @@
         <ListBox HorizontalAlignment="Left" Height="290" Margin="75,125,0,0"  controls:BackgroundSwitchElement.ItemSelectedBackground="Green" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="Black" VerticalAlignment="Top" Width="270" ItemsSource="{Binding data}"/>
         <Button Opacity="2" Background="{Binding ElementName=colorPicker,Path=SelectedBrush}" Content="Button" HorizontalAlignment="Left" controls:BorderElement.CornerRadius="30" Margin="535,70,0,0" VerticalAlignment="Top" Width="110" Height="65" Foreground="White"  controls:IconElement.Width="30" controls:IconElement.Geometry="{StaticResource SubGeometry}"/>
         <ToggleButton Margin="1025,250,0,0" controls:ToggleButtonAttach.CheckText="on" controls:ToggleButtonAttach.UnCheckText="off"  Width="95"    Style="{StaticResource ToggleButtonSwitch}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="65"/>
-        <ToggleButton Margin="665,164,0,0" controls:ToggleButtonAttach.Text="客流" FontSize="20"     Style="{StaticResource ToggleButtonOpacity}" HorizontalAlignment="Left" VerticalAlignment="Top"  >
+        <ToggleButton Margin="665,164,0,0" Name="toggle1" IsChecked="False" controls:ToggleButtonAttach.Text="客流" FontSize="20"    Style="{StaticResource ToggleButtonOpacity}" HorizontalAlignment="Left" VerticalAlignment="Top"  >
             <Rectangle Width="20" Height="20" Fill="Red"/>
         </ToggleButton>
-
+        <ToggleButton Margin="735,164,0,0" IsChecked="{Binding ElementName=toggle1,Path=IsChecked}"  controls:StatusSwitchElement.CheckEnableElement="False" BorderThickness="1" Width="200" Height="50" Background="{StaticResource BackgroundBrush}"  FontSize="20" Content="ToggleButton"  controls:StatusSwitchElement.HideUncheckedElement="True"   Style="{StaticResource ToggleButtonCustom}" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <controls:StatusSwitchElement.CheckedElement>
+                <controls:LoadingCircle  IsRunning="True"></controls:LoadingCircle>
+            </controls:StatusSwitchElement.CheckedElement>
+        </ToggleButton>
 
         <controls:Divider Content="titlk" Margin="325,235,306,481" LineStroke="Red" LineStrokeThickness="3" FontSize="30" HorizontalContentAlignment="Left" />
         <GroupBox Header="This is the title" Margin="995,475,10,96">
@@ -68,6 +72,6 @@
         <controls:NumericUpDown Margin="1110,22,306,807" />
         <controls:ColorPicker Name="colorPicker" Margin="265,70,1497,543" Background="White" />
         <TextBox Text="This is the content" Margin="48,493,1762,439"/>
-        <controls:TextBox Margin="650,227,1037,704" TextType="Mail" controls:InfoElement.Placeholder="ewjikl33333333" ShowClearButton="True"  controls:IconElement.Width="20" controls:IconElement.Height="20" controls:InfoElement.Title="www"  />
+        <controls:TextBox Margin="650,227,1037,704" TextType="Mail" controls:InfoElement.Placeholder="ewjikl33333333" ShowClearButton="True"  controls:IconElement.Width="20" controls:IconElement.Height="20" controls:InfoElement.Title="www" controls:InfoElement.TitleWidth="50"  />
     </Grid>
 </Window>

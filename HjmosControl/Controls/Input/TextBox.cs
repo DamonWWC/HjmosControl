@@ -67,8 +67,7 @@ namespace HjmosControl.Controls
         {
             get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
-        }
-
+        }       
         /// <summary>
         ///     是否显示清除按钮
         /// </summary>
