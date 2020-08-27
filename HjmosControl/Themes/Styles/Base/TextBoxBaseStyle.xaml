@@ -68,7 +68,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxBaseStyle}" x:Key="TextBoxIcon">
+    <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxBaseStyle}" x:Key="TextBoxPlusIcon">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:TextBox">

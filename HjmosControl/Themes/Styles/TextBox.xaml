@@ -8,5 +8,5 @@
     <Style TargetType="controls:WatermarkTextBox" BasedOn="{StaticResource WatermarkTextBoxBaseStyle}"/>
     <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}"/>
 
-    <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxIcon}"/>
+    <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxPlusIcon}"/>
 </ResourceDictionary>
