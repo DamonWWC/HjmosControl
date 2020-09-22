@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HjmosControl.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/NumericUpDownBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <Style TargetType="controls:NumericUpDown" BasedOn="{StaticResource NumericUpDownBaseStyle}"/>
+</ResourceDictionary>

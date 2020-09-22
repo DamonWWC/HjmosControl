@@ -15,3 +15,7 @@
 /WpfApp2/bin/Debug/netcoreapp3.1/WpfApp2.pdb
 /WpfApp2/bin/Debug/netcoreapp3.1/WpfApp2.runtimeconfig.dev.json
 /WpfApp2/bin/Debug/netcoreapp3.1/WpfApp2.runtimeconfig.json
+/src/HjmosControl/bin
+/src/HjmosControl/obj
+/Tests/Controltest/bin
+/Tests/Controltest/obj
