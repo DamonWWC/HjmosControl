@@ -55,6 +55,12 @@
     <Compile Include="Controls\CCTVControl.xaml.cs">
       <DependentUpon>CCTVControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RollingNumber.xaml.cs">
+      <DependentUpon>RollingNumber.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RollingNumberItem.xaml.cs">
+      <DependentUpon>RollingNumberItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\CCTVPlayerConvert.cs" />
     <Compile Include="Models\Camera.cs" />
     <Compile Include="Models\VideoMonitor.cs" />
@@ -82,6 +88,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\CCTVControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RollingNumber.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RollingNumberItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
