@@ -17,4 +17,25 @@
     <Style TargetType="Path" BasedOn="{StaticResource PathBaseStyle}" x:Key="UpDownPathStyle">
         <Setter Property="Data" Value="{StaticResource UpDownGeometry}"/>
     </Style>
+
+    <!--向左-->
+    <Style x:Key="LeftPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
+        <Setter Property="Data" Value="{StaticResource LeftGeometry}"/>
+    </Style>
+
+    <!--向右-->
+    <Style x:Key="RightPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Data" Value="{StaticResource LeftGeometry}"/>
+    </Style>
 </ResourceDictionary>

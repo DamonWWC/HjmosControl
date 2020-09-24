@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -46,8 +47,17 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CCTVPlayState.cs" />
+    <Compile Include="Common\CCTVPlayStateSelector.cs" />
+    <Compile Include="Controls\CCTVControl.xaml.cs">
+      <DependentUpon>CCTVControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CCTVPlayerConvert.cs" />
+    <Compile Include="Models\Camera.cs" />
+    <Compile Include="Models\VideoMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -69,6 +79,43 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\CCTVControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hjmos.BaseControls\Hjmos.BaseControls.csproj">
+      <Project>{be79252b-7c0c-43a2-87a7-74901fb739ef}</Project>
+      <Name>Hjmos.BaseControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>7.2.0.1422</Version>
+    </PackageReference>
+    <PackageReference Include="Vlc.DotNet.Core">
+      <Version>3.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Vlc.DotNet.Core.Interops">
+      <Version>3.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Vlc.DotNet.Forms">
+      <Version>3.1.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Image\NoneCCTV.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
