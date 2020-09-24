@@ -1,6 +1,6 @@
 ﻿
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     /// <summary>
     /// 验证帮助类

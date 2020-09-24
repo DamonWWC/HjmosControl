@@ -5,7 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public abstract class LoadingBase : ContentControl
     {

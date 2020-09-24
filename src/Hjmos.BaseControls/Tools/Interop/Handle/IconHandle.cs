@@ -2,7 +2,7 @@
 using System.Runtime.ConstrainedExecution;
 using System.Security;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal sealed class IconHandle : WpfSafeHandle
     {

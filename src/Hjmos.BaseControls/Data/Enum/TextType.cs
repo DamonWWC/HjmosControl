@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     /// <summary>
     ///     文本类型枚举

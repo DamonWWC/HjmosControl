@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class ListBoxAttach : BorderElement
     {

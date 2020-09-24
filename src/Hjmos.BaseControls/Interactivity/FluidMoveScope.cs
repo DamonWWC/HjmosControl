@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public enum FluidMoveScope
     {

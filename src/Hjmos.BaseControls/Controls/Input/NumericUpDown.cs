@@ -1,13 +1,13 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Tools;
-using HjmosControl.Interactivity;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Tools;
+using Hjmos.BaseControls.Interactivity;
 using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
 
     [TemplatePart(Name = ElementTextBox,Type =typeof(TextBox))]

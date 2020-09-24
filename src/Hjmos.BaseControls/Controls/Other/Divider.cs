@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class Divider:Control
     {

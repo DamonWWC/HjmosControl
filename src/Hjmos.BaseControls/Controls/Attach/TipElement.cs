@@ -1,7 +1,7 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System.Windows;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class TipElement
     {

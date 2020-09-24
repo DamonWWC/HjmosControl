@@ -17,7 +17,7 @@
 using System;
 using System.Globalization;
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     internal class TokenizerHelper
     {

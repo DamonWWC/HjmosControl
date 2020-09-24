@@ -8,7 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public sealed class FluidMoveBehavior : FluidMoveBehaviorBase
     {

@@ -125,5 +125,11 @@
   <ItemGroup>
     <Resource Include="货车.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Hjmos.BaseControls\Hjmos.BaseControls.csproj">
+      <Project>{be79252b-7c0c-43a2-87a7-74901fb739ef}</Project>
+      <Name>Hjmos.BaseControls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

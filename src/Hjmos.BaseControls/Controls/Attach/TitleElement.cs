@@ -1,8 +1,8 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System.Windows;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class TitleElement
     {

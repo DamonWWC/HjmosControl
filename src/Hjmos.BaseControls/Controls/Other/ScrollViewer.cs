@@ -1,4 +1,4 @@
-﻿using HjmosControl.Tools;
+﻿using Hjmos.BaseControls.Tools;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class ScrollViewer : System.Windows.Controls.ScrollViewer
     {

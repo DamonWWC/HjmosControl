@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Interop;
-using HjmosControl.Tools.Extension;
-using HjmosControl.Tools.Interop;
+using Hjmos.BaseControls.Tools.Extension;
+using Hjmos.BaseControls.Tools.Interop;
 
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     public static class WindowHelper
     {

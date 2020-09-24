@@ -1,11 +1,11 @@
-﻿using HjmosControl.Tools.Interop;
+﻿using Hjmos.BaseControls.Tools.Interop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     internal class MouseHookEventArgs : EventArgs
     {

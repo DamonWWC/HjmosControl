@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     public class ResourceHelper
     {

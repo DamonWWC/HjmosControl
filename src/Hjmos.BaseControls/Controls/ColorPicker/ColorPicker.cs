@@ -1,7 +1,7 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Interactivity;
-using HjmosControl.Tools;
-using HjmosControl.Tools.Extension;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Interactivity;
+using Hjmos.BaseControls.Tools;
+using Hjmos.BaseControls.Tools.Extension;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,7 +13,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
 
     [TemplatePart(Name = ElementBorderColor, Type = typeof(Border))]

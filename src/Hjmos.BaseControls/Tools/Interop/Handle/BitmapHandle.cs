@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     [SuppressMessage("ReSharper", "UnusedMember.Local")]
     internal sealed class BitmapHandle : WpfSafeHandle

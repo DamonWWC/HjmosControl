@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal static class CommonHandles

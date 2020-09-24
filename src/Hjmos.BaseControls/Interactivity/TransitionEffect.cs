@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public abstract class TransitionEffect : ShaderEffect
     {

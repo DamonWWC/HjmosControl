@@ -6,8 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/HjmosControl;component/Themes/SkinDefault.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/HjmosControl;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

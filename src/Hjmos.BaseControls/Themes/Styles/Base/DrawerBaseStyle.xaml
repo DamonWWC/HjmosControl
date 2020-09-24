@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HjmosControl.Controls">
+                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
     <Style x:Key="DrawerBaseStyle" TargetType="controls:Drawer">
         <Setter Property="Dock" Value="Right"/>
         <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}"/>

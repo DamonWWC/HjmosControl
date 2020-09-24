@@ -1,6 +1,6 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Tools;
-using HjmosControl.Tools.Interop;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Tools;
+using Hjmos.BaseControls.Tools.Interop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     internal class ColorDropper
     {

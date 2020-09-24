@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public class MouseDragElementBehavior : Behavior<FrameworkElement>
     {

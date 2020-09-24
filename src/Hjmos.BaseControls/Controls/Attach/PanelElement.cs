@@ -1,8 +1,8 @@
-﻿using HjmosControl.Interactivity;
+﻿using Hjmos.BaseControls.Interactivity;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class PanelElement
     {

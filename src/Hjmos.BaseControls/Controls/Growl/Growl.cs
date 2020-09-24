@@ -1,7 +1,7 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Interactivity;
-using HjmosControl.Tools;
-using HjmosControl.Tools.Extension;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Interactivity;
+using Hjmos.BaseControls.Tools;
+using Hjmos.BaseControls.Tools.Extension;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using System.Xml.Serialization;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     [TemplatePart(Name = ElementPanelMore, Type = typeof(Panel))]
     [TemplatePart(Name = ElementGridMain, Type = typeof(Grid))]

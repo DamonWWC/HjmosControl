@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace HjmosControl.Tools.Converter
+namespace Hjmos.BaseControls.Tools.Converter
 {
     public class Color2HexStringConverter : IValueConverter
     {

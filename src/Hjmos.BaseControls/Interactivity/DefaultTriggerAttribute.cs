@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Globalization;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class, AllowMultiple = true)]
     public sealed class DefaultTriggerAttribute : Attribute

@@ -1,5 +1,5 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Interactivity;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Interactivity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
 
     [TemplatePart(Name = ElementPasswordBox, Type = typeof(System.Windows.Controls.PasswordBox))]

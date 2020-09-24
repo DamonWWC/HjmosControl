@@ -1,4 +1,4 @@
-﻿using HjmosControl.Tools.Extension;
+﻿using Hjmos.BaseControls.Tools.Extension;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.Design.Serialization;
@@ -7,7 +7,7 @@ using System.Security;
 using System.Text;
 
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     public class ColLayoutConverter : TypeConverter
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public enum TagType
     {

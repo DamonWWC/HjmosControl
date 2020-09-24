@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HjmosControl.Controls">
+                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
     <Style TargetType="RepeatButton" x:Key="ScrollBarBaseRepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>

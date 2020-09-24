@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal static class HandleCollector
     {

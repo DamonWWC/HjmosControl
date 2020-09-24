@@ -1,11 +1,11 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using HjmosControl.Tools;
-using HjmosControl.Tools.Extension;
+using Hjmos.BaseControls.Tools;
+using Hjmos.BaseControls.Tools.Extension;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class Row : Panel
     {

@@ -6,7 +6,7 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Text;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal class InteropMethods
     {

@@ -1,6 +1,6 @@
 ﻿
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     public enum PlacementType
     {

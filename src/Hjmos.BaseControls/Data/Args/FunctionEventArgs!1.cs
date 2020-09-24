@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     public class FunctionEventArgs<T>:RoutedEventArgs
     {

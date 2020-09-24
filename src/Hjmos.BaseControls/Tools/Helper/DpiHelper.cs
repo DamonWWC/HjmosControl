@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
-using HjmosControl.Tools.Interop;
+using Hjmos.BaseControls.Tools.Interop;
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     internal static class DpiHelper
     {

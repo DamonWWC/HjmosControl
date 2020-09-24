@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public interface IAttachedObject
     {

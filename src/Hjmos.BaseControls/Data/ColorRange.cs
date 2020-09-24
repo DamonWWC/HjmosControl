@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     /// <summary>
     /// 颜色范围

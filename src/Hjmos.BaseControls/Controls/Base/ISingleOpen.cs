@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public interface ISingleOpen:IDisposable
     {

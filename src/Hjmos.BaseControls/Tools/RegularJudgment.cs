@@ -1,4 +1,4 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     public static class RegularJudgment
     {

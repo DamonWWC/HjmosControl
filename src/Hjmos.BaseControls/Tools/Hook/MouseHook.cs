@@ -1,5 +1,5 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Tools.Interop;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Tools.Interop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Tools
+namespace Hjmos.BaseControls.Tools
 {
     internal class MouseHook
     {

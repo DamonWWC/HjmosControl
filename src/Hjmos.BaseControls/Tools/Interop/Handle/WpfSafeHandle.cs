@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security;
 using Microsoft.Win32.SafeHandles;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal abstract class WpfSafeHandle : SafeHandleZeroOrMinusOneIsInvalid
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public static class ControlCommands
     {

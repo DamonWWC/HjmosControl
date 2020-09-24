@@ -3,7 +3,7 @@ using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class Card:ContentControl
     {

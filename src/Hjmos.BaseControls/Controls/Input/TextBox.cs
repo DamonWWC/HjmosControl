@@ -1,13 +1,13 @@
-﻿using HjmosControl.Controls;
-using HjmosControl.Data;
-using HjmosControl.Interactivity;
-using HjmosControl.Tools;
+﻿using Hjmos.BaseControls.Controls;
+using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Interactivity;
+using Hjmos.BaseControls.Tools;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class TextBox : System.Windows.Controls.TextBox, IDataInput
     {

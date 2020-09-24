@@ -41,7 +41,7 @@ namespace Controltest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            HjmosControl.Controls.Growl.Info("Info Message", "InfoMessage");
+            Hjmos.BaseControls.Controls.Growl.Info("Info Message", "InfoMessage");
         }
 
         private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -51,7 +51,7 @@ namespace Controltest
             item.Header = "清空";
         }
 
-        private void colorPicker_SelectedColorChanged(object sender, HjmosControl.Data.FunctionEventArgs<Color> e)
+        private void colorPicker_SelectedColorChanged(object sender, Hjmos.BaseControls.Data.FunctionEventArgs<Color> e)
         {
             
         }

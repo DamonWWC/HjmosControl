@@ -1,11 +1,11 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public interface IDataInput
     {

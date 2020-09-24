@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 
-namespace HjmosControl.Tools.Extension
+namespace Hjmos.BaseControls.Tools.Extension
 {
     public static class StringExtension
     {

@@ -1,6 +1,6 @@
 ﻿
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     /// <summary>
     ///     标题对齐方式

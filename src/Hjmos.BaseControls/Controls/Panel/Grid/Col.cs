@@ -1,5 +1,5 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Tools.Extension;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Tools.Extension;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class Col : ContentControl
     {

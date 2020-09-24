@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public class PreviewInvokeEventArgs : EventArgs
     {

@@ -1,11 +1,11 @@
-﻿using HjmosControl.Data;
+﻿using Hjmos.BaseControls.Data;
 using System;
 using System.ComponentModel;
 using System.Globalization;
 using System.Text;
 using System.Windows.Markup;
 
-namespace HjmosControl.Tools.Extension
+namespace Hjmos.BaseControls.Tools.Extension
 {
     [TypeConverter(typeof(ColLayoutConverter))]
     public class ColLayout : MarkupExtension

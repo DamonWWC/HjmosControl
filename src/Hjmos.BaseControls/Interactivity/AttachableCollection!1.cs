@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Windows;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public abstract class AttachableCollection<T> : FreezableCollection<T>, IAttachedObject
         where T : DependencyObject, IAttachedObject

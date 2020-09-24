@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     public class PasswordBoxAttach
     {

@@ -7,7 +7,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public abstract class FluidMoveBehaviorBase : Behavior<FrameworkElement>
     {

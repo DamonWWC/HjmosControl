@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal class InteropValues
     {

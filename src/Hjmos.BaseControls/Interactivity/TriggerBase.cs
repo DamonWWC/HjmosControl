@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     [ContentProperty("Actions")]
     public abstract class TriggerBase : Animatable, IAttachedObject

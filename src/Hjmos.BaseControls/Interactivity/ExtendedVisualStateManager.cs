@@ -10,7 +10,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public class ExtendedVisualStateManager : VisualStateManager
     {

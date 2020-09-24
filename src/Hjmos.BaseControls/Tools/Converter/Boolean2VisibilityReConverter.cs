@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace HjmosControl.Tools.Converter
+namespace Hjmos.BaseControls.Tools.Converter
 {
     public class Boolean2VisibilityReConverter : IValueConverter
     {

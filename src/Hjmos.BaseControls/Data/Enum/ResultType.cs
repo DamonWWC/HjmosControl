@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HjmosControl.Data
+namespace Hjmos.BaseControls.Data
 {
     public enum ResultType
     {

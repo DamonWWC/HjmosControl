@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HjmosControl.Properties
+namespace Hjmos.BaseControls.Properties
 {
     
     

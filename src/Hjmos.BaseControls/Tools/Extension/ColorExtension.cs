@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media;
 
-namespace HjmosControl.Tools.Extension
+namespace Hjmos.BaseControls.Tools.Extension
 {
     public static class ColorExtension
     {

@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Resources;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     internal class ExceptionStringTable
     {

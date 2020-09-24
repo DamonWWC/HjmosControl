@@ -4,7 +4,7 @@ using System.Security;
 using System.Security.Permissions;
 using Microsoft.Win32.SafeHandles;
 
-namespace HjmosControl.Tools.Interop
+namespace Hjmos.BaseControls.Tools.Interop
 {
     internal sealed class SafeFileMappingHandle : SafeHandleZeroOrMinusOneIsInvalid
     {

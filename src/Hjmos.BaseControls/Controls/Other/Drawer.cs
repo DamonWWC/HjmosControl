@@ -1,6 +1,6 @@
-﻿using HjmosControl.Data;
-using HjmosControl.Interactivity;
-using HjmosControl.Tools;
+﻿using Hjmos.BaseControls.Data;
+using Hjmos.BaseControls.Interactivity;
+using Hjmos.BaseControls.Tools;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,7 +10,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     [ContentProperty("Content")]
     public class Drawer : FrameworkElement

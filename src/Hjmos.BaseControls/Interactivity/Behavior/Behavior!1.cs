@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace HjmosControl.Interactivity
+namespace Hjmos.BaseControls.Interactivity
 {
     public abstract class Behavior<T> : Behavior where T : DependencyObject
     {

@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace HjmosControl.Controls
+namespace Hjmos.BaseControls.Controls
 {
     [TemplatePart(Name = "PART_ContentElement", Type = typeof(FrameworkElement))]
     [TemplatePart(Name = "PART_Panel", Type = typeof(Panel))]
