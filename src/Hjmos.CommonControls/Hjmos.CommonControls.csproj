@@ -61,6 +61,9 @@
     <Compile Include="Controls\RollingNumberItem.xaml.cs">
       <DependentUpon>RollingNumberItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Unity3DControl.xaml.cs">
+      <DependentUpon>Unity3DControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\CCTVPlayerConvert.cs" />
     <Compile Include="Models\Camera.cs" />
     <Compile Include="Models\VideoMonitor.cs" />
@@ -77,6 +80,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Tools\WinApiHelper.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,6 +100,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\RollingNumberItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Unity3DControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
