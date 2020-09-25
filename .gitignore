@@ -135,3 +135,7 @@
 /src/Hjmos.CommonControls/bin/Debug/Hjmos.BaseControls.dll
 /src/Hjmos.BaseControls/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /src/Hjmos.CommonControls/obj/Debug/Controls/Unity3DControl.g.i.cs
+/src/Hjmos.CommonControls/bin
+/src/Hjmos.CommonControls/obj
+/src/Hjmos.BaseControls/bin
+/src/Hjmos.BaseControls/obj

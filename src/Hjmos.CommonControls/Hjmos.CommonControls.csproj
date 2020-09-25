@@ -13,6 +13,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,6 +56,9 @@
     <Compile Include="Controls\CCTVControl.xaml.cs">
       <DependentUpon>CCTVControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CefSharpControl.xaml.cs">
+      <DependentUpon>CefSharpControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RollingNumber.xaml.cs">
       <DependentUpon>RollingNumber.xaml</DependentUpon>
     </Compile>
@@ -66,6 +70,7 @@
     </Compile>
     <Compile Include="Converters\CCTVPlayerConvert.cs" />
     <Compile Include="Models\Camera.cs" />
+    <Compile Include="Models\H5SendMsgModel.cs" />
     <Compile Include="Models\VideoMonitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -95,6 +100,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\CefSharpControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RollingNumber.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,6 +128,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CefSharp.Wpf">
+      <Version>84.4.10</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
