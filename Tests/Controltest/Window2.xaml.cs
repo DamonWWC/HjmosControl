@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,9 +25,11 @@ namespace Controltest
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            cefsharp1.ExecuteScriptAsync($"initchart()","1",2);
         }
     }
 }
