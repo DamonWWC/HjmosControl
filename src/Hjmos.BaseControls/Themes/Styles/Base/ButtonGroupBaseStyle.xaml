@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
+                    xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools">
+
+    <ItemsPanelTemplate x:Key="ButtonGroupHorizontalItemsPanelTemplate">
+        <UniformGrid FocusVisualStyle="{x:Null}" Rows="1"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="ButtonGroupVerticalItemsPanelTemplate">
+        <UniformGrid FocusVisualStyle="{x:Null}" Columns="1"/>
+    </ItemsPanelTemplate>
+    
+    
+    <tools:ButtonGroupItemStyleSelector x:Key="ButtonGroupItemStyleSelector"/>
+
+    <Style TargetType="controls:ButtonGroup" x:Key="ButtonGroupBaseStyle">
+        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource ButtonGroupItemStyleSelector}"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalItemsPanelTemplate}"/>
+        <Setter Property="controls:VisualElement.HighlightBorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightBackground" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightForeground" Value="{DynamicResource PrimaryBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalItemsPanelTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    
+</ResourceDictionary>

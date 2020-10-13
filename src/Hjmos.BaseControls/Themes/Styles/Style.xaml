@@ -19,5 +19,7 @@
         <ResourceDictionary Source="ColorPicker.xaml"/>
         <ResourceDictionary Source="Loading.xaml"/>
         <ResourceDictionary Source="PasswordBox.xaml"/>
+        <ResourceDictionary Source="RadioButton.xaml"/>
+        <!--<ResourceDictionary Source="ButtonGroup.xaml"/>-->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

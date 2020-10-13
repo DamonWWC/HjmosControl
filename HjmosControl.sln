@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts", "src\LiveChart
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCharts.WPF", "src\LiveCharts.WPF\LiveCharts.WPF.csproj", "{36942B3B-124C-4F21-BD10-69579E88DD21}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hjmos.CustomCharts", "src\Hjmos.CustomCharts\Hjmos.CustomCharts.csproj", "{7F06FE95-DB32-4DF0-B1BC-4D83451516BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{36942B3B-124C-4F21-BD10-69579E88DD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36942B3B-124C-4F21-BD10-69579E88DD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36942B3B-124C-4F21-BD10-69579E88DD21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F06FE95-DB32-4DF0-B1BC-4D83451516BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F06FE95-DB32-4DF0-B1BC-4D83451516BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F06FE95-DB32-4DF0-B1BC-4D83451516BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F06FE95-DB32-4DF0-B1BC-4D83451516BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{BE79252B-7C0C-43A2-87A7-74901FB739EF} = {D1A2829B-CA10-41C0-997B-E2255C5536FA}
 		{81203923-1260-4074-9666-535159155604} = {D1A2829B-CA10-41C0-997B-E2255C5536FA}
 		{36942B3B-124C-4F21-BD10-69579E88DD21} = {D1A2829B-CA10-41C0-997B-E2255C5536FA}
+		{7F06FE95-DB32-4DF0-B1BC-4D83451516BB} = {D1A2829B-CA10-41C0-997B-E2255C5536FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {015BA3E1-CA9C-46CF-8039-765B8AD2C281}
