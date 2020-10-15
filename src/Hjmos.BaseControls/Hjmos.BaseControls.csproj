@@ -74,6 +74,7 @@
     <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
+    <Compile Include="Controls\Other\ListBox.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />

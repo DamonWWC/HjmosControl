@@ -48,15 +48,27 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\ChartDataModel.cs" />
+    <Compile Include="Tools\Converter\BooleanConverter.cs" />
+    <Compile Include="Tools\Converter\BooleanToVisibilityConverter.cs" />
+    <Page Include="Themes\Basic\Basic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Basic\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Controls\OneDayPassengerFlowTrend.cs" />
-    <Compile Include="CustomControl1.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="Themes\Styles\OneDayPassengerFlowTrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,6 +96,24 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Hjmos.BaseControls\Hjmos.BaseControls.csproj">
+      <Project>{be79252b-7c0c-43a2-87a7-74901fb739ef}</Project>
+      <Name>Hjmos.BaseControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveCharts.WPF\LiveCharts.WPF.csproj">
+      <Project>{36942b3b-124c-4f21-bd10-69579e88dd21}</Project>
+      <Name>LiveCharts.WPF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiveCharts\LiveCharts.csproj">
+      <Project>{81203923-1260-4074-9666-535159155604}</Project>
+      <Name>LiveCharts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
