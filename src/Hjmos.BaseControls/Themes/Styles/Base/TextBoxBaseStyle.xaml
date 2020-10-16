@@ -96,7 +96,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Path x:Name="PathMain" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}"
+                                <Path x:Name="PathMain" Grid.Column="0"  Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}"
                                   Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform"  Data="{TemplateBinding controls:IconElement.Geometry}"/>
                                 <controls:SimplePanel Grid.Column="1">
                                     <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{TemplateBinding controls:InfoElement.Placeholder}"/>

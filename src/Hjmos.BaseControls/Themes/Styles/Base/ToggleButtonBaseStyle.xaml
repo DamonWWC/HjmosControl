@@ -93,7 +93,7 @@
                         <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                             <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}"
-                                  Data="{TemplateBinding controls:IconSwitchElement.Geometry}"/>
+                                  Data="{TemplateBinding controls:IconSwitchElement.Geometry}" Stretch="Uniform" />
                         </ContentControl>
                     </Border>
                     <ControlTemplate.Triggers>

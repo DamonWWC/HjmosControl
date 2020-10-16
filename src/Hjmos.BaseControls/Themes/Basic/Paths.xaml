@@ -5,9 +5,9 @@
         <ResourceDictionary Source="Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="Path">
+    <!--<Style x:Key="PathBase" TargetType="Path">
         <Setter Property="Stretch" Value="Uniform"/>
-    </Style>
+    </Style>-->
 
     <Style TargetType="Path" x:Key="PathBaseStyle">
         <Setter Property="Stretch" Value="Uniform"/>

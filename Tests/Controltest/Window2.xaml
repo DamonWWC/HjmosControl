@@ -14,8 +14,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <controls:OneDayPassengerFlowTrend Grid.Row="1"  Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" ForecastValues="{Binding ForecastValues}" MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />
-
+       
         <!--<lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}" LegendLocation="Right" >
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
@@ -32,7 +31,8 @@
                 </lvc:DefaultTooltip>
             </lvc:CartesianChart.DataTooltip>
         </lvc:CartesianChart>-->
+        <controls:OneDayPassengerFlowTrend Grid.Row="1"  Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />
 
-        <Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
     </Grid>
 </Window>

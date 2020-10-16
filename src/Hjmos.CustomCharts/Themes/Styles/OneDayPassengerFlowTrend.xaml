@@ -6,18 +6,14 @@
                     >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
-    
-        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/SkinDefault.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Generic.xaml"/>
-       
+        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/ToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/ListBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
    
     <Style TargetType="controls:OneDayPassengerFlowTrend" x:Key="OneDayPassengerFlowTrendBaseStyle">
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Width" Value="100"/>
-        <Setter Property="Height" Value="100"/>
-        <Setter Property="Background" Value="Red"/>
+       
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:OneDayPassengerFlowTrend">
@@ -31,9 +27,8 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <ListBox x:Name="listbox"  Grid.Column="0" ItemsSource="{TemplateBinding DirectionList}" SelectedItem="{Binding SelectedDirection,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" BorderThickness="0" Style="{StaticResource StackPanelHorizontalListbox}"
-                                     HorizontalContentAlignment="Center" Foreground="{TemplateBinding FlowForeground}" hj:BackgroundSwitchElement.ItemSelectedBackground="{TemplateBinding CheckedBackground}"  hj:BackgroundSwitchElement.MouseHoverBackground="{TemplateBinding MouseHoverBackground}">
-                            </ListBox>
+                            <hj:ListBox x:Name="listbox"  Grid.Column="0" Background="Red" ItemsSource="{TemplateBinding DirectionList}" SelectedItem="{Binding SelectedDirection,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" BorderThickness="0"
+                                     HorizontalContentAlignment="Center"  Foreground="{TemplateBinding FlowForeground}" hj:BackgroundSwitchElement.ItemSelectedBackground="{TemplateBinding CheckedBackground}"  hj:BackgroundSwitchElement.MouseHoverBackground="{TemplateBinding MouseHoverBackground}"/>
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="10,0,0,0" HorizontalAlignment="Right">
                                 <ToggleButton x:Name="Measured_legend"  FontSize="13"  IsChecked="{Binding MeasuredVisibility,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=Measured,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" >
                                     <Rectangle Width="10" Height="10"  Fill="{Binding ElementName=Measured,Path=Stroke}" ></Rectangle>
@@ -45,24 +40,24 @@
                         </Grid>
                         <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" >
                             <lvc:CartesianChart.Series>
-                                <lvc:LineSeries x:Name="Forecast" Stroke="Violet" StrokeDashArray="3"  Visibility="{Binding ForecastVisibility,RelativeSource={RelativeSource Mode=TemplatedParent},UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" Fill = "Transparent" PointGeometrySize="0" Title="预测"  Values="{Binding ForecastValues,RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"></lvc:LineSeries>
-                                <lvc:LineSeries x:Name="Measured" Stroke="#FF07D4AF" StrokeThickness="1" Visibility="{TemplateBinding MeasuredVisibility,Converter={StaticResource BooleanToVisibilityConverter}}" Fill = "Transparent" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" PointGeometrySize="0" Title="实测"  Values="{Binding MeasuredValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"></lvc:LineSeries>
+                                <lvc:LineSeries x:Name="Forecast" Stroke="Violet" StrokeDashArray="3"  Visibility="{TemplateBinding ForecastVisibility,Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" Fill = "Transparent" PointGeometrySize="5" Title="预测"  Values="{Binding ForecastValues,RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                                <lvc:LineSeries x:Name="Measured" Stroke="#FF07D4AF" StrokeThickness="1" Visibility="{TemplateBinding MeasuredVisibility,Converter={StaticResource BooleanToVisibilityConverter}}" Fill = "Transparent" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" PointGeometrySize="0" Title="实测"  Values="{Binding MeasuredValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
                             </lvc:CartesianChart.Series>
                             <lvc:CartesianChart.ChartLegend>
-                                <lvc:DefaultLegend  Foreground="Black" BulletSize="10"></lvc:DefaultLegend>
+                                <lvc:DefaultLegend  Foreground="White" BulletSize="10"></lvc:DefaultLegend>
                             </lvc:CartesianChart.ChartLegend>
                             <lvc:CartesianChart.AxisX >
                                 <lvc:Axis LabelFormatter="{TemplateBinding DateTimeFormatter}" 
-                          MaxValue="{TemplateBinding AxisMax}" 
-                          MinValue="{TemplateBinding AxisMin}"
-                          Unit="{TemplateBinding AxisUnit}" Foreground="Black" ShowAxis="False">
+                                          MaxValue="{TemplateBinding AxisMax}" 
+                                          MinValue="{TemplateBinding AxisMin}"
+                                          Unit="{TemplateBinding AxisUnit}" Foreground="{TemplateBinding AxisForeground}" ShowAxis="False">
                                     <lvc:Axis.Separator>
                                         <lvc:Separator  Step="{TemplateBinding AxisStep}"  IsEnabled="False"></lvc:Separator>
                                     </lvc:Axis.Separator>
                                 </lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis  MinValue="0" Foreground="Black" LabelFormatter="{TemplateBinding Formatter}">
+                                <lvc:Axis  MinValue="0" Foreground="{TemplateBinding AxisForeground}" LabelFormatter="{TemplateBinding Formatter}">
                                     <lvc:Axis.Separator>
                                         <lvc:Separator StrokeThickness="0.2" Stroke="#FF07D4AF" />
                                     </lvc:Axis.Separator>

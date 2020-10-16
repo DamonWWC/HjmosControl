@@ -2,7 +2,71 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
     
-    <Style x:Key="ListBoxItemBaseStyle" TargetType="ListBoxItem">
+    <Style x:Key="ListBoxItemVerticalStyle" TargetType="ListBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
+                          Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" TargetName="Bd"  Value="{Binding Path=(controls:BackgroundSwitchElement.ItemSelectedBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsSelected" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate> 
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <!--<MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType=ItemsControl}}" Value="Vertical"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="0"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,5,0,0"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType=ItemsControl}}" Value="Vertical"/>
+                    <Condition Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="1"/>
+                </MultiDataTrigger.Conditions>
+                <MultiDataTrigger.Setters>
+                    <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,0,5,5"/>
+                </MultiDataTrigger.Setters>
+            </MultiDataTrigger>-->
+
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="0">
+                <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,0,0,5"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="1">
+                <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,5,5,0"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="ListBoxItemHorizontalStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="MinHeight" Value="30"/>
@@ -36,18 +100,26 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="0">
+                <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,0,0,5"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="1">
+                <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,5,5,0"/>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
-    
-    
-    <Style x:Key="ListBoxBaseStyle" TargetType="ListBox">
+
+
+    <Style x:Key="ListBoxBaseStyle" TargetType="controls:ListBox">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}"/>
-        <Setter Property="Padding" Value="10"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemHorizontalStyle}"/>
+        <Setter Property="Padding" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
@@ -57,5 +129,10 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemVerticalStyle}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

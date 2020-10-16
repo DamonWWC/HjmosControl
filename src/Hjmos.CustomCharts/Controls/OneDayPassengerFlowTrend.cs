@@ -14,13 +14,7 @@ namespace Hjmos.CustomCharts.Controls
 
     public class OneDayPassengerFlowTrend : Control
     {
-        //static OneDayPassengerFlowTrend()
-        //{
-        //    //DefaultStyleKeyProperty.OverrideMetadata(typeof(OneDayPassengerFlowTrend), new FrameworkPropertyMetadata(typeof(OneDayPassengerFlowTrend)));
-        //}
-
-
-
+       
         
         public OneDayPassengerFlowTrend()
         {
@@ -29,7 +23,7 @@ namespace Hjmos.CustomCharts.Controls
                  .Y(model => model.Value);
             Charting.For<ChartDataModel>(mapper);
             DateTimeFormatter = value => new DateTime((long)value).ToString("H:mm");
-
+            Formatter = value => value.ToString("N0");
         }
         /// <summary>
         /// 客流方向 总客流，进站，出站
@@ -44,7 +38,9 @@ namespace Hjmos.CustomCharts.Controls
         public static readonly DependencyProperty DirectionListProperty =
             DependencyProperty.Register("DirectionList", typeof(ObservableCollection<string>), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(ObservableCollection<string>)));
 
-
+        /// <summary>
+        /// 选择的客流方向
+        /// </summary>
         public string SelectedDirection
         {
             get { return (string)GetValue(SelectedDirectionProperty); }
@@ -109,6 +105,21 @@ namespace Hjmos.CustomCharts.Controls
             DependencyProperty.Register("MouseHoverBackground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF08506C"))));
 
 
+
+        public Brush AxisForeground
+        {
+            get { return (Brush)GetValue(AxisForegroundProperty); }
+            set { SetValue(AxisForegroundProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for AxisForeground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty AxisForegroundProperty =
+            DependencyProperty.Register("AxisForeground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(Brushes.Black));
+
+
+
+
+
         /// <summary>
         /// 预测线是否显示
         /// </summary>
@@ -135,7 +146,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for MeasuredVisibility.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty MeasuredVisibilityProperty =
-            DependencyProperty.Register("MeasuredVisibility", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(false));
+            DependencyProperty.Register("MeasuredVisibility", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(true));
 
         /// <summary>
         /// 实测值
@@ -187,6 +198,26 @@ namespace Hjmos.CustomCharts.Controls
         // Using a DependencyProperty as the backing store for Formatter.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FormatterProperty =
             DependencyProperty.Register("Formatter", typeof(Func<double,string>), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(Func<double,string>)));
+
+        public bool IsUpdate
+        {
+            get { return (bool)GetValue(IsUpdateProperty); }
+            set { SetValue(IsUpdateProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsUpdate.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsUpdateProperty =
+            DependencyProperty.Register("IsUpdate", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(false,
+                (o,args)=>
+                {
+                    var ct1 = (OneDayPassengerFlowTrend)o;
+                    var v = (bool)args.NewValue;
+                    if(v)
+                    {
+                        ct1.AxisMin = GetTicks(ct1.StartTime);
+                        ct1.AxisMax = GetTicks(ct1.EndTime);
+                    }
+                }));
 
 
         /// <summary>

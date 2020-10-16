@@ -9,4 +9,5 @@
     <converter:String2VisibilityConverter x:Key="String2VisibilityConverter"/>
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
     <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
+    <converter:IsFirstOrLastInContainerConverter x:Key="IsFirstOrLastInContainerConverter"/>
 </ResourceDictionary>

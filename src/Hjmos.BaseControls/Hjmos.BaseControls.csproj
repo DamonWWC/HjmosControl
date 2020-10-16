@@ -120,6 +120,7 @@
     <Compile Include="Tools\Converter\Color2HexStringConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />

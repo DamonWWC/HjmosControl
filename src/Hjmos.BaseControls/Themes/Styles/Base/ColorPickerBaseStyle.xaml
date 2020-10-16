@@ -189,9 +189,9 @@
                                 <ColumnDefinition Width="28"/>
                             </Grid.ColumnDefinitions>
                             <ToggleButton Name="PART_ButtonDropper" Width="16" Height="16" Margin="0,0,10,0" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HideUncheckedElement="True">
-                                <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                                <Path Data="{StaticResource DropperGeometry}" Stretch="Uniform"  Fill="{DynamicResource PrimaryTextBrush}"/>
                                 <controls:StatusSwitchElement.CheckedElement>
-                                    <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource DarkPrimaryBrush}"/>
+                                    <Path Data="{StaticResource DropperGeometry}" Stretch="Uniform"  Fill="{DynamicResource DarkPrimaryBrush}"/>
                                 </controls:StatusSwitchElement.CheckedElement>
                             </ToggleButton>
                             <Border Grid.Row="0" Grid.Column="1" Width="32" Height="32" CornerRadius="16" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>
@@ -222,7 +222,7 @@
                             </UniformGrid>
                             <Button Command="i:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="3" Grid.Row="1">
                                 <Button.Content>
-                                    <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
+                                    <Path Fill="#323534" Stretch="Uniform"  Style="{StaticResource UpDownPathStyle}"/>
                                 </Button.Content>
                             </Button>
                         </Grid>
