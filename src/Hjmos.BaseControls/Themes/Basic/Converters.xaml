@@ -10,4 +10,6 @@
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
     <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
     <converter:IsFirstOrLastInContainerConverter x:Key="IsFirstOrLastInContainerConverter"/>
+    <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
+    <converter:BorderClipConverter x:Key="BorderClipConverter"/>
 </ResourceDictionary>

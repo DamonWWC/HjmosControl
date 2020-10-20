@@ -21,5 +21,6 @@
         <ResourceDictionary Source="PasswordBox.xaml"/>
         <ResourceDictionary Source="RadioButton.xaml"/>
         <ResourceDictionary Source="ButtonGroup.xaml"/>
+        <ResourceDictionary Source="ProgressBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

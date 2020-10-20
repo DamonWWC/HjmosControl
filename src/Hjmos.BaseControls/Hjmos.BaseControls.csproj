@@ -93,6 +93,7 @@
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
     <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Expression\Drawing\MathHelper.cs" />
     <Compile Include="Interactivity\AdornerContainer.cs" />
     <Compile Include="Interactivity\AttachableCollection!1.cs" />
     <Compile Include="Interactivity\Behavior\Behavior!1.cs" />
@@ -116,11 +117,13 @@
     <Compile Include="Interactivity\TriggerBase.cs" />
     <Compile Include="Interactivity\TriggerCollection.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\BorderClipConverter.cs" />
     <Compile Include="Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStringConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
+    <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
@@ -205,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\PasswordBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ProgressBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +346,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@ using System.Security;
 using System.Text;
 
 
-namespace Hjmos.BaseControls.Tools
+namespace Hjmos.BaseControls.Tools.Converter
 {
     public class ColLayoutConverter : TypeConverter
     {

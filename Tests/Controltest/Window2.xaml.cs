@@ -31,7 +31,7 @@ namespace Controltest
             DirectionList = new ObservableCollection<string>() { "总客流", "进站", "出战" };
             DateTime now = DateTime.Now;
             DateTime data = new DateTime(now.Year, now.Month, now.Day, 5, 0, 0);
-
+            
             var r = new Random();
             double _trend = 0;
             MeasuredValues = new ChartValues<ChartDataModel>();
@@ -49,6 +49,10 @@ namespace Controltest
             }
             DateTimeFormatter = value => new DateTime((long)value).ToString("HH:mm");
             DataContext = this;
+
+
+            List<string> a = new List<string>();
+            
         }
 
         public Func<double,string> DateTimeFormatter { get; set; }

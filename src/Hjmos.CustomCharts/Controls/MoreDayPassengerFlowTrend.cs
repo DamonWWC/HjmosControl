@@ -165,7 +165,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for XAxisMin.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty XAxisMinProperty =
-            DependencyProperty.Register("XAxisMin", typeof(double), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("XAxisMin", typeof(double), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(default(double)));
 
         public double XAxisMax
         {
@@ -175,7 +175,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for XAxisMax.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty XAxisMaxProperty =
-            DependencyProperty.Register("XAxisMax", typeof(double), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(double.NaN));
+            DependencyProperty.Register("XAxisMax", typeof(double), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(default(double)));
 
         public Func<double,string> Formatter
         {
