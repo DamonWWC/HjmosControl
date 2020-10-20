@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -48,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
     <Compile Include="Tools\Converter\BooleanConverter.cs" />
     <Compile Include="Tools\Converter\BooleanToVisibilityConverter.cs" />
@@ -64,6 +66,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Controls\OneDayPassengerFlowTrend.cs" />
+    <Page Include="Themes\Styles\MoreDayPassengerFlowTrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\OneDayPassengerFlowTrend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

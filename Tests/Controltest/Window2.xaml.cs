@@ -47,8 +47,11 @@ namespace Controltest
                 _trend = r.Next(1, 1000);
                 ForecastValues.Add(new ChartDataModel { DateTime = data.AddHours(i), Value = _trend });
             }
+            DateTimeFormatter = value => new DateTime((long)value).ToString("HH:mm");
             DataContext = this;
         }
+
+        public Func<double,string> DateTimeFormatter { get; set; }
 
         public ObservableCollection<string> DirectionList { get; set; }
 
@@ -103,5 +106,9 @@ namespace Controltest
             }
         }
 
+        private void OneDayPassengerFlowTrend_ParamChanged(object sender, RoutedPropertyChangedEventArgs<string> e)
+        {
+
+        }
     }
 }

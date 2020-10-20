@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using Hjmos.BaseControls.Data;
+using LiveCharts;
 using LiveCharts.Configurations;
 using LiveCharts.Wpf;
 using Newtonsoft.Json;
@@ -7,24 +8,37 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-
+using System.Linq;
 
 namespace Hjmos.CustomCharts.Controls
 {
 
     public class OneDayPassengerFlowTrend : Control
-    {
-       
-        
+    {       
         public OneDayPassengerFlowTrend()
         {
             var mapper = Mappers.Xy<ChartDataModel>()
                  .X(model => model.DateTime.Ticks)
                  .Y(model => model.Value);
             Charting.For<ChartDataModel>(mapper);
-            DateTimeFormatter = value => new DateTime((long)value).ToString("H:mm");
-            Formatter = value => value.ToString("N0");
+         
+            this.Loaded += OneDayPassengerFlowTrend_Loaded;
+           
         }
+
+        private void OneDayPassengerFlowTrend_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(DateTimeFormatter==null)
+            {
+                DateTimeFormatter = value => new DateTime((long)value).ToString("H:mm");
+            }
+            if(Formatter==null)
+            {
+                Formatter = value => value.ToString("N0");
+            }            
+            SelectedDirection = DirectionList?.FirstOrDefault();
+        }
+
         /// <summary>
         /// 客流方向 总客流，进站，出站
         /// </summary>
@@ -41,15 +55,21 @@ namespace Hjmos.CustomCharts.Controls
         /// <summary>
         /// 选择的客流方向
         /// </summary>
-        public string SelectedDirection
+        internal string SelectedDirection
         {
             get { return (string)GetValue(SelectedDirectionProperty); }
             set { SetValue(SelectedDirectionProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for SelectedDirection.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty SelectedDirectionProperty =
-            DependencyProperty.Register("SelectedDirection", typeof(string), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(string)));
+        internal static readonly DependencyProperty SelectedDirectionProperty =
+            DependencyProperty.Register("SelectedDirection", typeof(string), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(string),
+                (o,args)=>
+                {
+                    var ct1 = (OneDayPassengerFlowTrend)o;
+                    var v = (string)args.NewValue;
+                    ct1.RaiseEvent(new RoutedPropertyChangedEventArgs<string>((string)args.OldValue, (string)args.NewValue, ParamChangedEvent));
+                }));
 
 
         /// <summary>
@@ -116,10 +136,6 @@ namespace Hjmos.CustomCharts.Controls
         public static readonly DependencyProperty AxisForegroundProperty =
             DependencyProperty.Register("AxisForeground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(Brushes.Black));
 
-
-
-
-
         /// <summary>
         /// 预测线是否显示
         /// </summary>
@@ -132,8 +148,6 @@ namespace Hjmos.CustomCharts.Controls
         // Using a DependencyProperty as the backing store for ForecastVisibility.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty ForecastVisibilityProperty =
             DependencyProperty.Register("ForecastVisibility", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(true));
-
-
 
         /// <summary>
         /// 实测线是否显示
@@ -161,7 +175,6 @@ namespace Hjmos.CustomCharts.Controls
         public static readonly DependencyProperty MeasuredValuesProperty =
             DependencyProperty.Register("MeasuredValues", typeof(ChartValues<ChartDataModel>), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>)));
 
-
         /// <summary>
         /// 预测值
         /// </summary>
@@ -175,8 +188,6 @@ namespace Hjmos.CustomCharts.Controls
         // Using a DependencyProperty as the backing store for ForecastValues.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ForecastValuesProperty =
             DependencyProperty.Register("ForecastValues", typeof(ChartValues<ChartDataModel>), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>)));
-
-
 
         public Func<double,string> DateTimeFormatter
         {
@@ -238,9 +249,7 @@ namespace Hjmos.CustomCharts.Controls
                     var v = (double)args.NewValue;
                     ct1.AxisMin = GetTicks(v);               
                 }));
-
-
-     
+  
         /// <summary>
         /// 终止时间
         /// </summary>
@@ -272,7 +281,6 @@ namespace Hjmos.CustomCharts.Controls
             return data.Ticks;
         }
 
-
         internal double AxisMax
         {
             get { return (double)GetValue(AxisMaxProperty); }
@@ -282,8 +290,6 @@ namespace Hjmos.CustomCharts.Controls
         // Using a DependencyProperty as the backing store for AxisMax.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty AxisMaxProperty =
             DependencyProperty.Register("AxisMax", typeof(double), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(GetTicks(23)));
-
-
 
         internal double AxisMin
         {
@@ -295,10 +301,6 @@ namespace Hjmos.CustomCharts.Controls
         internal static readonly DependencyProperty AxisMinProperty =
             DependencyProperty.Register("AxisMin", typeof(double), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(GetTicks(5)));
 
-
-
-
-
         public double AxisStep
         {
             get { return (double)GetValue(AxisStepProperty); }
@@ -308,9 +310,6 @@ namespace Hjmos.CustomCharts.Controls
         // Using a DependencyProperty as the backing store for AxisStep.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty AxisStepProperty =
             DependencyProperty.Register("AxisStep", typeof(double), typeof(OneDayPassengerFlowTrend), new PropertyMetadata((double)TimeSpan.FromHours(2).Ticks));
-
-
-
 
         public double AxisUnit
         {
@@ -322,10 +321,21 @@ namespace Hjmos.CustomCharts.Controls
         public static readonly DependencyProperty AxisUnitProperty =
             DependencyProperty.Register("AxisUnit", typeof(double), typeof(OneDayPassengerFlowTrend), new PropertyMetadata((double)TimeSpan.TicksPerMinute));
 
+        /// <summary>
+        /// 条件改变事件
+        /// </summary>
+        public static readonly RoutedEvent ParamChangedEvent =
+            EventManager.RegisterRoutedEvent("ParamChangedEvent", RoutingStrategy.Bubble,
+                typeof(RoutedPropertyChangedEventHandler<string>), typeof(OneDayPassengerFlowTrend));
 
-
-
-
+        /// <summary>
+        /// 条件改变事件
+        /// </summary>
+        public event RoutedPropertyChangedEventHandler<string> ParamChanged
+        {
+            add => AddHandler(ParamChangedEvent, value);
+            remove => RemoveHandler(ParamChangedEvent, value);
+        }
 
     }
   
