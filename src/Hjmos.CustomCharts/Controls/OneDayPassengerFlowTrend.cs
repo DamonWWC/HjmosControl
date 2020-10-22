@@ -1,8 +1,5 @@
-﻿using Hjmos.BaseControls.Data;
-using LiveCharts;
+﻿using LiveCharts;
 using LiveCharts.Configurations;
-using LiveCharts.Wpf;
-using Newtonsoft.Json;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;

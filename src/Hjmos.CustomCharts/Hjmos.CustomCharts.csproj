@@ -52,8 +52,10 @@
     <Compile Include="Controls\AverageDailyPassengerFlowTop10.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
+    <Compile Include="Data\FlowData.cs" />
     <Compile Include="Tools\Converter\BooleanConverter.cs" />
     <Compile Include="Tools\Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Tools\Extension\ObservableExtension.cs" />
     <Page Include="Themes\Basic\Basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
