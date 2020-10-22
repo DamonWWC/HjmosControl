@@ -70,7 +70,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for FlowForeground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FlowForegroundProperty =
-            DependencyProperty.Register("FlowForeground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(Brushes.Black));
+            DependencyProperty.Register("FlowForeground", typeof(Brush), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(Brushes.Black));
 
         /// <summary>
         /// 初始背景色
@@ -83,7 +83,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for FlowBackgroud.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty FlowBackgroudProperty =
-            DependencyProperty.Register("FlowBackgroud", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6308506C"))));
+            DependencyProperty.Register("FlowBackgroud", typeof(Brush), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#6308506C"))));
 
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for CheckedBackground.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CheckedBackgroundProperty =
-            DependencyProperty.Register("CheckedBackground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF08506C"))));
+            DependencyProperty.Register("CheckedBackground", typeof(Brush), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF08506C"))));
 
         /// <summary>
         /// 鼠标在选项上时的颜色
@@ -110,7 +110,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for MouseHoverBackgroud.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MouseHoverBackgroundProperty =
-            DependencyProperty.Register("MouseHoverBackground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF08506C"))));
+            DependencyProperty.Register("MouseHoverBackground", typeof(Brush), typeof(MoreDayPassengerFlowTrend), new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF08506C"))));
 
         /// <summary>
         /// 图表名称
