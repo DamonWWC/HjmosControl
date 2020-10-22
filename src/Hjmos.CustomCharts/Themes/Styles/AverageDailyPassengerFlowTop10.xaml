@@ -46,7 +46,7 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type controls:FlowData}">
-                    <hj:InfoProgressBar  AWidth="{Binding Width}" ActualValue="{Binding RealTimeValue}" Maximum="{Binding PostValue}" Title="{Binding Title}"/>
+                    <hj:InfoProgressBar  BarWidth="{Binding Width}" ActualValue="{Binding RealTimeValue}" Maximum="{Binding PostValue}" Title="{Binding Title}"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>

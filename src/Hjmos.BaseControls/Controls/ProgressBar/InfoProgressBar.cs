@@ -11,9 +11,6 @@ namespace Hjmos.BaseControls.Controls
 {
     public class InfoProgressBar : ProgressBar
     {
-
-
-
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
@@ -35,8 +32,6 @@ namespace Hjmos.BaseControls.Controls
             DependencyProperty.Register("TitleForeground", typeof(Brush), typeof(InfoProgressBar), new PropertyMetadata(Brushes.Black));
 
 
-
-
         public double TitleFontSize
         {
             get { return (double)GetValue(TitleFontSizeProperty); }
@@ -46,7 +41,6 @@ namespace Hjmos.BaseControls.Controls
         // Using a DependencyProperty as the backing store for TitleFontSize.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TitleFontSizeProperty =
             DependencyProperty.Register("TitleFontSize", typeof(double), typeof(InfoProgressBar), new PropertyMetadata(20d));
-
 
 
         public double ActualValue
@@ -66,22 +60,14 @@ namespace Hjmos.BaseControls.Controls
 
                 }));
 
-
-
-
-        public double AWidth
+        public double BarWidth
         {
-            get { return (double)GetValue(AWidthProperty); }
-            set { SetValue(AWidthProperty, value); }
+            get { return (double)GetValue(BarWidthProperty); }
+            set { SetValue(BarWidthProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for AWidth.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty AWidthProperty =
-            DependencyProperty.Register("AWidth", typeof(double), typeof(InfoProgressBar), new PropertyMetadata(0d));
-
-
-
-
-
+        public static readonly DependencyProperty BarWidthProperty =
+            DependencyProperty.Register("BarWidth", typeof(double), typeof(InfoProgressBar), new PropertyMetadata(0d));
     }
 }
