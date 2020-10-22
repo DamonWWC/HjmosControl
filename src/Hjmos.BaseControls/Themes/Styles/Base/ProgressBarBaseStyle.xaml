@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:system="clr-namespace:System;assembly=mscorlib" xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
@@ -102,7 +102,85 @@
         </Setter>
     </Style>
 
-   
+    <Style TargetType="controls:InfoProgressBar" x:Key="InfoProgressBarStyle">
+        <Setter Property="controls:VisualElement.Text">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource Number2PercentageProConverter}" StringFormat="{}{0}%">
+                    <Binding Path="ActualValue" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="Maximum" RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+        <!--<Setter Property="ActualValue">
+            <Setter.Value>
+                <Binding Path="Value" RelativeSource="{RelativeSource Self}"/>
+            </Setter.Value>
+        </Setter>-->
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:InfoProgressBar">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="{Binding AWidth,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="Title" Grid.Column="0"  Grid.Row="0" Text="{TemplateBinding Title}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,5,0" Foreground="{TemplateBinding TitleForeground}" FontSize="{TemplateBinding TitleFontSize}"/>
+                        <Border x:Name="TemplateRoot" Grid.Column="1" Grid.Row="0"  CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <controls:SimplePanel>
+                                <Rectangle x:Name="PART_Track"/>
+                                <Border Style="{StaticResource BorderClip}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_Indicator" HorizontalAlignment="Left">
+                                    <controls:SimplePanel>
+                                        <Border x:Name="Indicator" Background="{TemplateBinding Foreground}"/>
+                                        <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
+                                    </controls:SimplePanel>
+                                </Border>
+                            </controls:SimplePanel>
+                        </Border>
+                        <TextBlock HorizontalAlignment="Left" Foreground="Black "  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding ActualValue,RelativeSource={RelativeSource TemplatedParent},StringFormat={}{0}}"/>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="5,0,0,0">
+                            <TextBlock Text="同比" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black"/>
+                            <TextBlock HorizontalAlignment="Left"  VerticalAlignment="Center" Foreground="{Binding Text,RelativeSource={RelativeSource Self},Converter={StaticResource Text2ForegroundConverter}}" Text="{Binding Path=(controls:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </StackPanel>
+                        <Grid.ToolTip>
+                            <ToolTip Background="Transparent" BorderThickness="0" HasDropShadow="True" Placement="MousePoint"   HorizontalOffset="{c:Binding -ActualWidth/2,RelativeSource={RelativeSource Self}}" VerticalOffset="{c:Binding -ActualHeight,RelativeSource={RelativeSource Self}}" >
+                                <Border x:Name="Bd" Background="#CFFFFFFF" CornerRadius="3" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <StackPanel>
+                                        <TextBlock HorizontalAlignment="Center" Margin=" 5,0,5,0"
+                                                   Text="{Binding Title}" FontWeight="Bold"
+                                                   />
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse Width="12" Height="12" Fill="{TemplateBinding Foreground}"/>
+                                            <TextBlock VerticalAlignment="Center" Margin="5,2" Text="当前值:"/>
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding ActualValue,RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Ellipse Width="12" Height="12" Fill="{TemplateBinding Background}"/>
+                                            <TextBlock VerticalAlignment="Center" Margin="5,2" Text="总量"/>
+                                            <TextBlock VerticalAlignment="Center" Text="{Binding Maximum,RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </ToolTip>
+                        </Grid.ToolTip>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
 
 
 

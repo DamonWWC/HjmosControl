@@ -11,5 +11,8 @@
     <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
     <converter:IsFirstOrLastInContainerConverter x:Key="IsFirstOrLastInContainerConverter"/>
     <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
+    <converter:Number2PercentageProConverter x:Key="Number2PercentageProConverter"/>
     <converter:BorderClipConverter x:Key="BorderClipConverter"/>
+    <converter:Text2ForegroundConverter x:Key="Text2ForegroundConverter"/>
+    <converter:Double2StrConverter x:Key="Double2StrConverter"/>
 </ResourceDictionary>

@@ -78,6 +78,7 @@
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
+    <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="Data\ColorRange.cs" />
@@ -122,11 +123,14 @@
     <Compile Include="Tools\Converter\Color2HexStringConverter.cs" />
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="Tools\Converter\Double2StrConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
+    <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\Text2ForegroundConverter.cs" />
     <Compile Include="Tools\Extension\ColLayout.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
     <Compile Include="Tools\Extension\StringExtension.cs" />
@@ -420,6 +424,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PackageReference Include="CalcBinding">
+      <Version>2.5.2</Version>
+    </PackageReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

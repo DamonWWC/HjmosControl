@@ -4,5 +4,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="OneDayPassengerFlowTrend.xaml"/>
         <ResourceDictionary Source="MoreDayPassengerFlowTrend.xaml"/>
+        <ResourceDictionary Source="AverageDailyPassengerFlowTop10.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

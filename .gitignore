@@ -240,3 +240,6 @@
 /src/Hjmos.CustomCharts/bin/Debug/Hjmos.BaseControls.pdb
 /src/Hjmos.CustomCharts/bin/Debug/Hjmos.BaseControls.dll
 /src/LiveCharts.WPF/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/src/Hjmos.CustomCharts/obj/Debug/Themes/Styles/AverageDailyPassengerFlowTop10.baml
+/src/Hjmos.CustomCharts/bin/Debug/DynamicExpresso.Core.dll
+/src/Hjmos.CustomCharts/bin/Debug/CalcBinding.dll

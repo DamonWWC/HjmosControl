@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AverageDailyPassengerFlowTop10.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
     <Compile Include="Tools\Converter\BooleanConverter.cs" />
@@ -66,6 +67,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Controls\OneDayPassengerFlowTrend.cs" />
+    <Page Include="Themes\Styles\AverageDailyPassengerFlowTop10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\MoreDayPassengerFlowTrend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,5 +1,6 @@
 ﻿using CefSharp;
 using Hjmos.CustomCharts;
+using Hjmos.CustomCharts.Controls;
 using LiveCharts;
 using System;
 using System.Collections.Generic;
@@ -48,6 +49,28 @@ namespace Controltest
                 ForecastValues.Add(new ChartDataModel { DateTime = data.AddHours(i), Value = _trend });
             }
             DateTimeFormatter = value => new DateTime((long)value).ToString("HH:mm");
+
+
+            Datas = new ObservableCollection<FlowData>() { new FlowData { PostValue = 100, RealTimeValue = 20, Title = "1号线" },
+            new FlowData{ PostValue=200,RealTimeValue=120,Title="2号线"},
+            new FlowData{ PostValue=230,RealTimeValue=233,Title="3号线"},
+            new FlowData{ PostValue=350,RealTimeValue=423,Title="4号线"},
+            new FlowData{ PostValue=530,RealTimeValue=432,Title="5号线"},
+            new FlowData{ PostValue=543,RealTimeValue=654,Title="6号线"},
+            new FlowData{ PostValue=675,RealTimeValue=234,Title="7号线"},
+            new FlowData{ PostValue=123,RealTimeValue=73,Title="8号线"},
+            new FlowData{ PostValue=654,RealTimeValue=123,Title="9号线"},
+            new FlowData{ PostValue=956,RealTimeValue=567,Title="10号线"}};
+            //Datas = new ObservableCollection<FlowData>() { new FlowData { PostValue = 100, RealTimeValue = 80, Title = "1号线" },
+            //new FlowData{ PostValue=450,RealTimeValue=120,Title="2号线"},
+            //new FlowData{ PostValue=235,RealTimeValue=233,Title="3号线"},
+            //new FlowData{ PostValue=543,RealTimeValue=423,Title="4号线"},
+            //new FlowData{ PostValue=765,RealTimeValue=432,Title="5号线"},
+            //new FlowData{ PostValue=754,RealTimeValue=654,Title="6号线"},
+            //new FlowData{ PostValue=325,RealTimeValue=234,Title="7号线"},
+            //new FlowData{ PostValue=773,RealTimeValue=73,Title="8号线"},
+            //new FlowData{ PostValue=344,RealTimeValue=123,Title="9号线"},
+            //new FlowData{ PostValue=676,RealTimeValue=567,Title="10号线"}};
             DataContext = this;
 
 
@@ -75,6 +98,13 @@ namespace Controltest
         {
             get { return _IsUpdate; }
             set { _IsUpdate = value;OnPropertyChanged(); }
+        }
+
+        public ObservableCollection<FlowData> _Datas;
+        public ObservableCollection<FlowData> Datas 
+        {
+            get { return _Datas; }
+            set{ _Datas = value;OnPropertyChanged(); }
         }
 
 
@@ -113,6 +143,24 @@ namespace Controltest
         private void OneDayPassengerFlowTrend_ParamChanged(object sender, RoutedPropertyChangedEventArgs<string> e)
         {
 
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //Datas[1].RealTimeValue = 35;
+            //var temp = Datas[0];
+            //Datas[0] = Datas[1];
+            //Datas[1] = temp;
+            Datas = new ObservableCollection<FlowData>() { new FlowData { PostValue = 100, RealTimeValue = 80, Title = "1号线" },
+            new FlowData{ PostValue=450,RealTimeValue=120,Title="2号线"},
+            new FlowData{ PostValue=235,RealTimeValue=233,Title="3号线"},
+            new FlowData{ PostValue=543,RealTimeValue=423,Title="4号线"},
+            new FlowData{ PostValue=765,RealTimeValue=432,Title="5号线"},
+            new FlowData{ PostValue=754,RealTimeValue=654,Title="6号线"},
+            new FlowData{ PostValue=325,RealTimeValue=234,Title="7号线"},
+            new FlowData{ PostValue=773,RealTimeValue=73,Title="8号线"},
+            new FlowData{ PostValue=344,RealTimeValue=123,Title="9号线"},
+            new FlowData{ PostValue=676,RealTimeValue=567,Title="10号线"}};
         }
     }
 }
