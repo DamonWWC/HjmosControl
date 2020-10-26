@@ -155,6 +155,7 @@
     <Compile Include="Tools\RegularJudgment.cs" />
     <Compile Include="Tools\RegularPatterns.cs" />
     <Compile Include="Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
+    <Compile Include="Tools\StyleSelector\ListBoxItemStyleSelector.cs" />
     <Page Include="Themes\Basic\Basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
