@@ -53,19 +53,19 @@
   <ItemGroup>
     <Compile Include="Common\CCTVPlayState.cs" />
     <Compile Include="Common\CCTVPlayStateSelector.cs" />
-    <Compile Include="Controls\CCTVControl.xaml.cs">
+    <Compile Include="Controls\UserControl\CCTVControl.xaml.cs">
       <DependentUpon>CCTVControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\CefSharpControl.xaml.cs">
+    <Compile Include="Controls\UserControl\CefSharpControl.xaml.cs">
       <DependentUpon>CefSharpControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RollingNumber.xaml.cs">
+    <Compile Include="Controls\UserControl\RollingNumber.xaml.cs">
       <DependentUpon>RollingNumber.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\RollingNumberItem.xaml.cs">
+    <Compile Include="Controls\UserControl\RollingNumberItem.xaml.cs">
       <DependentUpon>RollingNumberItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Unity3DControl.xaml.cs">
+    <Compile Include="Controls\UserControl\Unity3DControl.xaml.cs">
       <DependentUpon>Unity3DControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\CCTVPlayerConvert.cs" />
@@ -96,29 +96,33 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\CCTVControl.xaml">
+    <Page Include="Controls\UserControl\CCTVControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\CefSharpControl.xaml">
+    <Page Include="Controls\UserControl\CefSharpControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\RollingNumber.xaml">
+    <Page Include="Controls\UserControl\RollingNumber.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\RollingNumberItem.xaml">
+    <Page Include="Controls\UserControl\RollingNumberItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Unity3DControl.xaml">
+    <Page Include="Controls\UserControl\Unity3DControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\TrainCongestionStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +151,9 @@
       <Version>3.1.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Themes\Basic\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image\NoneCCTV.png" />
   </ItemGroup>
