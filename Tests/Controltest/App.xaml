@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Generic.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Hjmos.CustomCharts;component/Themes/Generic.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Hjmos.CommonControls;component/Themes/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

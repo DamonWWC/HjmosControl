@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="271px" height="44px" viewBox="0 0 271 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>车</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.751162574">
+        <g id="局部行车监控车辆浮窗" transform="translate(-1629.000000, -481.000000)">
+            <g id="编组-6备份" transform="translate(1467.000000, 120.000000)">
+                <g id="拥挤状况" transform="translate(10.713156, 356.623121)">
+                    <g id="车" transform="translate(151.000000, 4.000000)">
+                        <rect id="矩形备份-6" fill="#DFF5FA" x="57" y="1" width="39" height="41"></rect>
+                        <rect id="矩形备份-11" fill="#DFF5FA" x="17.2868437" y="1" width="39" height="41"></rect>
+                        <rect id="矩形备份-7" fill="#DFF5FA" x="97" y="1" width="38" height="41"></rect>
+                        <rect id="矩形备份-8" fill="#DFF5FA" x="136" y="1" width="39" height="41"></rect>
+                        <rect id="矩形备份-9" fill="#DFF5FA" x="176" y="1" width="39" height="41"></rect>
+                        <rect id="矩形备份-10" fill="#DFF5FA" x="216" y="1" width="39" height="41"></rect>
+                        <path d="M16.3346627,1 L16.3346627,41.841928 L9.35993515,41.841928 C9.67656172,37.1621389 6.9240858,33.4046757 1.10250739,30.5695385 C1.00535369,30.5885753 0.247293273,20.2318677 4.96365972,11.1368845 C7.87126902,5.55977211 11.6616034,2.18081063 16.3346627,1 Z" id="路径-2" stroke="#000000" fill="#D8D8D8"></path>
+                        <path d="M270.334663,1 L270.334663,41.841928 L263.359935,41.841928 C263.676562,37.1621389 260.924086,33.4046757 255.102507,30.5695385 C255.005354,30.5885753 254.247293,20.2318677 258.96366,11.1368845 C261.871269,5.55977211 265.661603,2.18081063 270.334663,1 Z" id="路径-2备份" stroke="#000000" fill="#D8D8D8" transform="translate(262.667331, 21.420964) scale(-1, 1) translate(-262.667331, -21.420964) "></path>
+                        <rect id="矩形" fill="#000000" x="9" y="40" width="254" height="4"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

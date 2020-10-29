@@ -19,8 +19,16 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Basic/Paths.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/Button.xaml"/>
-                <ResourceDictionary Source="/Resources/Generic.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+           
+            <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="Gold"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="微软雅黑"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            
             <!--播放器状态转换为颜色-->
             <Converters:PlayStateToColorConverters x:Key="LiveStateToColorConverters"/>
             <!--播放器状态转换为文字-->
@@ -80,7 +88,7 @@
 
         <!--默认图片-->
         <Image Grid.Row="1" Grid.Column="1" 
-               Source="{DynamicResource Image.CCTV.Default}"
+               Source="/Hjmos.CommonControls;component/Resources/Image/NoneCCTV.png"
                Visibility="{Binding ImageVisible, ElementName=cctvControl}"/>
         <!--底部文字和状态-->
         <ContentControl Grid.Row="2" Grid.ColumnSpan="3" Height="24"  Style="{x:Null}"

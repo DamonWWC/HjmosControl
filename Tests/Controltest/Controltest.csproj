@@ -138,6 +138,10 @@
       <Project>{be79252b-7c0c-43a2-87a7-74901fb739ef}</Project>
       <Name>Hjmos.BaseControls</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\src\Hjmos.CommonControls\Hjmos.CommonControls.csproj">
+      <Project>{20a16b94-760f-44e4-a68d-866dda2e6e57}</Project>
+      <Name>Hjmos.CommonControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\Hjmos.CustomCharts\Hjmos.CustomCharts.csproj">
       <Project>{7f06fe95-db32-4df0-b1bc-4d83451516bb}</Project>
       <Name>Hjmos.CustomCharts</Name>
@@ -155,6 +159,12 @@
     <PackageReference Include="CefSharp.Wpf">
       <Version>84.4.10</Version>
     </PackageReference>
+    <PackageReference Include="Svg2Xaml">
+      <Version>0.3.0.7</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="宽松.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

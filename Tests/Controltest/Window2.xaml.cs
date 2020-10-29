@@ -18,6 +18,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Svg2Xaml;
+using Hjmos.CommonControls;
 
 namespace Controltest
 {
@@ -29,6 +31,7 @@ namespace Controltest
         public Window2()
         {
             InitializeComponent();
+           
             DirectionList = new ObservableCollection<string>() { "总客流", "进站", "出战" };
             DateTime now = DateTime.Now;
             DateTime data = new DateTime(now.Year, now.Month, now.Day, 5, 0, 0);
@@ -71,12 +74,33 @@ namespace Controltest
             //new FlowData{ PostValue=773,RealTimeValue=73,Title="8号线"},
             //new FlowData{ PostValue=344,RealTimeValue=123,Title="9号线"},
             //new FlowData{ PostValue=676,RealTimeValue=567,Title="10号线"}};
+
+
+            TrainCongestionDatas = new ObservableCollection<TrainCongestionData>
+            {
+                 new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=2},
+                new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=1},               
+                new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=3},
+                 new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=5},
+                new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=6},
+                new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=4}
+            };
+
             DataContext = this;
 
 
             List<string> a = new List<string>();
             
         }
+
+        private ObservableCollection<TrainCongestionData> _TrainCongestionDatas;
+
+        public ObservableCollection<TrainCongestionData> TrainCongestionDatas
+        {
+            get { return _TrainCongestionDatas; }
+            set { _TrainCongestionDatas = value;OnPropertyChanged(); }
+        }
+
 
         public Func<double,string> DateTimeFormatter { get; set; }
 
@@ -147,6 +171,19 @@ namespace Controltest
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //TrainCongestionDatas = new ObservableCollection<TrainCongestionData>
+            //{
+            //     new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=2},
+            //    new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=1},
+            //    new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=3},
+            //     new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=5},
+            //    new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=6},
+            //    new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=4}
+            //};
+
+            TrainCongestionDatas[0].ConfestionStatus = ConfestionStatus.Congestion;
+
+
             //Datas[1].RealTimeValue = 35;
             //var temp = Datas[0];
             //Datas[0] = Datas[1];

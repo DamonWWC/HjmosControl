@@ -4,6 +4,9 @@
                     xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
                     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/ListBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:MoreDayPassengerFlowTrend" x:Key="MoreDayPassengerFlowTrendBaseStyle">
         <Setter Property="Focusable" Value="False"/>

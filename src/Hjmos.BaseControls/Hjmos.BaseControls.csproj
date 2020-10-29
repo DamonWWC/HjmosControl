@@ -76,6 +76,7 @@
     <Compile Include="Controls\Other\Drawer.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
+    <Compile Include="Controls\Other\SvgBox.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
@@ -428,6 +429,9 @@
   <ItemGroup>
     <PackageReference Include="CalcBinding">
       <Version>2.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="SharpVectors">
+      <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
