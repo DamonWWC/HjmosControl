@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 
 namespace Hjmos.CustomCharts
 {
-    public class FlowData : INotifyPropertyChanged, IComparable<FlowData>
+    public class FlowData : ModelBase, IComparable<FlowData>
     {
         private double _Width;
         public double Width
@@ -13,11 +11,7 @@ namespace Hjmos.CustomCharts
             get { return _Width; }
             set
             {
-                if (_Width != value)
-                {
-                    _Width = value;
-                    OnPropertyChanged();
-                }
+                SetProperty(ref _Width, value);
             }
         }
 
@@ -28,11 +22,7 @@ namespace Hjmos.CustomCharts
             get { return _Title; }
             set
             {
-                if (_Title != value)
-                {
-                    _Title = value;
-                    OnPropertyChanged();
-                }
+                SetProperty(ref _Title, value);
             }
         }
 
@@ -43,11 +33,7 @@ namespace Hjmos.CustomCharts
             get { return _RealTimeValue; }
             set
             {
-                if (_RealTimeValue != value)
-                {
-                    _RealTimeValue = value;
-                    OnPropertyChanged();
-                }
+                SetProperty(ref _RealTimeValue, value);
             }
         }
 
@@ -57,28 +43,13 @@ namespace Hjmos.CustomCharts
             get { return _PostValue; }
             set
             {
-                if (_PostValue != value)
-                {
-                    _PostValue = value;
-                    OnPropertyChanged();
-                }
+                SetProperty(ref _PostValue, value);
             }
         }
 
         public int CompareTo(FlowData other)
         {
             return this._RealTimeValue.CompareTo(other._RealTimeValue);
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+        }     
     }
 }

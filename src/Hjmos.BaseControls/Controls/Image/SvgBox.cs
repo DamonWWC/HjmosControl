@@ -18,12 +18,20 @@ namespace Hjmos.BaseControls.Controls
             DependencyProperty.Register("ImageSource", typeof(Uri), typeof(SvgBox), new PropertyMetadata(default(Uri),
                 (o,args)=>
                 {
-                    var ct1 = (SvgBox)o;
-                    var v = (Uri)args.NewValue;
-                    if(v!=null)
+                    try
                     {
-                        ct1.Source = v;
+                        var ct1 = (SvgBox)o;
+                        var v = (Uri)args.NewValue;
+                        if (v != null)
+                        {
+                            ct1.Source = v;
+                        }
                     }
+                    catch
+                    {
+
+                    }
+                    
                 }));
     }
 }

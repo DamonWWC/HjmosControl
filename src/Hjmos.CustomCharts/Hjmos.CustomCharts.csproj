@@ -50,9 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\AverageDailyPassengerFlowTop10.cs" />
+    <Compile Include="Controls\BigDataMonitor.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
+    <Compile Include="Data\BigDataMonitorModel.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
+    <Compile Include="Data\Enum\Unit.cs" />
     <Compile Include="Data\FlowData.cs" />
+    <Compile Include="Data\ModelBase.cs" />
     <Compile Include="Tools\Converter\BooleanConverter.cs" />
     <Compile Include="Tools\Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\Extension\ObservableExtension.cs" />
@@ -70,6 +74,10 @@
     </Page>
     <Compile Include="Controls\OneDayPassengerFlowTrend.cs" />
     <Page Include="Themes\Styles\AverageDailyPassengerFlowTop10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\BigDataMonitor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +121,10 @@
     <ProjectReference Include="..\Hjmos.BaseControls\Hjmos.BaseControls.csproj">
       <Project>{be79252b-7c0c-43a2-87a7-74901fb739ef}</Project>
       <Name>Hjmos.BaseControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hjmos.CommonControls\Hjmos.CommonControls.csproj">
+      <Project>{20a16b94-760f-44e4-a68d-866dda2e6e57}</Project>
+      <Name>Hjmos.CommonControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\LiveCharts.WPF\LiveCharts.WPF.csproj">
       <Project>{36942b3b-124c-4f21-bd10-69579e88dd21}</Project>

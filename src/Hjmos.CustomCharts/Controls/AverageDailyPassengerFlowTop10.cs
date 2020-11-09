@@ -39,7 +39,7 @@ namespace Hjmos.CustomCharts.Controls
                     var v = (ObservableCollection<FlowData>)args.NewValue;                  
                     if(v != null)
                     {
-                        v.Sort();
+                        v.Descend();
                         SetWidth(v, ct1.ActualWidth);
                         ct1.ItemsSource = v;
                     }

@@ -63,6 +63,7 @@
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
+    <Compile Include="Controls\Image\ImageViewer.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
@@ -76,7 +77,7 @@
     <Compile Include="Controls\Other\Drawer.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
-    <Compile Include="Controls\Other\SvgBox.cs" />
+    <Compile Include="Controls\Image\SvgBox.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
@@ -335,6 +336,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ImageViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\ItemsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -434,5 +439,6 @@
       <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

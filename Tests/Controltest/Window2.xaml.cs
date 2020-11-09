@@ -20,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Svg2Xaml;
 using Hjmos.CommonControls;
+using Hjmos.CustomCharts.Data;
 
 namespace Controltest
 {
@@ -86,12 +87,22 @@ namespace Controltest
                 new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=4}
             };
 
+            bigDataItemModels = new ObservableCollection<BigDataItemModel>
+            {
+                new BigDataItemModel("1",Unit.G,111,@"pack://application:,,,/Controltest;component/image/宽松.svg")
+            };
+
+
             DataContext = this;
 
 
             List<string> a = new List<string>();
             
         }
+
+
+        public ObservableCollection<BigDataItemModel> bigDataItemModels { get; set; }
+
 
         private ObservableCollection<TrainCongestionData> _TrainCongestionDatas;
 

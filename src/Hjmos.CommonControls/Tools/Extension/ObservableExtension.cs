@@ -7,7 +7,7 @@ namespace Hjmos.CommonControls.Tools.Extension
 {
     public static class ObservableExtension
     {
-        public static void Descend<T>(this ObservableCollection<T> collection) where T:IComparable<T>
+        public static void Ascend<T>(this ObservableCollection<T> collection) where T:IComparable<T>
         {
             List<T> DescendList = collection.OrderBy(x => x).ToList();//升序
             for(int i=0;i<DescendList.Count();i++)

@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hjmos.UILib">
+      <HintPath>..\..\..\..\..\..\A佳都工作资料\程序\HJMos_Client_Framework\Infrastructure\UIs\Hjmos.UILib\bin\Debug\Hjmos.UILib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -164,7 +167,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="宽松.svg" />
+    <Resource Include="image\宽松.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

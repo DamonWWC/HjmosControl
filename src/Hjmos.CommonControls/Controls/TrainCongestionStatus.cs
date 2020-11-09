@@ -29,7 +29,7 @@ namespace Hjmos.CommonControls.Controls
                     var v = (ObservableCollection<TrainCongestionData>)args.NewValue;
                     if (v != null)
                     {
-                        v.Descend();
+                        v.Ascend();
                         ct1.ItemsSource = v;
                     }
                 }));
