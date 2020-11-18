@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"     
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls" 
-        Title="Window2" Height="450" Width="1000" Background="Black" >
+        Title="Window2" Height="450" Width="1000"  >
     <Grid>
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
@@ -20,7 +20,7 @@
 
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
         <!--<hjcc:TrainCongestionStatus Grid.Row="2"   TrainCongestionDatas="{Binding TrainCongestionDatas}"/>-->
-        <controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>
+        <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
 
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
@@ -28,9 +28,11 @@
         <!--<ProgressBar  Value="300" Maximum="100"  Margin="0,234.667,88.333,125.667" Grid.Row="1" />-->
         
         
-        <Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
+        <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
+        <!--<ComboBox ItemsSource="{Binding MaxPageRange}" SelectedIndex="0" ItemStringFormat="'{}{0} in}'"  Grid.Row="0" Margin="0,0,643.333,130"  Foreground="Red"/>-->
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
-       
+        <hj:Pagination Grid.Row="0" MaxNum="203" MaxPageInterval="4"  Margin="265,40,23.333,115.667"/>
 
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>

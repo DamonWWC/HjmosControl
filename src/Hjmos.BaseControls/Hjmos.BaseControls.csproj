@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Attach\DropDownElement.cs" />
     <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
@@ -76,11 +77,13 @@
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
+    <Compile Include="Controls\Other\Pagination.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Image\SvgBox.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
+    <Compile Include="Controls\Text\SimpleText.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="Data\ColorRange.cs" />
@@ -107,18 +110,27 @@
     <Compile Include="Interactivity\Behavior\MouseDragElementBehavior.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
+    <Compile Include="Interactivity\EventToCommand.cs" />
+    <Compile Include="Interactivity\EventTriggerBase!1.cs" />
+    <Compile Include="Interactivity\EventTriggerBase.cs" />
     <Compile Include="Interactivity\ExceptionStringTable.cs" />
     <Compile Include="Interactivity\ExtendedVisualStateManager.cs" />
     <Compile Include="Interactivity\FluidMoveScope.cs" />
     <Compile Include="Interactivity\IAttachedObject.cs" />
+    <Compile Include="Interactivity\IEventArgsConverter.cs" />
     <Compile Include="Interactivity\Interaction.cs" />
+    <Compile Include="Interactivity\NameResolvedEventArgs.cs" />
+    <Compile Include="Interactivity\NameResolver.cs" />
     <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
+    <Compile Include="Interactivity\RoutedEventTrigger.cs" />
     <Compile Include="Interactivity\TagType.cs" />
     <Compile Include="Interactivity\TransitionEffect.cs" />
+    <Compile Include="Interactivity\TriggerAction!1.cs" />
     <Compile Include="Interactivity\TriggerAction.cs" />
     <Compile Include="Interactivity\TriggerActionCollection.cs" />
     <Compile Include="Interactivity\TriggerBase.cs" />
     <Compile Include="Interactivity\TriggerCollection.cs" />
+    <Compile Include="Interactivity\TypeConstraintAttribute.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\BorderClipConverter.cs" />
     <Compile Include="Tools\Converter\ColLayoutConverter.cs" />
@@ -199,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\ButtonGroupBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,6 +332,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Divider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -353,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\NumericUpDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Pagination.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

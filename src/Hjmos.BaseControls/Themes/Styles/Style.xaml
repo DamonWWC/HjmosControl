@@ -23,5 +23,7 @@
         <ResourceDictionary Source="ButtonGroup.xaml"/>
         <ResourceDictionary Source="ProgressBar.xaml"/>
         <ResourceDictionary Source="ImageViewer.xaml"/>
+        <ResourceDictionary Source="Pagination.xaml"/>
+        <!--<ResourceDictionary Source="ComboBox.xaml"/>-->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

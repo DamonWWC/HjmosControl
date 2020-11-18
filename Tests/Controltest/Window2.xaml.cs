@@ -92,13 +92,21 @@ namespace Controltest
                 new BigDataItemModel("1",Unit.G,111,@"pack://application:,,,/Controltest;component/image/宽松.svg")
             };
 
+            valuetext = 23;
 
+            //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
             DataContext = this;
 
 
             List<string> a = new List<string>();
             
         }
+        
+
+
+        public List<int> MaxPageRange { get; set; }
+
+        public int valuetext { get; set; }
 
 
         public ObservableCollection<BigDataItemModel> bigDataItemModels { get; set; }

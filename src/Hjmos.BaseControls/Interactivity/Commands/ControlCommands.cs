@@ -25,5 +25,15 @@ namespace Hjmos.BaseControls.Interactivity
 
         public static RoutedCommand Switch { get; } = new RoutedCommand(nameof(Switch), typeof(ControlCommands));
 
+        /// <summary>
+        /// 选择
+        /// </summary>
+        public static RoutedCommand Selected { get; } = new RoutedCommand(nameof(Selected), typeof(ControlCommands));
+
+        /// <summary>
+        /// 跳转
+        /// </summary>
+        public static RoutedCommand Jump { get; } = new RoutedCommand(nameof(Jump), typeof(ControlCommands));
+
     }
 }
