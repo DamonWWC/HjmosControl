@@ -3,11 +3,7 @@ using Hjmos.BaseControls.Interactivity;
 using Hjmos.BaseControls.Tools;
 using Hjmos.BaseControls.Tools.Extension;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -33,7 +29,6 @@ namespace Hjmos.BaseControls.Controls
         private const string ElementMoreRight = "PART_MoreRight";
         private const string ElementButtonLast = "PART_ButtonLast";
         #endregion Constants
-
 
 
         #region Data

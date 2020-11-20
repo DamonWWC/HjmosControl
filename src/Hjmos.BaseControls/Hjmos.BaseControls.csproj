@@ -49,6 +49,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Attach\DataGridAttach.cs" />
     <Compile Include="Controls\Attach\DropDownElement.cs" />
     <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\Double2StrConverter.cs" />
+    <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
@@ -214,7 +216,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ContextMenuBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -247,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ButtonGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,6 +347,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

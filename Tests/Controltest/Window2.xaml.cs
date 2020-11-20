@@ -93,7 +93,7 @@ namespace Controltest
             };
 
             valuetext = 23;
-
+            DataList = GetDataList();
             //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
             DataContext = this;
 
@@ -101,8 +101,22 @@ namespace Controltest
             List<string> a = new List<string>();
             
         }
-        
 
+        private ObservableCollection<DemoDataModel> GetDataList()
+        {
+            return new ObservableCollection<DemoDataModel>
+            {
+                new DemoDataModel{ Index = 1,  Name = "Name1", IsSelected = false,  Remark = "111" },
+                new DemoDataModel{ Index = 2,  Name = "Name2", IsSelected = true,  Remark = "222" },
+                new DemoDataModel{ Index = 3,  Name = "Name3", IsSelected = true,  Remark = "333" },
+                new DemoDataModel{ Index = 4,  Name = "Name4", IsSelected = false,  Remark = "444" },
+                new DemoDataModel{ Index = 5,  Name = "Name5", IsSelected = false,  Remark = "555" },
+                new DemoDataModel{ Index = 6,  Name = "Name6", IsSelected = false,  Remark = "666" },
+                new DemoDataModel{ Index = 7,  Name = "Name7", IsSelected = true,  Remark = "777" },
+                new DemoDataModel{ Index = 8,  Name = "Name8", IsSelected = false,  Remark = "888" },
+                new DemoDataModel{ Index = 9,  Name = "Name9", IsSelected = false,  Remark = "999" },
+            };
+        }
 
         public List<int> MaxPageRange { get; set; }
 
@@ -150,6 +164,15 @@ namespace Controltest
             set{ _Datas = value;OnPropertyChanged(); }
         }
 
+        private ObservableCollection<DemoDataModel> _DataList;
+        public ObservableCollection<DemoDataModel> DataList
+        {
+            get { return _DataList; }
+            set { _DataList = value;OnPropertyChanged(); }
+        }
+
+
+      
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -218,5 +241,49 @@ namespace Controltest
             new FlowData{ PostValue=344,RealTimeValue=123,Title="9号线"},
             new FlowData{ PostValue=676,RealTimeValue=567,Title="10号线"}};
         }
+
+        private void Pagination_PageUpdated(object sender, Hjmos.BaseControls.Data.FunctionEventArgs<int> e)
+        {
+
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    public class DemoDataModel
+    {
+        public int Index { get; set; }
+
+        public string Name { get; set; }
+       
+
+
+        public bool IsSelected { get; set; }
+
+        public string Remark { get; set; }
+
+        //public DemoType Type { get; set; }
+
+        public string ImgPath { get; set; }
+
+        public ObservableCollection<DemoDataModel> DataList { get; set; }
+
+        // Card
+        public string Header { get; set; }
+
+        public string Content { get; set; }
+
+        public string Footer { get; set; }
+
+        // Avatar
+        public string DisplayName { get; set; }
+
+        public string Link { get; set; }
+
+        public string AvatarUri { get; set; }
+
     }
 }

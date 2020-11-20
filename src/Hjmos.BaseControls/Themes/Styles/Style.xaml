@@ -24,6 +24,9 @@
         <ResourceDictionary Source="ProgressBar.xaml"/>
         <ResourceDictionary Source="ImageViewer.xaml"/>
         <ResourceDictionary Source="Pagination.xaml"/>
-        <!--<ResourceDictionary Source="ComboBox.xaml"/>-->
+        <ResourceDictionary Source="ComboBox.xaml"/>
+        <ResourceDictionary Source="DataGrid.xaml"/>
+        <ResourceDictionary Source="ContextMenu.xaml"/>
+        <ResourceDictionary Source="CheckBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -11,11 +11,11 @@
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
         <Button Content="Button" HorizontalAlignment="Left" Margin="645,380,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>-->
-       
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="140*"/>
             <!--<RowDefinition Height="3"/>-->
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="281*"/>
         </Grid.RowDefinitions>
 
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
@@ -26,14 +26,39 @@
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
         <!--<ProgressBar  Value="300" Maximum="100"  Margin="0,234.667,88.333,125.667" Grid.Row="1" />-->
-        
-        
+
+
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
         <!--<ComboBox ItemsSource="{Binding MaxPageRange}" SelectedIndex="0" ItemStringFormat="'{}{0} in}'"  Grid.Row="0" Margin="0,0,643.333,130"  Foreground="Red"/>-->
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
-        <hj:Pagination Grid.Row="0" MaxNum="203" MaxPageInterval="4"  Margin="265,40,23.333,115.667"/>
-
+        <hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>
+        
+        
+        <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+            <DataGrid.RowHeaderTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
+                </DataTemplate>
+            </DataGrid.RowHeaderTemplate>
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Width="1*" CanUserResize="False" Binding="{Binding Index}" Header="索引"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="名称"/>
+                <DataGridCheckBoxColumn Width="1*" CanUserResize="False" Binding="{Binding IsSelected}" Header="选择"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="标记" CanUserResize="False"/>
+                <DataGridTemplateColumn Header="操作">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="button1" Content="编辑" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=SelectedItem}" Click="button1_Click"/>
+                                <Button x:Name="button2" Content="预警处置"/>
+                                <Button x:Name="button3" Content="上报"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">
@@ -46,6 +71,6 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>-->
-        
+
     </Grid>
 </Window>
