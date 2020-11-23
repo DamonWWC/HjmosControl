@@ -69,6 +69,7 @@
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
+    <Compile Include="Controls\Input\SearchBar.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
@@ -253,6 +254,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\ScrollViewerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\SearchBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\SearchBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

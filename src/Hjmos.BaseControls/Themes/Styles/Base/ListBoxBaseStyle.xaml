@@ -174,11 +174,6 @@
     </Style>
 
 
-    
-    
-    
-    
-
     <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemSingle">
         <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5"/>
     </Style>
@@ -200,10 +195,10 @@
     </Style>
 
 
-    <tools:ListBoxItemStyleSelector x:Key="listboxitemStyleSelector"/>
+    <tools:ListBoxItemStyleSelector x:Key="ListboxItemStyleSelector"/>
 
     <Style x:Key="ListBoxNewBaseStyle" TargetType="controls:ListBox">
-        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource listboxitemStyleSelector}"/>
+        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource ListboxItemStyleSelector}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>

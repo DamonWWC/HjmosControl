@@ -32,9 +32,29 @@
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
         <!--<ComboBox ItemsSource="{Binding MaxPageRange}" SelectedIndex="0" ItemStringFormat="'{}{0} in}'"  Grid.Row="0" Margin="0,0,643.333,130"  Foreground="Red"/>-->
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
-        <hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>
+        <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
+
+
+        <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" FontSize="15"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
+        <hj:SearchBar Margin="755,80,78.333,30" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:IconElement.Geometry="{StaticResource Rect2}" RenderTransformOrigin="3.318,1.667" />
+
+        <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"></StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ToggleButton Content="{Binding}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Cursor="Hand"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
         
-        
+
+
+
+
         <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
@@ -45,7 +65,7 @@
                 <DataGridTextColumn IsReadOnly="True" Width="1*" CanUserResize="False" Binding="{Binding Index}" Header="索引"/>
                 <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="名称"/>
                 <DataGridCheckBoxColumn Width="1*" CanUserResize="False" Binding="{Binding IsSelected}" Header="选择"/>
-                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="标记" CanUserResize="False"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="标记" CanUserResize="True"/>
                 <DataGridTemplateColumn Header="操作">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

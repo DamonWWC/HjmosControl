@@ -18,7 +18,45 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+
+    <Style TargetType="ToggleButton" x:Key="ToggleButtonNormalStyle">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#FF139ABE"/>
+        <Setter Property="Foreground" Value="#FF22B3D9 "/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="ContentPresenterMain" HorizontalAlignment="Center" RecognizesAccessKey="True" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9"/>
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=Self}}"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".4"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=Self}}"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
+
     <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>

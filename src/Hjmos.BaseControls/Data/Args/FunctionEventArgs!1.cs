@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Hjmos.BaseControls.Data
 {
-    public class FunctionEventArgs<T>:RoutedEventArgs
+    public class FunctionEventArgs<T> : RoutedEventArgs
     {
         public FunctionEventArgs(T info)
         {

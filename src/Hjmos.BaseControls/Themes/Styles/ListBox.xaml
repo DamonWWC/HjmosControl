@@ -3,6 +3,7 @@
                  xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls" >
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
+        <ResourceDictionary Source="ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
@@ -47,5 +48,80 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+
+
+
+    <Style x:Key="LisBoxItemNormalStyle" TargetType="ListBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="#FF139ABE"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FF22B3D9"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" Width="{TemplateBinding controls:ListBoxAttach.ListBoxItemWith}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
+                          Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" TargetName="Bd"  Value="{Binding Path=(controls:BackgroundSwitchElement.ItemSelectedBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsSelected" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Background" TargetName="Bd" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+ 
     
+    
+    <Style TargetType="ListBox" x:Key="TitleListStyle">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="SelectionMode" Value="Multiple"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{TemplateBinding controls:TitleElement.Title}" FontSize="{TemplateBinding FontSize}"  Style="{StaticResource TextBlockTitle}" />
+                        <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--<Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ToggleButton Content="{Binding}" Width="{Binding ItemWidth,RelativeSource={RelativeSource AncestorType=controls:ListBox}}"  Style="{StaticResource ToggleButtonNormalStyle}" FontSize="{Binding FontSize,RelativeSource={RelativeSource AncestorType=ItemsControl}}"  controls:BackgroundSwitchElement.MouseDownBackground="#FF139ABE"  controls:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Cursor="Hand"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>-->
+        
+    </Style>
+
+    
+    
+    
+    
+
 </ResourceDictionary>

@@ -35,5 +35,10 @@ namespace Hjmos.BaseControls.Interactivity
         /// </summary>
         public static RoutedCommand Jump { get; } = new RoutedCommand(nameof(Jump), typeof(ControlCommands));
 
+        /// <summary>
+        /// 搜索
+        /// </summary>
+        public static RoutedCommand Search { get; } = new RoutedCommand(nameof(Search), typeof(ControlCommands));
+
     }
 }

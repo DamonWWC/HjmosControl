@@ -94,6 +94,9 @@ namespace Controltest
 
             valuetext = 23;
             DataList = GetDataList();
+
+
+            titlelistbox = new List<string>() { "运力费正常下降", "接触轨失电" };
             //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
             DataContext = this;
 
@@ -118,7 +121,25 @@ namespace Controltest
             };
         }
 
+        
+
         public List<int> MaxPageRange { get; set; }
+
+
+        public List<string> titlelistbox { get; set; }
+
+
+        private string _ListboxItem;
+
+        public string ListboxItem
+        {
+            get { return _ListboxItem; }
+            set 
+            { 
+                _ListboxItem = value;
+               // OnPropertyChanged(); 
+            }
+        }
 
         public int valuetext { get; set; }
 
@@ -248,6 +269,16 @@ namespace Controltest
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

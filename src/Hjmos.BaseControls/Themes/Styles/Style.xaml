@@ -28,5 +28,6 @@
         <ResourceDictionary Source="DataGrid.xaml"/>
         <ResourceDictionary Source="ContextMenu.xaml"/>
         <ResourceDictionary Source="CheckBox.xaml"/>
+        <ResourceDictionary Source="SearchBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
