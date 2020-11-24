@@ -40,14 +40,9 @@
                 <TextBlock Text="下行"  x:Name="UpText" VerticalAlignment="Center" FontSize="10"   HorizontalAlignment="Left"/>
             </Grid>
         </Border>-->
-        <controls:RunningBlock HorizontalAlignment="Left" Runaway="False" BorderBrush="Transparent" AutoReverse="True" AutoRun="False" Width="195" Content="TextText" Margin="750,338,0,351" >
+        <controls:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  FontSize="30" Duration="0:0:10"   Width="480"  Margin="1410,179,0,656.2" RenderTransformOrigin="2.188,0.851" >
             <controls:RunningBlock.Title>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="111"  FontSize="20" Margin="0"/>
-                    <TextBlock Text="111"  FontSize="20" Margin="0"/>
-                </StackPanel>
-
-
+              11112222
             </controls:RunningBlock.Title>
         </controls:RunningBlock>
         <controls:Drawer Name="DrawerLeft" Dock="Top">

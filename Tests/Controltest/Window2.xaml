@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"     
-        xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls" 
+        xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls" d:DataContext="{d:DesignInstance Type=local:Window2}"
         Title="Window2" Height="450" Width="1000"  >
-    <Grid>
+    <Grid >
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
         <Button Content="Button" HorizontalAlignment="Left" Margin="645,380,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>-->
@@ -36,7 +36,14 @@
 
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" FontSize="15"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <hj:SearchBar Margin="755,80,78.333,30" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:IconElement.Geometry="{StaticResource Rect2}" RenderTransformOrigin="3.318,1.667" />
+        <!--<hj:SearchBar Margin="755,80,78.333,30" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:IconElement.Geometry="{StaticResource Rect2}" RenderTransformOrigin="3.318,1.667" />-->
+        <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
+            
+        </hj:RunningBlock>-->
+
+        <Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
+            <hj:RunningBlock   FontSize="30" Duration="0:0:30"  Text="{Binding Content1}" />
+        </Border>
 
         <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemsPanel>
@@ -79,6 +86,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="button" HorizontalAlignment="Left" Margin="570,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">

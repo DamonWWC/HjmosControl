@@ -14,7 +14,7 @@ namespace Controltest
         {
             InitializeComponent();
             data = new string[] { "asb", "bcd" };
-            text = "客流";
+            text = "客流111111111111111111111111";
             this.DataContext = this;
            
         }

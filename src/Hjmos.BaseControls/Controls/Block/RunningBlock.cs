@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hjmos.BaseControls.Tools;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,21 +8,21 @@ using System.Windows.Media.Animation;
 
 namespace Hjmos.BaseControls.Controls
 {
-    [TemplatePart(Name = "PART_ContentElement", Type = typeof(FrameworkElement))]
+    //[TemplatePart(Name = "PART_ContentElement", Type = typeof(TextBlock))]
     [TemplatePart(Name = "PART_Panel", Type = typeof(Panel))]
-    [TemplatePart(Name = "PART_Title",Type =typeof(FrameworkElement))]
-    public class RunningBlock : ContentControl
-    {    
+    [TemplatePart(Name = "PART_Title", Type = typeof(FrameworkElement))]
+    public class RunningBlock : Control
+    {
         protected Storyboard _storyboard;
 
-        private FrameworkElement _elementContent;
-        private FrameworkElement _elementPanel;
+        private TextBlock _elementContent;
+        private Panel _elementPanel;
         private FrameworkElement _elementTitle;
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-     
-            _elementContent = GetTemplateChild("PART_ContentElement") as FrameworkElement;
+
+            //_elementContent = GetTemplateChild("PART_ContentElement") as TextBlock;
             _elementPanel = GetTemplateChild("PART_Panel") as Panel;
             _elementTitle = GetTemplateChild("PART_Title") as FrameworkElement;
         }
@@ -35,7 +36,7 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for Runaway.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty RunawayProperty =
-            DependencyProperty.Register("Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(true,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.AffectsRender));
 
 
 
@@ -47,7 +48,7 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for AutoRun.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty AutoRunProperty =
-            DependencyProperty.Register("AutoRun", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(false,FrameworkPropertyMetadataOptions.AffectsRender));
+            DependencyProperty.Register("AutoRun", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
            "Orientation", typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -77,19 +78,19 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for IsRunning.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsRunningProperty =
-            DependencyProperty.Register("IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(true,(o,args)=> 
-            {
-                var ct1 = (RunningBlock)o;
-                var v = (bool)args.NewValue;
-                if(v)
-                {
-                    ct1._storyboard?.Resume();
-                }
-                else
-                {
-                    ct1._storyboard?.Pause();
-                }
-            }));
+            DependencyProperty.Register("IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(true, (o, args) =>
+             {
+                 var ct1 = (RunningBlock)o;
+                 var v = (bool)args.NewValue;
+                 if (v)
+                 {
+                     ct1._storyboard?.Resume();
+                 }
+                 else
+                 {
+                     ct1._storyboard?.Pause();
+                 }
+             }));
 
         public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
           "AutoReverse", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -102,6 +103,55 @@ namespace Hjmos.BaseControls.Controls
 
 
 
+        public bool IsForward
+        {
+            get { return (bool)GetValue(IsForwardProperty); }
+            set { SetValue(IsForwardProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IsForward.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IsForwardProperty =
+            DependencyProperty.Register("IsForward", typeof(bool), typeof(RunningBlock), new PropertyMetadata(true));
+
+        
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+     
+
+
+        // Using a DependencyProperty as the backing store for TitleContent.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register("Text", typeof(string), typeof(RunningBlock), new PropertyMetadata(default(string), (o, args) =>
+            {
+                if(o is RunningBlock runningBlock && args.NewValue is string value)
+                {
+                    runningBlock.UpdateContent();                                                       
+                }
+            }));
+
+
+
+
+
+
+        public double WidthText
+        {
+            get { return (double)GetValue(WidthTextProperty); }
+            set { SetValue(WidthTextProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for WidthText.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty WidthTextProperty =
+            DependencyProperty.Register("WidthText", typeof(double), typeof(RunningBlock), new PropertyMetadata(200d));
+
+
+
+
+        [Bindable(true), Category("Content")]
         public Object Title
         {
             get { return (Object)GetValue(TitleProperty); }
@@ -148,22 +198,45 @@ namespace Hjmos.BaseControls.Controls
 
 
 
+        private TextBlock CreateTextBlock()
+        {
 
+            var transform = new TransformGroup();
+            transform.Children.Add(new TranslateTransform());
+
+            return new TextBlock
+            {
+                Style = ResourceHelper.GetResource<Style>("RunningTextBlock"),
+                RenderTransform = transform,
+                Text = Text                       
+            };
+
+        }
 
         private void UpdateContent()
         {
            
-            if (_elementContent == null || _elementPanel == null) return;
+            if ( _elementPanel == null) return;
             _storyboard?.Stop();
 
-            _elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            _elementPanel.Width = _elementPanel.DesiredSize.Width;
-            _elementPanel.Height = _elementPanel.DesiredSize.Height;
+            _elementPanel.Children.Clear();
+            var textblock = CreateTextBlock();
+            _elementPanel.Children.Add(textblock);
+            textblock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));          
+            //_elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            //_elementPanel.Width = _elementPanel.DesiredSize.Width;
+            //_elementPanel.Height = _elementPanel.DesiredSize.Height;
+
+            _elementPanel.Width = textblock.DesiredSize.Width;
+            _elementPanel.Height = textblock.DesiredSize.Height;
+
+
 
             _elementTitle.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             _elementTitle.Width = _elementTitle.DesiredSize.Width;
             _elementTitle.Height = _elementTitle.DesiredSize.Height;
 
+         
             double from;
             double to;
             PropertyPath propertyPath;
@@ -177,13 +250,14 @@ namespace Hjmos.BaseControls.Controls
                 }
                 if(Runaway)
                 {
+
                     from = -_elementPanel.Width;
-                    to = actualWidth;
+                    to = actualWidth;                  
                 }
                 else
                 {
-                    from = 0;
-                    to = actualWidth - _elementPanel.Width;
+                    to = 0;
+                    from = actualWidth - _elementPanel.Width;
                     SetCurrentValue(AutoReverseProperty, true);
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)");
@@ -209,24 +283,34 @@ namespace Hjmos.BaseControls.Controls
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
             }
+
+
+            if(IsForward)
+            {
+                double temp;
+                temp = from;
+                from = to;
+                to = temp;
+            }
             var animation = new DoubleAnimation(from, to, Duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = AutoReverse
             };
+           
             Storyboard.SetTargetProperty(animation, propertyPath);
-            Storyboard.SetTarget(animation, _elementContent);
+            Storyboard.SetTarget(animation, _elementPanel.Children[0]);
 
             _storyboard = new Storyboard();
             _storyboard.Children.Add(animation);
             _storyboard.Begin();
         }
 
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
-            UpdateContent();
-        }
+        //protected override void OnRender(DrawingContext drawingContext)
+        //{
+        //    base.OnRender(drawingContext);
+        //   // UpdateContent();
+        //}
 
     }
 }

@@ -94,8 +94,9 @@ namespace Controltest
 
             valuetext = 23;
             DataList = GetDataList();
-
-
+           
+            Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
+      
             titlelistbox = new List<string>() { "运力费正常下降", "接触轨失电" };
             //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
             DataContext = this;
@@ -155,6 +156,14 @@ namespace Controltest
             set { _TrainCongestionDatas = value;OnPropertyChanged(); }
         }
 
+
+        private string _Content;
+
+        public string Content1
+        {
+            get { return _Content; }
+            set { _Content = value; OnPropertyChanged(); }
+        }
 
         public Func<double,string> DateTimeFormatter { get; set; }
 
@@ -281,6 +290,12 @@ namespace Controltest
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            // Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
+            Content1 = "1234567890qwertyuiop";
         }
     }
 
