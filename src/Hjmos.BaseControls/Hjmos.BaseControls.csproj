@@ -82,6 +82,7 @@
     <Compile Include="Controls\Other\Pagination.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Image\SvgBox.cs" />
+    <Compile Include="Controls\Other\Weather.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
@@ -98,9 +99,11 @@
     <Compile Include="Data\Enum\TextType.cs" />
     <Compile Include="Data\Enum\TitleAlignment.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\ModelBase.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
     <Compile Include="Data\ResourceToken.cs" />
+    <Compile Include="Data\WeatherData.cs" />
     <Compile Include="Expression\Drawing\MathHelper.cs" />
     <Compile Include="Interactivity\AdornerContainer.cs" />
     <Compile Include="Interactivity\AttachableCollection!1.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="Tools\Converter\Double2StrConverter.cs" />
     <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
+    <Compile Include="Tools\Converter\Name2ImageSourceConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
@@ -255,6 +259,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\ScrollViewerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\WeatherBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -456,6 +464,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Weather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\Attach\IconElement.cs" />
@@ -495,6 +507,14 @@
       <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dropper.cur" />
+    <Resource Include="Resources\Icon1.ico" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\WeatherImage\晴.svg" />
+    <Resource Include="Resources\WeatherImage\水滴.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

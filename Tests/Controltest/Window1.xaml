@@ -5,24 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controltest"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Background="Black"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Month" Labels="{Binding Labels}">
+        <local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>
 
-                </lvc:Axis>
-                <lvc:Axis Title="time" Labels="{Binding Labels1}" Position="RightTop"/>
-            </lvc:CartesianChart.AxisX>
-            <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip ShowDataNumMax="4">
-
-                </lvc:DefaultTooltip>
-            </lvc:CartesianChart.DataTooltip>
-        </lvc:CartesianChart>
     </Grid>
 </Window>

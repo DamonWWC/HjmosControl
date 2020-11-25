@@ -18,7 +18,7 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <hj:ListBox x:Name="listbox"  Grid.Row="0" Background="Red"   ItemsSource="{TemplateBinding DateRangeList}" SelectedItem="{Binding SelectedDateRange,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" BorderThickness="0"
+                        <hj:ListBox x:Name="listbox"  Grid.Row="0"  ItemsSource="{TemplateBinding DateRangeList}" SelectedItem="{Binding SelectedDateRange,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" BorderThickness="0"
                                      HorizontalContentAlignment="Center"  Foreground="{TemplateBinding FlowForeground}" hj:BackgroundSwitchElement.ItemSelectedBackground="{TemplateBinding CheckedBackground}"  hj:BackgroundSwitchElement.MouseHoverBackground="{TemplateBinding MouseHoverBackground}"/>
                         <lvc:CartesianChart Grid.Row="1" Pan="X" >
                             <lvc:CartesianChart.Series>

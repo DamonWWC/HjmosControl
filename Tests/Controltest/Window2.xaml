@@ -6,16 +6,16 @@
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"     
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls" d:DataContext="{d:DesignInstance Type=local:Window2}"
-        Title="Window2" Height="450" Width="1000"  >
+        Title="Window2" Height="800" Width="1000" Background="Black"  >
     <Grid >
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
         <Button Content="Button" HorizontalAlignment="Left" Margin="645,380,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>-->
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="140*"/>
+            <RowDefinition Height="75*"/>
             <!--<RowDefinition Height="3"/>-->
-            <RowDefinition Height="281*"/>
+            <RowDefinition Height="182*"/>
         </Grid.RowDefinitions>
 
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
@@ -23,6 +23,8 @@
         <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
 
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
+        <controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>
+
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
         <!--<ProgressBar  Value="300" Maximum="100"  Margin="0,234.667,88.333,125.667" Grid.Row="1" />-->
@@ -41,9 +43,11 @@
             
         </hj:RunningBlock>-->
 
-        <Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
+
+        <hj:Weather Grid.Row="0" Margin="0,0,363.333,4.667" FontSize="20" WeatherData="{Binding WeatherData}"  UpdateTime="4" />
+        <!--<Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
             <hj:RunningBlock   FontSize="30" Duration="0:0:30"  Text="{Binding Content1}" />
-        </Border>
+        </Border>-->
 
         <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemsPanel>
@@ -57,12 +61,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>-->
-        
 
 
 
 
-        <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+
+        <!--<DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
@@ -85,8 +89,8 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>
-        <Button Content="button" HorizontalAlignment="Left" Margin="570,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        </DataGrid>-->
+        <Button Content="button" HorizontalAlignment="Left" Margin="570,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" Height="20"/>
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">

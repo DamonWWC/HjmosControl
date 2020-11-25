@@ -29,5 +29,6 @@
         <ResourceDictionary Source="ContextMenu.xaml"/>
         <ResourceDictionary Source="CheckBox.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
+        <ResourceDictionary Source="Weather.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

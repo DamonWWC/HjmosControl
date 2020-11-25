@@ -17,4 +17,5 @@
     <converter:Double2StrConverter x:Key="Double2StrConverter"/>
     <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
     <converter:Object2StringConverter x:Key="Object2StringConverter"/>
+    <converter:Name2ImageSourceConverter  x:Key="Name2ImageSourceConverter"/>
 </ResourceDictionary>

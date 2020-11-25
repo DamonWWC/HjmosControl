@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls"
+                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
+                    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
+    
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/ToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Hjmos.BaseControls;component/Themes/Styles/ListBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style TargetType="controls:PassengerFlowTrend" x:Key="PassengerFlowTrendBaseStyle">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:PassengerFlowTrend">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="25,0,10,0" HorizontalAlignment="Left">
+                            <ToggleButton x:Name="InStation_legend"  FontSize="13"  IsChecked="{Binding LineVisibility[0],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                                <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=InStation,Path=Stroke}" ></Rectangle>
+                            </ToggleButton>
+                            <ToggleButton x:Name="OutStation_legend" Margin="10,0"  FontSize="13" Foreground="Black"  IsChecked="{Binding LineVisibility[1],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}" VerticalAlignment="Center" >
+                                <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=OutStation,Path=Stroke}"></Rectangle>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Stand_legend" Margin="10,0"  FontSize="13"  IsChecked="{Binding LineVisibility[2],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=Stand,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                                <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Stand,Path=Stroke}" ></Rectangle>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Forecast_legend" Margin="10,0"  FontSize="13" Foreground="Black"  IsChecked="{Binding LineVisibility[3],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=Forecast,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                                <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Forecast,Path=Stroke}"></Rectangle>
+                            </ToggleButton>
+                            <ToggleButton x:Name="Measured_legend" Margin="10,0"  FontSize="13"  IsChecked="{Binding LineVisibility[4],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=Measured,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                                <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Measured,Path=Stroke}" ></Rectangle>
+                            </ToggleButton>
+                        </StackPanel>
+                        <lvc:CartesianChart Grid.Row="1" DisableAnimations="True" >
+                            <lvc:CartesianChart.Series>
+                                <lvc:LineSeries x:Name="InStation" Stroke="#0CEDE3"  Visibility="{Binding LineVisibility[0],RelativeSource={RelativeSource Mode=TemplatedParent},Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" Fill = "#110CEDE3" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}"  PointGeometrySize="0" Title="进站"  Values="{Binding InStationValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                                <lvc:LineSeries x:Name="OutStation" Stroke="#2889F1" Visibility="{Binding LineVisibility[1],RelativeSource={RelativeSource Mode=TemplatedParent},Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" Fill = "#112889F1" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" PointGeometrySize="0" Title="出站"  Values="{Binding OutStationValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                                <lvc:LineSeries x:Name="Stand" Stroke="#7041EB"  Visibility="{Binding LineVisibility[2],RelativeSource={RelativeSource Mode=TemplatedParent},Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" Fill = "#117041EB" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" PointGeometrySize="0" Title="乘降"  Values="{Binding StandValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                                <lvc:LineSeries x:Name="Forecast" Stroke="#F8E71C"  Visibility="{Binding LineVisibility[3],RelativeSource={RelativeSource Mode=TemplatedParent},Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" Fill = "#11F8E71C" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}"  PointGeometrySize="0" Title="预测"  Values="{Binding ForecastValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                                <lvc:LineSeries x:Name="Measured" Stroke="#68C400"  Visibility="{Binding LineVisibility[4],RelativeSource={RelativeSource Mode=TemplatedParent},Converter={StaticResource BooleanToVisibilityConverter}}" StrokeThickness="1" Fill = "#1168C400" PointForeground="{Binding Stroke,RelativeSource={RelativeSource Mode=Self}}" PointGeometrySize="0" Title="实测"  Values="{Binding MeasuredValues,RelativeSource={RelativeSource TemplatedParent}}"  PointGeometry="{x:Static lvc:DefaultGeometries.Square}"/>
+                            </lvc:CartesianChart.Series>
+                            <lvc:CartesianChart.ChartLegend>
+                                <lvc:DefaultLegend  Foreground="White" BulletSize="10"></lvc:DefaultLegend>
+                            </lvc:CartesianChart.ChartLegend>
+                            <lvc:CartesianChart.AxisX >
+                                <lvc:Axis LabelFormatter="{TemplateBinding DateTimeFormatter}" 
+                                          MaxValue="{TemplateBinding AxisMax}" 
+                                          MinValue="{TemplateBinding AxisMin}"
+                                          Unit="{TemplateBinding AxisUnit}" Foreground="{TemplateBinding AxisForeground}" ShowAxis="False">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator  Step="{TemplateBinding AxisStep}"  IsEnabled="False"></lvc:Separator>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis  MinValue="0" Foreground="{TemplateBinding AxisForeground}" ShowAxis="False" LabelFormatter="{TemplateBinding Formatter}">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator StrokeThickness="0.2" Stroke="#FF07D4AF" />
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltipNoPer BulletSize="11" Foreground="White" Background="#FF106085"/>
+                            </lvc:CartesianChart.DataTooltip>
+                        </lvc:CartesianChart>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

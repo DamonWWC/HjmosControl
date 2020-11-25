@@ -52,6 +52,7 @@
     <Compile Include="Controls\AverageDailyPassengerFlowTop10.cs" />
     <Compile Include="Controls\BigDataMonitor.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
+    <Compile Include="Controls\PassengerFlowTrend.cs" />
     <Compile Include="Data\BigDataMonitorModel.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
     <Compile Include="Data\Enum\Unit.cs" />
@@ -86,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\OneDayPassengerFlowTrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\PassengerFlowTrend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

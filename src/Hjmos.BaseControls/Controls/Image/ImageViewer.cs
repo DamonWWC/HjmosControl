@@ -37,11 +37,14 @@ namespace Hjmos.BaseControls.Controls
 
         private void SelectImageType()
         {
-            var index = ImageSource.LastIndexOf('.');
-            var type = ImageSource.Substring(index + 1);
+           
 
             try
             {
+
+                if (ImageSource == null) return;
+                var index = ImageSource.LastIndexOf('.');
+                var type = ImageSource.Substring(index + 1);
                 if (type == "svg")
                 {
                     SvgBox svgBox = new SvgBox()

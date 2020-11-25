@@ -32,7 +32,8 @@ namespace Hjmos.CustomCharts.Controls
             if(Formatter==null)
             {
                 Formatter = value => value.ToString("N0");
-            }            
+            }
+            LineVisibility = new ObservableCollection<bool> { true, true };
             SelectedDirection = DirectionList?.FirstOrDefault();
         }
 
@@ -133,31 +134,20 @@ namespace Hjmos.CustomCharts.Controls
         public static readonly DependencyProperty AxisForegroundProperty =
             DependencyProperty.Register("AxisForeground", typeof(Brush), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(Brushes.Black));
 
+
         /// <summary>
-        /// 预测线是否显示
+        /// 线是否显示
         /// </summary>
-        internal bool ForecastVisibility
+        internal ObservableCollection<bool> LineVisibility
         {
-            get { return (bool)GetValue(ForecastVisibilityProperty); }
-            set { SetValue(ForecastVisibilityProperty, value); }
+            get { return (ObservableCollection<bool>)GetValue(LineVisibilityProperty); }
+            set { SetValue(LineVisibilityProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for ForecastVisibility.  This enables animation, styling, binding, etc...
-        internal static readonly DependencyProperty ForecastVisibilityProperty =
-            DependencyProperty.Register("ForecastVisibility", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(true));
-
-        /// <summary>
-        /// 实测线是否显示
-        /// </summary>
-        internal bool MeasuredVisibility
-        {
-            get { return (bool)GetValue(MeasuredVisibilityProperty); }
-            set { SetValue(MeasuredVisibilityProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for MeasuredVisibility.  This enables animation, styling, binding, etc...
-        internal static readonly DependencyProperty MeasuredVisibilityProperty =
-            DependencyProperty.Register("MeasuredVisibility", typeof(bool), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(true));
+        internal static readonly DependencyProperty LineVisibilityProperty =
+            DependencyProperty.Register("LineVisibility", typeof(ObservableCollection<bool>), typeof(OneDayPassengerFlowTrend), new PropertyMetadata(default(ObservableCollection<bool>)));
+    
 
         /// <summary>
         /// 实测值
