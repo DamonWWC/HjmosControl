@@ -100,7 +100,7 @@ namespace Controltest
       
             titlelistbox = new List<string>() { "运力费正常下降", "接触轨失电" };
 
-
+            ChartValue = new ChartValues<double> { 20, 30, 45, 34, 88, 100 };
 
             WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
             //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
@@ -146,6 +146,17 @@ namespace Controltest
                // OnPropertyChanged(); 
             }
         }
+
+
+        private ChartValues<double> _ChartValue;
+
+        public ChartValues<double> ChartValue
+        {
+            get { return _ChartValue; }
+            set { _ChartValue = value; OnPropertyChanged(); }
+        }
+
+
 
         public int valuetext { get; set; }
 

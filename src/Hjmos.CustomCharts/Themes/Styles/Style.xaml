@@ -7,5 +7,6 @@
         <ResourceDictionary Source="AverageDailyPassengerFlowTop10.xaml"/>
         <ResourceDictionary Source="BigDataMonitor.xaml"/>
         <ResourceDictionary Source="PassengerFlowTrend.xaml"/>
+        <ResourceDictionary Source="DeviceAlarmBarChart.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
