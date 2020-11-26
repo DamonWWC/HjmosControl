@@ -12,7 +12,7 @@ namespace Hjmos.BaseControls.Tools.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            string path = @"pack://application:,,,/Hjmos.BaseControls;component/Resources/WeatherImage/";
+            string path = @"pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/";
             if (value is string str)
             {
 

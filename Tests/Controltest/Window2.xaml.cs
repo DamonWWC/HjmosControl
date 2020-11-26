@@ -42,11 +42,11 @@ namespace Controltest
             double _trend = 0;
             MeasuredValues = new ChartValues<ChartDataModel>();
             ForecastValues = new ChartValues<ChartDataModel>();
-            for (int i = 0; i < 18; i++)
-            {
-                _trend = r.Next(1, 1000);
-                MeasuredValues.Add(new ChartDataModel { DateTime = data.AddHours(i), Value = _trend });
-            }
+            //for (int i = 0; i < 18; i++)
+            //{
+            //    _trend = r.Next(1, 1000);
+            //    MeasuredValues.Add(new ChartDataModel { DateTime = data.AddHours(i), Value = _trend });
+            //}
 
             for (int i = 0; i < 18; i++)
             {
@@ -127,7 +127,12 @@ namespace Controltest
             };
         }
 
-        public WeatherData WeatherData { get; set; }
+        private WeatherData _WeatherData;
+        public WeatherData WeatherData 
+        {
+            get { return _WeatherData; }
+            set { _WeatherData = value; OnPropertyChanged(); } 
+        }
 
         public List<int> MaxPageRange { get; set; }
 
@@ -311,7 +316,7 @@ namespace Controltest
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             // Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
-            Content1 = "1234567890qwertyuiop";
+            WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
         }
     }
 

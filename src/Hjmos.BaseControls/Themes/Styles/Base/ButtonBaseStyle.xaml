@@ -4,6 +4,7 @@
     
     <Style x:Key="ButtonBaseStyle" TargetType="Button">
         <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -18,6 +19,7 @@
                             <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </StackPanel>
                        </Border>
+                        <Path x:Name="PathBorder" Fill="Transparent" Stroke="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True" Stretch="Fill" Data="{TemplateBinding controls:BorderElement.Geometry}"/>
                     </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">
@@ -26,6 +28,10 @@
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                             <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
+                        </Trigger>
+                        <Trigger Property="controls:BorderElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathBorder"/>
+                            <Setter Property="BorderThickness" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

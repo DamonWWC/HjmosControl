@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace Hjmos.BaseControls.Controls
 {
@@ -14,9 +15,25 @@ namespace Hjmos.BaseControls.Controls
     {
 
         private const string PART_Condition = "PART_Condition";
-
+        private readonly DispatcherTimer _dispatcherTimer;
+        private bool _isDisposed;
         public Weather()
         {
+            _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
+            {
+                Interval = TimeSpan.FromMinutes(1)
+            };
+            _dispatcherTimer.Tick += DispatcherTimer_Tick;
+        }
+
+      
+
+        ~Weather()
+        {
+            if (_isDisposed) return;
+            _dispatcherTimer.Stop();
+            _isDisposed = true;
+            GC.SuppressFinalize(this);
 
         }
         TextBlock textBlock;
@@ -41,18 +58,41 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for WeatherData.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty WeatherDataProperty =
-            DependencyProperty.Register("WeatherData", typeof(WeatherData), typeof(Weather), new PropertyMetadata(default(WeatherData)));
+            DependencyProperty.Register("WeatherData", typeof(WeatherData), typeof(Weather), new PropertyMetadata(default(WeatherData),(o,args)=>
+            {
+                var weather = (Weather)o;
+                var weatherData = (WeatherData)args.NewValue;
+
+                if (weatherData != null)
+                {
+                    weather._dispatcherTimer.Stop();                   
+                    weather.UpdateTime = 0;                   
+                    weather._dispatcherTimer.Start();
+                }
+                else
+                {
+                    weather._dispatcherTimer.Stop();
+                             
+                }
+
+            }));
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateTime++;
+        }
+
+       
 
 
-
-        public int UpdateTime
+        internal int UpdateTime
         {
             get { return (int)GetValue(UpdateTimeProperty); }
             set { SetValue(UpdateTimeProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for UpdateTime.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty UpdateTimeProperty =
+        internal static readonly DependencyProperty UpdateTimeProperty =
             DependencyProperty.Register("UpdateTime", typeof(int), typeof(Weather), new PropertyMetadata(0));
 
 

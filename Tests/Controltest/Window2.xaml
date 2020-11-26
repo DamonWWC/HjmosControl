@@ -24,7 +24,7 @@
 
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
         <!--<controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>-->
-        <controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>
+        <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
         <!--<ProgressBar  Value="300" Maximum="100"  Margin="0,234.667,88.333,125.667" Grid.Row="1" />-->
@@ -44,7 +44,7 @@
         </hj:RunningBlock>-->
 
 
-        <hj:Weather Grid.Row="0" Margin="0,0,363.333,4.667" FontSize="20" WeatherData="{Binding WeatherData}"  UpdateTime="4" />
+        <hj:Weather Grid.Row="0" Margin="0,0,363.333,4.667" FontSize="20" WeatherData="{Binding WeatherData}"   />
         <!--<Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
             <hj:RunningBlock   FontSize="30" Duration="0:0:30"  Text="{Binding Content1}" />
         </Border>-->
@@ -66,7 +66,7 @@
 
 
 
-        <!--<DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+        <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
@@ -89,8 +89,8 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>-->
-        <Button Content="button" HorizontalAlignment="Left" Margin="570,45,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" Height="20"/>
+        </DataGrid>
+        <Button Content="预警信息" HorizontalAlignment="Left" Margin="745,55,0,0" hj:BorderElement.Geometry="{StaticResource Border1}" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">

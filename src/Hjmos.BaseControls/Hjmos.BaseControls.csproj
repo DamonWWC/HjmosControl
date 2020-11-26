@@ -98,6 +98,7 @@
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
     <Compile Include="Data\Enum\TitleAlignment.cs" />
+    <Compile Include="Data\Enum\WeatherType.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\ModelBase.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
@@ -511,10 +512,12 @@
     <Resource Include="Resources\dropper.cur" />
     <Resource Include="Resources\Icon1.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\WeatherImage\晴.svg" />
-    <Resource Include="Resources\WeatherImage\水滴.svg" />
+    <Folder Include="Controls\UserControl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\晴.svg" />
+    <Resource Include="Resources\Image\水滴.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
