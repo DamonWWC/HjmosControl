@@ -60,6 +60,7 @@
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Base\ISingleOpen.cs" />
     <Compile Include="Controls\Block\FloatingBlock.cs" />
+    <Compile Include="Controls\Block\RunningBlock\RunningBorder.cs" />
     <Compile Include="Controls\Button\ButtonGroup.cs" />
     <Compile Include="Controls\ColorPicker\ColorDropper.cs" />
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
     <Compile Include="Controls\Text\SimpleText.cs" />
+    <Compile Include="Controls\UserControl\PopupUserControl.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="Data\ColorRange.cs" />
@@ -465,6 +467,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Weather.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -475,7 +481,7 @@
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="Controls\Attach\ListBoxAttach.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
-    <Compile Include="Controls\Block\RunningBlock.cs" />
+    <Compile Include="Controls\Block\RunningBlock\RunningBlock.cs" />
     <Compile Include="Controls\Other\Card.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -512,9 +518,7 @@
     <Resource Include="Resources\dropper.cur" />
     <Resource Include="Resources\Icon1.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\UserControl\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Image\晴.svg" />
     <Resource Include="Resources\Image\水滴.svg" />

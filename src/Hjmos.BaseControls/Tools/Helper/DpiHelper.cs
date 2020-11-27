@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using Hjmos.BaseControls.Expression.Drawing;
 using Hjmos.BaseControls.Tools.Interop;
 
 namespace Hjmos.BaseControls.Tools
@@ -74,6 +75,25 @@ namespace Hjmos.BaseControls.Tools
             var result = deviceRect;
             result.Transform(TransformFromDevice.Matrix);
             return result;
+        }
+        public static double RoundLayoutValue(double value, double dpiScale)
+        {
+            double newValue;
+
+            if (!MathHelper.AreClose(dpiScale, 1.0))
+            {
+                newValue = Math.Round(value * dpiScale) / dpiScale;
+                if (double.IsNaN(newValue) || double.IsInfinity(newValue) || MathHelper.AreClose(newValue, double.MaxValue))
+                {
+                    newValue = value;
+                }
+            }
+            else
+            {
+                newValue = Math.Round(value);
+            }
+
+            return newValue;
         }
     }
 }

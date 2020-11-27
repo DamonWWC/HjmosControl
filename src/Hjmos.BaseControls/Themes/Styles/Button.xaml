@@ -5,7 +5,7 @@
         <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
-        <!--<Setter Property="BorderThickness" Value="1"/>-->
+        <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#f5f5f5"/>
@@ -15,7 +15,10 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+    <Style TargetType="Button" BasedOn="{StaticResource ButtonBorderBaseStyle}" x:Key="ButtonBorder"/>
+
+
     <Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>

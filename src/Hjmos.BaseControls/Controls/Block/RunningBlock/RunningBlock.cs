@@ -1,4 +1,5 @@
-﻿using Hjmos.BaseControls.Tools;
+﻿using Hjmos.BaseControls.Expression.Drawing;
+using Hjmos.BaseControls.Tools;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -10,24 +11,34 @@ namespace Hjmos.BaseControls.Controls
 {
     //[TemplatePart(Name = "PART_ContentElement", Type = typeof(TextBlock))]
     [TemplatePart(Name = "PART_Panel", Type = typeof(Panel))]
-    [TemplatePart(Name = "PART_Title", Type = typeof(FrameworkElement))]
+   
     public class RunningBlock : Control
     {
         protected Storyboard _storyboard;
 
-        private TextBlock _elementContent;
+        //private TextBlock _elementContent;
         private Panel _elementPanel;
-        private FrameworkElement _elementTitle;
-        public override void OnApplyTemplate()
+            
+        public RunningBlock()
         {
-            base.OnApplyTemplate();
-
-            //_elementContent = GetTemplateChild("PART_ContentElement") as TextBlock;
-            _elementPanel = GetTemplateChild("PART_Panel") as Panel;
-            _elementTitle = GetTemplateChild("PART_Title") as FrameworkElement;
+            this.SizeChanged += RunningBlock_SizeChanged;
         }
 
+        private void RunningBlock_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            UpdateContent();
+        }
 
+        public override void OnApplyTemplate()
+        {
+           
+            base.OnApplyTemplate();
+         
+            _elementPanel = GetTemplateChild("PART_Panel") as Panel;                  
+            UpdateContent();
+        }
+
+     
         public bool Runaway
         {
             get { return (bool)GetValue(RunawayProperty); }
@@ -66,6 +77,15 @@ namespace Hjmos.BaseControls.Controls
         {
             get => (Duration)GetValue(DurationProperty);
             set => SetValue(DurationProperty, value);
+        }
+
+        public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register(
+          "Speed", typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public double Speed
+        {
+            get => (double)GetValue(SpeedProperty);
+            set => SetValue(SpeedProperty, value);
         }
 
 
@@ -217,6 +237,7 @@ namespace Hjmos.BaseControls.Controls
         {
            
             if ( _elementPanel == null) return;
+            
             _storyboard?.Stop();
 
             _elementPanel.Children.Clear();
@@ -229,22 +250,15 @@ namespace Hjmos.BaseControls.Controls
 
             _elementPanel.Width = textblock.DesiredSize.Width;
             _elementPanel.Height = textblock.DesiredSize.Height;
-
-
-
-            _elementTitle.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            _elementTitle.Width = _elementTitle.DesiredSize.Width;
-            _elementTitle.Height = _elementTitle.DesiredSize.Height;
-
-         
+                  
             double from;
             double to;
             PropertyPath propertyPath;
 
             if(Orientation==Orientation.Horizontal)
             {
-                double actualWidth = ActualWidth - _elementTitle.Width;
-                if (AutoRun&&_elementPanel.Width< actualWidth)
+                double actualWidth = ActualWidth;
+                if (AutoRun && _elementPanel.Width < actualWidth)
                 {
                     return;
                 }
@@ -264,7 +278,7 @@ namespace Hjmos.BaseControls.Controls
             }
             else
             {
-                double actualHeigh = ActualHeight - _elementTitle.Height;
+                double actualHeigh = ActualHeight;
                 if (AutoRun && _elementPanel.Height < actualHeigh)
                 {
                     return;
@@ -292,7 +306,14 @@ namespace Hjmos.BaseControls.Controls
                 from = to;
                 to = temp;
             }
-            var animation = new DoubleAnimation(from, to, Duration)
+
+            var duration = double.IsNaN(Speed)
+                ? Duration
+                : !MathHelper.IsVerySmall(Speed)
+                    ? TimeSpan.FromSeconds(Math.Abs(to - from) / Speed)
+                    : Duration;
+
+            var animation = new DoubleAnimation(from, to, duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = AutoReverse
@@ -306,11 +327,7 @@ namespace Hjmos.BaseControls.Controls
             _storyboard.Begin();
         }
 
-        //protected override void OnRender(DrawingContext drawingContext)
-        //{
-        //    base.OnRender(drawingContext);
-        //   // UpdateContent();
-        //}
+      
 
     }
 }

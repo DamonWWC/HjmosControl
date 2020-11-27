@@ -22,20 +22,20 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="25,0,10,0" HorizontalAlignment="Left">
-                            <ToggleButton x:Name="InStation_legend"  FontSize="13"  IsChecked="{Binding LineVisibility[0],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="25,0,10,10" HorizontalAlignment="Left">
+                            <ToggleButton x:Name="InStation_legend"  FontSize="{TemplateBinding FontSize}"  IsChecked="{Binding LineVisibility[0],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="{TemplateBinding Foreground}" hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
                                 <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=InStation,Path=Stroke}" ></Rectangle>
                             </ToggleButton>
-                            <ToggleButton x:Name="OutStation_legend" Margin="10,0"  FontSize="13" Foreground="Black"  IsChecked="{Binding LineVisibility[1],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}" VerticalAlignment="Center" >
+                            <ToggleButton x:Name="OutStation_legend" Margin="10,0"  FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"  IsChecked="{Binding LineVisibility[1],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=OutStation,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}" VerticalAlignment="Center" >
                                 <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=OutStation,Path=Stroke}"></Rectangle>
                             </ToggleButton>
-                            <ToggleButton x:Name="Stand_legend" Margin="10,0"  FontSize="13"  IsChecked="{Binding LineVisibility[2],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=Stand,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                            <ToggleButton x:Name="Stand_legend"  FontSize="{TemplateBinding FontSize}"  IsChecked="{Binding LineVisibility[2],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="{TemplateBinding Foreground}" hj:ToggleButtonAttach.Text="{Binding ElementName=Stand,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
                                 <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Stand,Path=Stroke}" ></Rectangle>
                             </ToggleButton>
-                            <ToggleButton x:Name="Forecast_legend" Margin="10,0"  FontSize="13" Foreground="Black"  IsChecked="{Binding LineVisibility[3],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=Forecast,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                            <ToggleButton x:Name="Forecast_legend" Margin="10,0"  FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}"  IsChecked="{Binding LineVisibility[3],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  hj:ToggleButtonAttach.Text="{Binding ElementName=Forecast,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
                                 <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Forecast,Path=Stroke}"></Rectangle>
                             </ToggleButton>
-                            <ToggleButton x:Name="Measured_legend" Margin="10,0"  FontSize="13"  IsChecked="{Binding LineVisibility[4],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="Black" hj:ToggleButtonAttach.Text="{Binding ElementName=Measured,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
+                            <ToggleButton x:Name="Measured_legend"  FontSize="{TemplateBinding FontSize}"  IsChecked="{Binding LineVisibility[4],RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" Foreground="{TemplateBinding Foreground}" hj:ToggleButtonAttach.Text="{Binding ElementName=Measured,Path=Title}"  Style="{StaticResource ToggleButtonOpacityStyle}"  VerticalAlignment="Center" >
                                 <Rectangle Width="10" Height="2"  Fill="{Binding ElementName=Measured,Path=Stroke}" ></Rectangle>
                             </ToggleButton>
                         </StackPanel>

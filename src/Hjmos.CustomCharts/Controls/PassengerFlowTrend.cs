@@ -17,7 +17,7 @@ namespace Hjmos.CustomCharts.Controls
                 .X(model => model.DateTime.Ticks)
                 .Y(model => model.Value);
             Charting.For<ChartDataModel>(mapper);
-
+            LineVisibility = new ObservableCollection<bool> { true, true, true, true, true };
             this.Loaded += PassengerFlowTrend_Loaded; ;
         }
 
@@ -31,7 +31,7 @@ namespace Hjmos.CustomCharts.Controls
             {
                 Formatter = value => value == 0 ? value.ToString() : string.Format("{0:N1}K", value / 1000);
             }
-            LineVisibility = new ObservableCollection<bool> { false, false, false, true ,true};
+            
         }
 
 
@@ -76,38 +76,20 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty InStationValuesProperty =
-            DependencyProperty.Register("InStationValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>), (o, args) =>
-            {
-                var ct1 = (PassengerFlowTrend)o;
-                if (args.NewValue == null)
-                {
-
-                    ct1.LineVisibility[0] = false;
-                }
-
-            }));
+            DependencyProperty.Register("InStationValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(new ChartValues<ChartDataModel>()));
 
         /// <summary>
         /// 出站值
         /// </summary>
-        public ChartValues<ChartDataModel> OutStaionValues
+        public ChartValues<ChartDataModel> OutStationValues
         {
-            get { return (ChartValues<ChartDataModel>)GetValue(OutStaionValuesProperty); }
-            set { SetValue(OutStaionValuesProperty, value); }
+            get { return (ChartValues<ChartDataModel>)GetValue(OutStationValuesProperty); }
+            set { SetValue(OutStationValuesProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty OutStaionValuesProperty =
-            DependencyProperty.Register("OutStaionValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>), (o, args) =>
-            {
-                var ct1 = (PassengerFlowTrend)o;
-                if (args.NewValue == null)
-                {
-
-                    ct1.LineVisibility[1] = false;
-                }
-
-            }));
+        public static readonly DependencyProperty OutStationValuesProperty =
+            DependencyProperty.Register("OutStationValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(new ChartValues<ChartDataModel>()));
 
 
 
@@ -122,16 +104,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty StandValuesProperty =
-            DependencyProperty.Register("StandValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>), (o, args) =>
-            {
-                var ct1 = (PassengerFlowTrend)o;
-                if (args.NewValue == null)
-                {
-
-                    ct1.LineVisibility[2] = false;
-                }
-
-            }));
+            DependencyProperty.Register("StandValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(new ChartValues<ChartDataModel>()));
 
 
 
@@ -148,16 +121,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for ForecastValues.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ForecastValuesProperty =
-            DependencyProperty.Register("ForecastValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>),(o, args) =>
-            {
-                var ct1 = (PassengerFlowTrend)o;
-                if (args.NewValue == null)
-                {
-
-                    ct1.LineVisibility[3] = false;
-                }
-
-}));
+            DependencyProperty.Register("ForecastValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(new ChartValues<ChartDataModel>()));
 
         /// <summary>
         /// 实测值
@@ -170,16 +134,7 @@ namespace Hjmos.CustomCharts.Controls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MeasuredValuesProperty =
-            DependencyProperty.Register("MeasuredValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(default(ChartValues<ChartDataModel>), (o, args) =>
-            {
-                var ct1 = (PassengerFlowTrend)o;
-                if (args.NewValue == null)
-                {
-
-                    ct1.LineVisibility[4] = false;
-                }
-
-            }));
+            DependencyProperty.Register("MeasuredValues", typeof(ChartValues<ChartDataModel>), typeof(PassengerFlowTrend), new PropertyMetadata(new ChartValues<ChartDataModel>()));
 
         /// <summary>
         /// 横坐标文本样式
@@ -266,7 +221,11 @@ namespace Hjmos.CustomCharts.Controls
                     ct1.AxisMax = GetTicks(v);
                 }));
 
-
+        /// <summary>
+        /// 数字转时间
+        /// </summary>
+        /// <param name="num">数字</param>
+        /// <returns></returns>
         private static double GetTicks(double num)
         {
             var hour = Math.Truncate(num);

@@ -21,14 +21,14 @@
                             </lvc:ColumnSeries>
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Labels="{TemplateBinding Labels}"  MaxValue="12"  Foreground="White" ShowAxis="False">
+                            <lvc:Axis Labels="{TemplateBinding Labels}"  MaxValue="{TemplateBinding MaxValue}"   Foreground="{TemplateBinding Foreground}" ShowAxis="False">
                                 <lvc:Axis.Separator>
-                                    <lvc:Separator IsEnabled="False" Step="1"/>
+                                    <lvc:Separator IsEnabled="False" Step="2"/>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
                         <lvc:CartesianChart.AxisY>
-                            <lvc:Axis MinValue="0" Foreground="White" ShowAxis="False" LabelFormatter="{TemplateBinding YFormatter}">
+                            <lvc:Axis MinValue="0" Foreground="{TemplateBinding Foreground}" ShowAxis="False" LabelFormatter="{TemplateBinding YFormatter}">
                                 <lvc:Axis.Separator>
                                     <lvc:Separator StrokeThickness="0.2" Stroke="#FF00FFFF"/>
                                 </lvc:Axis.Separator>

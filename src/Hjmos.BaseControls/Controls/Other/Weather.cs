@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -82,9 +78,7 @@ namespace Hjmos.BaseControls.Controls
             UpdateTime++;
         }
 
-       
-
-
+      
         internal int UpdateTime
         {
             get { return (int)GetValue(UpdateTimeProperty); }
@@ -94,13 +88,6 @@ namespace Hjmos.BaseControls.Controls
         // Using a DependencyProperty as the backing store for UpdateTime.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty UpdateTimeProperty =
             DependencyProperty.Register("UpdateTime", typeof(int), typeof(Weather), new PropertyMetadata(0));
-
-
-
-        
-
-
-
 
     }
 

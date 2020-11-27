@@ -315,7 +315,7 @@ namespace Controltest
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            // Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
+             Content1 = "  08-31 18:25 天河智慧城站上···";
             WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
         }
     }

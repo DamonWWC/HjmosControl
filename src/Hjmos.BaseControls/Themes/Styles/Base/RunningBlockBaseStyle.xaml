@@ -11,34 +11,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:RunningBlock">
-                    <Border CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
-                            Background="{TemplateBinding Background}" ClipToBounds="True">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <Border x:Name="PART_Title" Visibility="{TemplateBinding Title,Converter={StaticResource Object2VisibilityConverter}}"  Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                <ContentPresenter Margin="0,0,5,0" ContentSource="Title" HorizontalAlignment="Center" ContentTemplate="{TemplateBinding TitleTemplate}" ContentTemplateSelector="{TemplateBinding TitleTemplateSelector}" ContentStringFormat="{TemplateBinding TitleStringFormat}"/>
-                            </Border>
-                            <controls:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel" Grid.Column="1" >
-                                <!--<ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" ContentSource="Title1"  HorizontalAlignment="Left" VerticalAlignment="Center">
-                                    <ContentPresenter.RenderTransform>
-                                        <TransformGroup>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </ContentPresenter.RenderTransform>
-                                </ContentPresenter>-->
-                                <!--<TextBlock x:Name="PART_ContentElement" TextWrapping="WrapWithOverflow" Width="{Binding  WidthText,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}" RenderTransformOrigin="0.5,0.5" Background="Red" FontSize="{TemplateBinding FontSize}"   HorizontalAlignment="Left" VerticalAlignment="Center">
-                                    <TextBlock.RenderTransform>
-                                        <TransformGroup>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </TextBlock.RenderTransform>
-                                </TextBlock>-->
-                            </controls:SimplePanel>
-                        </Grid>
-                    </Border>
+                    <controls:RunningBorder CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                        <controls:SimplePanel ClipToBounds="True">
+                            <controls:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel"/>
+                        </controls:SimplePanel>
+                    </controls:RunningBorder>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
