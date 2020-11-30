@@ -35,6 +35,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <!--文本框内光变颜色-->
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>

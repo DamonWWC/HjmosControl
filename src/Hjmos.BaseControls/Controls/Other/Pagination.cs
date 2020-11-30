@@ -98,7 +98,7 @@ namespace Hjmos.BaseControls.Controls
                         pagination.PageIndex = pagination.MaxPageCount;
                     }
 
-                    pagination.Show(value > 1);
+                    pagination.Show(value > 0);
                     pagination.Update();
                 }
             }, (o, value) =>

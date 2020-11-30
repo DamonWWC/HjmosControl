@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"     
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls" d:DataContext="{d:DesignInstance Type=local:Window2}"
-        Title="Window2" Height="800" Width="1000" Background="Black"  >
+        Title="Window2" Height="800" Width="1000">
     <Grid >
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
@@ -23,7 +23,7 @@
         <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
 
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
-        <controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>
+        <!--<controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>-->
         <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
@@ -37,14 +37,15 @@
         <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
 
 
-        <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" FontSize="15"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <!--<hj:SearchBar Margin="755,80,78.333,30" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:IconElement.Geometry="{StaticResource Rect2}" RenderTransformOrigin="3.318,1.667" />-->
+        <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
+        <hj:SearchBar Background="Black" Foreground="White" Margin="412,65,353.333,114.667" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
+      
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             
         </hj:RunningBlock>-->
 
 
-        <hj:Weather Grid.Row="0" Margin="0,0,733.333,4.667" FontSize="10" WeatherData="{Binding WeatherData}"   />
+        <!--<hj:Weather Grid.Row="0" Margin="0,0,733.333,4.667" FontSize="10" WeatherData="{Binding WeatherData}"   />-->
         <!--<Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
             <hj:RunningBlock   FontSize="30" Speed="100" Text="{Binding Content1}" />
         </Border>-->
@@ -66,7 +67,7 @@
 
 
 
-        <!--<DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+        <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
@@ -89,8 +90,9 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>-->
+        </DataGrid>
         <Button Content="预警信息" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}" Margin="745,55,0,0" hj:BorderElement.Geometry="{StaticResource Border1}" Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Background="Black" Foreground="White" ForceCursor="True" Margin="105,55,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">

@@ -4,11 +4,14 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+    
+    <!--基本样式的button，可加图形和内容-->
     <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle}">
         <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#f5f5f5"/>
+                <Setter Property="Cursor" Value="Hand"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="#e0e0e0"/>
@@ -16,9 +19,11 @@
         </Style.Triggers>
     </Style>
 
+    <!--可改变边框形状的button-->
     <Style TargetType="Button" BasedOn="{StaticResource ButtonBorderBaseStyle}" x:Key="ButtonBorder"/>
 
 
+    <!--内容只有图形的button-->
     <Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -36,6 +41,9 @@
         </Setter>
     </Style>
 
+    
+    
+    <!--普通样式的button，不带边框和背景-->
     <Style TargetType="Button" x:Key="ButtonCustom">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -53,6 +61,7 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value=".9"/>
                             <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Cursor" Value="Hand"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Opacity" Value=".6"/>

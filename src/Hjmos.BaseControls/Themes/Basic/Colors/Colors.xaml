@@ -40,4 +40,9 @@
     <Color x:Key="DarkMaskColor">#20000000</Color>
     <Color x:Key="DarkOpacityColor">#40000000</Color>
     <system:UInt32 x:Key="BlurGradientValue">0x99FFFFFF</system:UInt32>
+
+    
+    <Color x:Key="ColumnHeaderColor">#c0fffc</Color>
+    <Color x:Key="RowBorderColor">#186573</Color>
+    <Color x:Key="ColumnHeaderBackgroundColor">#0A3B5A</Color>
 </ResourceDictionary>

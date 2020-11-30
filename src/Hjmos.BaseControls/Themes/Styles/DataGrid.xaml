@@ -88,23 +88,28 @@
                 </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
             </MultiDataTrigger>
-            <MultiTrigger>
+            <!--<MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsSelected" Value="true"/>
                     <Condition Property="Selector.IsSelectionActive" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-            </MultiTrigger>
+            </MultiTrigger>-->
         </Style.Triggers>
     </Style>
+    
+    
+    
     <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
-        <Setter Property="Margin" Value="0,0,0,4"/>
+        <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="0,6"/>
         <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DataGridRowBorderBrush}"/>
         <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
         <Setter Property="ValidationErrorTemplate">
             <Setter.Value>
@@ -134,29 +139,28 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="AlternationIndex" Value="0">
+            <!--交替改变颜色-->
+            <!--<Trigger Property="AlternationIndex" Value="0">
                 <Setter Property="Background" Value="#FFFAFAFA"/>
             </Trigger>
             <Trigger Property="AlternationIndex" Value="1">
                 <Setter Property="Background" Value="#FFFFFFFF"/>
-            </Trigger>
+            </Trigger>-->
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource DataGridRowBrush}"/>
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource DataGridRowBrush}"/>
                 <Setter Property="TextElement.Foreground" Value="Red"/>
             </Trigger>
-            <MultiTrigger>
+            <!--<MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsSelected" Value="true"/>
                     <Condition Property="Selector.IsSelectionActive" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-            </MultiTrigger>
-          
-
+            </MultiTrigger>-->          
         </Style.Triggers>
     </Style>
     <Style x:Key="ColumnHeaderGripperStyle" TargetType="Thumb">
@@ -173,7 +177,6 @@
     </Style>
     <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Padding" Value="12,6,12,12"/>
         <Setter Property="MinHeight" Value="44"/>
         <Setter Property="Template">
@@ -187,7 +190,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter RecognizesAccessKey="True"  VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                <ToggleButton Grid.Column="1" VerticalAlignment="Center" Height="{x:Static system:Double.NaN}" Padding="4,0" Width="20" IsEnabled="False" Opacity="1" Foreground="{DynamicResource PrimaryBrush}" x:Name="ToggleButtonSortDirection" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
+                                <ToggleButton Grid.Column="1" VerticalAlignment="Center" Height="{x:Static system:Double.NaN}" Padding="4,0" Width="20" IsEnabled="False" Opacity="1" Foreground="{TemplateBinding Foreground}" x:Name="ToggleButtonSortDirection" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                             </Grid>
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
@@ -207,15 +210,14 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
+        <!--<Style.Triggers>
             <Trigger Property="SortDirection" Value="Ascending">
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="#c0fffc"/>
             </Trigger>
             <Trigger Property="SortDirection" Value="Descending">
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
-                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>             
             </Trigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
     <Style x:Key="DataGridRowHeaderStyle" TargetType="DataGridRowHeader">
         <Setter Property="Template">
@@ -268,6 +270,7 @@
         <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="ColumnWidth" Value="*"/>
+        <!--行交替变换颜色-->
         <Setter Property="AlternationCount" Value="2"/>
         <!--<Setter Property="hc:DataGridAttach.ShowShadow" Value="True"/>-->
         <Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}"/>
@@ -312,9 +315,10 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
-                                        <Border Background="#223079F0" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+                                        <Border Background="{DynamicResource DataGridColumnBackgroundBrush}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
                                         <!--<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}"/>-->
-                                        <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Margin="60,0,0,0"   Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
+                                        <TextBlock Text="序号"  VerticalAlignment="Center" Margin="0,0,0,6" HorizontalAlignment="Center"  Padding="15,0"  Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}"/>
+                                        <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Margin="0,0,0,0"   Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
                                         <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1"/>
                                         <ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}"/>
                                         <ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}"/>

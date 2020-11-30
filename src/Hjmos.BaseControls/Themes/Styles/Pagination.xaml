@@ -12,8 +12,9 @@
     <Style TargetType="RadioButton" x:Key="PaginationButtonStyle">
         <Setter Property="GroupName" Value="1"/>
         <Setter Property="MinWidth" Value="30"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="#00B2E1"/>
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -28,9 +29,9 @@
                         <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" HorizontalAlignment="Center" VerticalAlignment="Center"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="TextElement.Foreground" Value="Blue" TargetName="contentPresenter"/>
-                        </Trigger>
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="TextElement.Foreground" Value="White" TargetName="contentPresenter"/>
+                        </Trigger>-->
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="BorderBrush" Value="{Binding Path=(controls:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="Background" Value="{Binding Path=(controls:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
@@ -48,10 +49,10 @@
                 <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                <Setter Property="Background" Value="#00B2E1"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                <Setter Property="Background" Value="#00B2E1"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -72,7 +73,7 @@
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
                         <TextBlock Text="{Binding MaxPageCount,RelativeSource={RelativeSource Mode=TemplatedParent},StringFormat=共{0:N0}页}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center" />
                         <TextBlock Text="{Binding MaxNum,RelativeSource={RelativeSource Mode=TemplatedParent},StringFormat=/{0:N0}条数据}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
-                        <Button x:Name="PART_ButtonLeft" Margin="10" MinWidth="30" Height="30" Padding="10,8" Style="{StaticResource ButtonIcon}" BorderBrush="{TemplateBinding BorderBrush}" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Prev"/>
+                        <Button x:Name="PART_ButtonLeft" Margin="10" MinWidth="30" Height="30" Padding="10,8" Style="{StaticResource ButtonIcon}" BorderThickness="{TemplateBinding BorderThickness}" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Prev"/>
                         <StackPanel ZIndex="999" HorizontalAlignment="Center" Orientation="Horizontal">
                             <interactivity:Interaction.Triggers>
                                 <interactivity:RoutedEventTrigger RoutedEvent="RadioButton.Checked">
@@ -89,7 +90,7 @@
                             </Border>
                             <RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}"/>
                         </StackPanel>
-                        <Button Name="PART_ButtonRight" Margin="10" MinWidth="30" Height="30" Padding="10,8" Style="{StaticResource ButtonIcon}" BorderBrush="{TemplateBinding BorderBrush}" controls:IconElement.Geometry="{StaticResource RightGeometry}" Command="interactivity:ControlCommands.Next"/>
+                        <Button Name="PART_ButtonRight" Margin="10" MinWidth="30" Height="30" Padding="10,8" Style="{StaticResource ButtonIcon}" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" controls:IconElement.Geometry="{StaticResource RightGeometry}" Command="interactivity:ControlCommands.Next"/>
                         <ComboBox ItemsSource="{TemplateBinding MaxPageRange}" Height="30" Width="75"   VerticalContentAlignment="Center" SelectedIndex="0" SelectedValue="{Binding DataCountPerPage,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  Margin="10,0">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>

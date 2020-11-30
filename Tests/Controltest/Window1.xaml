@@ -8,7 +8,8 @@
         mc:Ignorable="d" Background="Black"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        <local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>
+        <local:UserControl2/>
+        <!--<local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>-->
 
     </Grid>
 </Window>

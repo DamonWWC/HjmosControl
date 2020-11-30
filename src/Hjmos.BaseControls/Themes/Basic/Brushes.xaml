@@ -56,4 +56,15 @@
 
     <SolidColorBrush o:Freeze="True" x:Key="DarkMaskBrush" Color="{DynamicResource DarkMaskColor}"/>
     <SolidColorBrush o:Freeze="True" x:Key="DarkOpacityBrush" Color="{DynamicResource DarkOpacityColor}"/>
+
+
+    <LinearGradientBrush o:Freeze="True" x:Key="DataGridRowBrush" EndPoint="1,0" StartPoint="0,0">
+        <GradientStop Color="#22239BC9" Offset="0"/>
+        <GradientStop Color="#88239BC9" Offset="0.5"/>
+        <GradientStop Color="#22239BC9" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush o:Freeze="True" x:Key="DataGridColumnHeaderBrush" Color="{DynamicResource ColumnHeaderColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="DataGridRowBorderBrush" Color="{DynamicResource RowBorderColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="DataGridColumnBackgroundBrush" Color="{DynamicResource ColumnHeaderBackgroundColor}"/>
 </ResourceDictionary>

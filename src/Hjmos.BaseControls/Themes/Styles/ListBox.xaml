@@ -66,7 +66,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" Width="{TemplateBinding controls:ListBoxAttach.ListBoxItemWith}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
+                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" Width="{Binding Path=(controls:ListBoxAttach.ListBoxItemWith),RelativeSource={RelativeSource AncestorType=ItemsControl}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
                           Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
@@ -103,7 +103,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{TemplateBinding controls:TitleElement.Title}" FontSize="{TemplateBinding FontSize}"  Style="{StaticResource TextBlockTitle}" />
+                        <TextBlock Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}:}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0" Style="{StaticResource TextBlockTitle}"/>                       
                         <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </StackPanel>
                 </ControlTemplate>
