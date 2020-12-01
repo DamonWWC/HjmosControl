@@ -5,6 +5,8 @@
                      xmlns:system="clr-namespace:System;assembly=mscorlib">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="TextBox.xaml"/>
+        <ResourceDictionary Source="ComboBox.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
@@ -91,7 +93,7 @@
                             <RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}"/>
                         </StackPanel>
                         <Button Name="PART_ButtonRight" Margin="10" MinWidth="30" Height="30" Padding="10,8" Style="{StaticResource ButtonIcon}" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" controls:IconElement.Geometry="{StaticResource RightGeometry}" Command="interactivity:ControlCommands.Next"/>
-                        <ComboBox ItemsSource="{TemplateBinding MaxPageRange}" Height="30" Width="75"   VerticalContentAlignment="Center" SelectedIndex="0" SelectedValue="{Binding DataCountPerPage,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  Margin="10,0">
+                        <!--<ComboBox ItemsSource="{TemplateBinding MaxPageRange}" BorderBrush="{TemplateBinding BorderBrush}" Foreground="{TemplateBinding Foreground}" Height="30" Width="75"   VerticalContentAlignment="Center" SelectedIndex="0" SelectedValue="{Binding DataCountPerPage,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"  Margin="10,0">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -100,11 +102,11 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>
-                        </ComboBox>
+                        </ComboBox>-->
                         <controls:SimpleText FontWeight="Bold" Foreground="{TemplateBinding Foreground}" Text="跳至" VerticalAlignment="Center"/>
-                        <controls:TextBox TextType="Int" Margin="10,0" Width="40" Height="30" HorizontalContentAlignment="Center" Text="{Binding JumpNum,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"/>
+                        <controls:TextBox TextType="Int" Margin="10,0" Width="40" BorderBrush="{TemplateBinding BorderBrush}" Height="30" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="Center" Text="{Binding JumpNum,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"/>
                         <controls:SimpleText FontWeight="Bold" Foreground="{TemplateBinding Foreground}" Text="页" VerticalAlignment="Center"/>
-                        <Button Content="Go" Width="30" Height="30" Margin="10,0" BorderBrush="{TemplateBinding BorderBrush}" Command="interactivity:ControlCommands.Jump"/>
+                        <Button Content="Go" Width="30" Height="30" Margin="10,0" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" Command="interactivity:ControlCommands.Jump"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

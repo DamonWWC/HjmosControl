@@ -4,6 +4,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
+        <ResourceDictionary Source="TextBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 

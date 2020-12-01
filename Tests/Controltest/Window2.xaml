@@ -34,11 +34,11 @@
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
         <!--<ComboBox ItemsSource="{Binding MaxPageRange}" SelectedIndex="0" ItemStringFormat="'{}{0} in}'"  Grid.Row="0" Margin="0,0,643.333,130"  Foreground="Red"/>-->
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
-        <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
+        <hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>
 
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <hj:SearchBar Background="Black" Foreground="White" Margin="412,65,353.333,114.667" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
+        <!--<hj:SearchBar Background="Black" Foreground="White" Margin="412,65,353.333,114.667" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />-->
       
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             

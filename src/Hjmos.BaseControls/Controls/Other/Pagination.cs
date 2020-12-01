@@ -69,7 +69,7 @@ namespace Hjmos.BaseControls.Controls
             CommandBindings.Add(new System.Windows.Input.CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
             CommandBindings.Add(new System.Windows.Input.CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
             CommandBindings.Add(new System.Windows.Input.CommandBinding(ControlCommands.Jump, (s, e) => PageIndex = JumpNum));
-            this.Show(MaxPageCount > 1);
+            this.Show(MaxPageCount > 0);
             MaxPageRange = new ObservableCollection<int>() { 10, 20, 30 };
             
         }
