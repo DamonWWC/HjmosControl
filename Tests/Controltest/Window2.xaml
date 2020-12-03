@@ -17,7 +17,11 @@
             <!--<RowDefinition Height="3"/>-->
             <RowDefinition Height="182*"/>
         </Grid.RowDefinitions>
+        <!--<hj:ImageViewer ImageSource="pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg"  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,158.333,4.667" />-->
 
+        <Button Style="{StaticResource ButtonIcon}" hj:IconElement.Geometry="{StaticResource Message}"  BorderBrush="#13FF9B" Foreground="#005A08"  Grid.Row="0" VerticalAlignment="Center" Height="45" Width="85" HorizontalAlignment="Right" Margin="0,70,168.333,109.667">
+           
+        </Button>
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
         <!--<hjcc:TrainCongestionStatus Grid.Row="2"   TrainCongestionDatas="{Binding TrainCongestionDatas}"/>-->
         <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
@@ -34,12 +38,50 @@
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
         <!--<ComboBox ItemsSource="{Binding MaxPageRange}" SelectedIndex="0" ItemStringFormat="'{}{0} in}'"  Grid.Row="0" Margin="0,0,643.333,130"  Foreground="Red"/>-->
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
-        <hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>
+        <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
+        <Button Content="预警信息" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}" hj:BorderElement.Geometry="{StaticResource Border1}" Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
 
+
+        <ItemsControl Margin="250,35,376.333,24.667" VerticalAlignment="Center" Grid.Row="0" Height="165" ItemsSource="{Binding SolveProcessDatas}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Expander Header="{Binding Title}" HorizontalContentAlignment="Center">
+                        <ItemsControl ItemsSource="{Binding ExpanderDatas}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <CheckBox Margin="0,10" BorderBrush="#00B2E1" Content="{Binding Contetnt}" IsChecked="{Binding IsSelect,Mode=TwoWay}" HorizontalAlignment="Left"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Expander>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <!--<Expander Margin="0,4,0,0" Header="获取突发事件情况" HorizontalContentAlignment="Center" >
+                <Border Height="10" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4">
+                    <CheckBox Content="确认现场情况" HorizontalAlignment="Left"/>
+                </Border>
+            </Expander>
+            <Expander Margin="0,4,0,0" Header="指挥部会商" HorizontalContentAlignment="Center" >
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4">
+                    <CheckBox Content="指挥部会商" HorizontalAlignment="Left"/>
+                </Border>
+            </Expander>
+            <Expander Margin="0,4,0,0" Header="指挥部会商" HorizontalContentAlignment="Center" >
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4">
+                    <CheckBox Content="发布PIDS信息" HorizontalAlignment="Left"/>
+                    -->
+            <!--<CheckBox Content="通报公交集团机场控制中心" HorizontalAlignment="Left"/>
+                    <CheckBox Content="通报公交总队" HorizontalAlignment="Left"/>
+                    <CheckBox Content="预案开始" HorizontalAlignment="Left"/>-->
+            <!--
+                </Border>
+            </Expander>-->
+        </ItemsControl>
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
         <!--<hj:SearchBar Background="Black" Foreground="White" Margin="412,65,353.333,114.667" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />-->
-      
+
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             
         </hj:RunningBlock>-->
@@ -91,8 +133,26 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="预警信息" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}" Margin="745,55,0,0" hj:BorderElement.Geometry="{StaticResource Border1}" Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Background="Black" Foreground="White" ForceCursor="True" Margin="105,55,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <!--<Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="row1" Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Content="预警信息" Grid.Row="1" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}" hj:BorderElement.Geometry="{StaticResource Border1}" Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
+            -->
+        <!--<TextBlock  x:Name="text1" Grid.Row="0"  TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Margin="0,0,758.333,0"   >
+            1111111111111111111111111222222222222222222222222222222222222222222222222233333333333wwwwwwwwwwwwwwwwwwww
+                wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+            </TextBlock>-->
+        <!--
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="xt" Grid.Row="0" TextWrapping="Wrap" Width="193">
+                     1111111111111111111111111222222222222222222222222222222222222222222222222233333333333wwwwwwwwwwwwwwwwwwww
+                wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwfffffffffffffffffffffffffffffff
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>-->
+
         <!--<ItemsControl ItemsSource="{Binding Datas}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate DataType="{x:Type controls:FlowData}">

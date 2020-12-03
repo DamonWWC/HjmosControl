@@ -33,11 +33,11 @@ namespace Controltest
         public Window2()
         {
             InitializeComponent();
-           
+
             DirectionList = new ObservableCollection<string>() { "总客流", "进站", "出战" };
             DateTime now = DateTime.Now;
             DateTime data = new DateTime(now.Year, now.Month, now.Day, 5, 0, 0);
-            
+
             var r = new Random();
             double _trend = 0;
             MeasuredValues = new ChartValues<ChartDataModel>();
@@ -81,7 +81,7 @@ namespace Controltest
             TrainCongestionDatas = new ObservableCollection<TrainCongestionData>
             {
                  new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=2},
-                new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=1},               
+                new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=1},
                 new TrainCongestionData{ConfestionStatus=ConfestionStatus.Congestion,Index=3},
                  new TrainCongestionData{ConfestionStatus=ConfestionStatus.Normal,Index=5},
                 new TrainCongestionData{  ConfestionStatus=ConfestionStatus.Easy, Index=6},
@@ -95,15 +95,32 @@ namespace Controltest
 
             valuetext = 23;
             DataList = GetDataList();
-           
+
             Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
-      
+
             titlelistbox = new List<string>() { "运力费正常下降", "接触轨失电" };
 
             ChartValue = new ChartValues<double> { 20, 30, 45, 34, 88, 100 };
 
             WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
             //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
+            ExpanderDatas = new ObservableCollection<ExpanderData>
+            { new ExpanderData{ Contetnt="发布PIDS信息", IsSelect=false},
+            new ExpanderData{ Contetnt="通报公交集团机场控制中心", IsSelect=false},
+            new ExpanderData{ Contetnt="通报公交总队", IsSelect=false},
+            new ExpanderData{ Contetnt="通报市交委", IsSelect=false},
+            };
+
+
+            SolveProcessDatas = new ObservableCollection<SolveProcessData> { new SolveProcessData { Title="预案开始", ExpanderDatas= new ObservableCollection<ExpanderData>
+            { new ExpanderData{ Contetnt="发布PIDS信息", IsSelect=false},
+            new ExpanderData{ Contetnt="通报公交集团机场控制中心", IsSelect=false},
+            new ExpanderData{ Contetnt="通报公交总队", IsSelect=false},
+            new ExpanderData{ Contetnt="通报市交委", IsSelect=false},
+            }} };
+
+            ImageSource = "pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg";
+
             DataContext = this;
 
 
@@ -127,12 +144,30 @@ namespace Controltest
             };
         }
 
+
+        public string ImageSource { get; set; }
         private WeatherData _WeatherData;
         public WeatherData WeatherData 
         {
             get { return _WeatherData; }
             set { _WeatherData = value; OnPropertyChanged(); } 
         }
+
+
+        private ObservableCollection<SolveProcessData> _SolveProcessDatas;
+        public ObservableCollection<SolveProcessData> SolveProcessDatas
+        {
+            get { return _SolveProcessDatas; }
+            set { _SolveProcessDatas = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<ExpanderData> _ExpanderDatas;
+        public ObservableCollection<ExpanderData> ExpanderDatas
+        {
+            get { return _ExpanderDatas; }
+            set { _ExpanderDatas = value; OnPropertyChanged(); }
+        }
+
 
         public List<int> MaxPageRange { get; set; }
 
@@ -317,9 +352,48 @@ namespace Controltest
         {
              Content1 = "  08-31 18:25 天河智慧城站上···";
             WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
+            //ExpanderDatas[0].IsSelect = true;
+            SolveProcessDatas[0].ExpanderDatas[0].IsSelect = true;
+
+            //text1.TextTrimming=TextTrimming.None;
+            //row1.Height = GridLength.Auto;
         }
     }
 
+
+    public class ExpanderData: INotifyPropertyChanged
+    {
+        private bool _IsSelect;
+        public bool IsSelect 
+        {
+            get { return _IsSelect; }
+            set { 
+                _IsSelect = value;
+                OnPropertyChanged(); 
+            }
+        }
+        private string _Contetnt;
+        public string Contetnt
+        {
+            get { return _Contetnt; }
+            set { _Contetnt = value; OnPropertyChanged(); }
+        }
+      
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
+    public class SolveProcessData
+    {
+        public string Title { get; set; }
+        public ObservableCollection<ExpanderData> ExpanderDatas { get; set; }
+    }
     public class DemoDataModel
     {
         public int Index { get; set; }

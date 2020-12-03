@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -28,8 +24,8 @@ namespace Hjmos.BaseControls.Controls
 
             border = GetTemplateChild(PART_Border) as Border;
 
-            if(border!=null)
-            {              
+            if (border != null)
+            {
                 SelectImageType();
             }
 
@@ -38,9 +34,9 @@ namespace Hjmos.BaseControls.Controls
         private void SelectImageType()
         {
            
-
             try
             {
+                if (border == null) return;
 
                 if (ImageSource == null) return;
                 var index = ImageSource.LastIndexOf('.');
@@ -53,7 +49,7 @@ namespace Hjmos.BaseControls.Controls
                         HorizontalAlignment = HorizontalAlignment.Center,
                         Width = this.Width,
                         Height = this.Height,
-                        ImageSource = new Uri(ImageSource)
+                        ImageSource = new Uri(ImageSource)                        
                     };
                     border.Child = svgBox;
                 }
@@ -86,7 +82,11 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for ImageSource.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageSourceProperty =
-            DependencyProperty.Register("ImageSource", typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
+            DependencyProperty.Register("ImageSource", typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string),(o,args)=>
+            {
+                var image = (ImageViewer)o;
+                image.SelectImageType();
+            }));
 
 
 

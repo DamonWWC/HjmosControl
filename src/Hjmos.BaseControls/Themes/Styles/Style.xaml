@@ -30,5 +30,7 @@
         <ResourceDictionary Source="CheckBox.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Weather.xaml"/>
+        <ResourceDictionary Source="ToggleBlock.xaml"/>
+        <ResourceDictionary Source="Expander.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

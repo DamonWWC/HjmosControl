@@ -34,7 +34,8 @@
                             <Setter Property="BorderThickness" Value="1"/>
                         </Trigger>-->
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Path.Stroke" Value="Blue" TargetName="PathBorder"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <!--<Setter Property="Path.Stroke" Value="Blue" TargetName="PathBorder"/>-->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
