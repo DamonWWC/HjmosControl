@@ -51,9 +51,12 @@
   <ItemGroup>
     <Compile Include="Controls\Attach\DataGridAttach.cs" />
     <Compile Include="Controls\Attach\DropDownElement.cs" />
+    <Compile Include="Controls\Attach\EdgeElement.cs" />
     <Compile Include="Controls\Attach\InfoElement.cs" />
+    <Compile Include="Controls\Attach\MemoElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
+    <Compile Include="Controls\Attach\RectangleAttach.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Attach\TitleElement.cs" />
@@ -69,6 +72,7 @@
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Image\ImageViewer.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
+    <Compile Include="Controls\Input\MemoBox.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
@@ -85,10 +89,16 @@
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Image\SvgBox.cs" />
     <Compile Include="Controls\Other\Weather.cs" />
+    <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
     <Compile Include="Controls\Text\SimpleText.cs" />
+    <Compile Include="Controls\Time\CalendarWithClock.cs" />
+    <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
+    <Compile Include="Controls\Time\Clock\Clock.cs" />
+    <Compile Include="Controls\Time\Clock\ClockBase.cs" />
+    <Compile Include="Controls\Time\Clock\ListClock.cs" />
     <Compile Include="Controls\UserControl\PopupUserControl.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
@@ -154,6 +164,7 @@
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="Tools\Converter\String2GeometryConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
@@ -164,6 +175,7 @@
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\Extension\ValueExtension.cs" />
     <Compile Include="Tools\Helper\AnimationHelper.cs" />
+    <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="Tools\Helper\DpiHelper.cs" />
     <Compile Include="Tools\Helper\ResourceHelper.cs" />
     <Compile Include="Tools\Helper\TokenizerHelper.cs" />
@@ -227,6 +239,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\CalendarWithClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -279,7 +295,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Rectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

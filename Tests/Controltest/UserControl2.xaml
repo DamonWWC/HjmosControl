@@ -7,7 +7,66 @@
              xmlns:local="clr-namespace:Controltest"
              mc:Ignorable="d" Background="#0a223e"
              >
+
     <Grid>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <LinearGradientBrush x:Key="Background" EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF085987" Offset="1"/>
+                    <GradientStop Color="#000A476B" Offset="0"/>
+                </LinearGradientBrush>
+                <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxExtend}" >
+                    <Setter Property="Background" Value="{StaticResource Background}"/>
+                    <Setter Property="BorderBrush" Value="#2FA7BA"/>
+                    <Setter Property="FontSize" Value="10"/>
+                    <!--<Setter Property="Height" Value="40"/>-->
+                   
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="hj:BorderElement.Geometry" Value="{StaticResource Rect2}"/>
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style TargetType="hj:MemoBox" BasedOn="{StaticResource ComboBoxMemoExtentStyle}" >
+                    <Setter Property="Background" Value="{StaticResource Background}"/>
+                    <Setter Property="BorderBrush" Value="#2FA7BA"/>
+                    <Setter Property="FontSize" Value="10"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="hj:InfoElement.ContentHeight" Value="30"/>
+                    <Setter Property="hj:BorderElement.Geometry" Value="{StaticResource Rect2}"/>
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="预警处置-监控面板-左侧视图-预警详情" Foreground="White"/>-->
+        <TextBox Grid.Row="0" Grid.Column="0"  hj:InfoElement.Title="事件类型" />
+        <TextBox Grid.Row="0" Grid.Column="1"  hj:InfoElement.Title="预警级别"/>
+        <TextBox Grid.Row="1" Grid.Column="0"  hj:InfoElement.Title="事件预计发生时间"/>
+        <TextBox Grid.Row="1" Grid.Column="1"  hj:InfoElement.Title="事件预计结束时间"/>
+        <hj:MemoBox Grid.Row="2" Grid.Column="0" MemoText="12334545555555555555555555" SelectedIndex="0" Grid.ColumnSpan="2"  hj:InfoElement.Title="事件内容描述"/>
+        <TextBox Grid.Row="3" Grid.Column="0"  hj:InfoElement.Title="发送位置"/>
+        <TextBox Grid.Row="3" Grid.Column="1"  hj:InfoElement.Title="事件可能影响范围"/>
+        <TextBox Grid.Row="4" Grid.Column="0"  hj:InfoElement.Title="警示事项"/>
+        <TextBox Grid.Row="4" Grid.Column="1"  hj:InfoElement.Title="应对措施"/>
+        <TextBox Grid.Row="5" Grid.Column="0"  hj:InfoElement.Title="自救方法"/>
+        <TextBox Grid.Row="5" Grid.Column="1"  hj:InfoElement.Title="咨询电话"/>
+    </Grid>
+
+
+
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -42,8 +101,8 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0" Orientation="Horizontal" >
                     <TextBlock Text="信息列表" Foreground="#BEFFFD " Style="{StaticResource TextBlockDefault}"/>
-                    <!--<TextBlock Text="{Binding InfoNumber,StringFormat=信息数:{0:N0}条记录}" Foreground="White" Style="{StaticResource TextBlockDefault}"/>
-                    <TextBlock Text="{Binding ResponseTime,StringFormat=查询响应时间:{0:N0}ms}" Foreground="White" Style="{StaticResource TextBlockDefault}"/>-->
+                    --><!--<TextBlock Text="{Binding InfoNumber,StringFormat=信息数:{0:N0}条记录}" Foreground="White" Style="{StaticResource TextBlockDefault}"/>
+                    <TextBlock Text="{Binding ResponseTime,StringFormat=查询响应时间:{0:N0}ms}" Foreground="White" Style="{StaticResource TextBlockDefault}"/>--><!--
                     <TextBlock Text="信息数：20条记录" Foreground="#30FFFF" Style="{StaticResource TextBlockDefault}" Margin="20,0"/>
                     <TextBlock Text="查询响应时间：28ms" Foreground="#30FFFF" Style="{StaticResource TextBlockDefault}"/>
                 </StackPanel>
@@ -54,11 +113,11 @@
             </Grid>
 
             <DataGrid HeadersVisibility="All" FontSize="15"   Foreground="#c0fffc" hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
-                <!--<DataGrid.RowHeaderTemplate>
+                --><!--<DataGrid.RowHeaderTemplate>
                     <DataTemplate>
                         <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                     </DataTemplate>
-                </DataGrid.RowHeaderTemplate>-->
+                </DataGrid.RowHeaderTemplate>--><!--
 
                 <DataGrid.RowHeaderStyle>
                     <Style TargetType="DataGridRowHeader" BasedOn="{StaticResource DataGridRowHeaderStyle}">
@@ -86,5 +145,5 @@
             </DataGrid>
             <hj:Pagination Grid.Row="2" MaxNum="1" Foreground="White" BorderBrush="#00B2E1" BorderThickness="1" hj:VisualElement.HighlightBackground="#00B2E1" hj:VisualElement.HighlightBorderBrush="#00B2E1" MaxPageInterval="4" VerticalAlignment="Center" HorizontalAlignment="Center"  />
         </Grid>
-    </Grid>
+    </Grid>-->
 </UserControl>

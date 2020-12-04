@@ -32,5 +32,8 @@
         <ResourceDictionary Source="Weather.xaml"/>
         <ResourceDictionary Source="ToggleBlock.xaml"/>
         <ResourceDictionary Source="Expander.xaml"/>
+        <ResourceDictionary Source="Calendar.xaml"/>
+        <ResourceDictionary Source="Clock.xaml"/>
+        <ResourceDictionary Source="CalendarWithClock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

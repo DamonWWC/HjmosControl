@@ -103,7 +103,7 @@ namespace Controltest
             ChartValue = new ChartValues<double> { 20, 30, 45, 34, 88, 100 };
 
             WeatherData = new WeatherData() { Condition = "晴", Temperature = 20, WindDirection = "东北风", WindPower = "2级", Precipitation = "0.0mm", Humidity = "46%", Pressure = "1018hpa" };
-            //MaxPageRange = new List<int>() { 1, 2, 3, 4 };
+            MaxPageRange =  "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···" ;
             ExpanderDatas = new ObservableCollection<ExpanderData>
             { new ExpanderData{ Contetnt="发布PIDS信息", IsSelect=false},
             new ExpanderData{ Contetnt="通报公交集团机场控制中心", IsSelect=false},
@@ -169,7 +169,7 @@ namespace Controltest
         }
 
 
-        public List<int> MaxPageRange { get; set; }
+        public string MaxPageRange { get; set; }
 
 
         public List<string> titlelistbox { get; set; }

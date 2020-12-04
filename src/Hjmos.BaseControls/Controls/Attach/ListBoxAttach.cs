@@ -39,7 +39,14 @@ namespace Hjmos.BaseControls.Controls
         public static readonly DependencyProperty ListBoxItemWithProperty =
             DependencyProperty.RegisterAttached("ListBoxItemWith", typeof(double), typeof(ListBoxAttach), new PropertyMetadata(50d));
 
+        public static readonly DependencyProperty IsOddEvenRowProperty = DependencyProperty.RegisterAttached(
+         "IsOddEvenRow", typeof(bool), typeof(ListBoxAttach), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
 
+        public static void SetIsOddEvenRow(DependencyObject element, bool value)
+            => element.SetValue(IsOddEvenRowProperty, value);
+
+        public static bool GetIsOddEvenRow(DependencyObject element)
+            => (bool)element.GetValue(IsOddEvenRowProperty);
 
     }
 }

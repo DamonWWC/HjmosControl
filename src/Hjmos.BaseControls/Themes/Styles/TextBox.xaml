@@ -7,6 +7,6 @@
 
     <Style TargetType="controls:WatermarkTextBox" BasedOn="{StaticResource WatermarkTextBoxBaseStyle}"/>
     <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxBaseStyle}"/>
-
+    <Style x:Key="TextBoxExtend" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="TextBox"/>
     <Style TargetType="controls:TextBox" BasedOn="{StaticResource TextBoxPlusIcon}"/>
 </ResourceDictionary>
