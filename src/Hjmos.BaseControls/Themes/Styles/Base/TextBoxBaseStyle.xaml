@@ -9,7 +9,7 @@
         <ResourceDictionary Source="../TextBlock.xaml"/>
         <ResourceDictionary Source="../Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Style x:Key="WatermarkTextBoxBaseStyle" TargetType="controls:WatermarkTextBox">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
@@ -80,7 +80,7 @@
                 Margin="{TemplateBinding Padding}"
                 Orientation="Horizontal"
                 Visibility="{Binding Path=(controls:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
-                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
+                <TextBlock Margin="1,0,0,0" FontSize="{TemplateBinding FontSize}" Text="{Binding Path=(controls:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
                 <ContentPresenter
                     Margin="4,0,0,0"
                     Content="{Binding Path=(controls:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
@@ -208,6 +208,7 @@
         <Setter Property="controls:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}" />
         <Setter Property="controls:InfoElement.MinContentHeight" Value="30" />
         <Setter Property="Height" Value="Auto" />
+        <Setter Property="CaretBrush" Value="{Binding Foreground,RelativeSource={RelativeSource Mode=Self}}"/>
         <Setter Property="Template" Value="{StaticResource TextBoxExtendTopTemplate}" />
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">

@@ -5,4 +5,5 @@
         <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style TargetType="ScrollViewer" BasedOn="{StaticResource ScrollViewerNativeBaseStyle}"/>
+    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="controls:ScrollViewer"/>
 </ResourceDictionary>

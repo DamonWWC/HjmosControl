@@ -8,6 +8,11 @@
         mc:Ignorable="d"     
         d:DataContext="{d:DesignInstance Type={x:Type local:Window2}}"
         Title="Window2" Height="800" Width="1000"  >
+    <Window.Resources>
+        <GeometryGroup x:Key="clip" FillRule="Nonzero">
+            <EllipseGeometry RadiusX="75" RadiusY="50" Center="75,50"/>
+        </GeometryGroup>
+    </Window.Resources>
     <Grid >
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
@@ -39,8 +44,9 @@
 
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
         <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
-        <Button Content="预警信息" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}" hj:BorderElement.Geometry="{StaticResource Border1}" Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="105" Click="Button_Click_3" Height="30"/>
 
+        <Button Content="预警信息" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}"   Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="270" Click="Button_Click_3" Height="90" Margin="150,235,0,0"/>
+        <!--<Button Clip="{StaticResource clip}" Content="button" Margin="110,150,733.333,180" Background="Red"/>-->
 
         <!--<ItemsControl Margin="250,134,376.333,131" VerticalAlignment="Center" Grid.Row="0" Height="165" ItemsSource="{Binding SolveProcessDatas}">
             <ItemsControl.ItemTemplate>
@@ -138,7 +144,7 @@
         <!--<hj:CalendarWithClock Margin="0,0,0.333,1"/>-->
         <hj:TextBox hj:TitleElement.Title="事件详情"  Text="1234" IsReadOnly="True" hj:BorderElement.Geometry="{StaticResource Rect2}"  Style="{StaticResource TextBoxExtend}" Margin="595,109,167.333,261" />
 
-        
+
 
         <!--<Grid Grid.Row="0">
             <Grid.RowDefinitions>

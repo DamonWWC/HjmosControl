@@ -104,9 +104,9 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>-->
                         <controls:SimpleText FontWeight="Bold" Foreground="{TemplateBinding Foreground}" Text="跳至" VerticalAlignment="Center"/>
-                        <controls:TextBox TextType="Int" Margin="10,0" Width="40" BorderBrush="{TemplateBinding BorderBrush}" Height="30" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="Center" Text="{Binding JumpNum,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"/>
+                        <controls:TextBox TextType="Int" Margin="10,0" Background="Transparent" Width="40" BorderBrush="{TemplateBinding BorderBrush}" Height="30" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="Center" Text="{Binding JumpNum,RelativeSource={RelativeSource Mode=TemplatedParent},Mode=TwoWay}"/>
                         <controls:SimpleText FontWeight="Bold" Foreground="{TemplateBinding Foreground}" Text="页" VerticalAlignment="Center"/>
-                        <Button Content="Go" Width="30" Height="30" Margin="10,0" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" Command="interactivity:ControlCommands.Jump"/>
+                        <Button Content="Go" Width="30" Height="30" Margin="10,0" Background="Transparent" Foreground="{TemplateBinding Foreground}" BorderBrush="{TemplateBinding BorderBrush}" Command="interactivity:ControlCommands.Jump"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

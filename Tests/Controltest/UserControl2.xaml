@@ -18,7 +18,7 @@
                 <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxExtend}" >
                     <Setter Property="Background" Value="{StaticResource Background}"/>
                     <Setter Property="BorderBrush" Value="#2FA7BA"/>
-                    <Setter Property="FontSize" Value="10"/>
+                    <Setter Property="FontSize" Value="11"/>
                     <!--<Setter Property="Height" Value="40"/>-->
                    
                     <Setter Property="Foreground" Value="White"/>
@@ -51,7 +51,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <!--<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="预警处置-监控面板-左侧视图-预警详情" Foreground="White"/>-->
-        <TextBox Grid.Row="0" Grid.Column="0"  hj:InfoElement.Title="事件类型" />
+        <TextBox Grid.Row="0" Grid.Column="0" Text="客流预警" hj:InfoElement.Title="事件类型" />
         <TextBox Grid.Row="0" Grid.Column="1"  hj:InfoElement.Title="预警级别"/>
         <TextBox Grid.Row="1" Grid.Column="0"  hj:InfoElement.Title="事件预计发生时间"/>
         <TextBox Grid.Row="1" Grid.Column="1"  hj:InfoElement.Title="事件预计结束时间"/>

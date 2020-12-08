@@ -168,11 +168,11 @@
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Margin="1,0,0,0" FontSize="{TemplateBinding FontSize}" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
-                <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
+                <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}">
                     <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
                         <hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
                             <Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -241,7 +241,7 @@
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock FontSize="{TemplateBinding FontSize}" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
@@ -320,7 +320,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
-        <Setter Property="ContextMenu" Value="{StaticResource TextBoxContextMenu}" />
+        <!--<Setter Property="ContextMenu" Value="{StaticResource TextBoxContextMenu}" />-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -443,13 +443,13 @@
                                 <Condition Property="IsSelected" Value="False" />
                                 <Condition Property="IsMouseOver" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+                            <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent} }" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                             <Setter Property="Foreground" Value="White" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
@@ -488,6 +488,37 @@
     </Style>
 
 
+    <!--下拉框扩展样式-->
+    <Style x:Key="ComboBoxExtendBaseStyle" BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox">
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Template" Value="{StaticResource ComboBoxTopTemplate}"/>
+        <Setter Property="hc:InfoElement.Symbol" Value="●"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}"/>
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="30"/>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEditable" Value="False"/>
+                    <Condition Property="hc:InfoElement.TitleAlignment" Value="Left"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Template" Value="{StaticResource ComboBoxLeftTemplate}" />
+            </MultiTrigger>
+            <!--<MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEditable" Value="True"/>
+                    <Condition Property="hc:InfoElement.TitlePlacement" Value="Top"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Template" Value="{StaticResource ComboBoxEditableTopTemplate}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEditable" Value="True"/>
+                    <Condition Property="hc:InfoElement.TitlePlacement" Value="Left"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Template" Value="{StaticResource ComboBoxEditableLeftTemplate}" />
+            </MultiTrigger>-->
+        </Style.Triggers>
+    </Style>
 
 
     <!--  下拉项Memo基样式  -->
@@ -496,14 +527,14 @@
         <!--<Setter Property="Padding" Value="8,6" />-->
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{Binding BorderBrush,RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <!--<Setter Property="MinHeight" Value="30" />-->
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBoxItem">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" Height="Auto" BorderThickness="{TemplateBinding BorderThickness}" Width="{TemplateBinding ActualWidth}">
-                        <TextBlock  TextWrapping="Wrap"  Background="{Binding Background,RelativeSource={RelativeSource AncestorType=ComboBox}}"  Foreground="{Binding Foreground,RelativeSource={RelativeSource AncestorType=ComboBox}}"    Text="{TemplateBinding Content}" />
+                        <TextBlock FontSize="{TemplateBinding FontSize}"   TextWrapping="Wrap"  Background="{Binding Background,RelativeSource={RelativeSource AncestorType=ComboBox}}"  Foreground="{Binding Foreground,RelativeSource={RelativeSource AncestorType=ComboBox}}"    Text="{TemplateBinding Content}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -514,7 +545,7 @@
 
     <Style x:Key="ComboBoxMemoBaseStyle" TargetType="hc:MemoBox">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxMemoItemBaseStyle}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
