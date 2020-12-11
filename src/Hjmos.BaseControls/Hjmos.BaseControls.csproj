@@ -49,10 +49,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
+    <Compile Include="Controls\Attach\BorderElement.cs" />
     <Compile Include="Controls\Attach\DataGridAttach.cs" />
     <Compile Include="Controls\Attach\DropDownElement.cs" />
     <Compile Include="Controls\Attach\EdgeElement.cs" />
+    <Compile Include="Controls\Attach\IconElement.cs" />
+    <Compile Include="Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="Controls\Attach\InfoElement.cs" />
+    <Compile Include="Controls\Attach\ListBoxAttach.cs" />
     <Compile Include="Controls\Attach\MemoElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
@@ -60,6 +65,7 @@
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Attach\TitleElement.cs" />
+    <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Base\ISingleOpen.cs" />
     <Compile Include="Controls\Block\FloatingBlock.cs" />
@@ -71,6 +77,8 @@
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Image\ImageViewer.cs" />
+    <Compile Include="Controls\Input\DatePicker.cs" />
+    <Compile Include="Controls\Input\DateTimePicker.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\MemoBox.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />
@@ -239,6 +247,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\DatePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\CalendarWithClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -303,6 +319,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DateTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -335,8 +359,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
-    <Compile Include="Controls\Attach\BorderElement.cs" />
     <Page Include="Themes\SkinDefault.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -494,8 +516,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Style.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
       <SubType>Designer</SubType>
@@ -523,10 +545,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Attach\IconElement.cs" />
-    <Compile Include="Controls\Attach\IconSwitchElement.cs" />
-    <Compile Include="Controls\Attach\ListBoxAttach.cs" />
-    <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
     <Compile Include="Controls\Block\RunningBlock\RunningBlock.cs" />
     <Compile Include="Controls\Other\Card.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />

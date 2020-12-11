@@ -8,7 +8,8 @@ namespace Hjmos.BaseControls.Controls
     [TemplatePart(Name = ElementHourList, Type = typeof(System.Windows.Controls.ListBox))]
     [TemplatePart(Name = ElementMinuteList, Type = typeof(System.Windows.Controls.ListBox))]
     [TemplatePart(Name = ElementSecondList, Type = typeof(System.Windows.Controls.ListBox))]
-    
+    [TemplatePart(Name = ElementTimeStr, Type = typeof(TextBlock))]
+
     public class ListClock : ClockBase
     {
         #region Constants
@@ -16,6 +17,7 @@ namespace Hjmos.BaseControls.Controls
         private const string ElementHourList = "PART_HourList";
         private const string ElementMinuteList = "PART_MinuteList";
         private const string ElementSecondList = "PART_SecondList";
+        private const string ElementTimeStr = "PART_TimeStr";
 
         #endregion Constants
 
@@ -26,6 +28,7 @@ namespace Hjmos.BaseControls.Controls
         private System.Windows.Controls.ListBox _minuteList;
 
         private System.Windows.Controls.ListBox _secondList;
+        private TextBlock _blockTime;
 
         #endregion Data
 
@@ -78,6 +81,7 @@ namespace Hjmos.BaseControls.Controls
             }
 
             ButtonConfirm = GetTemplateChild(ElementButtonConfirm) as Button;
+            _blockTime = GetTemplateChild(ElementTimeStr) as TextBlock;
 
             if (ButtonConfirm != null)
             {
@@ -122,6 +126,7 @@ namespace Hjmos.BaseControls.Controls
                 var now = DateTime.Now;
                 DisplayTime = new DateTime(now.Year, now.Month, now.Day, _hourList.SelectedIndex,
                     _minuteList.SelectedIndex, _secondList.SelectedIndex);
+                _blockTime.Text = DisplayTime.ToString(TimeFormat);
             }
         }
 

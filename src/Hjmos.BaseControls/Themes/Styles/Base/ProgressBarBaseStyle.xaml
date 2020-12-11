@@ -62,7 +62,7 @@
                     <Border x:Name="TemplateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding  Background}">
                         <controls:SimplePanel>
                             <Rectangle x:Name="PART_Track"/>
-                            <Border Style="{StaticResource BorderClip}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_Indicator" HorizontalAlignment="Left">
+                            <Border Style="{StaticResource BorderClip}" Margin="{TemplateBinding Padding}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_Indicator" HorizontalAlignment="Left">
                                 <controls:SimplePanel>
                                     <Border x:Name="Indicator" Background="{TemplateBinding Foreground}">
                                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Path=(controls:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>

@@ -146,7 +146,7 @@ namespace Hjmos.BaseControls.Controls
 
             _clockPresenter.Content = _clock;
             _calendarPresenter.Content = _calendar;
-
+                      
             _buttonConfirm.Click += ButtonConfirm_OnClick;
         }
 

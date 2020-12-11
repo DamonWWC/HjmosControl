@@ -98,7 +98,7 @@ namespace Controltest
 
             Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
 
-            titlelistbox = new List<string>() { "运力费正常下降", "接触轨失电" };
+            titlelistbox = new List<string>() { "**线网指挥中心发布一级大客流预警", "接触轨失电" };
 
             ChartValue = new ChartValues<double> { 20, 30, 45, 34, 88, 100 };
 
@@ -122,6 +122,11 @@ namespace Controltest
             ImageSource = "pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg";
 
             DataContext = this;
+
+
+            TimeSpan aa = new TimeSpan(0, 0, 70);
+            var bb = aa.Minutes;
+            var cc = aa.Seconds;
 
 
             List<string> a = new List<string>();

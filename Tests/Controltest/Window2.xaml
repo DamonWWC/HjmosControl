@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"     
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"  x:Class="Controltest.Window2"
-        mc:Ignorable="d"     
+       
+    mc:Ignorable="d"     
         d:DataContext="{d:DesignInstance Type={x:Type local:Window2}}"
         Title="Window2" Height="800" Width="1000"  >
     <Window.Resources>
@@ -29,18 +30,18 @@
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
         <!--<hjcc:TrainCongestionStatus Grid.Row="2"   TrainCongestionDatas="{Binding TrainCongestionDatas}"/>-->
         <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
-
+        <ComboBox Margin="95,310,458.333,65"  HorizontalContentAlignment="Center" ItemsSource="{Binding titlelistbox}" Style="{StaticResource TitleComboBox}"/>
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
         <!--<controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>-->
         <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
-        <!--<ProgressBar  Value="300" Maximum="100"  Margin="0,234.667,88.333,125.667" Grid.Row="1" />-->
+        <ProgressBar  Value="120" Maximum="100" Padding="2"    Grid.Row="1" Background="AliceBlue" Foreground="Aqua" hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" />
 
 
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
-        <hj:MemoBox  Style="{StaticResource ComboBoxMemoExtentStyle}" hj:InfoElement.ContentHeight="30"  hj:InfoElement.Title="事件类型" MemoText="{Binding MaxPageRange}" SelectedIndex="0" BorderBrush="Red" hj:BorderElement.Geometry="{StaticResource Rect2}"  Grid.Row="0"    Foreground="Red" Margin="95,85,458.333,230"/>
+        <!--<hj:MemoBox  Style="{StaticResource ComboBoxMemoExtentStyle}" hj:InfoElement.ContentHeight="30"  hj:InfoElement.Title="事件类型" MemoText="{Binding MaxPageRange}" SelectedIndex="0" BorderBrush="Red" hj:BorderElement.Geometry="{StaticResource Rect2}"  Grid.Row="0"    Foreground="Red" Margin="95,85,458.333,230"/>-->
 
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
         <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
@@ -140,9 +141,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--<Calendar/>-->
-        <!--<hj:ListClock Margin="689,42,71.333,14"/>-->
-        <!--<hj:CalendarWithClock Margin="0,0,0.333,1"/>-->
-        <hj:TextBox hj:TitleElement.Title="事件详情"  Text="1234" IsReadOnly="True" hj:BorderElement.Geometry="{StaticResource Rect2}"  Style="{StaticResource TextBoxExtend}" Margin="595,109,167.333,261" />
+        <!--<hj:ListClock Margin="505,10,71.333,14" Height="400"/>-->
+        <hj:CalendarWithClock Margin="240,35,193.333,35"/>
+        <!--<hj:TextBox hj:TitleElement.Title="事件详情"  Text="1234" IsReadOnly="True" hj:BorderElement.Geometry="{StaticResource Rect2}"  Style="{StaticResource TextBoxExtend}" Margin="595,109,167.333,261" />-->
+        <hj:DateTimePicker Margin="78,75,718.333,320" />
+
+        <Calendar  />
+
+
 
 
 

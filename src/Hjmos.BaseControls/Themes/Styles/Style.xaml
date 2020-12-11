@@ -35,5 +35,7 @@
         <ResourceDictionary Source="Calendar.xaml"/>
         <ResourceDictionary Source="Clock.xaml"/>
         <ResourceDictionary Source="CalendarWithClock.xaml"/>
+        <ResourceDictionary Source="DateTimePicker.xaml"/>
+        <ResourceDictionary Source="DatePicker.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

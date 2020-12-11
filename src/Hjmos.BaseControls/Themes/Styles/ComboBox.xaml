@@ -7,5 +7,6 @@
     <Style x:Key="ComboBoxMemoStyle"  BasedOn="{StaticResource ComboBoxMemoBaseStyle}" TargetType="hc:MemoBox" />
     <Style x:Key="ComboBoxMemoExtentStyle"  BasedOn="{StaticResource ComboBoxMemoExtentBaseStyle}" TargetType="hc:MemoBox" />
     <Style BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox"/>
+    <Style BasedOn="{StaticResource TitleComboBoxBaseStyle}" x:Key="TitleComboBox" TargetType="ComboBox"/>
     <Style x:Key="ComboBoxExtend" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="ComboBox"/>
 </ResourceDictionary>
