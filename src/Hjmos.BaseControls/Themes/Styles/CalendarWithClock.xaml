@@ -8,7 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
     
     
-    <Style TargetType="control:CalendarWithClock">
+    <!--<Style TargetType="control:CalendarWithClock">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
@@ -28,18 +28,82 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
                             </Grid.RowDefinitions>
                             <Border Grid.ColumnSpan="2" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="{Binding Path=(control:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"/>
                             <ContentPresenter Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_CalendarPresenter"/>
                             <ContentPresenter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_ClockPresenter"/>
-                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource PrimaryBrush}" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm"  Content="确定" HorizontalAlignment="Center" Margin="0,0,0,19" Width="180" Height="50" VerticalAlignment="Bottom" Style="{StaticResource ButtonBaseStyle}"/>
+                            <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="{DynamicResource PrimaryBrush}" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm"  Content="确定" HorizontalAlignment="Center" Margin="0,0,0,19" Width="100" Height="30" VerticalAlignment="Bottom"  Style="{StaticResource ButtonBaseStyle}"/>
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>-->
+    <Style x:Key="ChooseTimeToggleButton" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Foreground" Value="#fff" />
+        <Setter Property="Content" Value="选择时间" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="Opacity" Value=".9"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Content" Value="选择日期" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".6"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
+
+    <Style TargetType="control:CalendarWithClock">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="control:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="ShowConfirmButton" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="control:CalendarWithClock">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" Width="220" Height="310" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Border  Grid.Row="0" Height="50" VerticalAlignment="Top" Background="{Binding Path=(control:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <ContentPresenter Grid.Row="0" Grid.RowSpan="2" x:Name="PART_CalendarPresenter"/>
+                            <ContentPresenter Grid.Row="0" Grid.RowSpan="2" Visibility="Hidden" x:Name="PART_ClockPresenter"/>
+                            <Button Grid.Row="2"  Background="{DynamicResource PrimaryBrush}" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm"  Content="确定" HorizontalAlignment="Right"  Width="100" Height="30" VerticalAlignment="Center"  Style="{StaticResource ButtonBaseStyle}"/>
+                            <ToggleButton x:Name="PART_ChooseTime" Grid.Row="2" Foreground="Black" HorizontalAlignment="Left" Margin="7,0,0,0" Background="Transparent" BorderThickness="0" Style="{StaticResource ChooseTimeToggleButton}" Cursor="Hand"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True" SourceName="PART_ChooseTime">
+                            <Setter Property="Visibility" Value="Hidden" TargetName="PART_CalendarPresenter"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="PART_ClockPresenter"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True" SourceName="PART_ButtonConfirm">
+                            <Setter Property="IsChecked" Value="False" TargetName="PART_ChooseTime"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
 
 </ResourceDictionary>

@@ -66,11 +66,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CalendarDayButtonStyle" BasedOn="{StaticResource BaseStyle}" TargetType="CalendarDayButton">
+    <Style x:Key="CalendarDayButtonStyle"  TargetType="CalendarDayButton">
         <Setter Property="MinWidth" Value="10"/>
         <Setter Property="MinHeight" Value="10"/>
-        <Setter Property="Width" Value="32"/>
-        <Setter Property="Height" Value="32"/>
+        <Setter Property="Width" Value="24"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FocusVisualStyle">
@@ -189,7 +190,7 @@
                                     <Button x:Name="PART_PreviousButton" Width="50" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" control:IconElement.Geometry="{StaticResource LeftGeometry}"/>
                                     <Button x:Name="PART_HeaderButton" Focusable="False" Foreground="White" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
                                     <Button x:Name="PART_NextButton" Width="50" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" control:IconElement.Geometry="{StaticResource RightGeometry}"/>
-                                    <Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
+                                    <Grid Width="200" Height="200" x:Name="PART_MonthView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
@@ -209,7 +210,7 @@
                                             <RowDefinition/>
                                         </Grid.RowDefinitions>
                                     </Grid>
-                                    <Grid Width="240" Height="240" x:Name="PART_YearView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Hidden">
+                                    <Grid Width="200" Height="200" x:Name="PART_YearView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Hidden">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>

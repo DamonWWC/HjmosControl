@@ -75,6 +75,7 @@ namespace Hjmos.BaseControls.Controls
         static DateTimePicker()
         {
             EventManager.RegisterClassHandler(typeof(DateTimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
+            EventManager.RegisterClassHandler(typeof(DateTimePicker), LostFocusEvent, new RoutedEventHandler(OnLostFocus));
             KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
             KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(false));
         }
@@ -587,6 +588,7 @@ namespace Hjmos.BaseControls.Controls
             }
 
             OnPickerClosed(new RoutedEventArgs());
+            _calendarWithClock.Restore();
         }
 
         private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
@@ -725,6 +727,11 @@ namespace Hjmos.BaseControls.Controls
                     e.Handled = true;
                 }
             }
+        }
+
+        private static void OnLostFocus(object sender,RoutedEventArgs e)
+        {
+            
         }
 
         #endregion

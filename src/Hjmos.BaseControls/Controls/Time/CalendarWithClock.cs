@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -18,6 +19,9 @@ namespace Hjmos.BaseControls.Controls
 
         private const string ElementCalendarPresenter = "PART_CalendarPresenter";
 
+        private const string ElementChooseTime = "PART_ChooseTime";
+
+
         #endregion Constants
 
         #region Data
@@ -29,6 +33,8 @@ namespace Hjmos.BaseControls.Controls
         private ListClock _clock;
 
         private Calendar _calendar;
+
+        private ToggleButton _toggleButton;
 
         private Button _buttonConfirm;
 
@@ -55,7 +61,7 @@ namespace Hjmos.BaseControls.Controls
         public event Action Confirmed;
 
         #endregion Public Events
-
+        private DateTime _datetime;
         public CalendarWithClock()
         {
             InitCalendarAndClock();
@@ -64,6 +70,7 @@ namespace Hjmos.BaseControls.Controls
                 if (_isLoaded) return;
                 _isLoaded = true;
                 DisplayDateTime = SelectedDateTime ?? DateTime.Now;
+                _datetime = DisplayDateTime;
             };
         }
 
@@ -114,7 +121,7 @@ namespace Hjmos.BaseControls.Controls
             var ctl = (CalendarWithClock)d;
             if (ctl.IsHandlerSuspended(DisplayDateTimeProperty)) return;
             var v = (DateTime)e.NewValue;
-            ctl._clock.SelectedTime = v;
+            ctl._clock.SelectedTime = new DateTime(1,1,1,v.Hour,v.Minute,v.Second);
             ctl._calendar.SelectedDate = v;
             ctl.OnDisplayDateTimeChanged(new FunctionEventArgs<DateTime>(v));
         }
@@ -129,11 +136,20 @@ namespace Hjmos.BaseControls.Controls
 
         #region Public Methods
 
+        public void Restore()
+        {
+            _toggleButton.IsChecked = false;
+        }
+
         public override void OnApplyTemplate()
         {
             if (_buttonConfirm != null)
             {
                 _buttonConfirm.Click -= ButtonConfirm_OnClick;
+            }
+            if(_toggleButton!=null)
+            {
+                _toggleButton.Checked -= ToggleButton_Checked;
             }
 
             base.OnApplyTemplate();
@@ -141,6 +157,7 @@ namespace Hjmos.BaseControls.Controls
             _buttonConfirm = GetTemplateChild(ElementButtonConfirm) as Button;
             _clockPresenter = GetTemplateChild(ElementClockPresenter) as ContentPresenter;
             _calendarPresenter = GetTemplateChild(ElementCalendarPresenter) as ContentPresenter;
+            _toggleButton = GetTemplateChild(ElementChooseTime) as ToggleButton;
 
             CheckNull();
 
@@ -148,6 +165,17 @@ namespace Hjmos.BaseControls.Controls
             _calendarPresenter.Content = _calendar;
                       
             _buttonConfirm.Click += ButtonConfirm_OnClick;
+            _toggleButton.Checked += ToggleButton_Checked;
+        }
+        bool IsFirstCheck = true;
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            if(IsFirstCheck)
+            {               
+                _clock.SelectedTime = _datetime;
+                IsFirstCheck = false;
+            }
+           
         }
 
         #endregion

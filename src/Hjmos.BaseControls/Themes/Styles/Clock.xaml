@@ -230,7 +230,7 @@
     </Style>
 
     <Style x:Key="ClockListBoxStyle" TargetType="ListBox" BasedOn="{StaticResource ListBoxBaseStyle}">
-        <Setter Property="MaxHeight" Value="240"/>
+        <Setter Property="MaxHeight" Value="200"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ClockListBoxItemStyle}"/>
@@ -240,9 +240,10 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Width" Value="210"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="control:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="Template">
@@ -261,11 +262,11 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="{Binding Path=(control:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
-                                <TextBlock x:Name="PART_TimeStr"  VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="{TemplateBinding Foreground}"/>
+                                <TextBlock x:Name="PART_TimeStr"   VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="{TemplateBinding Foreground}"/>
                             </Border>
-                            <ListBox x:Name="PART_HourList" Grid.Row="1" Style="{StaticResource ClockListBoxStyle}" Margin="0,20,0,0"/>
-                            <ListBox Grid.Row="1" Grid.Column="1" x:Name="PART_MinuteList" Style="{StaticResource ClockListBoxStyle}" BorderThickness="1,0" Margin="0,20,0,0"/>
-                            <ListBox Grid.Row="1" Grid.Column="2" x:Name="PART_SecondList" Style="{StaticResource ClockListBoxStyle}" Margin="0,20,0,0"/>
+                            <ListBox x:Name="PART_HourList" Grid.Row="1" Style="{StaticResource ClockListBoxStyle}" Margin="0,10,0,0"/>
+                            <ListBox Grid.Row="1" Grid.Column="1" x:Name="PART_MinuteList" Style="{StaticResource ClockListBoxStyle}" BorderThickness="1,0" Margin="0,10,0,0"/>
+                            <ListBox Grid.Row="1" Grid.Column="2" x:Name="PART_SecondList" Style="{StaticResource ClockListBoxStyle}" Margin="0,10,0,0"/>
                             <Border VerticalAlignment="Bottom"  Visibility="{Binding Visibility,ElementName=PART_ButtonConfirm}" Height="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource BorderBrush}"/>
                             <Button Margin="0,10" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="确定" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
                         </Grid>
