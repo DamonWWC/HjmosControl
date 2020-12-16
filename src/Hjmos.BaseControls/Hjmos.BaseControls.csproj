@@ -90,6 +90,7 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="Tools\Converter\Double2StrConverter.cs" />
     <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
+    <Compile Include="Tools\Converter\HearderSelectAllVisibilityConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
     <Compile Include="Tools\Converter\Name2ImageSourceConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
@@ -332,6 +334,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Rectangle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\RichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

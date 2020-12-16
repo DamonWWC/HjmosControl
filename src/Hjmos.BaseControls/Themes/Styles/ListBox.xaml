@@ -120,9 +120,33 @@
         
     </Style>
 
-    
-    
-    
-    
+    <Style TargetType="ListBox" x:Key="TitleListTopStyle">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="SelectionMode" Value="Multiple"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBox">
+                    <StackPanel >
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0,10,10" Style="{StaticResource TextBlockTitle}"/>
+                        <ItemsPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Left"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--<Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ToggleButton Content="{Binding}" Width="{Binding ItemWidth,RelativeSource={RelativeSource AncestorType=controls:ListBox}}"  Style="{StaticResource ToggleButtonNormalStyle}" FontSize="{Binding FontSize,RelativeSource={RelativeSource AncestorType=ItemsControl}}"  controls:BackgroundSwitchElement.MouseDownBackground="#FF139ABE"  controls:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Cursor="Hand"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>-->
+
+    </Style>
+
+
+
+
 
 </ResourceDictionary>

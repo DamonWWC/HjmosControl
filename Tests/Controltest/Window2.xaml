@@ -116,7 +116,7 @@
 
 
 
-        <DataGrid HeadersVisibility="All"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,4,0.333,-0.333">
+        <hj:DataGrid HeadersVisibility="All" FontSize="14" ShowCheckBox="True"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,4,0.333,-0.333">
             <DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"/>
@@ -139,14 +139,26 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </DataGrid>
+        </hj:DataGrid>
         <!--<Calendar/>-->
         <!--<hj:ListClock Margin="505,10,71.333,14" Height="400"/>-->
         <hj:CalendarWithClock Margin="200,90,573.333,30"/>
         <!--<hj:TextBox hj:TitleElement.Title="事件详情"  Text="1234" IsReadOnly="True" hj:BorderElement.Geometry="{StaticResource Rect2}"  Style="{StaticResource TextBoxExtend}" Margin="595,109,167.333,261" />-->
-        <hj:DateTimePicker Margin="78,75,718.333,320" />
+        <hj:DateTimePicker Margin="78,75,718.333,320"  />
+        <hj:DateTimePicker Margin="95,25,701.6,370.4" />
 
         <Calendar Margin="435,75,278.333,40"  />
+        <RichTextBox HorizontalAlignment="Left"  Height="100" Margin="740,75,0,0" VerticalAlignment="Top" Width="100">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <CheckBox Content="123" Width="125" Margin="715,296,153.6,85.4" Height="49"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="635,25,0,0" VerticalAlignment="Top"/>
+
 
 
 
