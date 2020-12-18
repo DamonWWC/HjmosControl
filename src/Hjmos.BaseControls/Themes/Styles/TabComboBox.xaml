@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/TabComboBoxBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="hj:TabComboBox" BasedOn="{StaticResource TabComboBoxBaseStyle}"/>
+    <Style TargetType="hj:TabComboBox" BasedOn="{StaticResource TabComboBoxExtendBaseStyle}" x:Key="TabComboBoxExtend"/>
+</ResourceDictionary>

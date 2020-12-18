@@ -13,6 +13,17 @@
         <GeometryGroup x:Key="clip" FillRule="Nonzero">
             <EllipseGeometry RadiusX="75" RadiusY="50" Center="75,50"/>
         </GeometryGroup>
+        <ResourceDictionary x:Key="11">
+
+            <Style TargetType="hj:TabComboBox" BasedOn="{StaticResource TabComboBoxExtend}">
+                <Setter Property="Background" Value="{StaticResource Background}"/>
+                <Setter Property="BorderBrush" Value="#2FA7BA"/>
+                <Setter Property="hj:BorderElement.Geometry" Value="{StaticResource Rect2}"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="hj:InfoElement.ContentHeight" Value="30"/>
+            </Style>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid >
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
@@ -115,6 +126,23 @@
 
 
 
+        <TabControl ItemsSource="{Binding Tabs}"   TabStripPlacement="Top" Margin="68,139,623.333,85">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Header}"></TextBlock>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Border Background="Red">
+                        <TextBlock Text="{Binding Content1}" Foreground="Black"/>
+                    </Border>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+
+        <hj:TabComboBox Margin="217,45,438.333,345" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+
 
         <hj:DataGrid HeadersVisibility="All" FontSize="14" ShowCheckBox="True"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,4,0.333,-0.333">
             <DataGrid.RowHeaderTemplate>
@@ -140,14 +168,15 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </hj:DataGrid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="625,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
         <!--<Calendar/>-->
         <!--<hj:ListClock Margin="505,10,71.333,14" Height="400"/>-->
-        <hj:CalendarWithClock Margin="200,90,573.333,30"/>
+        <!--<hj:CalendarWithClock Margin="200,90,573.333,30"/>-->
         <!--<hj:TextBox hj:TitleElement.Title="事件详情"  Text="1234" IsReadOnly="True" hj:BorderElement.Geometry="{StaticResource Rect2}"  Style="{StaticResource TextBoxExtend}" Margin="595,109,167.333,261" />-->
-        <hj:DateTimePicker Margin="78,75,718.333,320"  />
-        <hj:DateTimePicker Margin="95,25,701.6,370.4" />
+        <!--<hj:DateTimePicker Margin="78,75,718.333,320"  />
+        <hj:DateTimePicker Margin="95,25,701.6,370.4" />-->
 
-        <Calendar Margin="435,75,278.333,40"  />
+        <!--<Calendar Margin="435,75,278.333,40"  />
         <RichTextBox HorizontalAlignment="Left"  Height="100" Margin="740,75,0,0" VerticalAlignment="Top" Width="100">
             <FlowDocument>
                 <Paragraph>
@@ -157,7 +186,7 @@
         </RichTextBox>
 
         <CheckBox Content="123" Width="125" Margin="715,296,153.6,85.4" Height="49"/>
-        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="635,25,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="635,25,0,0" VerticalAlignment="Top"/>-->
 
 
 

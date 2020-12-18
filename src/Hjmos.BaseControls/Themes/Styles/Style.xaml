@@ -38,5 +38,9 @@
         <ResourceDictionary Source="DateTimePicker.xaml"/>
         <ResourceDictionary Source="DatePicker.xaml"/>
         <ResourceDictionary Source="RichTextBox.xaml"/>
+        <ResourceDictionary Source="TabComboBox.xaml"/>
+        <ResourceDictionary Source="Tag.xaml"/>
+        <ResourceDictionary Source="Border.xaml"/>
+        <ResourceDictionary Source="TabControl.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

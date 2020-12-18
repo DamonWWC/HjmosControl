@@ -13,6 +13,7 @@
     <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
     <converter:Number2PercentageProConverter x:Key="Number2PercentageProConverter"/>
     <converter:BorderClipConverter x:Key="BorderClipConverter"/>
+    <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
     <converter:Text2ForegroundConverter x:Key="Text2ForegroundConverter"/>
     <converter:Double2StrConverter x:Key="Double2StrConverter"/>
     <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
@@ -21,4 +22,5 @@
     <converter:String2GeometryConverter x:Key="String2GeometryConverter"/>
     <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
     <converter:HearderSelectAllVisibilityConverter x:Key="HearderSelectAllVisibilityConverter"/>
+    <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
 </ResourceDictionary>

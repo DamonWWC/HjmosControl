@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hjmos.BaseControls.Tools.Converter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,7 +46,37 @@ namespace Hjmos.BaseControls.Controls
         public static Geometry GetGeometry(DependencyObject element)
             => (Geometry)element.GetValue(GeometryProperty);
 
+        public static readonly DependencyProperty CircularProperty = DependencyProperty.RegisterAttached(
+           "Circular", typeof(bool), typeof(BorderElement), new PropertyMetadata(false, OnCircularChanged));
 
+        private static void OnCircularChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Border border)
+            {
+                if ((bool)e.NewValue)
+                {
+                    var binding = new MultiBinding
+                    {
+                        Converter = new BorderCircularConverter()
+                    };
+                    binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
+                    binding.Bindings.Add(new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
+                    border.SetBinding(Border.CornerRadiusProperty, binding);
+                }
+                else
+                {
+                    BindingOperations.ClearBinding(border, FrameworkElement.ActualWidthProperty);
+                    BindingOperations.ClearBinding(border, FrameworkElement.ActualHeightProperty);
+                    BindingOperations.ClearBinding(border, Border.CornerRadiusProperty);
+                }
+            }
+        }
+
+        public static void SetCircular(DependencyObject element, bool value)
+            => element.SetValue(CircularProperty, value);
+
+        public static bool GetCircular(DependencyObject element)
+            => (bool)element.GetValue(CircularProperty);
 
     }
 }

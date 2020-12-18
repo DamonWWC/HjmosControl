@@ -22,6 +22,7 @@ using Svg2Xaml;
 using Hjmos.CommonControls;
 using Hjmos.CustomCharts.Data;
 using Hjmos.BaseControls;
+using Hjmos.BaseControls.Controls;
 
 namespace Controltest
 {
@@ -120,8 +121,19 @@ namespace Controltest
             }} };
 
             ImageSource = "pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg";
+            Tabs = new List<Tab> { new Tab { Header = "1", Content1 = "22" } ,
+            new Tab { Header = "1", Content1 = "22" }};
 
-            DataContext = this;
+
+
+
+            Headers = new List<string> { "中断运营时间", "死亡人数" };
+            Contents = new List<List<string>> { new List<string> { "无", "3人以下死亡", "3-5分钟", "5-10分钟", "10-15分钟", "15-20分钟" },
+            new List<string> { "无", "3人以下死亡", "3人以上10人以下死亡", "10人以上30人以下死亡", "3人以下死亡", "3人以下死亡" }};
+
+
+             //SelectedItems = new List<string>();
+             DataContext = this;
 
 
             TimeSpan aa = new TimeSpan(0, 0, 70);
@@ -148,6 +160,21 @@ namespace Controltest
                 new DemoDataModel{ Index = 9,  Name = "Name9", IsSelected = false,  Remark = "999" },
             };
         }
+
+        private List<string> _SelectedItems;
+        public List<string> SelectedItems 
+        {
+            get { return _SelectedItems; }
+            set { 
+                _SelectedItems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public List<string> Headers { get; set; }
+        public List<List<string>> Contents { get; set; }
+
+        public List<Tab> Tabs { get; set; }
 
 
         public string ImageSource { get; set; }
@@ -363,6 +390,26 @@ namespace Controltest
             //text1.TextTrimming=TextTrimming.None;
             //row1.Height = GridLength.Auto;
         }
+        private string _Header;
+        public string Header 
+        {
+            get { return _Header; }
+            set 
+            { 
+                _Header = value; 
+            } 
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            var a = SelectedItems;
+        }
+    }
+
+    public class Tab
+    {
+        public string Header { get; set; }
+        public string Content1 { get; set; }
     }
 
 
