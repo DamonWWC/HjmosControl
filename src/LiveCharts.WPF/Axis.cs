@@ -267,6 +267,24 @@ namespace LiveCharts.Wpf
 
 
         /// <summary>
+        /// 是否显示指示线
+        /// </summary>
+        public bool ShowIndicatorLine
+        {
+            get { return (bool)GetValue(ShowIndicatorLineProperty); }
+            set { SetValue(ShowIndicatorLineProperty, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        // Using a DependencyProperty as the backing store for ShowIndicatorLine.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowIndicatorLineProperty =
+            DependencyProperty.Register("ShowIndicatorLine", typeof(bool), typeof(Axis), new PropertyMetadata(false,UpdateChart()));
+
+
+
+
+        /// <summary>
         /// Gets the actual minimum value.
         /// </summary>
         /// <value>
@@ -580,13 +598,16 @@ namespace LiveCharts.Wpf
                 ase = new AxisSeparatorElement(model)
                 {
                     Line = BindALine(),
+                    IndicatorLine= BindAIndicatorLine(),
                     TextBlock = BindATextBlock()
                 };
 
                 model.View = ase;
                 chart.View.AddToView(ase.Line);
+                chart.View.AddToView(ase.IndicatorLine);
                 chart.View.AddToView(ase.TextBlock);
                 Panel.SetZIndex(ase.Line, -1);
+                Panel.SetZIndex(ase.IndicatorLine, -1);
             }
             else
             {
@@ -594,6 +615,7 @@ namespace LiveCharts.Wpf
             }
 
             ase.Line.Visibility = !Separator.IsEnabled ? Visibility.Collapsed : Visibility.Visible;
+            ase.IndicatorLine.Visibility = !Separator.IsEnabled||!ShowIndicatorLine ? Visibility.Collapsed : Visibility.Visible;                        
             ase.TextBlock.Visibility = !ShowLabels ? Visibility.Collapsed : Visibility.Visible;
         }
 
@@ -773,6 +795,26 @@ namespace LiveCharts.Wpf
                 new Binding {Path = new PropertyPath(Wpf.Separator.StrokeThicknessProperty), Source = s});
             l.SetBinding(VisibilityProperty,
                 new Binding {Path = new PropertyPath(VisibilityProperty), Source = s});
+
+            return l;
+        }
+
+        internal Line BindAIndicatorLine()
+        {
+            var l = new Line();
+
+            var s = Separator as Separator;
+            if (s == null) return l;
+            l.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF13FFF5"));
+            //l.SetBinding(Shape.StrokeProperty,
+            //    new Binding { Path = new PropertyPath(Wpf.Separator.StrokeProperty), Source = s });
+            ////王修改
+            //l.SetBinding(Shape.StrokeDashArrayProperty,
+            //    new Binding { Path = new PropertyPath(Wpf.Separator.StrokeDashArrayProperty), Source = s });
+            l.SetBinding(Shape.StrokeThicknessProperty,
+                new Binding { Path = new PropertyPath(Wpf.Separator.StrokeThicknessProperty), Source = s });
+            l.SetBinding(VisibilityProperty,
+                new Binding { Path = new PropertyPath(VisibilityProperty), Source = s });
 
             return l;
         }

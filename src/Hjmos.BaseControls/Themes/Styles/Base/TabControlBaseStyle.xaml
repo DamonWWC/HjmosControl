@@ -32,7 +32,7 @@
                                 <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Top"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <!--<Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>-->
+                            <Setter Property="TextElement.Foreground" Value="{Binding BorderBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}" TargetName="contentPresenter"/>
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,0,3"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
@@ -41,7 +41,7 @@
                                 <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Left"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <!--<Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>-->
+                            <Setter Property="TextElement.Foreground" Value="{Binding BorderBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}" TargetName="contentPresenter"/>
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,3,0"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
@@ -50,7 +50,7 @@
                                 <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Bottom"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <!--<Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>-->
+                            <Setter Property="TextElement.Foreground" Value="{Binding BorderBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}" TargetName="contentPresenter"/>
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,3,0,0"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
@@ -59,7 +59,7 @@
                                 <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Right"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <!--<Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>-->
+                            <Setter Property="TextElement.Foreground" Value="{Binding BorderBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}" TargetName="contentPresenter"/>
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="3,0,0,0"/>
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>

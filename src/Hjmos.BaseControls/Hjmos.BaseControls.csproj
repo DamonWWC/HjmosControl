@@ -181,6 +181,7 @@
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\RectangleCircularConverter.cs" />
+    <Compile Include="Tools\Converter\String2BrushConverter.cs" />
     <Compile Include="Tools\Converter\String2GeometryConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />

@@ -338,5 +338,22 @@ namespace Hjmos.BaseControls.Controls
         }
 
         private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
+
+
+        public static Brush GetColumnHeaderBackground(DependencyObject obj)
+        {
+            return (Brush)obj.GetValue(ColumnHeaderBackgroundProperty);
+        }
+
+        public static void SetColumnHeaderBackground(DependencyObject obj, Brush value)
+        {
+            obj.SetValue(ColumnHeaderBackgroundProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for ColumnHeaderBackground.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ColumnHeaderBackgroundProperty =
+            DependencyProperty.RegisterAttached("ColumnHeaderBackground", typeof(Brush), typeof(DataGridAttach), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.Inherits));
+
+
     }
 }

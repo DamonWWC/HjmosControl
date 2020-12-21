@@ -126,7 +126,7 @@
 
 
 
-        <TabControl ItemsSource="{Binding Tabs}"   TabStripPlacement="Top" Margin="68,139,623.333,85">
+        <TabControl ItemsSource="{Binding Tabs}"  TabStripPlacement="Top" Margin="33,85,658.333,139" SelectionChanged="TabControl_SelectionChanged">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Header}"></TextBlock>
@@ -141,15 +141,28 @@
             </TabControl.ContentTemplate>
         </TabControl>
 
-        <hj:TabComboBox Margin="217,45,438.333,345" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+        <hj:TabComboBox Margin="552,65,103.333,325" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
 
 
-        <hj:DataGrid HeadersVisibility="All" FontSize="14" ShowCheckBox="True"  hj:DataGridAttach.ShowRowNumber="True" Grid.Row="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,4,0.333,-0.333">
-            <DataGrid.RowHeaderTemplate>
+        <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,370,0.333,-0.333" Grid.RowSpan="2">
+            <!--<DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"/>
                 </DataTemplate>
-            </DataGrid.RowHeaderTemplate>
+            </DataGrid.RowHeaderTemplate>-->
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow" BasedOn="{StaticResource DataGridRowStyle}">
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="#FF186573"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="#FF186573" />
+                    <Setter Property="Foreground" Value="#FFC0FFFC"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Width="1*" CanUserResize="False" Binding="{Binding Index}" Header="索引"/>
                 <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="名称"/>
@@ -167,7 +180,10 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-        </hj:DataGrid>
+        </DataGrid>
+
+
+
         <Button Content="Button" HorizontalAlignment="Left" Margin="625,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
         <!--<Calendar/>-->
         <!--<hj:ListClock Margin="505,10,71.333,14" Height="400"/>-->

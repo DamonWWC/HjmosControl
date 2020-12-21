@@ -404,6 +404,16 @@ namespace Controltest
         {
             var a = SelectedItems;
         }
+
+        private void TabControl_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class Tab

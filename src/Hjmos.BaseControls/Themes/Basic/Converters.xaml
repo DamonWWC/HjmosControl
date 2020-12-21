@@ -23,4 +23,5 @@
     <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
     <converter:HearderSelectAllVisibilityConverter x:Key="HearderSelectAllVisibilityConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
+    <converter:String2BrushConverter x:Key="String2BrushConverter"/>
 </ResourceDictionary>

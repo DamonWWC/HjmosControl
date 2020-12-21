@@ -54,6 +54,7 @@
     <Compile Include="Controls\DeviceAlarmBarChart.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
     <Compile Include="Controls\PassengerFlowTrend.cs" />
+    <Compile Include="Controls\SectionPassengerFlowDistribution.cs" />
     <Compile Include="Data\BigDataMonitorModel.cs" />
     <Compile Include="Data\ChartDataModel.cs" />
     <Compile Include="Data\Enum\Unit.cs" />
@@ -96,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\PassengerFlowTrend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\SectionPassengerFlowDistribution.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

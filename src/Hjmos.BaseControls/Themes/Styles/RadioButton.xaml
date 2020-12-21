@@ -6,9 +6,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="RadioButton" BasedOn="{StaticResource RadioButtonBaseStyle}"/>
-    
-    <Style TargetType="RadioButton" BasedOn="{StaticResource RadioGroupItemBaseStyle}" x:Key="RadioGroupItemDefault"/>
 
+    <Style TargetType="RadioButton" BasedOn="{StaticResource RadioGroupItemBaseStyle}" x:Key="RadioGroupItemDefault"/>
+    <Style TargetType="RadioButton" BasedOn="{StaticResource RadioButtonBorderBaseStyle}" x:Key="RadioGroupBorderChange"/>
     <Style TargetType="RadioButton"  BasedOn="{StaticResource RadioGroupItemBaseStyle}" x:Key="RadioGroupItemHorizontalFirst">
         <Setter Property="controls:BorderElement.CornerRadius" Value="4,0,0,4"/>
         <Setter Property="Margin" Value="0"/>

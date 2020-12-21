@@ -53,6 +53,8 @@ namespace LiveCharts.Wpf.Components
 
         internal TextBlock TextBlock { get; set; }
         internal Line Line { get; set; }
+
+        internal Line IndicatorLine { get; set; }
         /// <summary>
         /// Gets the label model.
         /// </summary>
@@ -110,8 +112,10 @@ namespace LiveCharts.Wpf.Components
         {
             chart.RemoveFromView(TextBlock);
             chart.RemoveFromView(Line);
+            chart.RemoveFromView(IndicatorLine);
             TextBlock = null;
             Line = null;
+            IndicatorLine = null;
         }
 
         /// <summary>
@@ -134,6 +138,11 @@ namespace LiveCharts.Wpf.Components
                 Line.Y1 = toLine;
                 Line.Y2 = toLine;
 
+                IndicatorLine.X1= chart.DrawMargin.Left;
+                IndicatorLine.X2 = chart.DrawMargin.Left+10;
+                IndicatorLine.Y1 = toLine;
+                IndicatorLine.Y2 = toLine;
+
                 Canvas.SetLeft(TextBlock, tab);
                 Canvas.SetTop(TextBlock, toLabel);
             }
@@ -143,6 +152,13 @@ namespace LiveCharts.Wpf.Components
                 Line.X2 = toLine;
                 Line.Y1 = chart.DrawMargin.Top;
                 Line.Y2 = chart.DrawMargin.Top + chart.DrawMargin.Height-1;
+
+                IndicatorLine.X1 = toLine;
+                IndicatorLine.X2 = toLine;
+                IndicatorLine.Y1 = chart.DrawMargin.Top + chart.DrawMargin.Height - 11;
+                IndicatorLine.Y2 = chart.DrawMargin.Top + chart.DrawMargin.Height -1;
+
+
 
                 Canvas.SetLeft(TextBlock, toLabel);
                 Canvas.SetTop(TextBlock, tab);
@@ -157,8 +173,10 @@ namespace LiveCharts.Wpf.Components
         {
             chart.View.RemoveFromView(TextBlock);
             chart.View.RemoveFromView(Line);
+            chart.View.RemoveFromView(IndicatorLine);
             TextBlock = null;
             Line = null;
+            IndicatorLine = null;
         }
 
         /// <summary>
@@ -184,6 +202,18 @@ namespace LiveCharts.Wpf.Components
                 Line.BeginAnimation(Line.Y2Property,
                     new DoubleAnimation(toLine, chart.View.AnimationsSpeed));
 
+
+         
+
+                IndicatorLine.BeginAnimation(Line.X1Property,
+                    new DoubleAnimation(chart.DrawMargin.Left, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.X2Property,
+                    new DoubleAnimation(chart.DrawMargin.Left+10, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.Y1Property,
+                    new DoubleAnimation(toLine, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.Y2Property,
+                    new DoubleAnimation(toLine, chart.View.AnimationsSpeed));
+
                 TextBlock.BeginAnimation(Canvas.TopProperty,
                     new DoubleAnimation(toLabel, chart.View.AnimationsSpeed));
                 TextBlock.BeginAnimation(Canvas.LeftProperty,
@@ -199,6 +229,15 @@ namespace LiveCharts.Wpf.Components
                     new DoubleAnimation(chart.DrawMargin.Top, chart.View.AnimationsSpeed));
                 Line.BeginAnimation(Line.Y2Property,
                     new DoubleAnimation(chart.DrawMargin.Top + chart.DrawMargin.Height, chart.View.AnimationsSpeed));
+
+                IndicatorLine.BeginAnimation(Line.X1Property,
+                   new DoubleAnimation(toLine, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.X2Property,
+                    new DoubleAnimation(toLine, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.Y1Property,
+                    new DoubleAnimation(chart.DrawMargin.Top + chart.DrawMargin.Height - 11, chart.View.AnimationsSpeed));
+                IndicatorLine.BeginAnimation(Line.Y2Property,
+                    new DoubleAnimation(chart.DrawMargin.Top + chart.DrawMargin.Height - 1, chart.View.AnimationsSpeed));
 
                 TextBlock.BeginAnimation(Canvas.LeftProperty,
                     new DoubleAnimation(toLabel, chart.View.AnimationsSpeed));
@@ -222,6 +261,10 @@ namespace LiveCharts.Wpf.Components
             if (Line.Visibility != Visibility.Collapsed)
                 Line.BeginAnimation(UIElement.OpacityProperty,
                     new DoubleAnimation(0, 1, chart.View.AnimationsSpeed));
+
+            if (IndicatorLine.Visibility != Visibility.Collapsed)
+                IndicatorLine.BeginAnimation(UIElement.OpacityProperty,
+                    new DoubleAnimation(0, 1, chart.View.AnimationsSpeed));
         }
 
         /// <summary>
@@ -231,7 +274,7 @@ namespace LiveCharts.Wpf.Components
         public void FadeOutAndRemove(ChartCore chart)
         {
             if (TextBlock.Visibility == Visibility.Collapsed &&
-                Line.Visibility == Visibility.Collapsed) return;
+                Line.Visibility == Visibility.Collapsed&&IndicatorLine.Visibility==Visibility.Collapsed) return;
 
             var anim = new DoubleAnimation
             {
@@ -247,12 +290,15 @@ namespace LiveCharts.Wpf.Components
                 {
                     chart.View.RemoveFromView(TextBlock);
                     chart.View.RemoveFromView(Line);
+                    chart.View.RemoveFromView(IndicatorLine);
                 }));
             };
 
             TextBlock.BeginAnimation(UIElement.OpacityProperty, anim);
             Line.BeginAnimation(UIElement.OpacityProperty,
                 new DoubleAnimation(1, 0, chart.View.AnimationsSpeed));
+            IndicatorLine.BeginAnimation(UIElement.OpacityProperty,
+              new DoubleAnimation(1, 0, chart.View.AnimationsSpeed));
         }
     }
 }

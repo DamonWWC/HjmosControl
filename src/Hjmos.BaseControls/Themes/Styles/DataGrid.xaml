@@ -132,7 +132,7 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </SelectiveScrollingGrid.RowDefinitions>
-                        <Border CornerRadius="4" Grid.ColumnSpan="2" x:Name="DGR_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
+                        <Border CornerRadius="0" Grid.ColumnSpan="2" x:Name="DGR_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
                         <DataGridCellsPresenter MinHeight="{TemplateBinding MinHeight}" VerticalContentAlignment="Center" Grid.Row="0" Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         <DataGridDetailsPresenter Margin="0,6" Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Visibility="{TemplateBinding DetailsVisibility}"/>
                         <DataGridRowHeader Grid.Row="0" Grid.Column="0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>
@@ -153,7 +153,7 @@
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{DynamicResource DataGridRowBrush}"/>
-                <Setter Property="TextElement.Foreground" Value="Red"/>
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
             </Trigger>
             <!--<MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -272,6 +272,7 @@
         <Setter Property="RowStyle" Value="{StaticResource DataGridRowStyle}"/>
         <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}"/>
         <Setter Property="Padding" Value="6"/>
+        <Setter Property="hc:DataGridAttach.ColumnHeaderBackground" Value="#FF0A3B5A"/>
         <Setter Property="ColumnWidth" Value="*"/>
         <!--行交替变换颜色-->
         <Setter Property="AlternationCount" Value="2"/>
@@ -318,7 +319,7 @@
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
-                                        <Border Background="{DynamicResource DataGridColumnBackgroundBrush}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+                                        <Border Background="{TemplateBinding hc:DataGridAttach.ColumnHeaderBackground}"   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
                                         <!--<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}"/>-->
                                         <TextBlock Text="序号"  VerticalAlignment="Center" Margin="0,0,0,6" HorizontalAlignment="Center"  Padding="15,0"  Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}"/>
                                         <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Margin="0,0,0,0"   Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}"/>

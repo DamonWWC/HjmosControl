@@ -78,5 +78,26 @@ namespace Hjmos.BaseControls.Controls
         public static bool GetCircular(DependencyObject element)
             => (bool)element.GetValue(CircularProperty);
 
+
+
+
+
+
+        public static Brush GetSelectedBorderBrush(DependencyObject obj)
+        {
+            return (Brush)obj.GetValue(SelectedBorderBrushProperty);
+        }
+
+        public static void SetSelectedBorderBrush(DependencyObject obj, Brush value)
+        {
+            obj.SetValue(SelectedBorderBrushProperty, value);
+        }
+
+        // Using a DependencyProperty as the backing store for SelectedBorderBrush.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SelectedBorderBrushProperty =
+            DependencyProperty.RegisterAttached("SelectedBorderBrush", typeof(Brush), typeof(BorderElement), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.Inherits));
+
+
+
     }
 }

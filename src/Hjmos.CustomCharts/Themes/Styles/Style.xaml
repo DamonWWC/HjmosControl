@@ -8,5 +8,6 @@
         <ResourceDictionary Source="BigDataMonitor.xaml"/>
         <ResourceDictionary Source="PassengerFlowTrend.xaml"/>
         <ResourceDictionary Source="DeviceAlarmBarChart.xaml"/>
+        <ResourceDictionary Source="SectionPassengerFlowDistribution.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
