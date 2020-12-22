@@ -6,8 +6,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-        
+
+
     <Style x:Key="CheckBoxBaseStyle" TargetType="CheckBox">
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
@@ -85,7 +85,7 @@
                                 <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}"/>
                             </Trigger.ExitActions>
                             <Setter Property="Opacity" TargetName="indeterminateMark" Value="0"/>
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="Background" Value="#00B2E1" TargetName="checkBoxBorder"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="false">

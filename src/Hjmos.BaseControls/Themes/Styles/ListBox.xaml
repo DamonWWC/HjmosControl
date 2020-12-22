@@ -8,25 +8,25 @@
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
-        
+
     <ItemsPanelTemplate x:Key="WrapPanelHorizonlItemsPanelTemplate">
         <WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ItemsPanelTemplate>
     <Style x:Key="WrapPanelHorizonListbox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
         <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelHorizonlItemsPanelTemplate}"/>
     </Style>
-    
+
     <ItemsPanelTemplate x:Key="WrapPanelVerticalItemsPanelTemplate">
         <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ItemsPanelTemplate>
     <Style x:Key="WrapPanelVerticalListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
         <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelVerticalItemsPanelTemplate}"/>
     </Style>
-    
+
     <ItemsPanelTemplate x:Key="StackPanelHorizontalItemsPanelTemplate">
         <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
     </ItemsPanelTemplate>
-    
+
     <Style x:Key="StackPanelHorizontalListbox" TargetType="ListBox" BasedOn="{StaticResource ListBoxBaseStyle}">
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
     </Style>
@@ -39,8 +39,8 @@
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelVerticalItemsPanelTemplate}"/>
     </Style>
 
-    
-         
+
+
     <Style TargetType="controls:ListBox" BasedOn="{StaticResource ListBoxNewBaseStyle}">
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
         <Style.Triggers>
@@ -67,7 +67,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" Width="{Binding Path=(controls:ListBoxAttach.ListBoxItemWith),RelativeSource={RelativeSource AncestorType=ItemsControl}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
+                    <!--<Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" Width="{Binding Path=(controls:ListBoxAttach.ListBoxItemWith),RelativeSource={RelativeSource AncestorType=ItemsControl}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
+                          Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>-->
+                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}"  BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
                           Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
@@ -92,9 +96,9 @@
             </Setter.Value>
         </Setter>
     </Style>
- 
-    
-    
+
+
+
     <Style TargetType="ListBox" x:Key="TitleListStyle">
         <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}"/>
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
@@ -104,7 +108,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}:}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0" Style="{StaticResource TextBlockTitle}"/>                       
+                        <TextBlock Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}:}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0" Style="{StaticResource TextBlockTitle}"/>
                         <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </StackPanel>
                 </ControlTemplate>
@@ -117,8 +121,10 @@
                 </DataTemplate>
             </Setter.Value>
         </Setter>-->
-        
+
     </Style>
+
+
 
     <Style TargetType="ListBox" x:Key="TitleListTopStyle">
         <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}"/>
@@ -144,9 +150,6 @@
         </Setter>-->
 
     </Style>
-
-
-
 
 
 </ResourceDictionary>

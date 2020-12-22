@@ -48,7 +48,7 @@
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
         <ProgressBar  Value="120" Maximum="100" Padding="2"    Grid.Row="1" Background="AliceBlue" Foreground="Aqua" hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" />
-
+        <CheckBox Content="11"/>
 
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
