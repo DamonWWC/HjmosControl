@@ -98,7 +98,7 @@
         <!--</ItemsControl>-->
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <!--<hj:SearchBar Background="Black" Foreground="White" Margin="412,65,353.333,114.667" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />-->
+        <hj:SearchBar Background="Black" Foreground="White" Margin="410,149,553.333,240" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
 
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             
@@ -110,7 +110,14 @@
             <hj:RunningBlock   FontSize="30" Speed="100" Text="{Binding Content1}" />
         </Border>-->
 
-        <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged">
+        <ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged" Margin="0,10,603.333,200">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
+                    <Setter Property="Visibility" Value="{Binding IsVisible,Converter={StaticResource Boolean2VisibilityConverter}}"/>
+
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"></StackPanel>
@@ -118,15 +125,17 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ToggleButton Content="{Binding}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Cursor="Hand"/>
+                    <ToggleButton Content="{Binding Content}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=ListBoxItem}}" Cursor="Hand"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>-->
+        </ListBox>
+
+        <hj:Badge   Text="1"   Margin="647,270,243.333,105" Background="Red" Style="{StaticResource BadgePrimary}">
+            <Button Content="1234" />
+        </hj:Badge>
 
 
-
-
-        <TabControl ItemsSource="{Binding Tabs}"  TabStripPlacement="Top" Margin="33,85,658.333,139" SelectionChanged="TabControl_SelectionChanged">
+        <!--<TabControl ItemsSource="{Binding Tabs}"  TabStripPlacement="Top" Margin="33,85,658.333,139" SelectionChanged="TabControl_SelectionChanged">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Header}"></TextBlock>
@@ -139,9 +148,9 @@
                     </Border>
                 </DataTemplate>
             </TabControl.ContentTemplate>
-        </TabControl>
+        </TabControl>-->
 
-        <hj:TabComboBox Margin="552,65,103.333,325" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+        <hj:TabComboBox Margin="570,80,85.333,310" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
 
 
         <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,370,0.333,-0.333" Grid.RowSpan="2">
@@ -184,7 +193,9 @@
 
 
 
-        <Button Content="Button" HorizontalAlignment="Left" Margin="625,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+
+        <!--<RadioButton Content="11111" />
+        <Button Content="Button" HorizontalAlignment="Left" Margin="625,85,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>-->
         <!--<Calendar/>-->
         <!--<hj:ListClock Margin="505,10,71.333,14" Height="400"/>-->
         <!--<hj:CalendarWithClock Margin="200,90,573.333,30"/>-->

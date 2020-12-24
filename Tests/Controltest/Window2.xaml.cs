@@ -99,7 +99,9 @@ namespace Controltest
 
             Content1 = "预计08-31 18:26 黄村站、文冲站、科韵路站迎来下班高峰期客流，建议相关站点启动二级站控模式。        08-31 18:25 天河智慧城站上报乘客丢失一部白色的iPhone11。     08-31 18:25 天河智慧城站上···";
 
-            titlelistbox = new List<string>() { "**线网指挥中心发布一级大客流预警", "接触轨失电" };
+            //titlelistbox = new List<string>() { "**线网指挥中心发布一级大客流预警", "接触轨失电" };
+            titlelistbox = new List<Textw> { new Textw { Content = "**线网指挥中心发布一级大客流预警", IsVisible = true },
+            new Textw{Content="接触轨失电",IsVisible=true} };
 
             ChartValue = new ChartValues<double> { 20, 30, 45, 34, 88, 100 };
 
@@ -204,7 +206,7 @@ namespace Controltest
         public string MaxPageRange { get; set; }
 
 
-        public List<string> titlelistbox { get; set; }
+        public List<Textw> titlelistbox { get; set; }
 
 
         private string _ListboxItem;
@@ -414,6 +416,13 @@ namespace Controltest
         {
 
         }
+    }
+
+
+    public class Textw
+    {
+        public string Content { get; set; }
+        public bool IsVisible { get; set; }
     }
 
     public class Tab

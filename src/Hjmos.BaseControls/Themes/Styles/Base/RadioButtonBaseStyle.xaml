@@ -52,7 +52,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border Height="18" Width="18" x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Ellipse x:Name="optionMark" Fill="White" MinWidth="6" MinHeight="6" RenderTransformOrigin="0.5,0.5">
+                            <Ellipse x:Name="optionMark" Fill="{TemplateBinding Background}" MinWidth="6" MinHeight="6" RenderTransformOrigin="0.5,0.5">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -91,6 +91,7 @@
                                 <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}"/>
                             </Trigger.ExitActions>
                             <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="Fill" Value="#FF00B2E1" TargetName="optionMark"/>
                             <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
@@ -178,13 +179,15 @@
         <Setter Property="Template">
             <Setter.Value >
                 <ControlTemplate TargetType="RadioButton">
-                    <Border x:Name="BorderRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="{ TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                            <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
-                            <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </StackPanel>
+                    <Border x:Name="BorderRoot"   CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Effect="{TemplateBinding Effect}" BorderThickness="0" BorderBrush="{TemplateBinding BorderBrush}"  Background="Transparent">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="{ TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
+                                <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                                <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </StackPanel>
+                        </Border>
                     </Border>
-                    <ControlTemplate.Triggers>                      
+                    <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="BorderBrush" Value="{Binding Path=(controls:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                         </Trigger>

@@ -91,6 +91,7 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Controls\Other\Badge.cs" />
     <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="Data\ColorRange.cs" />
+    <Compile Include="Data\Enum\BadgeStatus.cs" />
     <Compile Include="Data\Enum\ColLayoutStatus.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
@@ -245,6 +247,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Basic\Paths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Badge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\BadgeBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

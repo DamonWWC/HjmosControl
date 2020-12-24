@@ -135,7 +135,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <StackPanel >
-                        <TextBlock HorizontalAlignment="Left" Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0,10,10" Style="{StaticResource TextBlockTitle}"/>
+                        <TextBlock HorizontalAlignment="Left" Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="{TemplateBinding Padding}" Style="{StaticResource TextBlockTitle}"/>
                         <ItemsPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Left"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </StackPanel>
                 </ControlTemplate>
