@@ -104,6 +104,8 @@
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
+    <Compile Include="Controls\StepBar\StepBar.cs" />
+    <Compile Include="Controls\StepBar\StepBarItem.cs" />
     <Compile Include="Controls\Tag\Tag.cs" />
     <Compile Include="Controls\Tag\TagContainer.cs" />
     <Compile Include="Controls\Text\SimpleText.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Data\Enum\MouseHookMessageType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
+    <Compile Include="Data\Enum\StepStatus.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
     <Compile Include="Data\Enum\TitleAlignment.cs" />
     <Compile Include="Data\Enum\WeatherType.cs" />
@@ -271,6 +274,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\StepBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\StepBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

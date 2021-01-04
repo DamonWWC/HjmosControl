@@ -25,30 +25,30 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid >
+    <Grid ShowGridLines="True">
         <!--<basechartcontrols:CartesianChart x:Name="cefsharp" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2"></basechartcontrols:CartesianChart>-->
         <!--<cefSharp:ChromiumWebBrowser x:Name="cefsharp1" Address="file:///D:/A日常编程练习/Echarts/dynamic-data2.html"  ></cefSharp:ChromiumWebBrowser>
         <Button Content="Button" HorizontalAlignment="Left" Margin="645,380,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>-->
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="430*"/>
+            <RowDefinition Height="140*"/>
             <!--<RowDefinition Height="3"/>-->
-            <RowDefinition Height="341*"/>
+            <RowDefinition Height="117*"/>
         </Grid.RowDefinitions>
         <!--<hj:ImageViewer ImageSource="pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg"  Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,25,158.333,4.667" />-->
 
-        <Button Style="{StaticResource ButtonIcon}"   hj:IconElement.Geometry="{StaticResource Message}"  BorderBrush="#13FF9B" Foreground="#005A08"  Grid.Row="0" VerticalAlignment="Center" Height="45" Width="85" HorizontalAlignment="Right" Margin="0,169,168.333,216"/>
+        <!--<Button Style="{StaticResource ButtonIcon}"   hj:IconElement.Geometry="{StaticResource Message}"  BorderBrush="#13FF9B" Foreground="#005A08"  Grid.Row="0" VerticalAlignment="Center" Height="45" Width="85" HorizontalAlignment="Right" Margin="0,169,168.333,216"/>-->
         <!--<GridSplitter Grid.Row="1" Grid.RowSpan="2" Background="Red" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>-->
         <!--<hjcc:TrainCongestionStatus Grid.Row="2"   TrainCongestionDatas="{Binding TrainCongestionDatas}"/>-->
         <!--<controls:BigDataMonitor TotalQuanity="123456787" Grid.Row="1" BigDataList="{Binding bigDataItemModels}" Grid.RowSpan="2" Style="{StaticResource BigDataMonitorBaseStyle}"/>-->
-        <ComboBox Margin="95,310,458.333,65"  HorizontalContentAlignment="Center" ItemsSource="{Binding titlelistbox}" Style="{StaticResource TitleComboBox}"/>
+        <!--<ComboBox Margin="95,310,458.333,65"  HorizontalContentAlignment="Center" ItemsSource="{Binding titlelistbox}" Style="{StaticResource TitleComboBox}"/>-->
         <!--<controls:OneDayPassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}"  ParamChanged="OneDayPassengerFlowTrend_ParamChanged" Style="{StaticResource OneDayPassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}" DirectionList="{Binding DirectionList}"  Height="Auto" Width="Auto" />-->
         <!--<controls:PassengerFlowTrend Grid.Row="1" DateTimeFormatter="{Binding DateTimeFormatter}" Style="{StaticResource  PassengerFlowTrendBaseStyle}" IsUpdate="{Binding IsUpdate}" ForecastValues="{Binding ForecastValues}"  MeasuredValues="{Binding MeasuredValues}"   Height="Auto" Width="Auto" Margin="0,0.333,0.333,-0.333"/>-->
         <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
-        <ProgressBar  Value="120" Maximum="100" Padding="2"    Grid.Row="1" Background="AliceBlue" Foreground="Aqua" hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" />
-        <CheckBox Content="11"/>
+        <!--<ProgressBar  Value="120" Maximum="100" Padding="2"    Grid.Row="1" Background="AliceBlue" Foreground="Aqua" hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" />-->
+        <!--<CheckBox Content="11"/>-->
 
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
         <!--<TextBlock  Grid.Row="0" Text="{Binding valuetext,StringFormat=共{0:N0}页}" FontSize="30" Foreground="Red"/>-->
@@ -57,7 +57,7 @@
         <!--<controls:AverageDailyPassengerFlowTop10 FlowDatas="{Binding Datas}"  Style="{StaticResource AverageDailyPassengerFlowTop10}"  Grid.Row="1" Margin="0,0,318.333,-0.333"/>-->
         <!--<hj:Pagination Grid.Row="0" MaxNum="203" PageUpdated="Pagination_PageUpdated" MaxPageInterval="4"  Margin="120,45,68.333,40"/>-->
 
-        <Button Content="预警信息" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}"   Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="270" Click="Button_Click_3" Height="90" Margin="150,235,0,0"/>
+        <!--<Button Content="预警信息" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ButtonBorder}"   Background="Transparent" hj:IconElement.Geometry="{StaticResource AlarmGeometry}" hj:IconElement.Height="20"   VerticalAlignment="Top" Width="270" Click="Button_Click_3" Height="90" Margin="150,235,0,0"/>-->
         <!--<Button Clip="{StaticResource clip}" Content="button" Margin="110,150,733.333,180" Background="Red"/>-->
 
         <!--<ItemsControl Margin="250,134,376.333,131" VerticalAlignment="Center" Grid.Row="0" Height="165" ItemsSource="{Binding SolveProcessDatas}">
@@ -98,7 +98,7 @@
         <!--</ItemsControl>-->
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <hj:SearchBar Background="Black" Foreground="White" Margin="410,149,553.333,240" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
+        <hj:SearchBar Background="Black" Foreground="White" Margin="410,149,553.333,181" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
 
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             
@@ -109,8 +109,7 @@
         <!--<Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
             <hj:RunningBlock   FontSize="30" Speed="100" Text="{Binding Content1}" />
         </Border>-->
-
-        <ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged" Margin="0,10,603.333,200">
+        <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged" Margin="0,10,603.333,200">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
                     <Setter Property="Visibility" Value="{Binding IsVisible,Converter={StaticResource Boolean2VisibilityConverter}}"/>
@@ -132,7 +131,7 @@
 
         <hj:Badge   Text="1"   Margin="647,270,243.333,105" Background="Red" Style="{StaticResource BadgePrimary}">
             <Button Content="1234" />
-        </hj:Badge>
+        </hj:Badge>-->
 
 
         <!--<TabControl ItemsSource="{Binding Tabs}"  TabStripPlacement="Top" Margin="33,85,658.333,139" SelectionChanged="TabControl_SelectionChanged">
@@ -150,10 +149,10 @@
             </TabControl.ContentTemplate>
         </TabControl>-->
 
-        <hj:TabComboBox Margin="570,80,85.333,310" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+        <hj:TabComboBox Margin="570,80,85.333,220" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
 
 
-        <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,370,0.333,-0.333" Grid.RowSpan="2">
+        <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,5,0.333,-0.333" Grid.Row="1">
             <!--<DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"/>
@@ -190,6 +189,17 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <hj:StepBar  StepIndex="1" Margin="137,50,183.333,280" BorderBrush="#FF9CE84E" Foreground="Black"  ItemsSource="{Binding DirectionList}">
+            <!--<hj:StepBar.ItemContainerStyle>
+                <Style TargetType="hj:StepBarItem" BasedOn="{StaticResource StepBarItemBaseStyle}">
+                    <Setter Property="BorderBrush" Value="#FF9CE84E"/>
+                </Style>
+            </hj:StepBar.ItemContainerStyle>-->
+            <!--<hj:StepBarItem Content="111"/>
+            <hj:StepBarItem Content="222"/>
+            <hj:StepBarItem Content="333"/>-->
+            <!--<hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>-->
+        </hj:StepBar>
 
 
 
