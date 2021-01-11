@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"     
-        xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"  x:Class="Controltest.Window2"
+        xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"  xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"  x:Class="Controltest.Window2"
        
     mc:Ignorable="d"     
         d:DataContext="{d:DesignInstance Type={x:Type local:Window2}}"
@@ -15,7 +15,7 @@
         </GeometryGroup>
         <ResourceDictionary x:Key="11">
 
-            <Style TargetType="hj:TabComboBox" BasedOn="{StaticResource TabComboBoxExtend}">
+            <Style TargetType="{x:Type hj:TabComboBox}" BasedOn="{StaticResource TabComboBoxExtend}">
                 <Setter Property="Background" Value="{StaticResource Background}"/>
                 <Setter Property="BorderBrush" Value="#2FA7BA"/>
                 <Setter Property="hj:BorderElement.Geometry" Value="{StaticResource Rect2}"/>
@@ -149,7 +149,7 @@
             </TabControl.ContentTemplate>
         </TabControl>-->
 
-        <hj:TabComboBox Margin="570,80,85.333,220" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+        <hj:TabComboBox Margin="542,80,113.333,220" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
 
 
         <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,5,0.333,-0.333" Grid.Row="1">
@@ -159,13 +159,13 @@
                 </DataTemplate>
             </DataGrid.RowHeaderTemplate>-->
             <DataGrid.RowStyle>
-                <Style TargetType="DataGridRow" BasedOn="{StaticResource DataGridRowStyle}">
+                <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource DataGridRowStyle}">
                     <Setter Property="BorderThickness" Value="0,0,0,1"/>
                     <Setter Property="BorderBrush" Value="#FF186573"/>
                 </Style>
             </DataGrid.RowStyle>
             <DataGrid.ColumnHeaderStyle>
-                <Style TargetType="DataGridColumnHeader" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
                     <Setter Property="BorderThickness" Value="0,0,0,1"/>
                     <Setter Property="BorderBrush" Value="#FF186573" />
                     <Setter Property="Foreground" Value="#FFC0FFFC"/>
@@ -200,8 +200,6 @@
             <hj:StepBarItem Content="333"/>-->
             <!--<hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>-->
         </hj:StepBar>
-
-
 
 
         <!--<RadioButton Content="11111" />

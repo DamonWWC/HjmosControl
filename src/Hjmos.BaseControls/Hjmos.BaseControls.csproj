@@ -66,6 +66,7 @@
     <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Attach\TitleElement.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
+    <Compile Include="Controls\Attach\TreeViewAttach.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Base\ISingleOpen.cs" />
     <Compile Include="Controls\Block\FloatingBlock.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\Text2ForegroundConverter.cs" />
+    <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
     <Compile Include="Tools\Extension\ColLayout.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
     <Compile Include="Tools\Extension\StringExtension.cs" />
@@ -276,6 +278,10 @@
     <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\StepBar.xaml">
       <SubType>Designer</SubType>
@@ -596,6 +602,10 @@
     <Page Include="Themes\Styles\ToggleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\UserControl.xaml">
       <SubType>Designer</SubType>

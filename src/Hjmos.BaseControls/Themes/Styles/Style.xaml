@@ -44,5 +44,6 @@
         <ResourceDictionary Source="TabControl.xaml"/>
         <ResourceDictionary Source="Badge.xaml"/>
         <ResourceDictionary Source="StepBar.xaml"/>
+        <ResourceDictionary Source="TreeView.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
