@@ -83,7 +83,7 @@
                                 <Condition Property="hj:TreeViewAttach.IsCheckTreeView" Value="false"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" TargetName="Bd" Value="{DynamicResource DarkDefaultBrush}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                            <!--<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>-->
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{StaticResource {x:Static SystemColors.GrayTextBrushKey}}"/>

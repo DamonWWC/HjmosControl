@@ -376,6 +376,7 @@ namespace Hjmos.BaseControls.Controls
         }
         private void UpdatePage()
         {
+            if (DataCountPerPage == 0) return;
             MaxPageCount = MaxNum % DataCountPerPage == 0 ? MaxNum / DataCountPerPage : MaxNum / DataCountPerPage + 1;
         }
         private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;

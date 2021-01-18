@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Controltest" xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf" xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls;assembly=Hjmos.CustomCharts" xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"     
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls" xmlns:hjcc="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"  xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"  x:Class="Controltest.Window2"
        
-    mc:Ignorable="d"     
+        mc:Ignorable="d"     
         d:DataContext="{d:DesignInstance Type={x:Type local:Window2}}"
-        Title="Window2" Height="800" Width="1000"  >
+        Title="Window2" Height="800" Width="1000" >
     <Window.Resources>
         <GeometryGroup x:Key="clip" FillRule="Nonzero">
             <EllipseGeometry RadiusX="75" RadiusY="50" Center="75,50"/>
@@ -98,7 +98,7 @@
         <!--</ItemsControl>-->
 
         <!--<ListBox Grid.Row="0"  hj:BackgroundSwitchElement.ItemSelectedBackground="#FF139ABE" hj:BackgroundSwitchElement.MouseHoverBackground="#FF139ABE"  SelectionMode="Single" ItemsSource="{Binding titlelistbox}" Foreground="Black" FontSize="20" hj:ListBoxAttach.ListBoxItemWith="200"  hj:TitleElement.Title="预警事件类型：" Style="{StaticResource TitleListStyle}" Margin="0,10,0.333,65"/>-->
-        <hj:SearchBar Background="Black" Foreground="White" Margin="410,149,553.333,181" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />
+        <!--<hj:SearchBar Background="Black" Foreground="White" Margin="410,149,553.333,181" hj:InfoElement.Placeholder="123" BorderBrush="#33FFFF" hj:BorderElement.Geometry="{StaticResource Rect2}"  RenderTransformOrigin="3.318,1.667" />-->
 
         <!--<hj:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  Text="{Binding Content1}" Grid.Row="0"  FontSize="10" Duration="0:0:10"   Width="675"  Margin="0,0,0,70"  >
             
@@ -134,23 +134,50 @@
         </hj:Badge>-->
 
 
-        <!--<TabControl ItemsSource="{Binding Tabs}"  TabStripPlacement="Top" Margin="33,85,658.333,139" SelectionChanged="TabControl_SelectionChanged">
-            <TabControl.ItemTemplate>
+        <TabControl ItemsSource="{Binding Tabs}" DisplayMemberPath="Header"   TabStripPlacement="Top" Margin="33,85,663.333,195" SelectionChanged="TabControl_SelectionChanged">
+            <!--<TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Header}"></TextBlock>
                 </DataTemplate>
-            </TabControl.ItemTemplate>
+            </TabControl.ItemTemplate>-->
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle}">
+                    <Setter Property="Background" Value="#FF085987"/>
+
+                    <Setter Property="Content" Value="{Binding Content1}"/>
+                </Style>
+            </TabControl.ItemContainerStyle>
             <TabControl.ContentTemplate>
-                <DataTemplate>
-                    <Border Background="Red">
-                        <TextBlock Text="{Binding Content1}" Foreground="Black"/>
-                    </Border>
+                <DataTemplate >
+                    <ListBox Style="{StaticResource TabItemListBox}" ItemsSource="{Binding}" >
+                        
+                    </ListBox>
                 </DataTemplate>
             </TabControl.ContentTemplate>
-        </TabControl>-->
+        </TabControl>
 
-        <hj:TabComboBox Margin="542,80,113.333,220" Foreground="Red" Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
+        <hj:TabComboBox Margin="542,80,113.333,220" Foreground="Red"  Style="{StaticResource TabComboBoxExtend}" Headers="{Binding Headers}" Contents="{Binding Contents}"  SelectedItems="{Binding SelectedItems}" />
 
+        <hj:ContentComboBox Margin="455,205,161.333,160" ShowClearButton="True" DisplayMemberPath="Content" hj:InfoElement.Placeholder="请输入"  BorderBrush="Red"   SelectedAllItems="{Binding SelectedAllItems,Mode=TwoWay}">
+            <hj:ContentComboBox.Content>
+                <TabControl ItemsSource="{Binding Tabs}" DisplayMemberPath="Header"   TabStripPlacement="Top" SelectionChanged="TabControl_SelectionChanged">
+                    <TabControl.ItemContainerStyle>
+                        <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle}">
+                            <Setter Property="Background" Value="#FF085987"/>
+
+                            <Setter Property="Content" Value="{Binding Content1}"/>
+                        </Style>
+                    </TabControl.ItemContainerStyle>
+                    <TabControl.ContentTemplate>
+                        <DataTemplate >
+                            <ListBox Style="{StaticResource TabItemListBox}" ItemsSource="{Binding}" >
+                            </ListBox>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
+                </TabControl>
+
+            </hj:ContentComboBox.Content>
+        </hj:ContentComboBox>
 
         <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,5,0.333,-0.333" Grid.Row="1">
             <!--<DataGrid.RowHeaderTemplate>
@@ -189,8 +216,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <hj:StepBar  StepIndex="1" Margin="137,50,183.333,280" BorderBrush="#FF9CE84E" Foreground="Black"  ItemsSource="{Binding DirectionList}">
-            <!--<hj:StepBar.ItemContainerStyle>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="230,300,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <!--<hj:StepBar  StepIndex="1" Margin="137,50,183.333,280" BorderBrush="#FF9CE84E" Foreground="Black"  ItemsSource="{Binding DirectionList}">
+            --><!--<hj:StepBar.ItemContainerStyle>
                 <Style TargetType="hj:StepBarItem" BasedOn="{StaticResource StepBarItemBaseStyle}">
                     <Setter Property="BorderBrush" Value="#FF9CE84E"/>
                 </Style>
@@ -198,8 +226,8 @@
             <!--<hj:StepBarItem Content="111"/>
             <hj:StepBarItem Content="222"/>
             <hj:StepBarItem Content="333"/>-->
-            <!--<hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>-->
-        </hj:StepBar>
+            <!--<hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>--><!--
+        </hj:StepBar>-->
 
 
         <!--<RadioButton Content="11111" />
@@ -222,6 +250,8 @@
 
         <CheckBox Content="123" Width="125" Margin="715,296,153.6,85.4" Height="49"/>
         <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="635,25,0,0" VerticalAlignment="Top"/>-->
+
+    
 
 
 

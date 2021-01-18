@@ -123,8 +123,8 @@ namespace Controltest
             }} };
 
             ImageSource = "pack://application:,,,/Hjmos.BaseControls;component/Resources/Image/水滴.svg";
-            Tabs = new List<Tab> { new Tab { Header = "1", Content1 = "22" } ,
-            new Tab { Header = "1", Content1 = "22" }};
+            Tabs = new List<Tab> { new Tab { Header = "1", Content1 =new List<string>{"22", "22", "22", "22" } } ,
+            new Tab { Header = "1", Content1 =new List<string>{"22", "22", "22", "22" }}};
 
 
 
@@ -132,7 +132,7 @@ namespace Controltest
             Headers = new List<string> { "中断运营时间", "死亡人数" };
             Contents = new List<List<string>> { new List<string> { "无", "3人以下死亡", "3-5分钟", "5-10分钟", "10-15分钟", "15-20分钟" },
             new List<string> { "无", "3人以下死亡", "3人以上10人以下死亡", "10人以上30人以下死亡", "3人以下死亡", "3人以下死亡" }};
-
+            SelectedAllItems = new ObservableCollection<Textw> { new Textw { Content = "122" } };
 
              //SelectedItems = new List<string>();
              DataContext = this;
@@ -162,6 +162,19 @@ namespace Controltest
                 new DemoDataModel{ Index = 9,  Name = "Name9", IsSelected = false,  Remark = "999" },
             };
         }
+
+
+
+        private ObservableCollection<Textw> _SelectedAllItems;
+        public ObservableCollection<Textw> SelectedAllItems
+        {
+            get { return _SelectedAllItems; }
+            set {
+                _SelectedAllItems = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private List<string> _SelectedItems;
         public List<string> SelectedItems 
@@ -416,6 +429,13 @@ namespace Controltest
         {
 
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            if (SelectedAllItems == null)
+                SelectedAllItems = new ObservableCollection<Textw>();
+            SelectedAllItems.Add(new Textw { Content = "122" });
+        }
     }
 
 
@@ -428,7 +448,7 @@ namespace Controltest
     public class Tab
     {
         public string Header { get; set; }
-        public string Content1 { get; set; }
+        public List<string> Content1 { get; set; }
     }
 
 

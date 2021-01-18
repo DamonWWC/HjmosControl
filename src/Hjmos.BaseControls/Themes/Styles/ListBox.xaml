@@ -5,6 +5,7 @@
         <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="TextBlock.xaml"/>
+        <ResourceDictionary Source="ScrollViewer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
@@ -103,14 +104,16 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}"/>
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="SelectionMode" Value="Multiple"/>
+        <Setter Property="SelectionMode" Value="Single"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
-                    <StackPanel Orientation="Horizontal">
+                    <DockPanel LastChildFill="True">
                         <TextBlock Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}:}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0" Style="{StaticResource TextBlockTitle}"/>
-                        <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                    </StackPanel>
+                        <controls:ScrollViewer CanMouseWheel="True" Orientation="Horizontal" IsInertiaEnabled="True"  CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                            <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </controls:ScrollViewer>
+                    </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
