@@ -1,8 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
-                    xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools">
-    
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
+    xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools">
+
     <!--<Style x:Key="ListBoxItemVerticalStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="10"/>
@@ -34,11 +35,12 @@
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
-                </ControlTemplate> 
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            --><!--<MultiDataTrigger>
+    -->
+    <!--<MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType=ItemsControl}}" Value="Vertical"/>
                     <Condition Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="0"/>
@@ -55,7 +57,8 @@
                 <MultiDataTrigger.Setters>
                     <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,0,5,5"/>
                 </MultiDataTrigger.Setters>
-            </MultiDataTrigger>--><!--
+            </MultiDataTrigger>-->
+    <!--
 
             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Converter={StaticResource IsFirstOrLastInContainerConverter}}" Value="0">
                 <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,0,0,5"/>
@@ -112,33 +115,42 @@
     </Style>-->
 
     <Style x:Key="ListBoxItemBaseStyle" TargetType="ListBoxItem">
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="MinHeight" Value="30"/>
-        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment,RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="Bd" CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"
-                          Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True"  >
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <Border
+                        x:Name="Bd"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" TargetName="Bd"  Value="{Binding Path=(controls:BackgroundSwitchElement.ItemSelectedBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.ItemSelectedBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                                <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsSelected" Value="False" />
                             </MultiTrigger.Conditions>
                             <MultiTrigger.Setters>
-                                <Setter Property="Background" TargetName="Bd" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <Setter Property="Cursor" Value="Hand" />
                             </MultiTrigger.Setters>
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
@@ -149,23 +161,34 @@
 
 
     <Style x:Key="ListBoxBaseStyle" TargetType="ListBox">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-        <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true"/>
-        <Setter Property="controls:ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="controls:ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
-                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                        <controls:ScrollViewer Focusable="false" CanMouseWheel="True"  CanContentScroll="True" Orientation="Vertical" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
-                            <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border
+                        x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <controls:ScrollViewer
+                            CanContentScroll="True"
+                            CanMouseWheel="True"
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Visible"
+                            Orientation="Vertical"
+                            VerticalScrollBarVisibility="Visible">
+                            <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </controls:ScrollViewer>
                     </Border>
                 </ControlTemplate>
@@ -174,46 +197,129 @@
     </Style>
 
 
-    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemSingle">
-        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5"/>
-    </Style>
-    
-    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemHorizontalFirst">
-        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,0,0,5"/>
-    </Style>
-
-    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemHorizontalLast">
-        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,5,5,0"/>
-    </Style>
-    
-    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemVerticalFirst">
-        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,5,0,0"/>
-    </Style>
-    
-    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}" x:Key="ListBoxItemVerticalLast">
-        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,0,5,5"/>
+    <Style
+        x:Key="ListBoxItemSingle"
+        BasedOn="{StaticResource ListBoxItemBaseStyle}"
+        TargetType="ListBoxItem">
+        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5" />
     </Style>
 
+    <Style
+        x:Key="ListBoxItemHorizontalFirst"
+        BasedOn="{StaticResource ListBoxItemBaseStyle}"
+        TargetType="ListBoxItem">
+        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,0,0,5" />
+    </Style>
 
-    <tools:ListBoxItemStyleSelector x:Key="ListboxItemStyleSelector"/>
+    <Style
+        x:Key="ListBoxItemHorizontalLast"
+        BasedOn="{StaticResource ListBoxItemBaseStyle}"
+        TargetType="ListBoxItem">
+        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,5,5,0" />
+    </Style>
+
+    <Style
+        x:Key="ListBoxItemVerticalFirst"
+        BasedOn="{StaticResource ListBoxItemBaseStyle}"
+        TargetType="ListBoxItem">
+        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="5,5,0,0" />
+    </Style>
+
+    <Style
+        x:Key="ListBoxItemVerticalLast"
+        BasedOn="{StaticResource ListBoxItemBaseStyle}"
+        TargetType="ListBoxItem">
+        <Setter Property="controls:ListBoxAttach.ItemCornerRadius" Value="0,0,5,5" />
+    </Style>
+
+
+    <tools:ListBoxItemStyleSelector x:Key="ListboxItemStyleSelector" />
 
     <Style x:Key="ListBoxNewBaseStyle" TargetType="controls:ListBox">
-        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource ListboxItemStyleSelector}"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="5"/>
+        <Setter Property="ItemContainerStyleSelector" Value="{StaticResource ListboxItemStyleSelector}" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ListBox">
-                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding controls:ListBoxAttach.CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                        <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border
+                        x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding controls:ListBoxAttach.CornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="ListBoxItemTabBaseStyle" TargetType="ListBoxItem">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="Width" Value="auto" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <controls:SimplePanel x:Name="templateRoot" SnapsToDevicePixels="True">
+                        <Border
+                            x:Name="mainBorder"
+                            Width="20"
+                            Margin="0"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0" />
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </controls:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="mainBorder" Property="BorderThickness" Value="0,0,0,0" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType=controls:ListBox}}" Value="Horizontal" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1" />
+                            <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{Binding BorderBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            <Setter TargetName="mainBorder" Property="BorderThickness" Value="0,0,0,3" />
+                        </MultiDataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
+                                <Condition Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType=controls:ListBox}}" Value="Vertical" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter Property="Panel.ZIndex" Value="1" />
+                            <Setter TargetName="contentPresenter" Property="TextElement.Foreground" Value="{Binding BorderBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            <Setter TargetName="mainBorder" Property="BorderThickness" Value="3,0,0,0" />
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

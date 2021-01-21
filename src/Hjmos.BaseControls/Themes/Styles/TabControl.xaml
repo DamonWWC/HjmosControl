@@ -5,6 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
+
     <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl"/>
+    <Style TargetType="TabControl" BasedOn="{StaticResource TabControlInLineBaseStyle}" x:Key="TabControlInLine"/>
 </ResourceDictionary>

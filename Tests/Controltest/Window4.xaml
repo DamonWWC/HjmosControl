@@ -13,9 +13,49 @@
         Title="Window4" Height="450" Width="800">
     <Grid>
 
-        <DataGrid HeadersVisibility="Column"  Background="#FF186573" BorderBrush="#FF186573" BorderThickness="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding ResultDatas}">
+        
+        <!--<DataGrid HeadersVisibility="Column"  Background="#FF186573" BorderBrush="#FF186573" BorderThickness="1" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding ResultDatas}">
 
-        </DataGrid>
+        </DataGrid>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Row="0" Style="{StaticResource StackPanelHorizontalItemsControl}" ItemsSource="{Binding ChartLegends}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="5" Margin="10,0,5,0" Fill="{Binding LegendFill}"/>
+                        <TextBlock Text="{Binding ChartTitle}" Foreground="White"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <lvc:PieChart Margin="50"  Grid.Row="1" InnerRadius="50"   Hoverable="False" DataTooltip="{x:Null}" Series="{Binding SeriesCollection}" >
+            
+            <!--<lvc:PieChart.Series>
+                <lvc:PieSeries x:Name="Maria" Title="Maria" Values="3" DataLabels="True"   StrokeThickness="0"
+                               LabelPoint="{Binding PointLabel}" ShowLabelLine="True" PointGeometry="{x:Static lvc:DefaultGeometries.Diamond}"  >
+                    
+                </lvc:PieSeries>
+                <lvc:PieSeries x:Name="Charles" Title="Charles" Values="4" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}" ShowLabelLine="True" />
+                <lvc:PieSeries x:Name="Frida" Title="Frida" Values="6" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}" ShowLabelLine="True"/>
+                <lvc:PieSeries x:Name="Frederic" Title="Frederic" Values="2" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}" ShowLabelLine="True"/>
+            </lvc:PieChart.Series>-->
+        </lvc:PieChart>
+        <TextBlock x:Name="text" Text="111"/>
+
+
+
+
+
+
+
+
+
 
         <!--<controls:SectionPassengerFlowDistribution UpFlowDatas="{Binding Value1 }"  DownFlowDatas="{Binding Value2}" Labels="{Binding Labels}"/>-->
       

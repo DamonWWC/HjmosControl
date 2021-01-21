@@ -71,13 +71,13 @@ namespace LiveCharts.Wpf
         /// The push out property
         /// </summary>
         public static readonly DependencyProperty PushOutProperty = DependencyProperty.Register(
-            "PushOut", typeof (double), typeof (PieSeries), new PropertyMetadata(default(double), CallChartUpdater()));
+            "PushOut", typeof(double), typeof(PieSeries), new PropertyMetadata(default(double), CallChartUpdater()));
         /// <summary>
         /// Gets or sets the slice push out, this property highlights the slice
         /// </summary>
         public double PushOut
         {
-            get { return (double) GetValue(PushOutProperty); }
+            get { return (double)GetValue(PushOutProperty); }
             set { SetValue(PushOutProperty, value); }
         }
 
@@ -85,7 +85,7 @@ namespace LiveCharts.Wpf
         /// The label position property
         /// </summary>
         public static readonly DependencyProperty LabelPositionProperty = DependencyProperty.Register(
-            "LabelPosition", typeof(PieLabelPosition), typeof(PieSeries), 
+            "LabelPosition", typeof(PieLabelPosition), typeof(PieSeries),
             new PropertyMetadata(PieLabelPosition.InsideSlice, CallChartUpdater()));
         /// <summary>
         /// Gets or sets the label position.
@@ -95,7 +95,7 @@ namespace LiveCharts.Wpf
         /// </value>
         public PieLabelPosition LabelPosition
         {
-            get { return (PieLabelPosition) GetValue(LabelPositionProperty); }
+            get { return (PieLabelPosition)GetValue(LabelPositionProperty); }
             set { SetValue(LabelPositionProperty, value); }
         }
 
@@ -187,6 +187,21 @@ namespace LiveCharts.Wpf
             DependencyProperty.Register("TextPieDescribeForground", typeof(Brush), typeof(PieSeries), new PropertyMetadata(Brushes.White, OnValuesInstanceChanged));
 
 
+
+
+
+        public bool ShowLabelLine
+        {
+            get { return (bool)GetValue(ShowLabelLineProperty); }
+            set { SetValue(ShowLabelLineProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ShowLabelLine.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ShowLabelLineProperty =
+            DependencyProperty.Register("ShowLabelLine", typeof(bool), typeof(PieSeries), new PropertyMetadata(false));
+
+
+
         #endregion
 
         #region Overridden Methods
@@ -199,7 +214,7 @@ namespace LiveCharts.Wpf
         /// <returns></returns>
         public override IChartPointView GetPointView(ChartPoint point, string label)
         {
-            var pbv = (PiePointView) point.View;
+            var pbv = (PiePointView)point.View;
 
             if (pbv == null)
             {
@@ -209,16 +224,15 @@ namespace LiveCharts.Wpf
                     Slice = new PieSlice(),
                     TextPie = new TextBlock()
                     {
-                        TextAlignment = TextAlignment.Center,                       
-                    }
+                        TextAlignment = TextAlignment.Center,
+                    },
                 };
-                
+
                 Model.Chart.View.AddToDrawMargin(pbv.Slice);
                 if (TextPieNum != null)
                 {
                     Model.Chart.View.AddToDrawMargin(pbv.TextPie);
                 }
-
             }
             else
             {
@@ -231,6 +245,10 @@ namespace LiveCharts.Wpf
                     .EnsureElementBelongsToCurrentDrawMargin(pbv.DataLabel);
                 point.SeriesView.Model.Chart.View
                    .EnsureElementBelongsToCurrentDrawMargin(pbv.TextPie);
+                point.SeriesView.Model.Chart.View
+                   .EnsureElementBelongsToCurrentDrawMargin(pbv.LabelLine);
+                point.SeriesView.Model.Chart.View
+                    .EnsureElementBelongsToCurrentDrawMargin(pbv.LabelOutText);
             }
 
             pbv.Slice.Fill = Fill;
@@ -290,7 +308,7 @@ namespace LiveCharts.Wpf
                     pbv.TextPie.Inlines.Add(r2);
                 }
             }
-           
+
             if (Model.Chart.RequiresHoverShape && pbv.HoverShape == null)
             {
                 pbv.HoverShape = new PieSlice
@@ -311,11 +329,38 @@ namespace LiveCharts.Wpf
 
             if (DataLabels)
             {
+                string labeltext = label;
+                if (ShowLabelLine)
+                {
+                    if (pbv.LabelLine != null)
+                    {
+                        Model.Chart.View.RemoveFromDrawMargin(pbv.LabelLine);
+                        pbv.LabelLine = null;
+                    }
+                    string[] labels = labeltext.Split(',');
+                    if (labels.Length > 1)
+                    {
+                        labeltext = labels[0];
+                        string label1 = labels[1];
+                        pbv.LabelLine = new System.Windows.Shapes.Polyline
+                        {
+                            Stroke = Brushes.White,
+                            StrokeThickness = 2,
+                        };
+                        pbv.LabelOutText = UpdateLabelContent(new DataLabelViewModel
+                        {
+                            FormattedText = label1,
+                            Point = point
+                        }, pbv.LabelOutText);
+                        Model.Chart.View.AddToDrawMargin(pbv.LabelLine);
+                    }
+                }
                 pbv.DataLabel = UpdateLabelContent(new DataLabelViewModel
                 {
-                    FormattedText = label,
+                    FormattedText = labeltext,
                     Point = point
                 }, pbv.DataLabel);
+
             }
 
             if (!DataLabels && pbv.DataLabel != null)
@@ -324,11 +369,20 @@ namespace LiveCharts.Wpf
                 pbv.DataLabel = null;
             }
 
-          
+            if (!ShowLabelLine && pbv.LabelLine != null)
+            {
+                Model.Chart.View.RemoveFromDrawMargin(pbv.LabelLine);
+                Model.Chart.View.RemoveFromDrawMargin(pbv.LabelOutText);
+                pbv.LabelOutText = null;
+                pbv.LabelLine = null;
+            }
+
+
+
             if (point.Stroke != null) pbv.Slice.Stroke = (Brush)point.Stroke;
             if (point.Fill != null) pbv.Slice.Fill = (Brush)point.Fill;
 
-            pbv.OriginalPushOut  = PushOut;
+            pbv.OriginalPushOut = PushOut;
 
             return pbv;
         }

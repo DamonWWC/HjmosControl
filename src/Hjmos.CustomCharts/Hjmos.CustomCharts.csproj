@@ -52,6 +52,7 @@
     <Compile Include="Controls\AverageDailyPassengerFlowTop10.cs" />
     <Compile Include="Controls\BigDataMonitor.cs" />
     <Compile Include="Controls\DeviceAlarmBarChart.cs" />
+    <Compile Include="Controls\EventStatisticsWithPieChart.cs" />
     <Compile Include="Controls\MoreDayPassengerFlowTrend.cs" />
     <Compile Include="Controls\PassengerFlowTrend.cs" />
     <Compile Include="Controls\SectionPassengerFlowDistribution.cs" />
@@ -85,6 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\DeviceAlarmBarChart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\EventStatisticsWithPieChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
