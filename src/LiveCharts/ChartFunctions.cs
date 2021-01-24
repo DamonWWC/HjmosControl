@@ -43,7 +43,7 @@ namespace LiveCharts
         /// <param name="axis">axis index in collection of chart.axis</param>
         /// <param name="perwidth"></param>
         /// <returns></returns>
-        public static double ToPlotArea(double value, AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0, double addheight = 0)
+        public static double ToPlotArea(double value, AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0)
         {
             var p1 = new CorePoint();
             var p2 = new CorePoint();
@@ -54,7 +54,7 @@ namespace LiveCharts
                 p1.Y = chart.DrawMargin.Top;
 
                 p2.X = chart.AxisY[axis].BotLimit;
-                p2.Y = chart.DrawMargin.Top + chart.DrawMargin.Height - addheight;
+                p2.Y = chart.DrawMargin.Top + chart.DrawMargin.Height - chart.AddHeight;
             }
             else
             {
@@ -68,7 +68,7 @@ namespace LiveCharts
 
             var deltaX = p2.X - p1.X;
             // ReSharper disable once CompareOfFloatsByEqualityOperator
-            var m = (p2.Y - p1.Y)/(deltaX == 0 ? double.MinValue : deltaX);
+            var m = (p2.Y - p1.Y) / (deltaX == 0 ? double.MinValue : deltaX);
             return m * (value - p1.X) + p1.Y;
         }
 
@@ -82,7 +82,7 @@ namespace LiveCharts
         /// <param name="perwidth"></param>
         /// <param name="addheight"></param>
         /// <returns></returns>
-        public static double ToPlotArea(double value, AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0, double addheight = 0)
+        public static double ToPlotArea(double value, AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0)
         {
             var p1 = new CorePoint();
             var p2 = new CorePoint();
@@ -93,7 +93,7 @@ namespace LiveCharts
                 p1.Y = chart.DrawMargin.Top;
 
                 p2.X = axis.BotLimit;
-                p2.Y = chart.DrawMargin.Top + chart.DrawMargin.Height-addheight;
+                p2.Y = chart.DrawMargin.Top + chart.DrawMargin.Height - chart.AddHeight;
             }
             else
             {
@@ -123,7 +123,7 @@ namespace LiveCharts
         {
             var p1 = new CorePoint();
             var p2 = new CorePoint();
-            
+
             if (source == AxisOrientation.Y)
             {
                 p1.X = chart.AxisY[axis].TopLimit;
@@ -156,13 +156,13 @@ namespace LiveCharts
         /// <param name="axis">axis instance to scale the value at</param>
         /// <param name="perwidth"></param>
         /// <returns></returns>
-        public static double ToDrawMargin(double value, AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0, double addheight = 0)
+        public static double ToDrawMargin(double value, AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0)
         {
             var o = source == AxisOrientation.X
                 ? chart.DrawMargin.Left
                 : chart.DrawMargin.Top;
 
-            return ToPlotArea(value, source, chart, axis, perwidth,addheight) - o;
+            return ToPlotArea(value, source, chart, axis, perwidth) - o;
         }
 
         /// <summary>
@@ -174,13 +174,13 @@ namespace LiveCharts
         /// <param name="axis">axis instance to scale the value at</param>
         /// <param name="perwidth"></param>
         /// <returns></returns>
-        public static double ToDrawMargin(double value, AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0, double addheight = 0)
+        public static double ToDrawMargin(double value, AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0)
         {
             var o = source == AxisOrientation.X
                 ? chart.DrawMargin.Left
                 : chart.DrawMargin.Top;
 
-            return ToPlotArea(value, source, chart, axis,perwidth, addheight) - o;
+            return ToPlotArea(value, source, chart, axis, perwidth) - o;
         }
 
         /// <summary>
@@ -192,11 +192,11 @@ namespace LiveCharts
         /// <param name="chart">chart model to scale the value at</param>
         /// <param name="perwidth"></param>
         /// <returns></returns>
-        public static CorePoint ToDrawMargin(ChartPoint point, int axisXIndex, int axisYIndex, ChartCore chart, double perwidth = 0, double addheight = 0)
+        public static CorePoint ToDrawMargin(ChartPoint point, int axisXIndex, int axisYIndex, ChartCore chart, double perwidth = 0)
         {
             return new CorePoint(
-                ToDrawMargin(point.X, AxisOrientation.X, chart, axisXIndex, perwidth, addheight),
-                ToDrawMargin(point.Y, AxisOrientation.Y, chart, axisYIndex, perwidth, addheight));
+                ToDrawMargin(point.X, AxisOrientation.X, chart, axisXIndex, perwidth),
+                ToDrawMargin(point.Y, AxisOrientation.Y, chart, axisYIndex, perwidth));
         }
 
         /// <summary>
@@ -208,10 +208,10 @@ namespace LiveCharts
         /// <param name="perwidth"></param>
         /// <param name="addheight"></param>
         /// <returns></returns>
-        public static double GetUnitWidth(AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0,double addheight=0)
+        public static double GetUnitWidth(AxisOrientation source, ChartCore chart, int axis = 0, double perwidth = 0)
         {
             return GetUnitWidth(source, chart,
-                (source == AxisOrientation.X ? chart.AxisX : chart.AxisY)[axis],perwidth, addheight);
+                (source == AxisOrientation.X ? chart.AxisX : chart.AxisY)[axis], perwidth);
         }
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace LiveCharts
         /// <param name="perwidth"></param>
         /// <param name="addheight"></param>
         /// <returns></returns>
-        public static double GetUnitWidth(AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0, double addheight = 0)
+        public static double GetUnitWidth(AxisOrientation source, ChartCore chart, AxisCore axis, double perwidth = 0)
         {
             double min;
             double u = !double.IsNaN(axis.View.BarUnit)
@@ -235,14 +235,14 @@ namespace LiveCharts
             if (source == AxisOrientation.Y)
             {
                 min = axis.BotLimit;
-                return ToDrawMargin(min, AxisOrientation.Y, chart, axis, perwidth, addheight) -
-                       ToDrawMargin(min + u, AxisOrientation.Y, chart, axis, perwidth, addheight);
+                return ToDrawMargin(min, AxisOrientation.Y, chart, axis, perwidth) -
+                       ToDrawMargin(min + u, AxisOrientation.Y, chart, axis, perwidth);
             }
 
             min = axis.BotLimit;
 
-            return ToDrawMargin(min + u, AxisOrientation.X, chart, axis, perwidth, addheight) -
-                   ToDrawMargin(min, AxisOrientation.X, chart, axis, perwidth, addheight);
+            return ToDrawMargin(min + u, AxisOrientation.X, chart, axis, perwidth) -
+                   ToDrawMargin(min, AxisOrientation.X, chart, axis, perwidth);
         }
 
         /// <summary>
@@ -264,7 +264,7 @@ namespace LiveCharts
                     {
                         XFormatter = ax.GetFormatter(),
                         YFormatter = ay.GetFormatter(),
-                        Points = new List<ChartPoint> {senderPoint},
+                        Points = new List<ChartPoint> { senderPoint },
                         Shares = null
                     };
                 case TooltipSelectionMode.SharedXValues:
@@ -277,7 +277,7 @@ namespace LiveCharts
                         Points = chart.View.ActualSeries.Where(x => x.ScalesXAt == senderPoint.SeriesView.ScalesXAt)
                             .SelectMany(x => x.Values.GetPoints(x))
                             .Where(x => Math.Abs(x.X - senderPoint.X) < tx),
-                        Shares = (chart.View is IPieChart) ? null : (double?) senderPoint.X
+                        Shares = (chart.View is IPieChart) ? null : (double?)senderPoint.X
                     };
                 case TooltipSelectionMode.SharedYValues:
                     var ty = Math.Abs(FromPlotArea(1, AxisOrientation.Y, chart, senderPoint.SeriesView.ScalesYAt)
@@ -320,4 +320,3 @@ namespace LiveCharts
 
     }
 }
- 

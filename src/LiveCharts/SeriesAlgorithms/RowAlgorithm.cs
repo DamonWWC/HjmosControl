@@ -51,22 +51,22 @@ namespace LiveCharts.SeriesAlgorithms
         /// </summary>
         public override void Update()
         {
-            var castedSeries = (IRowSeriesView) View;
+            var castedSeries = (IRowSeriesView)View;
 
             var padding = castedSeries.RowPadding;
-            
-            var totalSpace = ChartFunctions.GetUnitWidth(AxisOrientation.Y, Chart, View.ScalesYAt, castedSeries.PercentageWith,castedSeries.AddHeight) - padding;
+
+            var totalSpace = ChartFunctions.GetUnitWidth(AxisOrientation.Y, Chart, View.ScalesYAt, castedSeries.PercentageWith) - padding;
             var typeSeries = Chart.View.ActualSeries.OfType<IRowSeriesView>().ToList();
 
-            var singleRowHeight = totalSpace/typeSeries.Count;
+            var singleRowHeight = totalSpace / typeSeries.Count;
 
             double exceed = 0;
 
-            var seriesPosition = typeSeries.IndexOf((IRowSeriesView) View);
+            var seriesPosition = typeSeries.IndexOf((IRowSeriesView)View);
 
             if (singleRowHeight > castedSeries.MaxRowHeigth)
             {
-                exceed = (singleRowHeight - castedSeries.MaxRowHeigth)*typeSeries.Count/2;
+                exceed = (singleRowHeight - castedSeries.MaxRowHeigth) * typeSeries.Count / 2;
                 singleRowHeight = castedSeries.MaxRowHeigth;
             }
 
@@ -78,31 +78,31 @@ namespace LiveCharts.SeriesAlgorithms
                     ? CurrentXAxis.LastSeparator                                               //then use Max
                     : 0);                                                                      //if mixed then use 0
 
-            var zero = ChartFunctions.ToDrawMargin(startAt, AxisOrientation.X, Chart, View.ScalesXAt, castedSeries.PercentageWith, castedSeries.AddHeight);
+            var zero = ChartFunctions.ToDrawMargin(startAt, AxisOrientation.X, Chart, View.ScalesXAt, castedSeries.PercentageWith);
 
-            var correction = ChartFunctions.GetUnitWidth(AxisOrientation.Y, Chart, View.ScalesYAt, castedSeries.PercentageWith, castedSeries.AddHeight);
+            var correction = ChartFunctions.GetUnitWidth(AxisOrientation.Y, Chart, View.ScalesYAt, castedSeries.PercentageWith);
 
             foreach (var chartPoint in View.ActualValues.GetPoints(View))
             {
                 var reference =
-                    ChartFunctions.ToDrawMargin(chartPoint, View.ScalesXAt, View.ScalesYAt, Chart, castedSeries.PercentageWith, castedSeries.AddHeight);
+                    ChartFunctions.ToDrawMargin(chartPoint, View.ScalesXAt, View.ScalesYAt, Chart, castedSeries.PercentageWith);
 
                 chartPoint.View = View.GetPointView(chartPoint,
                     View.DataLabels ? View.GetLabelPointFormatter()(chartPoint) : null);
 
                 chartPoint.SeriesView = View;
 
-                var rectangleView = (IRectanglePointView) chartPoint.View;
+                var rectangleView = (IRectanglePointView)chartPoint.View;
 
                 var w = Math.Abs(reference.X - zero);
                 var l = reference.X < zero
                     ? reference.X
                     : zero;
 
-            
+
                 if (chartPoint.EvaluatesGantt)
                 {
-                    l = ChartFunctions.ToDrawMargin(chartPoint.XStart, AxisOrientation.X, Chart, View.ScalesXAt, castedSeries.PercentageWith, castedSeries.AddHeight);
+                    l = ChartFunctions.ToDrawMargin(chartPoint.XStart, AxisOrientation.X, Chart, View.ScalesXAt, castedSeries.PercentageWith);
                     if (!(reference.X < zero && l < zero)) w -= l;
                 }
 

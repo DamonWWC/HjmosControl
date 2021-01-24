@@ -151,6 +151,10 @@ namespace LiveCharts.Charts
         public List<AxisCore> AxisY { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public double AddHeight { get; set; }
+        /// <summary>
         /// Gets or sets the x limit.
         /// </summary>
         /// <value>
@@ -223,7 +227,7 @@ namespace LiveCharts.Charts
         /// </summary>
         public virtual void RunSpecializedChartComponents()
         {
-            
+
         }
 
         /// <summary>
@@ -259,10 +263,10 @@ namespace LiveCharts.Charts
                     ax.Tab = curSize.Left + curSize.Width;
                 }
 
-                var uw = ax.EvaluatesUnitWidth ? ChartFunctions.GetUnitWidth(AxisOrientation.Y, this, index)/2 : 0;
+                var uw = ax.EvaluatesUnitWidth ? ChartFunctions.GetUnitWidth(AxisOrientation.Y, this, index) / 2 : 0;
 
                 var topE = biggest.Top - uw;
-                if (topE> curSize.Top)
+                if (topE > curSize.Top)
                 {
                     var dif = topE - curSize.Top;
                     curSize.Top += dif;
@@ -299,7 +303,7 @@ namespace LiveCharts.Charts
                 }
 
                 //Notice the unit width is not exact at this point...
-                var uw = xi.EvaluatesUnitWidth ? ChartFunctions.GetUnitWidth(AxisOrientation.X, this, index)/2 : 0;
+                var uw = xi.EvaluatesUnitWidth ? ChartFunctions.GetUnitWidth(AxisOrientation.X, this, index) / 2 : 0;
 
                 var leftE = biggest.Left - uw > 0 ? biggest.Left - uw : 0;
                 if (leftE > curSize.Left)
@@ -344,7 +348,7 @@ namespace LiveCharts.Charts
                 }
                 ax.UpdateSeparators(AxisOrientation.Y, this, index);
                 ax.UpdateAxisXY(AxisOrientation.Y, this);
-                ax.View.SetTitleTop(curSize.Top + curSize.Height*.5 + ax.View.GetLabelSize().Width*.5);
+                ax.View.SetTitleTop(curSize.Top + curSize.Height * .5 + ax.View.GetLabelSize().Width * .5);
             }
 
             for (var index = 0; index < AxisX.Count; index++)
@@ -359,7 +363,7 @@ namespace LiveCharts.Charts
                 }
                 xi.UpdateSeparators(AxisOrientation.X, this, index);
                 xi.UpdateAxisXY(AxisOrientation.X, this);
-                xi.View.SetTitleLeft(curSize.Left + curSize.Width*.5 - xi.View.GetLabelSize().Width*.5);
+                xi.View.SetTitleLeft(curSize.Left + curSize.Width * .5 - xi.View.GetLabelSize().Width * .5);
             }
         }
 
@@ -386,19 +390,19 @@ namespace LiveCharts.Charts
                     View.ShowLegend(new CorePoint(ControlSize.Width * .5 - legendSize.Width * .5, 0));
                     break;
                 case LegendLocation.Bottom:
-                    var bot = new CorePoint(ControlSize.Width*.5 - legendSize.Width*.5,
+                    var bot = new CorePoint(ControlSize.Width * .5 - legendSize.Width * .5,
                         ControlSize.Height - legendSize.Height);
                     drawMargin.Height -= legendSize.Height;
                     View.ShowLegend(new CorePoint(bot.X, ControlSize.Height - legendSize.Height));
                     break;
                 case LegendLocation.Left:
                     drawMargin.Left = drawMargin.Left + legendSize.Width;
-                    View.ShowLegend(new CorePoint(0, ControlSize.Height*.5 - legendSize.Height*.5));
+                    View.ShowLegend(new CorePoint(0, ControlSize.Height * .5 - legendSize.Height * .5));
                     break;
                 case LegendLocation.Right:
                     drawMargin.Width -= legendSize.Width + padding;
                     View.ShowLegend(new CorePoint(ControlSize.Width - legendSize.Width,
-                        ControlSize.Height*.5 - legendSize.Height*.5));
+                        ControlSize.Height * .5 - legendSize.Height * .5));
                     break;
                 case LegendLocation.TopRight:
                     drawMargin.Top += legendSize.Height;
@@ -496,7 +500,7 @@ namespace LiveCharts.Charts
 
                     var target = l * (1 / speed);
                     if (target > xi.View.MaxRange) return;
-                    var mint = px- target * rMin;
+                    var mint = px - target * rMin;
                     var maxt = px + target * rMax;
                     xi.View.SetRange(mint, maxt);
                 }
@@ -509,7 +513,7 @@ namespace LiveCharts.Charts
                     var ax = AxisY[index];
 
                     var py = ChartFunctions.FromPlotArea(pivot.Y, AxisOrientation.Y, this, index);
-                    
+
                     var max = double.IsNaN(ax.View.MaxValue) ? ax.TopLimit : ax.View.MaxValue;
                     var min = double.IsNaN(ax.View.MinValue) ? ax.BotLimit : ax.View.MinValue;
                     var l = max - min;
@@ -686,13 +690,13 @@ namespace LiveCharts.Charts
                             if (double.IsNaN(ax.MinValue))
                                 ax.BotLimit = mostLeft == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostLeft/ax.S) - 1.0)*ax.S;
+                                    : (Math.Floor(mostLeft / ax.S) - 1.0) * ax.S;
                         if (mostRight > ax.TopLimit)
                             // ReSharper disable once CompareOfFloatsByEqualityOperator
                             if (double.IsNaN(ax.MaxValue))
                                 ax.TopLimit = mostRight == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostRight/ax.S) + 1.0)*ax.S;
+                                    : (Math.Floor(mostRight / ax.S) + 1.0) * ax.S;
                     }
                 }
 
@@ -712,13 +716,13 @@ namespace LiveCharts.Charts
                             if (double.IsNaN(ay.MinValue))
                                 ay.BotLimit = mostLeft == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostLeft/ay.S) - 1.0)*ay.S;
+                                    : (Math.Floor(mostLeft / ay.S) - 1.0) * ay.S;
                         if (mostRight > ay.TopLimit)
                             // ReSharper disable once CompareOfFloatsByEqualityOperator
                             if (double.IsNaN(ay.MaxValue))
                                 ay.TopLimit = mostRight == 0.0
                                     ? 0.0
-                                    : (Math.Floor(mostRight/ay.S) + 1.0)*ay.S;
+                                    : (Math.Floor(mostRight / ay.S) + 1.0) * ay.S;
                     }
                 }
             }
@@ -739,9 +743,9 @@ namespace LiveCharts.Charts
                 var view = series[0] as IAreaPoint;
                 firstR = view != null ? view.GetPointDiameter() : 0;
             }
-            
+
             //                     [ max, min, pointRadius ]
-            var boundries = new[] {first.Max, first.Min, firstR};
+            var boundries = new[] { first.Max, first.Min, firstR };
 
             for (var index = 1; index < series.Count; index++)
             {

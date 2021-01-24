@@ -63,8 +63,8 @@ namespace Hjmos.BaseControls.Controls
                 {
                     DisplayText = SelectedAllItems.ToString();
                 }
-
             }
+            RaiseEvent(new RoutedEventArgs(ConfirmEvent));
 
         }
 
@@ -77,6 +77,18 @@ namespace Hjmos.BaseControls.Controls
                 IsDropDownOpen = true;
                 IsDropDownOpen = false;
             }), System.Windows.Threading.DispatcherPriority.DataBind);
+        }
+
+        public static readonly RoutedEvent ConfirmEvent =
+            EventManager.RegisterRoutedEvent("Confirm", RoutingStrategy.Bubble,
+                typeof(EventHandler), typeof(ContentComboBox));
+        /// <summary>
+        /// 确定事件
+        /// </summary>
+        public event EventHandler Confirm
+        {
+            add => AddHandler(ConfirmEvent, value);
+            remove => RemoveHandler(ConfirmEvent, value);
         }
 
 
@@ -175,7 +187,12 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         internal static readonly DependencyProperty DisplayTextProperty =
-            DependencyProperty.Register("DisplayText", typeof(string), typeof(ContentComboBox), new PropertyMetadata(default(string)));
+            DependencyProperty.Register("DisplayText", typeof(string), typeof(ContentComboBox), new PropertyMetadata(default(string), (o, args) =>
+            {
+                var ct1 = o as ContentComboBox;
+                var value = args.NewValue.ToString();
+                ct1._textBlock.Text = value;
+            }));
 
 
 
@@ -193,6 +210,9 @@ namespace Hjmos.BaseControls.Controls
         public static readonly DependencyProperty SeparatorProperty =
             DependencyProperty.Register("Separator", typeof(string), typeof(ContentComboBox), new PropertyMetadata(","));
 
-        
+
+
+
+
     }
 }

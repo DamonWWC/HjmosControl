@@ -1,40 +1,68 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib"
-                    xmlns:interactivity="clr-namespace:Hjmos.BaseControls.Interactivity">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls"
+    xmlns:interactivity="clr-namespace:Hjmos.BaseControls.Interactivity"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../ListBox.xaml"/>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../Tag.xaml"/>
-        <ResourceDictionary Source="../ScrollViewer.xaml"/>
-        <ResourceDictionary Source="../TabControl.xaml"/>
-        <ResourceDictionary Source="../Button.xaml"/>
+        <ResourceDictionary Source="../ListBox.xaml" />
+        <ResourceDictionary Source="../../Basic/Geometries.xaml" />
+        <ResourceDictionary Source="../Tag.xaml" />
+        <ResourceDictionary Source="../ScrollViewer.xaml" />
+        <ResourceDictionary Source="../TabControl.xaml" />
+        <ResourceDictionary Source="../Button.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="Tag4CheckComboBoxStyle" BasedOn="{StaticResource TagBaseStyle}" TargetType="hj:Tag">
-        <Setter Property="Margin" Value="0,3,3,0"/>
-        <Setter Property="Padding" Value="6,3,4,3"/>
-        <Setter Property="Height" Value="Auto"/>
-        <Setter Property="Background" Value="Transparent"/>
+    <Style
+        x:Key="Tag4CheckComboBoxStyle"
+        BasedOn="{StaticResource TagBaseStyle}"
+        TargetType="hj:Tag">
+        <Setter Property="Margin" Value="0,3,3,0" />
+        <Setter Property="Padding" Value="6,3,4,3" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hj:Tag">
-                    <Border CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                        SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Button Focusable="False" Name="ButtonClose" Cursor="Hand" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Height="16" Padding="0,4" Grid.Column="1" Style="{StaticResource ButtonIcon}" hj:IconElement.Geometry="{StaticResource CloseGeometry}" Foreground="{TemplateBinding Foreground}"/>
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <Button
+                                Name="ButtonClose"
+                                Grid.Column="1"
+                                Width="16"
+                                Height="16"
+                                Margin="10,0,0,0"
+                                Padding="0,4"
+                                hj:IconElement.Geometry="{StaticResource CloseGeometry}"
+                                Command="interactivity:ControlCommands.Close"
+                                Cursor="Hand"
+                                Focusable="False"
+                                Foreground="{TemplateBinding Foreground}"
+                                Style="{StaticResource ButtonIcon}"
+                                Visibility="{TemplateBinding ShowCloseButton,
+                                                             Converter={StaticResource Boolean2VisibilityConverter}}" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
-                            <Setter Property="hj:IconElement.Geometry" Value="{StaticResource DeleteFillCircleGeometry}" TargetName="ButtonClose"/>
-                            <Setter Property="Padding" Value="0" TargetName="ButtonClose"/>
+                        <Trigger SourceName="ButtonClose" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonClose" Property="hj:IconElement.Geometry" Value="{StaticResource DeleteFillCircleGeometry}" />
+                            <Setter TargetName="ButtonClose" Property="Padding" Value="0" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -57,10 +85,33 @@
                             <ColumnDefinition />
                             <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
-                        <Border Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"/>
-                        <Path Grid.Column="1" x:Name="arrow" Data="{StaticResource DownGeometry}" Stretch="Uniform" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" Margin="7" VerticalAlignment="Center"/>
-                        <Border Margin="1" Grid.Column="0" Visibility="{Binding DisplayText,RelativeSource={RelativeSource AncestorType=hj:ContentComboBox},Converter={StaticResource String2VisibilityReConverter}}">
-                            <ContentPresenter Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Border
+                            Grid.ColumnSpan="2"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                            SnapsToDevicePixels="true" />
+                        <Path
+                            x:Name="arrow"
+                            Grid.Column="1"
+                            Margin="7"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Data="{StaticResource DownGeometry}"
+                            Fill="{TemplateBinding BorderBrush}"
+                            Stretch="Uniform" />
+                        <Border
+                            Grid.Column="0"
+                            Margin="1"
+                            Visibility="{Binding DisplayText, RelativeSource={RelativeSource AncestorType=hj:ContentComboBox}, Converter={StaticResource String2VisibilityReConverter}}">
+                            <ContentPresenter
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Focusable="False"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -77,24 +128,43 @@
     </Style>
 
     <Style x:Key="TabCheckComboBoxToggleButton" TargetType="ToggleButton">
-        <Setter Property="ClickMode" Value="Release"/>
-        <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="IsTabStop" Value="false"/>
-        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="ClickMode" Value="Release" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="IsTabStop" Value="false" />
+        <Setter Property="Focusable" Value="false" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                        <Border Margin="0,0,6,0" BorderThickness="1" BorderBrush="Transparent" HorizontalAlignment="Right" SnapsToDevicePixels="true" Width="{StaticResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-                            <Path Width="16" Height="9" x:Name="arrow" Stretch="Uniform" Data="{StaticResource DownGeometry}" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                        SnapsToDevicePixels="true">
+                        <Border
+                            Width="{StaticResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                            Margin="0,0,6,0"
+                            HorizontalAlignment="Right"
+                            BorderBrush="Transparent"
+                            BorderThickness="1"
+                            SnapsToDevicePixels="true">
+                            <Path
+                                x:Name="arrow"
+                                Width="16"
+                                Height="9"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Data="{StaticResource DownGeometry}"
+                                Fill="{TemplateBinding BorderBrush}"
+                                Stretch="Uniform" />
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Data" TargetName="arrow" Value="{StaticResource UpGeometry}"/>
+                            <Setter TargetName="arrow" Property="Data" Value="{StaticResource UpGeometry}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value=".4"/>
+                            <Setter Property="Opacity" Value=".4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -103,13 +173,16 @@
     </Style>
 
 
-    <Style x:Key="TabItemListBox" TargetType="ListBox" BasedOn="{StaticResource ListBoxBaseStyle}">
-        <Setter Property="hj:BackgroundSwitchElement.ItemSelectedBackground" Value="#00B2E1"/>
-        <Setter Property="hj:BackgroundSwitchElement.MouseHoverBackground" Value="#00B2E1"/>
+    <Style
+        x:Key="TabItemListBox"
+        BasedOn="{StaticResource ListBoxBaseStyle}"
+        TargetType="ListBox">
+        <Setter Property="hj:BackgroundSwitchElement.ItemSelectedBackground" Value="#00B2E1" />
+        <Setter Property="hj:BackgroundSwitchElement.MouseHoverBackground" Value="#00B2E1" />
         <Setter Property="ItemContainerStyle">
             <Setter.Value>
-                <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
-                    <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource AncestorType=hj:ContentComboBox}}"/>
+                <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+                    <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource AncestorType=hj:ContentComboBox}}" />
                 </Style>
             </Setter.Value>
         </Setter>
@@ -119,22 +192,44 @@
     <ControlTemplate x:Key="ContentComboBoxTemplate" TargetType="hj:ContentComboBox">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <Popup x:Name="PART_Popup" MinWidth="250" PlacementTarget="{Binding ElementName=toggleButton}" StaysOpen="False" IsOpen="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" AllowsTransparency="true" Grid.ColumnSpan="2" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
-                <Border CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}">
+            <Popup
+                x:Name="PART_Popup"
+                Grid.ColumnSpan="2"
+                MinWidth="250"
+                AllowsTransparency="true"
+                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                Placement="Bottom"
+                PlacementTarget="{Binding ElementName=toggleButton}"
+                PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+                StaysOpen="False">
+                <Border
+                    x:Name="dropDownBorder"
+                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
                     <Grid Margin="0,4" ClipToBounds="False">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
                         <ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
                             <hj:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-                                <Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-                                    <Rectangle x:Name="opaqueRect" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                                <Canvas
+                                    Width="0"
+                                    Height="0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top">
+                                    <Rectangle
+                                        x:Name="opaqueRect"
+                                        Width="{Binding ActualWidth, ElementName=dropDownBorder}"
+                                        Height="{Binding ActualHeight, ElementName=dropDownBorder}" />
                                 </Canvas>
-                                <ContentPresenter RecognizesAccessKey="True"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </hj:SimplePanel>
                         </ScrollViewer>
                         <!--<Button Grid.Row="1" Content="确定" Margin="0,5" Foreground="{TemplateBinding Foreground}"  HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Command="interactivity:ControlCommands.Confirm" />-->
@@ -142,28 +237,68 @@
                 </Border>
             </Popup>
             <!--<ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Style="{StaticResource TabCheckComboBoxToggleButton}"/>-->
-            <ToggleButton  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hj:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ContentComboBoxWatermarkToggleButton}"/>
-            <hj:ScrollViewer Grid.Column="0" x:Name="scrollView"  CanMouseWheel="True" VerticalAlignment="Center" Orientation="Horizontal" Margin="-1,1" >
-                <TextBlock x:Name="PART_TextBlock" FontSize="14" Text="{TemplateBinding DisplayText}" Foreground="{TemplateBinding Foreground}"/>
+            <ToggleButton
+                x:Name="toggleButton"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Padding="{TemplateBinding Padding}"
+                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Content="{Binding Path=(hj:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                Style="{StaticResource ContentComboBoxWatermarkToggleButton}" />
+            <hj:ScrollViewer
+                x:Name="scrollView"
+                Grid.Column="0"
+                Margin="-1,1"
+                VerticalAlignment="Center"
+                CanMouseWheel="True"
+                Orientation="Horizontal">
+                <TextBlock
+                    x:Name="PART_TextBlock"
+                    FontSize="14"
+                    Foreground="{TemplateBinding Foreground}" />
             </hj:ScrollViewer>
-            <Button Grid.Column="0" Command="interactivity:ControlCommands.Clear" HorizontalAlignment="Right" Margin="0,0,0,0" Visibility="Collapsed" Name="ButtonClear" Width="16" Style="{StaticResource ButtonIcon}" Padding="0,6" hj:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{TemplateBinding BorderBrush}"/>
-            <Path x:Name="PathBorder" Grid.Column="0" Grid.ColumnSpan="2" Fill="Transparent" Stroke="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="True" Stretch="Fill"  Data="{TemplateBinding hj:BorderElement.Geometry}"/>
+            <Button
+                Name="ButtonClear"
+                Grid.Column="0"
+                Width="16"
+                Margin="0,0,0,0"
+                Padding="0,6"
+                HorizontalAlignment="Right"
+                hj:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                Command="interactivity:ControlCommands.Clear"
+                Foreground="{TemplateBinding BorderBrush}"
+                Style="{StaticResource ButtonIcon}"
+                Visibility="Collapsed" />
+            <Path
+                x:Name="PathBorder"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Data="{TemplateBinding hj:BorderElement.Geometry}"
+                Fill="Transparent"
+                SnapsToDevicePixels="True"
+                Stretch="Fill"
+                Stroke="{TemplateBinding BorderBrush}" />
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="hj:DropDownElement.ConsistentWidth" Value="True">
-                <Setter Property="MaxWidth" TargetName="dropDownBorder" Value="{Binding ActualWidth, ElementName=toggleButton}"/>
-                <Setter Property="MinWidth" TargetName="dropDownBorder" Value="{Binding ActualWidth, ElementName=toggleButton}"/>
+                <Setter TargetName="dropDownBorder" Property="MaxWidth" Value="{Binding ActualWidth, ElementName=toggleButton}" />
+                <Setter TargetName="dropDownBorder" Property="MinWidth" Value="{Binding ActualWidth, ElementName=toggleButton}" />
             </Trigger>
-            <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-                <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
-                <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
+            <Trigger SourceName="DropDownScrollViewer" Property="ScrollViewer.CanContentScroll" Value="false">
+                <Setter TargetName="opaqueRect" Property="Canvas.Top" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
+                <Setter TargetName="opaqueRect" Property="Canvas.Left" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
             </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="IsMouseOver" Value="true" SourceName="toggleButton"/>
-                    <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
+                    <Condition SourceName="toggleButton" Property="IsMouseOver" Value="true" />
+                    <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -193,19 +328,19 @@
                 </MultiTrigger.Conditions>
                 <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
             </MultiTrigger>
-            <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="0.4" TargetName="toggleButton"/>
-                <Setter Property="Opacity" Value="0.4" TargetName="PART_TextBlock"/>
+                <Setter TargetName="toggleButton" Property="Opacity" Value="0.4" />
+                <Setter TargetName="PART_TextBlock" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="hj:BorderElement.Geometry" Value="{x:Null}">
-                <Setter Property="Visibility" Value="Collapsed" TargetName="PathBorder"/>
-                <Setter Property="BorderThickness" Value="1"/>
+                <Setter TargetName="PathBorder" Property="Visibility" Value="Collapsed" />
+                <Setter Property="BorderThickness" Value="1" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -214,47 +349,136 @@
     <ControlTemplate x:Key="ContentComboBoxTopTemplate" TargetType="hj:ContentComboBox">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="True">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition MinHeight="{Binding Path=(hj:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hj:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="{Binding Path=(hj:InfoElement.ContentHeight), RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{Binding Path=(hj:InfoElement.MinContentHeight), RelativeSource={RelativeSource TemplatedParent}}" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hj:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-                <TextBlock Margin="1,0,0,0" FontSize="{TemplateBinding FontSize}" Text="{Binding Path=(hj:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
-                <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hj:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hj:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
+            <StackPanel
+                Grid.ColumnSpan="2"
+                Margin="{TemplateBinding Padding}"
+                Orientation="Horizontal"
+                Visibility="{Binding Path=(hj:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource String2VisibilityConverter}}">
+                <TextBlock
+                    Margin="1,0,0,0"
+                    FontSize="{TemplateBinding FontSize}"
+                    Text="{Binding Path=(hj:InfoElement.Title), RelativeSource={RelativeSource TemplatedParent}}" />
+                <ContentPresenter
+                    Margin="4,0,0,0"
+                    Content="{Binding Path=(hj:InfoElement.Symbol), RelativeSource={RelativeSource TemplatedParent}}"
+                    TextElement.Foreground="{DynamicResource DangerBrush}"
+                    Visibility="{Binding Path=(hj:InfoElement.Necessary), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
             </StackPanel>
-            <Popup x:Name="PART_Popup" Grid.Row="1" Grid.Column="0" MinWidth="250" PlacementTarget="{Binding ElementName=toggleButton}" StaysOpen="False" IsOpen="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" AllowsTransparency="true" Grid.ColumnSpan="2" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
-                <Border CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{TemplateBinding Background}">
+            <Popup
+                x:Name="PART_Popup"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                MinWidth="250"
+                AllowsTransparency="true"
+                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                Placement="Bottom"
+                PlacementTarget="{Binding ElementName=toggleButton}"
+                PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}"
+                StaysOpen="False">
+                <Border
+                    x:Name="dropDownBorder"
+                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
                     <Grid Margin="0,4" ClipToBounds="False">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <!--<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="0">-->
-                        <hj:SimplePanel RenderOptions.ClearTypeHint="Enabled" Grid.Row="0">
-                            <Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-                                <Rectangle x:Name="opaqueRect" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}"/>
+                        <hj:SimplePanel Grid.Row="0" RenderOptions.ClearTypeHint="Enabled">
+                            <Canvas
+                                Width="0"
+                                Height="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top">
+                                <Rectangle
+                                    x:Name="opaqueRect"
+                                    Width="{Binding ActualWidth, ElementName=dropDownBorder}"
+                                    Height="{Binding ActualHeight, ElementName=dropDownBorder}" />
                             </Canvas>
-                            <ContentPresenter RecognizesAccessKey="True"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </hj:SimplePanel>
                         <!--</ScrollViewer>-->
-                        <Button Grid.Row="1" Content="确定" Margin="10,0" Foreground="{TemplateBinding Foreground}"  HorizontalAlignment="Right" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Command="interactivity:ControlCommands.Confirm" />
+                        <Button
+                            Grid.Row="1"
+                            Margin="10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Command="interactivity:ControlCommands.Confirm"
+                            Content="确定"
+                            Foreground="{TemplateBinding Foreground}" />
                     </Grid>
                 </Border>
             </Popup>
-            <ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hj:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ContentComboBoxWatermarkToggleButton}"/>
-            <hj:ScrollViewer x:Name="scrollView"  Grid.Column="0" Grid.Row="1"  CanMouseWheel="True" VerticalAlignment="Center" Orientation="Horizontal" Margin="-1,1"  >
-                <TextBlock x:Name="PART_TextBlock" Margin="10,0" FontSize="14" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding DisplayText}"/>
+            <ToggleButton
+                x:Name="toggleButton"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Padding="{TemplateBinding Padding}"
+                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Content="{Binding Path=(hj:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                Style="{StaticResource ContentComboBoxWatermarkToggleButton}" />
+            <hj:ScrollViewer
+                x:Name="scrollView"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="-1,1"
+                VerticalAlignment="Center"
+                CanMouseWheel="True"
+                Orientation="Horizontal">
+                <TextBlock
+                    x:Name="PART_TextBlock"
+                    Margin="10,0"
+                    FontSize="14"
+                    Foreground="{TemplateBinding Foreground}" />
             </hj:ScrollViewer>
-            <Button Grid.Column="0" Grid.Row="1" Command="interactivity:ControlCommands.Clear" HorizontalAlignment="Right" Margin="0,0,0,0" Visibility="Collapsed" Name="ButtonClear" Width="16" Style="{StaticResource ButtonIcon}" Padding="0,6" hj:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{TemplateBinding BorderBrush}"/>
-            <Path x:Name="PathBorder" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Fill="Transparent" Stroke="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="True" Stretch="Fill"  Data="{TemplateBinding hj:BorderElement.Geometry}"/>
+            <Button
+                Name="ButtonClear"
+                Grid.Row="1"
+                Grid.Column="0"
+                Width="16"
+                Margin="0,0,0,0"
+                Padding="0,6"
+                HorizontalAlignment="Right"
+                hj:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                Command="interactivity:ControlCommands.Clear"
+                Foreground="{TemplateBinding BorderBrush}"
+                Style="{StaticResource ButtonIcon}"
+                Visibility="Collapsed" />
+            <Path
+                x:Name="PathBorder"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Data="{TemplateBinding hj:BorderElement.Geometry}"
+                Fill="Transparent"
+                SnapsToDevicePixels="True"
+                Stretch="Fill"
+                Stroke="{TemplateBinding BorderBrush}" />
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="hj:DropDownElement.ConsistentWidth" Value="True">
-                <Setter Property="MaxWidth" TargetName="dropDownBorder" Value="{Binding ActualWidth, ElementName=toggleButton}"/>
-                <Setter Property="MinWidth" TargetName="dropDownBorder" Value="{Binding ActualWidth, ElementName=toggleButton}"/>
+                <Setter TargetName="dropDownBorder" Property="MaxWidth" Value="{Binding ActualWidth, ElementName=toggleButton}" />
+                <Setter TargetName="dropDownBorder" Property="MinWidth" Value="{Binding ActualWidth, ElementName=toggleButton}" />
             </Trigger>
 
             <!--<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
@@ -263,10 +487,10 @@
             </Trigger>-->
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="IsMouseOver" Value="true" SourceName="toggleButton"/>
-                    <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
+                    <Condition SourceName="toggleButton" Property="IsMouseOver" Value="true" />
+                    <Condition SourceName="PART_Popup" Property="IsOpen" Value="false" />
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -296,19 +520,19 @@
                 </MultiTrigger.Conditions>
                 <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
             </MultiTrigger>
-            <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            <Trigger SourceName="PART_Popup" Property="IsOpen" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
             <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="0.4" TargetName="toggleButton"/>
-                <Setter Property="Opacity" Value="0.4" TargetName="PART_TextBlock"/>
+                <Setter TargetName="toggleButton" Property="Opacity" Value="0.4" />
+                <Setter TargetName="PART_TextBlock" Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="hj:BorderElement.Geometry" Value="{x:Null}">
-                <Setter Property="Visibility" Value="Collapsed" TargetName="PathBorder"/>
-                <Setter Property="BorderThickness" Value="1"/>
+                <Setter TargetName="PathBorder" Property="Visibility" Value="Collapsed" />
+                <Setter Property="BorderThickness" Value="1" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -317,32 +541,35 @@
 
 
 
-    <Style x:Key="ContentComboBoxBaseStyle" TargetType="hj:ContentComboBox" >
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="Template" Value="{StaticResource ContentComboBoxTemplate}"/>
-        <Setter Property="hj:BorderElement.CornerRadius" Value="4"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="MinHeight" Value="30"/>
-        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="Padding" Value="8,6"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Style x:Key="ContentComboBoxBaseStyle" TargetType="hj:ContentComboBox">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Template" Value="{StaticResource ContentComboBoxTemplate}" />
+        <Setter Property="hj:BorderElement.CornerRadius" Value="4" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="Padding" Value="8,6" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 
 
 
-    <Style x:Key="ContentComboBoxExtendBaseStyle" BasedOn="{StaticResource ContentComboBoxBaseStyle}" TargetType="hj:ContentComboBox">
-        <Setter Property="Height" Value="Auto"/>
-        <Setter Property="Template" Value="{StaticResource ContentComboBoxTopTemplate}"/>
-        <Setter Property="hj:InfoElement.Symbol" Value="●"/>
-        <Setter Property="hj:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}"/>
-        <Setter Property="hj:InfoElement.MinContentHeight" Value="30"/>
+    <Style
+        x:Key="ContentComboBoxExtendBaseStyle"
+        BasedOn="{StaticResource ContentComboBoxBaseStyle}"
+        TargetType="hj:ContentComboBox">
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="Template" Value="{StaticResource ContentComboBoxTopTemplate}" />
+        <Setter Property="hj:InfoElement.Symbol" Value="●" />
+        <Setter Property="hj:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}" />
+        <Setter Property="hj:InfoElement.MinContentHeight" Value="30" />
     </Style>
 
 

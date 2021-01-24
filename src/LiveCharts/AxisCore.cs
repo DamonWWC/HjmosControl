@@ -120,10 +120,10 @@ namespace LiveCharts
         /// The minimum value.
         /// </value>
         public double MinValue { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public double AddHeight { get; set; }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //public double AddHeight { get; set; }
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
@@ -322,7 +322,7 @@ namespace LiveCharts
                 FirstSeparator = l;
                 for (var i = l; i <= TopLimit - (EvaluatesUnitWidth ? u : 0); i += S)
                 {
-                     LastSeparator = i;
+                    LastSeparator = i;
                     DrawSeparator(i, tolerance, currentMargin, f, source);
                 }
             }
@@ -361,7 +361,7 @@ namespace LiveCharts
                     Cache.Remove(element.Key);
                 }
 
-                var toLine = ChartFunctions.ToPlotArea(element.Value, source, chart, axisIndex,addheight:AddHeight);
+                var toLine = ChartFunctions.ToPlotArea(element.Value, source, chart, axisIndex);
 
                 var direction = source == AxisOrientation.X ? 1 : -1;
 
@@ -507,7 +507,7 @@ namespace LiveCharts
         private void DrawSeparator(double i, double tolerance, CoreMargin currentMargin, Func<double, string> f, AxisOrientation source)
         {
             if (i < BotLimit) return;
-           
+
             SeparatorElementCore asc;
 
             var key = Math.Round(i / tolerance) * tolerance;

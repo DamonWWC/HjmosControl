@@ -47,7 +47,14 @@
         <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
-        <!--<ProgressBar  Value="120" Maximum="100" Padding="2"    Grid.Row="1" Background="AliceBlue" Foreground="Aqua" hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" />-->
+        <ProgressBar  Value="120" Maximum="100" Padding="2"     Grid.Row="1" Background="AliceBlue"  hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" >
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                    <GradientStop Color="#009AFF" Offset="0"/>
+                    <GradientStop Color="#00F6FF" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
         <!--<CheckBox Content="11"/>-->
 
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
@@ -109,7 +116,7 @@
         <!--<Border Grid.Row="0" Background="#4CC4103A"  BorderBrush="#C4103A" BorderThickness="20,1" Margin="0,0,0.333,40">
             <hj:RunningBlock   FontSize="30" Speed="100" Text="{Binding Content1}" />
         </Border>-->
-        <!--<ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged" Margin="0,10,603.333,200">
+        <ListBox Grid.Row="0" ItemsSource="{Binding titlelistbox}" SelectionMode="Multiple"  SelectionChanged="ListBox_SelectionChanged" Margin="0,10,603.333,200">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
                     <Setter Property="Visibility" Value="{Binding IsVisible,Converter={StaticResource Boolean2VisibilityConverter}}"/>
@@ -129,9 +136,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <hj:Badge   Text="1"   Margin="647,270,243.333,105" Background="Red" Style="{StaticResource BadgePrimary}">
+        <hj:Badge   Value="1"   Margin="647,270,243.333,105" Background="Red" Style="{StaticResource BadgePrimary}">
             <Button Content="1234" />
-        </hj:Badge>-->
+        </hj:Badge>
 
 
         <TabControl ItemsSource="{Binding Tabs}" DisplayMemberPath="Header"   TabStripPlacement="Top" Margin="33,85,663.333,195" SelectionChanged="TabControl_SelectionChanged">

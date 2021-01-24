@@ -165,7 +165,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true" />
         <Setter Property="controls:ScrollViewer.PanningMode" Value="Both" />
@@ -181,13 +181,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="true">
-                        <controls:ScrollViewer
-                            CanContentScroll="True"
-                            CanMouseWheel="True"
-                            Focusable="false"
-                            HorizontalScrollBarVisibility="Visible"
-                            Orientation="Vertical"
-                            VerticalScrollBarVisibility="Visible">
+                        <controls:ScrollViewer Focusable="false">
                             <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </controls:ScrollViewer>
                     </Border>
@@ -195,6 +189,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
 
 
     <Style
@@ -241,6 +237,10 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="controls:ScrollViewer.PanningMode" Value="Both" />
         <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Padding" Value="5" />
@@ -254,7 +254,9 @@
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{TemplateBinding controls:ListBoxAttach.CornerRadius}"
                         SnapsToDevicePixels="True">
-                        <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <controls:ScrollViewer Focusable="false" Orientation="{TemplateBinding Orientation}">
+                            <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </controls:ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -321,5 +323,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+
 
 </ResourceDictionary>
