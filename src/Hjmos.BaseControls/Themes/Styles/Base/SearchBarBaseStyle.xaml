@@ -1,73 +1,126 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib"
-                    xmlns:interactivity="clr-namespace:Hjmos.BaseControls.Interactivity"
-                    >
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
+    xmlns:interactivity="clr-namespace:Hjmos.BaseControls.Interactivity"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="TextBoxBaseStyle.xaml"/>
+        <ResourceDictionary Source="TextBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
-    <Style TargetType="controls:SearchBar" x:Key="SearchBarBaseStyle" BasedOn="{StaticResource TextBoxBaseStyle}">
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
-        <Setter Property="CaretBrush" Value="{Binding Foreground ,RelativeSource={RelativeSource Mode=Self}}"/>
+    <Style
+        x:Key="SearchBarBaseStyle"
+        BasedOn="{StaticResource TextBoxBaseStyle}"
+        TargetType="controls:SearchBar">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="CaretBrush" Value="{Binding Foreground, RelativeSource={RelativeSource Mode=Self}}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:SearchBar">
                     <controls:SimplePanel>
-                        <Border x:Name="templateRoot"  CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource Mode=TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                        <Border
+                            x:Name="templateRoot"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius), RelativeSource={RelativeSource Mode=TemplatedParent}}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
-                                <TextBlock x:Name="PART_Placeholder" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"  Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource TextBlockDefaultThiLight}" Margin="{TemplateBinding Padding}" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
-                                <ScrollViewer Margin="-2,0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                                <Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}"/>
-                                <Button x:Name="PART_Search" Height="{x:Static system:Double.NaN}"  BorderThickness="0" Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7,6" controls:IconElement.Geometry="{StaticResource SearchGeometry}"  Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" />
+                                <TextBlock
+                                    x:Name="PART_Placeholder"
+                                    Grid.Column="0"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    Style="{StaticResource TextBlockDefaultThiLight}"
+                                    Text="{Binding Path=(controls:InfoElement.Placeholder), RelativeSource={RelativeSource TemplatedParent}}"
+                                    Visibility="{TemplateBinding Text,
+                                                                 Converter={StaticResource String2VisibilityReConverter}}" />
+                                <ScrollViewer
+                                    x:Name="PART_ContentHost"
+                                    Grid.Column="0"
+                                    Margin="-2,0"
+                                    Padding="{TemplateBinding Padding}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Focusable="False"
+                                    HorizontalScrollBarVisibility="Hidden"
+                                    VerticalScrollBarVisibility="Hidden" />
+                                <Button
+                                    Name="ButtonClear"
+                                    Grid.Column="1"
+                                    Width="16"
+                                    Height="{x:Static system:Double.NaN}"
+                                    Padding="0,6"
+                                    controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
+                                    Command="interactivity:ControlCommands.Clear"
+                                    Foreground="{Binding BorderBrush, ElementName=templateRoot}"
+                                    Style="{StaticResource ButtonIcon}"
+                                    Visibility="Collapsed" />
+                                <Button
+                                    x:Name="PART_Search"
+                                    Grid.Column="2"
+                                    Height="{x:Static system:Double.NaN}"
+                                    Padding="7,6"
+                                    controls:IconElement.Geometry="{StaticResource SearchGeometry}"
+                                    BorderThickness="0"
+                                    Command="interactivity:ControlCommands.Search"
+                                    Focusable="False"
+                                    Foreground="{Binding BorderBrush, ElementName=templateRoot}"
+                                    Style="{StaticResource ButtonIcon}" />
                             </Grid>
                         </Border>
-                        <Path x:Name="PathBorder" Fill="Transparent" Stroke="{TemplateBinding BorderBrush}"  SnapsToDevicePixels="True" Stretch="Fill"  Data="{TemplateBinding controls:BorderElement.Geometry}"/>
+                        <Path
+                            x:Name="PathBorder"
+                            Data="{TemplateBinding controls:BorderElement.Geometry}"
+                            Fill="Transparent"
+                            SnapsToDevicePixels="True"
+                            Stretch="Fill"
+                            Stroke="{TemplateBinding BorderBrush}" />
                     </controls:SimplePanel>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="PART_Search">
-                            <Setter Property="Cursor" Value="Hand"/>
+                        <Trigger SourceName="PART_Search" Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="templateRoot" Value="0.4"/>
+                            <Setter TargetName="templateRoot" Property="Opacity" Value="0.4" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="true" SourceName="templateRoot"/>
-                                <Condition Property="ShowClearButton" Value="true"/>
+                                <Condition SourceName="templateRoot" Property="IsMouseOver" Value="true" />
+                                <Condition Property="ShowClearButton" Value="true" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
+                            <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <Trigger Property="Text" Value="{x:Static system:String.Empty}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonClear"/>
+                            <Setter TargetName="ButtonClear" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter Property="Opacity" Value=".4" TargetName="PART_Placeholder"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter TargetName="PART_Placeholder" Property="Opacity" Value=".4" />
                         </Trigger>
                         <Trigger Property="controls:BorderElement.Geometry" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathBorder"/>
-                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter TargetName="PathBorder" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="BorderThickness" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
-    
-    
+
+
+
+
 </ResourceDictionary>

@@ -9,19 +9,25 @@ using System.Windows.Media.Animation;
 
 namespace Hjmos.BaseControls.Controls
 {
-    //[TemplatePart(Name = "PART_ContentElement", Type = typeof(TextBlock))]
+
     [TemplatePart(Name = "PART_Panel", Type = typeof(Panel))]
-   
+
     public class RunningBlock : Control
     {
         protected Storyboard _storyboard;
 
         //private TextBlock _elementContent;
         private Panel _elementPanel;
-            
+
         public RunningBlock()
         {
             this.SizeChanged += RunningBlock_SizeChanged;
+            this.Loaded += RunningBlock_Loaded;
+        }
+        bool _isFirstUpdata = true;
+        private void RunningBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+            _isFirstUpdata = false;
         }
 
         private void RunningBlock_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -31,14 +37,14 @@ namespace Hjmos.BaseControls.Controls
 
         public override void OnApplyTemplate()
         {
-           
+
             base.OnApplyTemplate();
-         
-            _elementPanel = GetTemplateChild("PART_Panel") as Panel;                  
-            UpdateContent();
+
+            _elementPanel = GetTemplateChild("PART_Panel") as Panel;
+            //UpdateContent();
         }
 
-     
+
         public bool Runaway
         {
             get { return (bool)GetValue(RunawayProperty); }
@@ -99,18 +105,18 @@ namespace Hjmos.BaseControls.Controls
         // Using a DependencyProperty as the backing store for IsRunning.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsRunningProperty =
             DependencyProperty.Register("IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(true, (o, args) =>
-             {
-                 var ct1 = (RunningBlock)o;
-                 var v = (bool)args.NewValue;
-                 if (v)
-                 {
-                     ct1._storyboard?.Resume();
-                 }
-                 else
-                 {
-                     ct1._storyboard?.Pause();
-                 }
-             }));
+            {
+                var ct1 = (RunningBlock)o;
+                var v = (bool)args.NewValue;
+                if (v)
+                {
+                    ct1._storyboard?.Resume();
+                }
+                else
+                {
+                    ct1._storyboard?.Pause();
+                }
+            }));
 
         public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
           "AutoReverse", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -133,90 +139,22 @@ namespace Hjmos.BaseControls.Controls
         public static readonly DependencyProperty IsForwardProperty =
             DependencyProperty.Register("IsForward", typeof(bool), typeof(RunningBlock), new PropertyMetadata(true));
 
-        
+
         public string Text
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }
         }
 
-     
-
-
         // Using a DependencyProperty as the backing store for TitleContent.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(RunningBlock), new PropertyMetadata(default(string), (o, args) =>
             {
-                if(o is RunningBlock runningBlock && args.NewValue is string value)
+                if (o is RunningBlock runningBlock && args.NewValue is string value)
                 {
-                    runningBlock.UpdateContent();                                                       
+                    runningBlock.UpdateContent();
                 }
             }));
-
-
-
-
-
-
-        public double WidthText
-        {
-            get { return (double)GetValue(WidthTextProperty); }
-            set { SetValue(WidthTextProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for WidthText.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty WidthTextProperty =
-            DependencyProperty.Register("WidthText", typeof(double), typeof(RunningBlock), new PropertyMetadata(200d));
-
-
-
-
-        [Bindable(true), Category("Content")]
-        public Object Title
-        {
-            get { return (Object)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for TitleContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(Object), typeof(RunningBlock), new PropertyMetadata(default(object)));
-
-        [Bindable(true),Category("Content")]
-        public DataTemplate TitleTemplate
-        {
-            get { return (DataTemplate)GetValue(TitleTemplateProperty); }
-            set { SetValue(TitleTemplateProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for TitleTemplate.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleTemplateProperty =
-            DependencyProperty.Register("TitleTemplate", typeof(DataTemplate), typeof(RunningBlock), new PropertyMetadata(default(DataTemplate)));
-
-        [Bindable(true), Category("Content")]
-        public DataTemplateSelector TitleTemplateSelector
-        {
-            get { return (DataTemplateSelector)GetValue(TitleTemplateSelectorProperty); }
-            set { SetValue(TitleTemplateSelectorProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for HeaderTemplateSelector.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleTemplateSelectorProperty =
-            DependencyProperty.Register("TitleTemplateSelector", typeof(DataTemplateSelector), typeof(RunningBlock), new PropertyMetadata(default(DataTemplateSelector)));
-
-
-        [Bindable(true),Category("Content")]
-        public string TitleStringFormat
-        {
-            get { return (string)GetValue(TitleStringFormatProperty); }
-            set { SetValue(TitleStringFormatProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for TitleStringFormat.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TitleStringFormatProperty =
-            DependencyProperty.Register("TitleStringFormat", typeof(string), typeof(RunningBlock), new PropertyMetadata(default(string)));
-
-
 
         private TextBlock CreateTextBlock()
         {
@@ -227,46 +165,44 @@ namespace Hjmos.BaseControls.Controls
             return new TextBlock
             {
                 Style = ResourceHelper.GetResource<Style>("RunningTextBlock"),
-                RenderTransform = transform,
-                Text = Text                       
+                Text = Text,
+                FontSize = FontSize,
+                Foreground = Foreground
             };
 
         }
 
         private void UpdateContent()
         {
-           
-            if ( _elementPanel == null) return;
-            
+            if (_elementPanel == null) return;
             _storyboard?.Stop();
+            var offsetx = _elementPanel.RenderTransform.Value.OffsetX;
 
             _elementPanel.Children.Clear();
             var textblock = CreateTextBlock();
             _elementPanel.Children.Add(textblock);
-            textblock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));          
-            //_elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            //_elementPanel.Width = _elementPanel.DesiredSize.Width;
-            //_elementPanel.Height = _elementPanel.DesiredSize.Height;
+            textblock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+
 
             _elementPanel.Width = textblock.DesiredSize.Width;
             _elementPanel.Height = textblock.DesiredSize.Height;
-                  
+
             double from;
             double to;
             PropertyPath propertyPath;
 
-            if(Orientation==Orientation.Horizontal)
+            if (Orientation == Orientation.Horizontal)
             {
                 double actualWidth = ActualWidth;
                 if (AutoRun && _elementPanel.Width < actualWidth)
                 {
                     return;
                 }
-                if(Runaway)
+                if (Runaway)
                 {
 
                     from = -_elementPanel.Width;
-                    to = actualWidth;                  
+                    to = actualWidth;
                 }
                 else
                 {
@@ -299,7 +235,7 @@ namespace Hjmos.BaseControls.Controls
             }
 
 
-            if(IsForward)
+            if (IsForward)
             {
                 double temp;
                 temp = from;
@@ -318,16 +254,21 @@ namespace Hjmos.BaseControls.Controls
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = AutoReverse
             };
-           
+
             Storyboard.SetTargetProperty(animation, propertyPath);
-            Storyboard.SetTarget(animation, _elementPanel.Children[0]);
+            Storyboard.SetTarget(animation, _elementPanel);
 
             _storyboard = new Storyboard();
             _storyboard.Children.Add(animation);
             _storyboard.Begin();
-        }
 
-      
+            if (_isFirstUpdata) return;
+            var offset = from - offsetx;
+            var proportion = offset / Math.Abs(to - from);
+            var seekduration = proportion > 1 ? 0d : proportion * duration.TimeSpan.TotalSeconds;
+            _storyboard.Seek(TimeSpan.FromSeconds(seekduration));
+
+        }
 
     }
 }

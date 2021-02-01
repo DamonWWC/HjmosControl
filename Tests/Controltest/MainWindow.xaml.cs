@@ -10,15 +10,20 @@ namespace Controltest
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+
+         
+
             data = new string[] { "asb", "bcd" };
             text = "客流111111111111111111111111";
             this.DataContext = this;
            
         }
 
+       
         bool _enable;
 
         public bool Enable
@@ -42,6 +47,7 @@ namespace Controltest
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Hjmos.BaseControls.Controls.Growl.Info("Info Message", "InfoMessage");
+            Hjmos.BaseControls.Controls.Growl.WarningGlobal("11111");
         }
 
         private void StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)

@@ -31,6 +31,11 @@ namespace Hjmos.BaseControls.Controls
         }
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
         {
+            Display(true);
+        }
+
+        private void Display(bool isConfirm)
+        {
             if (SelectedAllItems != null)
             {
                 if (SelectedAllItems is IEnumerable Selected)
@@ -44,7 +49,7 @@ namespace Hjmos.BaseControls.Controls
                             if (display != null)
                             {
                                 var dismember = display.GetValue(selectitem);
-                                result.Add(dismember.ToString());
+                                result.Add(dismember?.ToString());
                             }
                             else
                             {
@@ -64,8 +69,8 @@ namespace Hjmos.BaseControls.Controls
                     DisplayText = SelectedAllItems.ToString();
                 }
             }
-            RaiseEvent(new RoutedEventArgs(ConfirmEvent));
-
+            if (isConfirm)
+                RaiseEvent(new RoutedEventArgs(ConfirmEvent));
         }
 
         public override void OnApplyTemplate()
@@ -77,6 +82,7 @@ namespace Hjmos.BaseControls.Controls
                 IsDropDownOpen = true;
                 IsDropDownOpen = false;
             }), System.Windows.Threading.DispatcherPriority.DataBind);
+            Display(false);
         }
 
         public static readonly RoutedEvent ConfirmEvent =

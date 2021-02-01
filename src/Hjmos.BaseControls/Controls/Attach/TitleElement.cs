@@ -62,6 +62,24 @@ namespace Hjmos.BaseControls.Controls
 
         public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
 
+
         public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
+        public static readonly DependencyProperty HorizontalAlignmentProperty = DependencyProperty.RegisterAttached(
+            "HorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(HorizontalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetHorizontalAlignment(DependencyObject element, HorizontalAlignment value)
+            => element.SetValue(HorizontalAlignmentProperty, value);
+
+        public static HorizontalAlignment GetHorizontalAlignment(DependencyObject element)
+            => (HorizontalAlignment)element.GetValue(HorizontalAlignmentProperty);
+
+        public static readonly DependencyProperty VerticalAlignmentProperty = DependencyProperty.RegisterAttached(
+            "VerticalAlignment", typeof(VerticalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(VerticalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetVerticalAlignment(DependencyObject element, VerticalAlignment value)
+            => element.SetValue(VerticalAlignmentProperty, value);
+
+        public static VerticalAlignment GetVerticalAlignment(DependencyObject element)
+            => (VerticalAlignment)element.GetValue(VerticalAlignmentProperty);
     }
 }

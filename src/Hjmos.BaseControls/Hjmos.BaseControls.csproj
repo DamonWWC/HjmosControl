@@ -63,6 +63,7 @@
     <Compile Include="Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="Controls\Attach\RectangleAttach.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
+    <Compile Include="Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Attach\TitleElement.cs" />
     <Compile Include="Controls\Attach\ToggleButtonAttach.cs" />
