@@ -1,4 +1,5 @@
-﻿using LiveCharts;
+﻿using Hjmos.BaseControls.Controls;
+using LiveCharts;
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,10 @@ namespace Controltest
         public Window1()
         {
             InitializeComponent();
+            PreviewBrush = new ImageBrush(BitmapFrame.Create(new Uri("D:\\Users\\90462\\Desktop\\20200509094055.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None));
+
+
+
             List<double> vs = new List<double> { 1, 2, 3, 4 };
             ChartValues<double> vs1 = new ChartValues<double>(vs);
             SeriesCollection = new SeriesCollection
@@ -61,5 +66,12 @@ namespace Controltest
         public string[] Labels { get; set; }
         public string[] Labels1 { get; set; }
         public Func<double, string> YFormatter { get; set; }
+
+        public Brush PreviewBrush { get; set; }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+             new ImageBrowser("D:\\Users\\90462\\Desktop\\20200509094055.png").Show();
+        }
     }
 }

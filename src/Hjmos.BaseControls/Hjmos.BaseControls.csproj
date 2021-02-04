@@ -74,11 +74,13 @@
     <Compile Include="Controls\Block\RunningBlock\RunningBorder.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
     <Compile Include="Controls\Button\ButtonGroup.cs" />
+    <Compile Include="Controls\Button\ImageButton.cs" />
     <Compile Include="Controls\ColorPicker\ColorDropper.cs" />
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Image\ImageViewer.cs" />
+    <Compile Include="Controls\Image\ImageViewerPlus.cs" />
     <Compile Include="Controls\Input\ContentComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
     <Compile Include="Controls\Input\DateTimePicker.cs" />
@@ -120,6 +122,8 @@
     <Compile Include="Controls\Time\Clock\ClockBase.cs" />
     <Compile Include="Controls\Time\Clock\ListClock.cs" />
     <Compile Include="Controls\UserControl\PopupUserControl.cs" />
+    <Compile Include="Controls\Window\ImageBrowser.cs" />
+    <Compile Include="Controls\Window\ExWindow.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
@@ -153,6 +157,7 @@
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
     <Compile Include="Interactivity\EventToCommand.cs" />
+    <Compile Include="Interactivity\EventTrigger.cs" />
     <Compile Include="Interactivity\EventTriggerBase!1.cs" />
     <Compile Include="Interactivity\EventTriggerBase.cs" />
     <Compile Include="Interactivity\ExceptionStringTable.cs" />
@@ -161,6 +166,7 @@
     <Compile Include="Interactivity\IAttachedObject.cs" />
     <Compile Include="Interactivity\IEventArgsConverter.cs" />
     <Compile Include="Interactivity\Interaction.cs" />
+    <Compile Include="Interactivity\InvokeCommandAction.cs" />
     <Compile Include="Interactivity\NameResolvedEventArgs.cs" />
     <Compile Include="Interactivity\NameResolver.cs" />
     <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
@@ -174,6 +180,7 @@
     <Compile Include="Interactivity\TriggerCollection.cs" />
     <Compile Include="Interactivity\TypeConstraintAttribute.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
+    <Compile Include="Tools\Converter\BooleanArr2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\BorderClipConverter.cs" />
@@ -185,6 +192,7 @@
     <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="Tools\Converter\HearderSelectAllVisibilityConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
+    <Compile Include="Tools\Converter\Long2FileSizeConverter.cs" />
     <Compile Include="Tools\Converter\Name2ImageSourceConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
@@ -632,6 +640,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Weather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

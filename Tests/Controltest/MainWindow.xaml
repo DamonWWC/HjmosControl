@@ -41,9 +41,7 @@
             </Grid>
         </Border>-->
         <controls:RunningBlock HorizontalAlignment="Left"   BorderBrush="Red"  FontSize="30" Duration="0:0:10"   Width="480"  Margin="1410,179,0,656.2" RenderTransformOrigin="2.188,0.851" >
-            <controls:RunningBlock.Title>
-              11112222
-            </controls:RunningBlock.Title>
+          
         </controls:RunningBlock>
         <controls:Drawer Name="DrawerLeft" Dock="Top">
             <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">

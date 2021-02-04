@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
+
 namespace Hjmos.BaseControls.Tools.Interop
 {
     internal class InteropValues
@@ -11,9 +14,11 @@ namespace Hjmos.BaseControls.Tools.Interop
             public const string
                 User32 = "user32.dll",
                 Gdi32 = "gdi32.dll",
+                GdiPlus = "gdiplus.dll",
                 Kernel32 = "kernel32.dll",
                 Shell32 = "shell32.dll",
-                MsImg = "msimg32.dll";
+                MsImg = "msimg32.dll",
+                NTdll = "ntdll.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
@@ -30,6 +35,7 @@ namespace Hjmos.BaseControls.Tools.Interop
             PLANES = 14,
             BI_RGB = 0,
             DIB_RGB_COLORS = 0,
+            E_FAIL = unchecked((int)0x80004005),
             NIF_MESSAGE = 0x00000001,
             NIF_ICON = 0x00000002,
             NIF_TIP = 0x00000004,
@@ -43,6 +49,7 @@ namespace Hjmos.BaseControls.Tools.Interop
             NIIF_ERROR = 0x00000003,
             WM_ACTIVATE = 0x0006,
             WM_QUIT = 0x0012,
+            WM_GETMINMAXINFO = 0x0024,
             WM_WINDOWPOSCHANGING = 0x0046,
             WM_WINDOWPOSCHANGED = 0x0047,
             WM_SETICON = 0x0080,
@@ -66,21 +73,26 @@ namespace Hjmos.BaseControls.Tools.Interop
             WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
             WS_VISIBLE = 0x10000000,
+            MF_BYCOMMAND = 0x00000000,
             MF_BYPOSITION = 0x400,
+            MF_GRAYED = 0x00000001,
             MF_SEPARATOR = 0x800,
             TB_GETBUTTON = WM_USER + 23,
             TB_BUTTONCOUNT = WM_USER + 24,
             TB_GETITEMRECT = WM_USER + 29,
+            HTCAPTION = 0x02,
             VERTRES = 10,
             DESKTOPVERTRES = 117,
             LOGPIXELSX = 88,
             LOGPIXELSY = 90,
+            SC_CLOSE = 0xF060,
             SC_SIZE = 0xF000,
             SC_MOVE = 0xF010,
             SC_MINIMIZE = 0xF020,
             SC_MAXIMIZE = 0xF030,
             SC_RESTORE = 0xF120,
-            SRCCOPY = 0x00CC0020;
+            SRCCOPY = 0x00CC0020,
+            MONITOR_DEFAULTTONEAREST = 0x00000002;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal class NOTIFYICONDATA
@@ -657,6 +669,397 @@ namespace Hjmos.BaseControls.Tools.Interop
             public int yHotspot = 0;
             public BitmapHandle hbmMask = null;
             public BitmapHandle hbmColor = null;
+        }
+
+        internal enum WINDOWCOMPOSITIONATTRIB
+        {
+            WCA_ACCENT_POLICY = 19
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct WINCOMPATTRDATA
+        {
+            public WINDOWCOMPOSITIONATTRIB Attribute;
+            public IntPtr Data;
+            public int DataSize;
+        }
+
+        internal enum ACCENTSTATE
+        {
+            ACCENT_DISABLED = 0,
+            ACCENT_ENABLE_GRADIENT = 1,
+            ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
+            ACCENT_ENABLE_BLURBEHIND = 3,
+            ACCENT_ENABLE_ACRYLICBLURBEHIND = 4,
+            ACCENT_INVALID_STATE = 5
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct ACCENTPOLICY
+        {
+            public ACCENTSTATE AccentState;
+            public int AccentFlags;
+            public uint GradientColor;
+            public int AnimationId;
+        }
+
+        [ComImport, Guid("0000000C-0000-0000-C000-000000000046"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        internal interface IStream
+        {
+            int Read([In] IntPtr buf, [In] int len);
+
+            int Write([In] IntPtr buf, [In] int len);
+
+            [return: MarshalAs(UnmanagedType.I8)]
+            long Seek([In, MarshalAs(UnmanagedType.I8)] long dlibMove, [In] int dwOrigin);
+
+            void SetSize([In, MarshalAs(UnmanagedType.I8)] long libNewSize);
+
+            [return: MarshalAs(UnmanagedType.I8)]
+            long CopyTo([In, MarshalAs(UnmanagedType.Interface)] IStream pstm, [In, MarshalAs(UnmanagedType.I8)] long cb, [Out, MarshalAs(UnmanagedType.LPArray)] long[] pcbRead);
+
+            void Commit([In] int grfCommitFlags);
+
+            void Revert();
+
+            void LockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
+
+            void UnlockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
+
+            void Stat([In] IntPtr pStatstg, [In] int grfStatFlag);
+
+            [return: MarshalAs(UnmanagedType.Interface)]
+            IStream Clone();
+        }
+
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
+        internal class StreamConsts
+        {
+            public const int LOCK_WRITE = 0x1;
+            public const int LOCK_EXCLUSIVE = 0x2;
+            public const int LOCK_ONLYONCE = 0x4;
+            public const int STATFLAG_DEFAULT = 0x0;
+            public const int STATFLAG_NONAME = 0x1;
+            public const int STATFLAG_NOOPEN = 0x2;
+            public const int STGC_DEFAULT = 0x0;
+            public const int STGC_OVERWRITE = 0x1;
+            public const int STGC_ONLYIFCURRENT = 0x2;
+            public const int STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE = 0x4;
+            public const int STREAM_SEEK_SET = 0x0;
+            public const int STREAM_SEEK_CUR = 0x1;
+            public const int STREAM_SEEK_END = 0x2;
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 8)]
+        internal class ImageCodecInfoPrivate
+        {
+            [MarshalAs(UnmanagedType.Struct)]
+            public Guid Clsid;
+            [MarshalAs(UnmanagedType.Struct)]
+            public Guid FormatID;
+
+            public IntPtr CodecName = IntPtr.Zero;
+            public IntPtr DllName = IntPtr.Zero;
+            public IntPtr FormatDescription = IntPtr.Zero;
+            public IntPtr FilenameExtension = IntPtr.Zero;
+            public IntPtr MimeType = IntPtr.Zero;
+
+            public int Flags;
+            public int Version;
+            public int SigCount;
+            public int SigSize;
+
+            public IntPtr SigPattern = IntPtr.Zero;
+            public IntPtr SigMask = IntPtr.Zero;
+        }
+
+        internal class ComStreamFromDataStream : IStream
+        {
+            protected Stream DataStream;
+
+            // to support seeking ahead of the stream length...
+            private long _virtualPosition = -1;
+
+            internal ComStreamFromDataStream(Stream dataStream)
+            {
+                this.DataStream = dataStream ?? throw new ArgumentNullException(nameof(dataStream));
+            }
+
+            private void ActualizeVirtualPosition()
+            {
+                if (_virtualPosition == -1) return;
+
+                if (_virtualPosition > DataStream.Length)
+                    DataStream.SetLength(_virtualPosition);
+
+                DataStream.Position = _virtualPosition;
+
+                _virtualPosition = -1;
+            }
+
+            public virtual IStream Clone()
+            {
+                NotImplemented();
+                return null;
+            }
+
+            public virtual void Commit(int grfCommitFlags)
+            {
+                DataStream.Flush();
+                ActualizeVirtualPosition();
+            }
+
+            public virtual long CopyTo(IStream pstm, long cb, long[] pcbRead)
+            {
+                const int bufsize = 4096; // one page
+                var buffer = Marshal.AllocHGlobal(bufsize);
+                if (buffer == IntPtr.Zero) throw new OutOfMemoryException();
+                long written = 0;
+
+                try
+                {
+                    while (written < cb)
+                    {
+                        var toRead = bufsize;
+                        if (written + toRead > cb) toRead = (int)(cb - written);
+                        var read = Read(buffer, toRead);
+                        if (read == 0) break;
+                        if (pstm.Write(buffer, read) != read)
+                        {
+                            throw EFail("Wrote an incorrect number of bytes");
+                        }
+                        written += read;
+                    }
+                }
+                finally
+                {
+                    Marshal.FreeHGlobal(buffer);
+                }
+                if (pcbRead != null && pcbRead.Length > 0)
+                {
+                    pcbRead[0] = written;
+                }
+
+                return written;
+            }
+
+            public virtual Stream GetDataStream() => DataStream;
+
+            public virtual void LockRegion(long libOffset, long cb, int dwLockType)
+            {
+            }
+
+            protected static ExternalException EFail(string msg) => throw new ExternalException(msg, E_FAIL);
+
+            protected static void NotImplemented() => throw new NotImplementedException();
+
+            public virtual int Read(IntPtr buf, int length)
+            {
+                var buffer = new byte[length];
+                var count = Read(buffer, length);
+                Marshal.Copy(buffer, 0, buf, length);
+                return count;
+            }
+
+            public virtual int Read(byte[] buffer, int length)
+            {
+                ActualizeVirtualPosition();
+                return DataStream.Read(buffer, 0, length);
+            }
+
+            public virtual void Revert() => NotImplemented();
+
+            public virtual long Seek(long offset, int origin)
+            {
+                var pos = _virtualPosition;
+                if (_virtualPosition == -1)
+                {
+                    pos = DataStream.Position;
+                }
+                var len = DataStream.Length;
+
+                switch (origin)
+                {
+                    case StreamConsts.STREAM_SEEK_SET:
+                        if (offset <= len)
+                        {
+                            DataStream.Position = offset;
+                            _virtualPosition = -1;
+                        }
+                        else
+                        {
+                            _virtualPosition = offset;
+                        }
+                        break;
+                    case StreamConsts.STREAM_SEEK_END:
+                        if (offset <= 0)
+                        {
+                            DataStream.Position = len + offset;
+                            _virtualPosition = -1;
+                        }
+                        else
+                        {
+                            _virtualPosition = len + offset;
+                        }
+                        break;
+                    case StreamConsts.STREAM_SEEK_CUR:
+                        if (offset + pos <= len)
+                        {
+                            DataStream.Position = pos + offset;
+                            _virtualPosition = -1;
+                        }
+                        else
+                        {
+                            _virtualPosition = offset + pos;
+                        }
+                        break;
+                }
+
+                return _virtualPosition != -1 ? _virtualPosition : DataStream.Position;
+            }
+
+            public virtual void SetSize(long value) => DataStream.SetLength(value);
+
+            public virtual void Stat(IntPtr pstatstg, int grfStatFlag) => NotImplemented();
+
+            public virtual void UnlockRegion(long libOffset, long cb, int dwLockType)
+            {
+            }
+
+            public virtual int Write(IntPtr buf, int length)
+            {
+                var buffer = new byte[length];
+                Marshal.Copy(buf, buffer, 0, length);
+                return Write(buffer, length);
+            }
+
+            public virtual int Write(byte[] buffer, int length)
+            {
+                ActualizeVirtualPosition();
+                DataStream.Write(buffer, 0, length);
+                return length;
+            }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal class MINMAXINFO
+        {
+            public POINT ptReserved;
+            public POINT ptMaxSize;
+            public POINT ptMaxPosition;
+            public POINT ptMinTrackSize;
+            public POINT ptMaxTrackSize;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct APPBARDATA
+        {
+            public int cbSize;
+            public IntPtr hWnd;
+            public uint uCallbackMessage;
+            public uint uEdge;
+            public RECT rc;
+            public int lParam;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct RTL_OSVERSIONINFOEX
+        {
+            internal uint dwOSVersionInfoSize;
+            internal uint dwMajorVersion;
+            internal uint dwMinorVersion;
+            internal uint dwBuildNumber;
+            internal uint dwPlatformId;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+            internal string szCSDVersion;
+        }
+
+        [Flags]
+        public enum WindowPositionFlags
+        {
+            /// <summary>
+            ///     If the calling thread and the thread that owns the window are attached to different input queues, the system posts
+            ///     the request to the thread that owns the window. This prevents the calling thread from blocking its execution while
+            ///     other threads process the request.
+            /// </summary>
+            SWP_ASYNCWINDOWPOS = 0x4000,
+
+            /// <summary>
+            ///     Prevents generation of the WM_SYNCPAINT message.
+            /// </summary>
+            SWP_DEFERERASE = 0x2000,
+
+            /// <summary>
+            ///     Draws a frame (defined in the window's class description) around the window.
+            /// </summary>
+            SWP_DRAWFRAME = 0x0020,
+
+            /// <summary>
+            ///     Applies new frame styles set using the SetWindowLong function. Sends a WM_NCCALCSIZE message to the window, even if
+            ///     the window's size is not being changed. If this flag is not specified, WM_NCCALCSIZE is sent only when the window's
+            ///     size is being changed.
+            /// </summary>
+            SWP_FRAMECHANGED = 0x0020,
+
+            /// <summary>
+            ///     Hides the window.
+            /// </summary>
+            SWP_HIDEWINDOW = 0x0080,
+
+            /// <summary>
+            ///     Does not activate the window. If this flag is not set, the window is activated and moved to the top of either the
+            ///     topmost or non-topmost group (depending on the setting of the hWndInsertAfter parameter).
+            /// </summary>
+            SWP_NOACTIVATE = 0x0010,
+
+            /// <summary>
+            ///     Discards the entire contents of the client area. If this flag is not specified, the valid contents of the client
+            ///     area are saved and copied back into the client area after the window is sized or repositioned.
+            /// </summary>
+            SWP_NOCOPYBITS = 0x0100,
+
+            /// <summary>
+            ///     Retains the current position (ignores X and Y parameters).
+            /// </summary>
+            SWP_NOMOVE = 0x0002,
+
+            /// <summary>
+            ///     Does not change the owner window's position in the Z order.
+            /// </summary>
+            SWP_NOOWNERZORDER = 0x0200,
+
+            /// <summary>
+            ///     Does not redraw changes. If this flag is set, no repainting of any kind occurs. This applies to the client area,
+            ///     the nonclient area (including the title bar and scroll bars), and any part of the parent window uncovered as a
+            ///     result of the window being moved. When this flag is set, the application must explicitly invalidate or redraw any
+            ///     parts of the window and parent window that need redrawing.
+            /// </summary>
+            SWP_NOREDRAW = 0x0008,
+
+            /// <summary>
+            ///     Same as the SWP_NOOWNERZORDER flag.
+            /// </summary>
+            SWP_NOREPOSITION = 0x0200,
+
+            /// <summary>
+            ///     Prevents the window from receiving the WM_WINDOWPOSCHANGING message.
+            /// </summary>
+            SWP_NOSENDCHANGING = 0x0400,
+
+            /// <summary>
+            ///     Retains the current size (ignores the cx and cy parameters).
+            /// </summary>
+            SWP_NOSIZE = 0x0001,
+
+            /// <summary>
+            ///     Retains the current Z order (ignores the hWndInsertAfter parameter).
+            /// </summary>
+            SWP_NOZORDER = 0x0004,
+
+            /// <summary>
+            ///     Displays the window.
+            /// </summary>
+            SWP_SHOWWINDOW = 0x0040
         }
     }
 }

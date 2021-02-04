@@ -7,5 +7,5 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource ImageSelectorBaseStyle}" TargetType="hj:ImageSelector" />
-
+    <Style BasedOn="{StaticResource ImageButtonBaseStyle}" TargetType="hj:ImageButton" />
 </ResourceDictionary>

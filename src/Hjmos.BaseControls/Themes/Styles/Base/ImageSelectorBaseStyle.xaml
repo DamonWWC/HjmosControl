@@ -75,5 +75,34 @@
         </Style.Triggers>
     </Style>
 
-
+    <Style x:Key="ImageButtonBaseStyle" TargetType="hj:ImageButton">
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="StrokeDashArray" Value="2,2" />
+        <Setter Property="hj:BorderElement.CornerRadius" Value="4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hj:ImageButton">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                        <hj:DashedBorder
+                            Background="{TemplateBinding PreviewBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderDashArray="{TemplateBinding StrokeDashArray}"
+                            BorderDashThickness="{TemplateBinding StrokeThickness}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(hj:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
