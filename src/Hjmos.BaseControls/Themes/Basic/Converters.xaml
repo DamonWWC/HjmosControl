@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converter="clr-namespace:Hjmos.BaseControls.Tools.Converter">
     <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter" />
+    <converter:Object2VisibilityReConverter x:Key="Object2VisibilityReConverter" />
     <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
     <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter" />
     <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter" />

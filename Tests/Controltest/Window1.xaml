@@ -23,7 +23,7 @@
         </hj:ImageButton>-->
 
         <hj:ImageViewerPlus  Width="600" Height="330"  ShowImgMap="True" ImageSource="D:\\Users\\90462\\Desktop\\2021-2-4-3-54-45.759.png"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="30,190,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="97,195,0,0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" FontSize="20" Width="108" Click="Button_Click" Foreground="#FF98E1FF"  hj:IconElement.Geometry="{StaticResource CompletedGeometry}" Height="30"/>
         <!--<local:UserControl2/>-->
         <!--<local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>-->
 

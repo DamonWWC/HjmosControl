@@ -26,6 +26,7 @@ namespace Hjmos.BaseControls.Controls
             CommandBindings.Add(new System.Windows.Input.CommandBinding(ControlCommands.Clear, (s, e) =>
             {
                 DisplayText = "";
+                RaiseEvent(new RoutedEventArgs(ClearEvent));
                 //SelectedAllItems = null;
             }));
         }
@@ -97,6 +98,18 @@ namespace Hjmos.BaseControls.Controls
             remove => RemoveHandler(ConfirmEvent, value);
         }
 
+
+        public static readonly RoutedEvent ClearEvent =
+            EventManager.RegisterRoutedEvent("Clear", RoutingStrategy.Bubble,
+                typeof(EventHandler), typeof(ContentComboBox));
+        /// <summary>
+        /// 清空事件
+        /// </summary>
+        public event EventHandler Clear
+        {
+            add => AddHandler(ClearEvent, value);
+            remove => RemoveHandler(ClearEvent, value);
+        }
 
         //public static readonly RoutedEvent ClearEvent =
         //    EventManager.RegisterRoutedEvent("Clear", RoutingStrategy.Bubble,

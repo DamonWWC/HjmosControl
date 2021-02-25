@@ -198,6 +198,7 @@
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\Object2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="Tools\Converter\String2BrushConverter.cs" />
     <Compile Include="Tools\Converter\String2GeometryConverter.cs" />
