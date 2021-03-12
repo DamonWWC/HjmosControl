@@ -27,11 +27,12 @@ namespace Hjmos.BaseControls.Controls
             {
                 DisplayText = "";
                 RaiseEvent(new RoutedEventArgs(ClearEvent));
-                //SelectedAllItems = null;
+                SelectedAllItems = null;
             }));
         }
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
         {
+            //RaiseEvent(new RoutedEventArgs(ConfirmEvent));
             Display(true);
         }
 
@@ -152,8 +153,11 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for SelectedAllItems.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SelectedAllItemsProperty =
-            DependencyProperty.Register("SelectedAllItems", typeof(object), typeof(ContentComboBox), new PropertyMetadata(default(object), (o, args) =>
+            DependencyProperty.Register("SelectedAllItems", typeof(object), typeof(ContentComboBox), new FrameworkPropertyMetadata(default(object), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, (o, args) =>
             {
+                var ct1 = o as ContentComboBox;
+                if (args.NewValue == null)
+                    ct1.DisplayText = "";
 
             }));
 

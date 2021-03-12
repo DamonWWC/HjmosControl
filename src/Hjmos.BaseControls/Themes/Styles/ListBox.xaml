@@ -110,7 +110,7 @@
                 <ControlTemplate TargetType="ListBox">
                     <DockPanel LastChildFill="True">
                         <TextBlock Text="{Binding Path=(controls:TitleElement.Title),RelativeSource={RelativeSource Mode=TemplatedParent},  StringFormat={}{0}:}"  Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" Margin="10,0" Style="{StaticResource TextBlockTitle}"/>
-                        <controls:ScrollViewer CanMouseWheel="True" Orientation="Horizontal" IsInertiaEnabled="True"  CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <controls:ScrollViewer CanMouseWheel="True" Orientation="Horizontal" IsInertiaEnabled="False"  CanContentScroll="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
                             <ItemsPresenter Margin="{TemplateBinding Padding}"   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </controls:ScrollViewer>
                     </DockPanel>

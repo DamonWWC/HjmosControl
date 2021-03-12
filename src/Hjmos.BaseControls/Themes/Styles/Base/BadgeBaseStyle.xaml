@@ -12,7 +12,7 @@
     <ControlTemplate x:Key="BadgeTextTemplate" TargetType="hj:Badge">
         <hj:SimplePanel>
             <ContentPresenter />
-            <Border x:Name="Border" Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" RenderTransformOrigin="0.5 0.5" Style="{StaticResource BorderCircular}" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+            <Border x:Name="Border1" Visibility="{TemplateBinding ShowBadge,Converter={StaticResource Boolean2VisibilityConverter}}" RenderTransformOrigin="0.5 0.5" Style="{StaticResource BorderCircular}" Margin="{TemplateBinding BadgeMargin}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                 <Border.RenderTransform>
                     <ScaleTransform />
                 </Border.RenderTransform>
@@ -23,8 +23,8 @@
             <EventTrigger RoutedEvent="hj:Badge.ValueChanged">
                 <BeginStoryboard>
                     <Storyboard AutoReverse="True">
-                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
-                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
+                        <DoubleAnimation Storyboard.TargetName="Border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
+                        <DoubleAnimation Storyboard.TargetName="Border1" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

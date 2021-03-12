@@ -25,6 +25,13 @@ namespace Controltest
         public Window1()
         {
             InitializeComponent();
+            DateTime data;
+            DateTime now = DateTime.Now;
+            data = new DateTime(now.Year, now.Month, now.Day, 24, 0, 0, DateTimeKind.Local);
+            string da = data.ToString("yyyy-MM-dd-HH-mm-ss");
+            string daa = data.ToLongTimeString();
+            string daaa = data.ToShortDateString();
+           
             PreviewBrush = new ImageBrush(BitmapFrame.Create(new Uri("D:\\Users\\90462\\Desktop\\20200509094055.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None));
 
 
@@ -62,6 +69,30 @@ namespace Controltest
 
             DataContext = this;
         }
+
+        private double GetTicks(double num)
+        {
+            var hour = Math.Truncate(num);
+            var min = (num - hour) * 60;
+            double sec = 0;
+            DateTime data;
+            DateTime now = DateTime.Now;
+            if (num == 24)
+            {
+                hour = 23;
+                min = 60;
+                sec = 60;
+
+            }
+
+            data = new DateTime(now.Year, now.Month, now.Day, (int)hour, (int)min, (int)sec, DateTimeKind.Utc);
+
+            return data.Ticks;
+        }
+
+
+
+
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public string[] Labels1 { get; set; }
