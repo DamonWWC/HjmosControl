@@ -181,5 +181,15 @@ namespace Hjmos.BaseControls.Interactivity
         /// </summary>
         public static RoutedCommand SortByName { get; } = new RoutedCommand(nameof(SortByName), typeof(ControlCommands));
 
+        /// <summary>
+        /// 展开导航栏
+        /// </summary>
+        public static RoutedCommand OpenNavigation { get; } = new RoutedCommand(nameof(OpenNavigation), typeof(ControlCommands));
+
+        /// <summary>
+        /// 隐藏导航栏
+        /// </summary>
+        public static RoutedCommand CloseNavigation { get; } = new RoutedCommand(nameof(CloseNavigation), typeof(ControlCommands));
+
     }
 }

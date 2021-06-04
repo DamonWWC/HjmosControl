@@ -119,7 +119,8 @@ namespace Controltest
             double fs = 15;
             var t = GetFontWidthHeight(this, fs, ff);
 
-
+            Window6 window6 = new Window6();
+            window6.Show();
 
 
             DataContext = this;

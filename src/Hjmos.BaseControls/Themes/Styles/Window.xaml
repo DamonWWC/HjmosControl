@@ -8,7 +8,7 @@
         <ResourceDictionary Source="Button.xaml" />
         <ResourceDictionary Source="../Basic/Converters.xaml" />
         <ResourceDictionary Source="../Basic/Geometries.xaml" />
-        <ResourceDictionary Source="ImageViewer.xaml"/>
+        <ResourceDictionary Source="ImageViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
 
@@ -298,7 +298,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="BorderBrush" Value="Black" />
         <!--<Setter Property="ResizeMode" Value="NoResize" />-->
-        <Setter Property="Topmost" Value="True"/>
+        <Setter Property="Topmost" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hj:ImageBrowser">
@@ -375,5 +375,350 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+
+
+    <Style x:Key="FullScreenWindow" TargetType="hj:FullScreenWindow">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#262e2f" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="CloseButtonBackground" Value="Transparent" />
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="CloseButtonHoverBackground" Value="#e81123" />
+        <Setter Property="CloseButtonHoverForeground" Value="White" />
+        <Setter Property="OtherButtonBackground" Value="Transparent" />
+        <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}" />
+        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hj:FullScreenWindow">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid
+                                Name="PART_NonClientArea"
+                                Background="{TemplateBinding NonClientAreaBackground}"
+                                TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Name="ButtonPanel"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Orientation="Horizontal"
+                                    UseLayoutRounding="True"
+                                    WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <!--  收起标题栏全屏  -->
+                                    <Button
+                                        Name="ButtonCloseNavigation"
+                                        Width="30"
+                                        Height="30"
+                                        hj:IconElement.Geometry="{StaticResource CloseNavigation}"
+                                        hj:IconElement.Height="16"
+                                        hj:IconElement.Width="13"
+                                        Background="{TemplateBinding OtherButtonBackground}"
+                                        BorderThickness="1,0,1,0"
+                                        Command="interactivity:ControlCommands.CloseNavigation"
+                                        Foreground="{TemplateBinding OtherButtonForeground}"
+                                        IsTabStop="False"
+                                        Style="{StaticResource ButtonIcon}" />
+                                    <!--<Button
+                                        Name="ButtonOpenNavigation"
+                                        Width="30"
+                                        Height="30"
+                                        hj:IconElement.Geometry="{StaticResource OpenNavigation}"
+                                        hj:IconElement.Height="16"
+                                        hj:IconElement.Width="13"
+                                        Background="{TemplateBinding OtherButtonBackground}"
+                                        BorderThickness="1,0,1,0"
+                                        Command="interactivity:ControlCommands.OpenNavigation"
+                                        Foreground="{TemplateBinding OtherButtonForeground}"
+                                        IsTabStop="False"
+                                        Style="{StaticResource ButtonIcon}" />-->
+                                    <Button
+                                        Name="ButtonMin"
+                                        Width="30"
+                                        Height="30"
+                                        hj:IconElement.Geometry="{StaticResource WindowMinGeometry}"
+                                        hj:IconElement.Height="16"
+                                        hj:IconElement.Width="16"
+                                        Background="{TemplateBinding OtherButtonBackground}"
+                                        BorderThickness="1,0,1,0"
+                                        Command="SystemCommands.MinimizeWindowCommand"
+                                        Foreground="{TemplateBinding OtherButtonForeground}"
+                                        IsTabStop="False"
+                                        Style="{StaticResource ButtonIcon}" />
+                                    <Button
+                                        Name="ButtonClose"
+                                        Width="30"
+                                        Height="30"
+                                        hj:IconElement.Geometry="{StaticResource CloseGeometry}"
+                                        hj:IconElement.Height="14"
+                                        hj:IconElement.Width="14"
+                                        Background="{TemplateBinding CloseButtonBackground}"
+                                        BorderThickness="1,0,0,0"
+                                        Command="SystemCommands.CloseWindowCommand"
+                                        Foreground="{TemplateBinding CloseButtonForeground}"
+                                        IsTabStop="False"
+                                        Style="{StaticResource ButtonIcon}" />
+                                </StackPanel>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <Button
+                                        Name="WindowSign"
+                                        Width="30"
+                                        Height="30"
+                                        Margin="0,0,0,0"
+                                        hj:IconElement.Geometry="{StaticResource WindowSign}"
+                                        hj:IconElement.Height="16"
+                                        hj:IconElement.Width="16"
+                                        Background="{TemplateBinding OtherButtonBackground}"
+                                        BorderThickness="1,0,1,0"
+                                        Command="{x:Static SystemCommands.ShowSystemMenuCommand}"
+                                        Foreground="{TemplateBinding OtherButtonForeground}"
+                                        IsTabStop="False"
+                                        Style="{StaticResource ButtonIcon}">
+                                        <interactivity:Interaction.Triggers>
+                                            <interactivity:EventTrigger EventName="MouseDoubleClick">
+                                                <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+                                            </interactivity:EventTrigger>
+                                        </interactivity:Interaction.Triggers>
+                                    </Button>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Padding="0,0,0,0"
+                                        VerticalAlignment="Center"
+                                        Text="{TemplateBinding Title}">
+                                        <TextBlock.Visibility>
+                                            <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+                                                <MultiBinding.Bindings>
+                                                    <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                    <Binding
+                                                        Converter="{StaticResource Object2BooleanConverter}"
+                                                        Path="Title"
+                                                        RelativeSource="{RelativeSource TemplatedParent}" />
+                                                </MultiBinding.Bindings>
+                                            </MultiBinding>
+                                        </TextBlock.Visibility>
+                                    </TextBlock>
+                                    <ContentPresenter
+                                        x:Name="ContentPresenterMain"
+                                        Grid.Column="2"
+                                        Content="{TemplateBinding NonClientAreaContent}"
+                                        WindowChrome.IsHitTestVisibleInChrome="True" />
+                                </Grid>
+                            </Grid>
+                            <Popup
+                                Grid.Row="0"
+                                Width="{Binding ActualWidth, ElementName=PART_NonClientArea}"
+                                AllowsTransparency="True"
+                                IsOpen="{TemplateBinding PopupOpen}"
+                                Placement="Bottom"
+                                PlacementTarget="{Binding ElementName=PART_NonClientArea}"
+                                StaysOpen="True">
+                                <Grid
+                                    Name="PART_NonClientArea1"
+                                    Background="{TemplateBinding NonClientAreaBackground}"
+                                    TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel
+                                        Name="ButtonPanel1"
+                                        Grid.Column="1"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Top"
+                                        Orientation="Horizontal"
+                                        UseLayoutRounding="True"
+                                        WindowChrome.IsHitTestVisibleInChrome="True">
+                                        <Button
+                                            Name="ButtonOpenNavigation"
+                                            Width="30"
+                                            Height="30"
+                                            hj:IconElement.Geometry="{StaticResource OpenNavigation}"
+                                            hj:IconElement.Height="16"
+                                            hj:IconElement.Width="13"
+                                            Background="{TemplateBinding OtherButtonBackground}"
+                                            BorderThickness="1,0,1,0"
+                                            Command="interactivity:ControlCommands.OpenNavigation"
+                                            Foreground="{TemplateBinding OtherButtonForeground}"
+                                            IsTabStop="False"
+                                            Style="{StaticResource ButtonIcon}" />
+                                        <Button
+                                            Name="ButtonMinPopup"
+                                            Width="30"
+                                            Height="30"
+                                            hj:IconElement.Geometry="{StaticResource WindowMinGeometry}"
+                                            hj:IconElement.Height="16"
+                                            hj:IconElement.Width="16"
+                                            Background="{TemplateBinding OtherButtonBackground}"
+                                            BorderThickness="1,0,1,0"
+                                            Command="SystemCommands.MinimizeWindowCommand"
+                                            Foreground="{TemplateBinding OtherButtonForeground}"
+                                            IsTabStop="False"
+                                            Style="{StaticResource ButtonIcon}" />
+                                        <Button
+                                            Name="ButtonClosePopup"
+                                            Width="30"
+                                            Height="30"
+                                            hj:IconElement.Geometry="{StaticResource CloseGeometry}"
+                                            hj:IconElement.Height="14"
+                                            hj:IconElement.Width="14"
+                                            Background="{TemplateBinding CloseButtonBackground}"
+                                            BorderThickness="1,0,0,0"
+                                            Command="SystemCommands.CloseWindowCommand"
+                                            Foreground="{TemplateBinding CloseButtonForeground}"
+                                            IsTabStop="False"
+                                            Style="{StaticResource ButtonIcon}" />
+                                    </StackPanel>
+                                    <Grid Grid.Column="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Button
+                                            Name="WindowSignPopup"
+                                            Width="30"
+                                            Height="30"
+                                            Margin="0,0,0,0"
+                                            hj:IconElement.Geometry="{StaticResource WindowSign}"
+                                            hj:IconElement.Height="16"
+                                            hj:IconElement.Width="16"
+                                            Background="{TemplateBinding OtherButtonBackground}"
+                                            BorderThickness="1,0,1,0"
+                                            Command="{x:Static SystemCommands.ShowSystemMenuCommand}"
+                                            Foreground="{TemplateBinding OtherButtonForeground}"
+                                            IsTabStop="False"
+                                            Style="{StaticResource ButtonIcon}">
+                                            <interactivity:Interaction.Triggers>
+                                                <interactivity:EventTrigger EventName="MouseDoubleClick">
+                                                    <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+                                                </interactivity:EventTrigger>
+                                            </interactivity:Interaction.Triggers>
+                                        </Button>
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Padding="0,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Text="{TemplateBinding Title}">
+                                            <TextBlock.Visibility>
+                                                <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                        <Binding
+                                                            Converter="{StaticResource Object2BooleanConverter}"
+                                                            Path="Title"
+                                                            RelativeSource="{RelativeSource TemplatedParent}" />
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </TextBlock.Visibility>
+                                        </TextBlock>
+                                        <ContentPresenter
+                                            x:Name="ContentPresenterMainPopup"
+                                            Grid.Column="2"
+                                            Content="{TemplateBinding NonClientAreaContent}"
+                                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                                    </Grid>
+                                </Grid>
+                            </Popup>
+                            <AdornerDecorator Grid.Row="1">
+                                <ContentPresenter ClipToBounds="True" />
+                            </AdornerDecorator>
+                            <ResizeGrip
+                                x:Name="ResizeGrip"
+                                Grid.Row="1"
+                                Width="10"
+                                Height="10"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                IsTabStop="False"
+                                Visibility="Collapsed"
+                                WindowChrome.ResizeGripDirection="BottomRight" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter TargetName="ContentPresenterMain" Property="Opacity" Value=".8" />
+                            <Setter TargetName="ButtonPanel" Property="Opacity" Value=".8" />
+                        </Trigger>
+                        <!--<Trigger Property="IsFullScreen" Value="True">
+                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
+                            --><!--<Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Visible" />--><!--
+                        </Trigger>
+                        <Trigger Property="IsFullScreen" Value="False">
+                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
+                        </Trigger>-->
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter TargetName="ButtonMin" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger SourceName="ButtonClose" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonClose" Property="Background" Value="{Binding CloseButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonClose" Property="Foreground" Value="{Binding CloseButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger SourceName="ButtonClosePopup" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonClosePopup" Property="Background" Value="{Binding CloseButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonClosePopup" Property="Foreground" Value="{Binding CloseButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger SourceName="ButtonCloseNavigation" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonCloseNavigation" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonCloseNavigation" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        
+                        <Trigger SourceName="ButtonOpenNavigation" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonOpenNavigation" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonOpenNavigation" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger SourceName="ButtonMin" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonMin" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonMin" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger SourceName="ButtonMinPopup" Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonMinPopup" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ButtonMinPopup" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode" Value="CanResizeWithGrip" />
+                                <Condition Property="WindowState" Value="Normal" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
 
 </ResourceDictionary>

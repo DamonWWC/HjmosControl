@@ -122,6 +122,7 @@
     <Compile Include="Controls\Time\Clock\ClockBase.cs" />
     <Compile Include="Controls\Time\Clock\ListClock.cs" />
     <Compile Include="Controls\UserControl\PopupUserControl.cs" />
+    <Compile Include="Controls\Window\FullScreenWindow.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\ExWindow.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Tools\Converter\Name2ImageSourceConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="Tools\Converter\Number2PercentageProConverter.cs" />
+    <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
     <Compile Include="Tools\Converter\Object2StringConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\Object2VisibilityReConverter.cs" />

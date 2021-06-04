@@ -151,7 +151,7 @@ namespace Hjmos.BaseControls.Controls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ShowModeProperty =
-            DependencyProperty.Register("MyProperty", typeof(DrawerShowMode), typeof(Drawer), new PropertyMetadata(default(DrawerShowMode)));
+            DependencyProperty.Register("ShowMode", typeof(DrawerShowMode), typeof(Drawer), new PropertyMetadata(default(DrawerShowMode)));
 
 
 

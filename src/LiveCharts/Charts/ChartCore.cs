@@ -559,14 +559,14 @@ namespace LiveCharts.Charts
                     var dx = ChartFunctions.FromPlotArea(delta.X, AxisOrientation.X, this, index) -
                              ChartFunctions.FromPlotArea(0, AxisOrientation.X, this, index);
 
-                    //xi.View.SetRange((double.IsNaN(xi.View.MinValue) ? xi.BotLimit : xi.View.MinValue) + dx,
-                    //    (double.IsNaN(xi.View.MaxValue) ? xi.TopLimit : xi.View.MaxValue) + dx);
-                    var min = (double.IsNaN(xi.View.MinValue) ? xi.BotLimit : xi.View.MinValue) + dx;
-                    var max = (double.IsNaN(xi.View.MaxValue) ? xi.TopLimit : xi.View.MaxValue) + dx;
-                    if (min >= -0.1 && max <= xi.Labels.Count() + 0.1)
-                    {
-                        xi.View.SetRange(min, max);
-                    }
+                    xi.View.SetRange((double.IsNaN(xi.View.MinValue) ? xi.BotLimit : xi.View.MinValue) + dx,
+                        (double.IsNaN(xi.View.MaxValue) ? xi.TopLimit : xi.View.MaxValue) + dx);
+                    //var min = (double.IsNaN(xi.View.MinValue) ? xi.BotLimit : xi.View.MinValue) + dx;
+                    //var max = (double.IsNaN(xi.View.MaxValue) ? xi.TopLimit : xi.View.MaxValue) + dx;
+                    //if (min >= -0.1 && max <= xi.Labels.Count() + 0.1)
+                    //{
+                    //    xi.View.SetRange(min, max);
+                    //}
                 }
             }
 
