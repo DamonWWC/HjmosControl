@@ -9,8 +9,9 @@
         Style="{StaticResource FullScreenWindow}"
       WindowState="Maximized"
         mc:Ignorable="d"
-                     
-       IsFullScreen="False" NonClientAreaHeight="50"
+         NonClientAreaBackground="Red" 
+                     ShowNonClientArea="True"
+       IsFullScreen="False" NonClientAreaHeight="500"
         Title="Window6" Height="450" Width="800" >
     <Grid>
         <!--<Grid.RowDefinitions>
@@ -22,7 +23,8 @@
             
         </hj:Drawer>
         <!--<Button  Height="50" Background="Black" VerticalAlignment="Top" HorizontalAlignment="Stretch" Click="Button_Click_1" Margin="82,175,493.333,0"/>-->
-        <local:UserControl3 Margin="82,175,158.333,160.667" MouseMove="UserControl3_MouseMove" />
+        <!--<local:UserControl3 Margin="82,175,158.333,160.667" MouseMove="UserControl3_MouseMove" />-->
+        <local:UserControltest Visibility="Collapsed"/>
         <TextBlock x:Name="ww" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </hj:FullScreenWindow>

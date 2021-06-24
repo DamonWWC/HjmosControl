@@ -20,13 +20,15 @@ namespace Controltest
     /// <summary>
     /// Window6.xaml 的交互逻辑
     /// </summary>
-    public partial class Window6 : FullScreenWindow, INotifyPropertyChanged
+    public partial class Window6 : FullScreenWindow, INotifyPropertyChanged, Interface1
     {
         public Window6()
         {
             InitializeComponent();
+         
             IsOpen = true;
             DataContext = this;
+           
         }
 
         private void Window_MouseLeave(object sender, MouseEventArgs e)
@@ -68,6 +70,11 @@ namespace Controltest
             var point = e.GetPosition(obj);
             ww.Text= string.Format("坐标{0},{1}", point.X, point.Y);
 
+        }
+
+        public void Call()
+        {
+            
         }
     }
 }

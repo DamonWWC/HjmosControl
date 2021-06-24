@@ -5,12 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
-namespace Hjmos.BaseControls.Controls
+namespace Controltest
 {
-    public class PopupUserControl : UserControl
+   public class UserControltest : UserControl
     {
-
-        public PopupUserControl()
+        public UserControltest()
         {
             this.Loaded += PopupUserControl_Loaded;
         }
@@ -18,7 +17,12 @@ namespace Hjmos.BaseControls.Controls
         private void PopupUserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             //MessageBox.Show("11");
-           // if(this.DataContext is Interface1)
+            if (this.DataContext is Interface1 interface1)
+            {
+               
+                    interface1.Call();
+              
+            }
         }
     }
 }

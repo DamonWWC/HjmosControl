@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interface1.cs" />
     <Compile Include="RadarControl.xaml.cs">
       <DependentUpon>RadarControl.xaml</DependentUpon>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="UserControl3.xaml.cs">
       <DependentUpon>UserControl3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControltest.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -100,6 +102,12 @@
     </Compile>
     <Compile Include="Window6.xaml.cs">
       <DependentUpon>Window6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window7.xaml.cs">
+      <DependentUpon>Window7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window8.xaml.cs">
+      <DependentUpon>Window8.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinformToWpfTest.cs" />
     <Page Include="MainWindow.xaml">
@@ -151,6 +159,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window8.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

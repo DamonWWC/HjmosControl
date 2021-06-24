@@ -111,6 +111,8 @@
     <Compile Include="Controls\Panel\Grid\Col.cs" />
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
+    <Compile Include="Controls\SplashWindow\ISplashWindow.cs" />
+    <Compile Include="Controls\SplashWindow\SplashWindow.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
     <Compile Include="Controls\Tag\Tag.cs" />
