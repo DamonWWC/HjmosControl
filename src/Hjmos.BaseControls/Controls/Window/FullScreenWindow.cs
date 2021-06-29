@@ -267,15 +267,18 @@ namespace Hjmos.BaseControls.Controls
         }
 
 
-        public bool PopupOpen
+
+
+        public bool PopupShow
         {
-            get { return (bool)GetValue(PopupOpenProperty); }
-            set { SetValue(PopupOpenProperty, value); }
+            get { return (bool)GetValue(PopupShowProperty); }
+            set { SetValue(PopupShowProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for PopupOpen.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty PopupOpenProperty =
-            DependencyProperty.Register("PopupOpen", typeof(bool), typeof(FullScreenWindow), new PropertyMetadata(false));
+        // Using a DependencyProperty as the backing store for Shows.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty PopupShowProperty =
+            DependencyProperty.Register("PopupShow", typeof(bool), typeof(FullScreenWindow), new PropertyMetadata(false));
+
 
 
 
@@ -322,14 +325,18 @@ namespace Hjmos.BaseControls.Controls
             ctl.SwitchIsFullScreen((bool)e.NewValue);
             if((bool)e.NewValue)
             {
-                ctl.MouseMove -= ctl.FullScreenWindow_MouseMove;
-                ctl.MouseMove += ctl.FullScreenWindow_MouseMove;
+               
             }
             else
             {
-                ctl.PopupOpen = false;
-                ctl.MouseMove -= ctl.FullScreenWindow_MouseMove;
+                
+                
             }
+        }
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            PopupShow = Mouse.GetPosition(_nonClientArea).Y < 100;
         }
 
         private void SwitchIsFullScreen(bool isFullScreen)
@@ -352,8 +359,9 @@ namespace Hjmos.BaseControls.Controls
                 WindowStyle = WindowStyle.None;
                 //下面三行不能改变，就是故意的
                 WindowState = WindowState.Maximized;
-                WindowState = WindowState.Minimized;
-                WindowState = WindowState.Maximized;
+               
+                //WindowState = WindowState.Minimized;
+                //WindowState = WindowState.Maximized;
             }
             else
             {
@@ -372,6 +380,7 @@ namespace Hjmos.BaseControls.Controls
                 WindowState = _tempWindowState;
                 WindowStyle = _tempWindowStyle;
                 ResizeMode = _tempResizeMode;
+               
             }
         }
 
@@ -379,8 +388,9 @@ namespace Hjmos.BaseControls.Controls
         {
             base.OnStateChanged(e);
             if (WindowState == WindowState.Maximized)
-            {
+            {              
                 BorderThickness = new Thickness();
+                if (IsFullScreen) return;
                 _tempNonClientAreaHeight = NonClientAreaHeight;
                 NonClientAreaHeight += 8;
             }
@@ -407,8 +417,6 @@ namespace Hjmos.BaseControls.Controls
                 (s, e) => { IsFullScreen = true; }));
             CommandBindings.Add(new CommandBinding(ControlCommands.OpenNavigation,
                 (s, e) => { IsFullScreen = false; }));
-
-
             CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
                 (s, e) => WindowState = WindowState.Minimized));         
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
@@ -434,27 +442,7 @@ namespace Hjmos.BaseControls.Controls
           
         }
 
-        private void FullScreenWindow_MouseMove(object sender, MouseEventArgs e)
-        {
-            Win32Api.POINT p = new Win32Api.POINT();
-            if (Win32Api.GetCursorPos(out p))//API方法
-            {                
-                if ((p.Y >= 0) && (p.Y <= 100))
-                {
-                    if (!PopupOpen)
-                    {
-                        PopupOpen = true;
-                    }                  
-                }
-                else
-                {
-                    if (PopupOpen)
-                    {
-                        PopupOpen = false;
-                    }
-                }
-            }
-        }
+     
 
         public override void OnApplyTemplate()
         {

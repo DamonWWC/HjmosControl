@@ -357,7 +357,7 @@
                         </hj:SimplePanel>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger SourceName="PART_ImageViewer" Property="ShowCloseButton" Value="True">
+                        <Trigger SourceName="PART_ImageViewer" Property="ShowCloseButton" Value="true">
                             <Trigger.EnterActions>
                                 <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
                             </Trigger.EnterActions>
@@ -397,6 +397,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hj:FullScreenWindow">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_PanelTop" Storyboard.TargetProperty="Opacity">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.1" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_PanelTop" Storyboard.TargetProperty="Opacity">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.4" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
                     <Border
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -404,11 +416,12 @@
                         SnapsToDevicePixels="True">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
                             <Grid
                                 Name="PART_NonClientArea"
+                                Panel.ZIndex="1"
                                 Background="{TemplateBinding NonClientAreaBackground}"
                                 TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
                                 <Grid.ColumnDefinitions>
@@ -434,22 +447,10 @@
                                         Background="{TemplateBinding OtherButtonBackground}"
                                         BorderThickness="1,0,1,0"
                                         Command="interactivity:ControlCommands.CloseNavigation"
+                                        Cursor="Hand"
                                         Foreground="{TemplateBinding OtherButtonForeground}"
                                         IsTabStop="False"
                                         Style="{StaticResource ButtonIcon}" />
-                                    <!--<Button
-                                        Name="ButtonOpenNavigation"
-                                        Width="30"
-                                        Height="30"
-                                        hj:IconElement.Geometry="{StaticResource OpenNavigation}"
-                                        hj:IconElement.Height="16"
-                                        hj:IconElement.Width="13"
-                                        Background="{TemplateBinding OtherButtonBackground}"
-                                        BorderThickness="1,0,1,0"
-                                        Command="interactivity:ControlCommands.OpenNavigation"
-                                        Foreground="{TemplateBinding OtherButtonForeground}"
-                                        IsTabStop="False"
-                                        Style="{StaticResource ButtonIcon}" />-->
                                     <Button
                                         Name="ButtonMin"
                                         Width="30"
@@ -527,24 +528,31 @@
                                         WindowChrome.IsHitTestVisibleInChrome="True" />
                                 </Grid>
                             </Grid>
-                            <Popup
-                                Grid.Row="0"
-                                Width="{Binding ActualWidth, ElementName=PART_NonClientArea}"
-                                AllowsTransparency="True"
-                                IsOpen="{TemplateBinding PopupOpen}"
-                                Placement="Bottom"
-                                PlacementTarget="{Binding ElementName=PART_NonClientArea}"
-                                StaysOpen="True">
-                                <Grid
-                                    Name="PART_NonClientArea1"
-                                    Background="{TemplateBinding NonClientAreaBackground}"
-                                    TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
+                            <AdornerDecorator x:Name="AdornerDecorator" Grid.Row="1">
+                                <ContentPresenter ClipToBounds="True" />
+                            </AdornerDecorator>
+                            <ResizeGrip
+                                x:Name="ResizeGrip"
+                                Grid.Row="1"
+                                Width="10"
+                                Height="10"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom"
+                                IsTabStop="False"
+                                Visibility="Collapsed"
+                                WindowChrome.ResizeGripDirection="BottomRight" />
+                            <hj:SimplePanel
+                                x:Name="PART_PanelTop"
+                                Grid.RowSpan="2"
+                                VerticalAlignment="Top"
+                                Background="{TemplateBinding NonClientAreaBackground}"
+                                Opacity="0">
+                                <Grid Background="{TemplateBinding NonClientAreaBackground}" TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <StackPanel
-                                        Name="ButtonPanel1"
                                         Grid.Column="1"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Top"
@@ -552,7 +560,6 @@
                                         UseLayoutRounding="True"
                                         WindowChrome.IsHitTestVisibleInChrome="True">
                                         <Button
-                                            Name="ButtonOpenNavigation"
                                             Width="30"
                                             Height="30"
                                             hj:IconElement.Geometry="{StaticResource OpenNavigation}"
@@ -561,11 +568,11 @@
                                             Background="{TemplateBinding OtherButtonBackground}"
                                             BorderThickness="1,0,1,0"
                                             Command="interactivity:ControlCommands.OpenNavigation"
+                                            Cursor="Hand"
                                             Foreground="{TemplateBinding OtherButtonForeground}"
                                             IsTabStop="False"
                                             Style="{StaticResource ButtonIcon}" />
                                         <Button
-                                            Name="ButtonMinPopup"
                                             Width="30"
                                             Height="30"
                                             hj:IconElement.Geometry="{StaticResource WindowMinGeometry}"
@@ -578,7 +585,6 @@
                                             IsTabStop="False"
                                             Style="{StaticResource ButtonIcon}" />
                                         <Button
-                                            Name="ButtonClosePopup"
                                             Width="30"
                                             Height="30"
                                             hj:IconElement.Geometry="{StaticResource CloseGeometry}"
@@ -598,7 +604,6 @@
                                             <ColumnDefinition />
                                         </Grid.ColumnDefinitions>
                                         <Button
-                                            Name="WindowSignPopup"
                                             Width="30"
                                             Height="30"
                                             Margin="0,0,0,0"
@@ -635,26 +640,12 @@
                                             </TextBlock.Visibility>
                                         </TextBlock>
                                         <ContentPresenter
-                                            x:Name="ContentPresenterMainPopup"
                                             Grid.Column="2"
                                             Content="{TemplateBinding NonClientAreaContent}"
                                             WindowChrome.IsHitTestVisibleInChrome="True" />
                                     </Grid>
                                 </Grid>
-                            </Popup>
-                            <AdornerDecorator Grid.Row="1">
-                                <ContentPresenter ClipToBounds="True" />
-                            </AdornerDecorator>
-                            <ResizeGrip
-                                x:Name="ResizeGrip"
-                                Grid.Row="1"
-                                Width="10"
-                                Height="10"
-                                HorizontalAlignment="Right"
-                                VerticalAlignment="Bottom"
-                                IsTabStop="False"
-                                Visibility="Collapsed"
-                                WindowChrome.ResizeGripDirection="BottomRight" />
+                            </hj:SimplePanel>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -662,47 +653,16 @@
                             <Setter TargetName="ContentPresenterMain" Property="Opacity" Value=".8" />
                             <Setter TargetName="ButtonPanel" Property="Opacity" Value=".8" />
                         </Trigger>
-                        <!--<Trigger Property="IsFullScreen" Value="True">
-                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
-                            --><!--<Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Visible" />--><!--
-                        </Trigger>
-                        <Trigger Property="IsFullScreen" Value="False">
-                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
-                        </Trigger>-->
                         <Trigger Property="ResizeMode" Value="NoResize">
                             <Setter TargetName="ButtonMin" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
-                        </Trigger>
-                        <Trigger Property="ResizeMode" Value="CanMinimize">
-                            <Setter TargetName="ButtonCloseNavigation" Property="Visibility" Value="Collapsed" />
-                            <Setter TargetName="ButtonOpenNavigation" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger SourceName="ButtonClose" Property="IsMouseOver" Value="True">
                             <Setter TargetName="ButtonClose" Property="Background" Value="{Binding CloseButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ButtonClose" Property="Foreground" Value="{Binding CloseButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Trigger>
-                        <Trigger SourceName="ButtonClosePopup" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonClosePopup" Property="Background" Value="{Binding CloseButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="ButtonClosePopup" Property="Foreground" Value="{Binding CloseButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Trigger>
-                        <Trigger SourceName="ButtonCloseNavigation" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonCloseNavigation" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="ButtonCloseNavigation" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Trigger>
-                        
-                        <Trigger SourceName="ButtonOpenNavigation" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonOpenNavigation" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="ButtonOpenNavigation" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Trigger>
                         <Trigger SourceName="ButtonMin" Property="IsMouseOver" Value="True">
                             <Setter TargetName="ButtonMin" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ButtonMin" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
-                        </Trigger>
-                        <Trigger SourceName="ButtonMinPopup" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ButtonMinPopup" Property="Background" Value="{Binding OtherButtonHoverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="ButtonMinPopup" Property="Foreground" Value="{Binding OtherButtonHoverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -711,14 +671,23 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="PopupShow" Value="True" />
+                                <Condition Property="IsFullScreen" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
-
-
-
 
 </ResourceDictionary>

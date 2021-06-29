@@ -429,3 +429,5 @@
 /src/Hjmos.CustomCharts/obj/Debug/Themes/Styles/DeviceAlarmBarChart.baml
 /src/Hjmos.CustomCharts/obj/Debug/Themes/Styles/SectionPassengerFlowDistribution.baml
 /src/Hjmos.CustomCharts/obj/Debug/Themes/Styles/EventStatisticsWithPieChart.baml
+/src/LiveCharts/obj/Debug
+/src/LiveCharts.WPF/obj/Debug

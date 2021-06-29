@@ -1,4 +1,4 @@
-﻿<Window
+﻿<hj:ExWindow
     x:Class="Controltest.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Window1"
     Width="800"
+    IsFullScreen="True"
     Height="450"
     mc:Ignorable="d">
     <Grid>
@@ -29,4 +30,4 @@
         <!--<local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>-->
 
     </Grid>
-</Window>
+</hj:ExWindow>

@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Controltest"
         mc:Ignorable="d"
+        WindowState="Maximized"
+        
         Title="Window7" Height="450" Width="800">
     <Grid>
         <ListBox Name="LBoxSort" PreviewMouseMove="LBoxSort_PreviewMouseMove" Drop="LBoxSort_Drop" AllowDrop="True">

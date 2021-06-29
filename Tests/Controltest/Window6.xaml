@@ -6,12 +6,9 @@
         xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
         xmlns:local="clr-namespace:Controltest"
        MouseLeave="Window_MouseLeave"
-        Style="{StaticResource FullScreenWindow}"
-      WindowState="Maximized"
-        mc:Ignorable="d"
-         NonClientAreaBackground="Red" 
-                     ShowNonClientArea="True"
-       IsFullScreen="False" NonClientAreaHeight="500"
+        Style="{StaticResource FullScreenWindow}"    
+        mc:Ignorable="d"                   
+       
         Title="Window6" Height="450" Width="800" >
     <Grid>
         <!--<Grid.RowDefinitions>
@@ -23,8 +20,8 @@
             
         </hj:Drawer>
         <!--<Button  Height="50" Background="Black" VerticalAlignment="Top" HorizontalAlignment="Stretch" Click="Button_Click_1" Margin="82,175,493.333,0"/>-->
-        <!--<local:UserControl3 Margin="82,175,158.333,160.667" MouseMove="UserControl3_MouseMove" />-->
-        <local:UserControltest Visibility="Collapsed"/>
+        <local:UserControl3 MouseMove="UserControl3_MouseMove" Height="Auto" Width="Auto" />
+        <!--<local:UserControltest Visibility="Collapsed"/>-->
         <TextBlock x:Name="ww" HorizontalAlignment="Left" VerticalAlignment="Top"/>
     </Grid>
 </hj:FullScreenWindow>

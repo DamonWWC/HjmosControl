@@ -20,17 +20,17 @@ namespace Controltest
     /// <summary>
     /// Window1.xaml 的交互逻辑
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window1 : ExWindow
     {
         public Window1()
         {
             InitializeComponent();
-            DateTime data;
-            DateTime now = DateTime.Now;
-            data = new DateTime(now.Year, now.Month, now.Day, 24, 0, 0, DateTimeKind.Local);
-            string da = data.ToString("yyyy-MM-dd-HH-mm-ss");
-            string daa = data.ToLongTimeString();
-            string daaa = data.ToShortDateString();
+            //DateTime data;
+            //DateTime now = DateTime.Now;
+            //data = new DateTime(now.Year, now.Month, now.Day, 24, 0, 0, DateTimeKind.Local);
+            //string da = data.ToString("yyyy-MM-dd-HH-mm-ss");
+            //string daa = data.ToLongTimeString();
+            //string daaa = data.ToShortDateString();
            
             PreviewBrush = new ImageBrush(BitmapFrame.Create(new Uri("D:\\Users\\90462\\Desktop\\20200509094055.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None));
 
