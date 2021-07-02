@@ -66,6 +66,7 @@ namespace Controltest
 
             //modifying any series values will also animate and update the chart
             //  SeriesCollection[2].Values.Add(5d);
+            ImageList = new List<string> { "http://10.38.2.12:30768/hjmos-dfs/commonfile/download/202106255501404890481152.png", "http://10.38.2.12:30768/hjmos-dfs/commonfile/download/202106255501404890481152.png" };
 
             DataContext = this;
         }
@@ -91,7 +92,7 @@ namespace Controltest
         }
 
 
-
+        public List<string> ImageList { get; set; }
 
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }

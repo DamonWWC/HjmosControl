@@ -190,6 +190,15 @@ namespace Hjmos.BaseControls.Interactivity
         /// 隐藏导航栏
         /// </summary>
         public static RoutedCommand CloseNavigation { get; } = new RoutedCommand(nameof(CloseNavigation), typeof(ControlCommands));
+        /// <summary>
+        /// 添加
+        /// </summary>
+        public static RoutedCommand AddCommand { get; } = new RoutedCommand(nameof(AddCommand), typeof(ControlCommands));
+
+        /// <summary>
+        /// 编辑
+        /// </summary>
+        public static RoutedCommand EditCommand { get; } = new RoutedCommand(nameof(EditCommand), typeof(ControlCommands));
 
     }
 }

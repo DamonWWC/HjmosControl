@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Window1"
     Width="800"
-    IsFullScreen="True"
+   
     Height="450"
     mc:Ignorable="d">
     <Grid>
@@ -19,13 +19,30 @@
             Background="{Binding PreviewBrush}"
             BorderThickness="1"
             CornerRadius="5" />-->
-        <!--<hj:ImageButton Width="100" Height="100"  FileName="D:\\Users\\90462\\Desktop\\20200509094055.png">
+        <hj:ImageButton Width="100" Height="100"  FileName="http://10.38.2.12:30768/hjmos-dfs/commonfile/download/202106255501404890481152.png">
 
-        </hj:ImageButton>-->
+        </hj:ImageButton>
+        <hj:ImageButton Width="100" Height="100"  FileName="http://10.38.2.12:30768/hjmos-dfs/commonfile/download/202106255501404890481152.png" Margin="525,160,168.333,160.667">
 
-        <hj:ImageViewerPlus  Width="600" Height="330"  ShowImgMap="True" ImageSource="D:\\Users\\90462\\Desktop\\2021-2-4-3-54-45.759.png"/>
+        </hj:ImageButton>
+        <hj:ImageButton Width="100" Height="100"  FileName="D:\\Users\\90462\\Desktop\\20200509094055.png" Margin="130,145,563.333,175.667">
+
+        </hj:ImageButton>
+        <ItemsControl ItemsSource="{Binding ImageList}" Margin="60,35,488.333,34.667">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <hj:ImageButton Margin="0,15,0,0" Width="100" Height="111"                                         
+                                           
+                                            FileName="{Binding }"
+                                          
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <!--<hj:ImageViewerPlus  Width="600" Height="330"  ShowImgMap="True" ImageSource="D:\\Users\\90462\\Desktop\\2021-2-4-3-54-45.759.png"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="97,195,0,0" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Top" FontSize="20" Width="108" Click="Button_Click" Foreground="#FF98E1FF"  hj:IconElement.Geometry="{StaticResource CompletedGeometry}" Height="30"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="290,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="290,180,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="275"/>-->
         <!--<local:UserControl2/>-->
         <!--<local:UserControl1 HorizontalAlignment="Left" Height="235" Margin="150,120,0,0" VerticalAlignment="Top" Width="415"/>-->
 

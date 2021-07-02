@@ -74,6 +74,7 @@
     <Compile Include="Controls\Block\RunningBlock\RunningBorder.cs" />
     <Compile Include="Controls\Block\ToggleBlock.cs" />
     <Compile Include="Controls\Button\ButtonGroup.cs" />
+    <Compile Include="Controls\Button\EditButton.cs" />
     <Compile Include="Controls\Button\ImageButton.cs" />
     <Compile Include="Controls\ColorPicker\ColorDropper.cs" />
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Data\Enum\BadgeStatus.cs" />
     <Compile Include="Data\Enum\ColLayoutStatus.cs" />
     <Compile Include="Data\Enum\DrawerShowMode.cs" />
+    <Compile Include="Data\Enum\EditType.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\MouseHookMessageType.cs" />
     <Compile Include="Data\Enum\PlacementType.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Interactivity\Behavior\MouseDragElementBehavior.cs" />
     <Compile Include="Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
+    <Compile Include="Interactivity\DragDropAdorner.cs" />
     <Compile Include="Interactivity\EventToCommand.cs" />
     <Compile Include="Interactivity\EventTrigger.cs" />
     <Compile Include="Interactivity\EventTriggerBase!1.cs" />
