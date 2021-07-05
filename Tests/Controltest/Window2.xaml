@@ -47,14 +47,14 @@
         <!--<controls:DeviceAlarmBarChart Grid.Row="1" Style="{StaticResource DeviceAlarmBarChartBaseStyle}" ChartValues="{Binding ChartValue}"/>-->
         <!--<hj:InfoProgressBar HorizontalAlignment="Left" ActualValue="30"  TitleFontSize="20" Width="500" Maximum="100" Title="1号线" Margin="0,45,88.333,9.667" Grid.RowSpan="2" />-->
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="130,25,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>-->
-        <ProgressBar  Value="120" Maximum="100" Padding="2"     Grid.Row="1" Background="AliceBlue"  hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" >
+        <!--<ProgressBar  Value="120" Maximum="100" Padding="2"     Grid.Row="1" Background="AliceBlue"  hj:BorderElement.CornerRadius="8" BorderThickness="1" BorderBrush="Red" Margin="68,130,0.333,190.667" >
             <ProgressBar.Foreground>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="#009AFF" Offset="0"/>
                     <GradientStop Color="#00F6FF" Offset="1"/>
                 </LinearGradientBrush>
             </ProgressBar.Foreground>
-        </ProgressBar>
+        </ProgressBar>-->
         <!--<CheckBox Content="11"/>-->
 
         <!--<Button Content="Button" HorizontalAlignment="Left" Margin="95,36,0,0" Grid.Row="0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>-->
@@ -186,7 +186,7 @@
             </hj:ContentComboBox.Content>
         </hj:ContentComboBox>
 
-        <DataGrid HeadersVisibility="Column" FontSize="14" Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="#FF186573" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="20" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,5,0.333,-0.333" Grid.Row="1">
+        <DataGrid HeadersVisibility="None" AllowDrop="True" GridLinesVisibility="None"   IsReadOnly="False" FontSize="14"  Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52" BorderBrush="Red" BorderThickness="2" hj:DataGridAttach.ShowRowNumber="True" ColumnHeaderHeight="0" RowHeaderWidth="0" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" Margin="0,5,0.333,-0.333" Grid.Row="1">
             <!--<DataGrid.RowHeaderTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type DataGridRow}}}"/>
@@ -205,19 +205,36 @@
                     <Setter Property="Foreground" Value="#FFC0FFFC"/>
                 </Style>
             </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+                    <!--<Setter Property="HorizontalContentAlignment" Value="Center"/>-->
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Width="1*" CanUserResize="False" Binding="{Binding Index}" Header="索引"/>
-                <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="名称"/>
-                <DataGridCheckBoxColumn Width="1*" CanUserResize="False" Binding="{Binding IsSelected}" Header="选择"/>
-                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="标记" CanUserResize="True"/>
-                <DataGridTemplateColumn Header="操作">
+                <!--<DataGridTextColumn IsReadOnly="True" Width="1*" CanUserResize="False" Binding="{Binding Index}" Header="索引"/>-->
+                <DataGridTextColumn Width="1*"  Binding="{Binding Name}" Header="名称"/>
+                <!--<DataGridCheckBoxColumn Width="1*" CanUserResize="False" Binding="{Binding IsSelected}" Header="选择"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="标记" CanUserResize="True"/>-->
+                <DataGridTemplateColumn  Header="操作" Visibility="Collapsed" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                Width="12"
+                                Height="12"
+                                hj:IconElement.Geometry="{StaticResource ChangeLocation}"
+                                Style="{StaticResource ButtonIcon}" />
+                                <Button
+                                Width="12"
+                                Height="12"
+                                hj:IconElement.Geometry="{StaticResource ClearGeometry}"
+                                Style="{StaticResource ButtonIcon}" />
+                            </StackPanel>
+                            <!--<StackPanel Orientation="Horizontal">
                                 <Button x:Name="button1" Content="编辑" Tag="{Binding SelectedItem, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}, Mode=FindAncestor}}" Click="button1_Click"/>
                                 <Button x:Name="button2" Content="预警处置"/>
                                 <Button x:Name="button3" Content="上报"/>
-                            </StackPanel>
+                            </StackPanel>-->
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

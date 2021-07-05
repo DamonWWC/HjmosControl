@@ -52,6 +52,7 @@
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
     <Compile Include="Controls\Attach\DataGridAttach.cs" />
+    <Compile Include="Controls\Attach\DataGridDragDropRowBehavior.cs" />
     <Compile Include="Controls\Attach\DropDownElement.cs" />
     <Compile Include="Controls\Attach\EdgeElement.cs" />
     <Compile Include="Controls\Attach\IconElement.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Controls\Input\ContentComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
     <Compile Include="Controls\Input\DateTimePicker.cs" />
+    <Compile Include="Controls\Input\EditTextBlock.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\ImageSelector.cs" />
     <Compile Include="Controls\Input\MemoBox.cs" />

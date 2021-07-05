@@ -6,6 +6,7 @@
     xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
     xmlns:i="clr-namespace:Hjmos.BaseControls.Interactivity;assembly=Hjmos.BaseControls"
     xmlns:local="clr-namespace:Controltest"
+    x:Name="user"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -15,7 +16,56 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Button Content="111" Margin="421,39,134,110" Click="Button_Click"/>
         <hj:EditButton Margin="740,75,0,110.333" Background="Black" />
+        <TextBlock Text="111111111111111111111111111111111111111111111111111111111111" TextWrapping="Wrap"  Margin="20,22,587,159" />
+        <TextBox Text="{Binding DataString}"  Style="{StaticResource EditTextBoxBaseStyle}" IsReadOnly="{Binding Isread}" Margin="20,82,602,82" Background="Transparent" />
+        <TextBox Text="3333333"  Margin="214,82,408,82" IsReadOnly="False" Background="Transparent" />
+        <!--<DataGrid  hj:DataGridDragDropRowBehavior.Enabled="True" HeadersVisibility="None"   GridLinesVisibility="None"   IsReadOnly="False" FontSize="14"  Padding="0" hj:DataGridAttach.ColumnHeaderBackground="Transparent" Background="#800E3D52"  AutoGenerateColumns="False" ItemsSource="{Binding DataList1}" Grid.Row="1"> 
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource DataGridRowStyle}">
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="#FF186573"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}">
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="#FF186573" />
+                    <Setter Property="Foreground" Value="#FFC0FFFC"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+                    --><!--<Setter Property="HorizontalContentAlignment" Value="Center"/>--><!--
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="1*"  Binding="{Binding Name}" Header="名称"/>
+                <DataGridTemplateColumn  Header="操作" Visibility="Visible" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button
+                                Width="12"
+                                Height="12"
+                                hj:IconElement.Geometry="{StaticResource ChangeLocation}"
+                                Style="{StaticResource ButtonIcon}" />
+                                <Button
+                                Width="12"
+                                Height="12"
+                                hj:IconElement.Geometry="{StaticResource ClearGeometry}"
+                                Style="{StaticResource ButtonIcon}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+
+
+
         <ListBox
             x:Name="DisposalPoint"
             Grid.Row="1"
@@ -25,13 +75,13 @@
             hj:BackgroundSwitchElement.MouseHoverBackground="#FF20ADC4"
             Background="Transparent"
             BorderThickness="0"
-            ItemsSource="{Binding DataList}"
+            ItemsSource="{Binding DataList1}"
             >
-            <!--<i:Interaction.Triggers>
+            <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding DataContext.DisposalPointSelectionChanged, ElementName=AlarmDisposal}" CommandParameter="{Binding ElementName=DisposalPoint, Path=SelectedItem}" />
                 </i:EventTrigger>
-            </i:Interaction.Triggers>-->
+            </i:Interaction.Triggers>
             <ListBox.ItemContainerStyle>
                 <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
                     <Setter Property="Background" Value="#FF0A3B5A" />
@@ -43,10 +93,17 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <TextBlock
+                        <!--<TextBlock
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            Text="{Binding}" />
+                            Text="{Binding}" />-->
+                        <TextBox
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource EditTextBoxBaseStyle}"
+                            Background="Transparent"
+                            IsReadOnly="{Binding DataContext.Isread,ElementName=user}"
+                            Text="{Binding Name}" />
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                             <Button
                                 Width="12"
