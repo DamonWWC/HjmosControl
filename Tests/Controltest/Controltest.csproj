@@ -41,6 +41,10 @@
     <Reference Include="DevExpress.Mvvm.v18.2, Version=18.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="GongSolutions.Wpf.DragDrop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\GongSolutions.Wpf.DragDrop.dll</HintPath>
+    </Reference>
     <Reference Include="Hjmos.UILib">
       <HintPath>..\..\..\..\..\..\A佳都工作资料\程序\HJMos_Client_Framework\Infrastructure\UIs\Hjmos.UILib\bin\Debug\Hjmos.UILib.dll</HintPath>
     </Reference>

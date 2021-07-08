@@ -17,7 +17,7 @@ namespace Hjmos.BaseControls.Interactivity
             IsHitTestVisible = false;
             mDraggedElement = adornedElement as FrameworkElement;
         }
-
+        Point Pos1;
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
@@ -27,7 +27,13 @@ namespace Hjmos.BaseControls.Interactivity
                 if(Win32Api.GetCursorPos(ref screenPos))
                 {
                     Point pos = this.PointFromScreen(new Point(screenPos.X, screenPos.Y));
-                    Rect rect = new Rect(pos.X-mDraggedElement.ActualWidth/2, pos.Y-mDraggedElement.ActualHeight/2, mDraggedElement.ActualWidth, mDraggedElement.ActualHeight);
+                    if(Pos1.X==0&&Pos1.Y==0)
+                    {
+                        Pos1 = mDraggedElement.PointFromScreen(new Point(screenPos.X, screenPos.Y));
+                    }
+                 
+                    Rect rect = new Rect(pos.X-Pos1.X, pos.Y-Pos1.Y, mDraggedElement.ActualWidth, mDraggedElement.ActualHeight);
+                    //Rect rect = new Rect(pos.X, pos.Y, mDraggedElement.ActualWidth, mDraggedElement.ActualHeight);
                     drawingContext.PushOpacity(1.0);
                     Brush highlight = mDraggedElement.TryFindResource(SystemColors.HighlightTextBrushKey) as Brush;
                     if(highlight!=null)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Hjmos.BaseControls.Interactivity;
+using Hjmos.BaseControls.Tools;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -31,7 +33,8 @@ namespace Controltest
             DataList1 = GetDataList();
             Isread = true;
             DataString = "111112222";
-            DataContext = this;
+            IsDrop = false;
+                DataContext = this;
         }
 
         private string _DataString;
@@ -48,6 +51,13 @@ namespace Controltest
             set { _Isread = value; OnPropertyChanged(); }
         }
 
+        private bool _IsDrop=false;
+        public bool IsDrop
+        {
+            get { return _IsDrop; }
+            set { _IsDrop = value;OnPropertyChanged(); }
+        }
+
 
         private ObservableCollection<string> _DataList;
         public ObservableCollection<string> DataList
@@ -56,8 +66,30 @@ namespace Controltest
             set { _DataList = value; OnPropertyChanged(); }
         }
 
+        private ICommand _DropFinishCommand;
+        public ICommand DropFinishCommand
+        {
+            get { return new RelayCommand((m) => Drop1(m)); }
+           
+
+        }
 
 
+        public ICommand DropButton
+        {
+            get { return new RelayCommand((p) => DropButton1()); }
+        }
+
+        public void DropButton1()
+        {
+            IsDrop = true;
+        }
+
+
+        private void Drop1(object obj)
+        {
+
+        }
         private ObservableCollection<DemoDataModel> _DataList1;
         public ObservableCollection<DemoDataModel> DataList1
         {
@@ -79,6 +111,7 @@ namespace Controltest
                 new DemoDataModel{ Index = 9,  Name = "Name9", IsSelected = false,  Remark = "999" },
             };
         }
+
 
 
 
@@ -111,9 +144,109 @@ namespace Controltest
         {
           
         }
+        private AdornerLayer mAdornerLayer;
+        private void DisposalPoint_PreviewMouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton != MouseButtonState.Pressed) return;
+
+            if (sender is ListBox listBox)
+            {
+                var pos = e.GetPosition(listBox);
+                HitTestResult result = VisualTreeHelper.HitTest(listBox, pos);
+                if (result == null) return;
+                var listBoxItem = VisualHelper.GetParent<ListBoxItem>(result.VisualHit);
+                if (listBoxItem == null || listBoxItem.Content != listBox.SelectedItem)
+                {
+                    return;
+                }
+                DragDropAdorner adorner = new DragDropAdorner(listBoxItem);
+                mAdornerLayer = AdornerLayer.GetAdornerLayer(listBox);
+                mAdornerLayer.Add(adorner);
+
+                DragDrop.DoDragDrop(listBox, listBoxItem, DragDropEffects.Move);
+
+                mAdornerLayer.Remove(adorner);
+                mAdornerLayer = null;
+
+            }
+        }
+
+        private void DisposalPoint_Drop(object sender, DragEventArgs e)
+        {
+             if(sender is ListBox listbox)
+            {
+                var pos = e.GetPosition(listbox);
+                var result = VisualTreeHelper.HitTest(listbox, pos);
+                if(result==null)
+                {
+                    return;
+                }
+                var sourcePerson = e.Data.GetData(typeof(ListBoxItem));
+                if (sourcePerson == null) return;
+
+                var targetPerson = VisualHelper.GetParent<ListBoxItem>(result.VisualHit);
+                if(ReferenceEquals(targetPerson,sourcePerson))
+                {
+                    return;
+                }
+                //DataList1
+                
+              
+                
+              
+                var sourcepIndex = listbox.ItemContainerGenerator.IndexFromContainer((ListBoxItem)sourcePerson);
+                var targetIndex = listbox.ItemContainerGenerator.IndexFromContainer(targetPerson);
+                
+                var temp = DataList1[sourcepIndex];
+                DataList1[sourcepIndex] = DataList1[targetIndex];
+                DataList1[targetIndex] = temp;
+
+            }
+        }
+
+        private void DisposalPoint_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+            mAdornerLayer.Update();
+        }
+
+        private void DisposalPoint_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
     }
 
+    public class RelayCommand : ICommand
+    {
+        private Action<object> _Execute;
+        private Predicate<object> _CanExecute;
 
+        public RelayCommand(Action<object> execte)
+            : this(execte, null)
+        {
+        }
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("Execute");
+            _Execute = execute;
+            _CanExecute = canExecute;
+        }
+        public bool CanExecute(object parameter)
+        {
+            return _CanExecute == null ? true : _CanExecute(parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public void Execute(object parameter)
+        {
+            _Execute(parameter);
+        }
+    }
     public static class DataGridDragDropRowBehavior
     {
         public delegate Point GetDragDropPosition(IInputElement theElement);
@@ -143,7 +276,7 @@ namespace Controltest
         private static void OnEnableChanged(DependencyObject depObject, DependencyPropertyChangedEventArgs e)
         {
             var dataGrid = depObject as DataGrid;
-
+            
             var enable = (bool)e.NewValue;
             if (enable)
             {

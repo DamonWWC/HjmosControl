@@ -86,7 +86,6 @@
     <Compile Include="Controls\Input\ContentComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
     <Compile Include="Controls\Input\DateTimePicker.cs" />
-    <Compile Include="Controls\Input\EditTextBlock.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\ImageSelector.cs" />
     <Compile Include="Controls\Input\MemoBox.cs" />
