@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,10 +23,20 @@ namespace Controltest
     {
         public Window8()
         {
+            
             InitializeComponent();
-            this.WindowState = WindowState.Maximized;
-            InitLayout();
+            //this.WindowState = WindowState.Maximized;
+            //InitLayout();
+            Data = new List<string> { "体育西路", "珠江新城", "体育西", "珠新城" };
+            this.DataContext = this;
+
+
         }
+
+        public List<string> Data { get; set; }
+
+
+
         #region init
 
         void InitLayout()

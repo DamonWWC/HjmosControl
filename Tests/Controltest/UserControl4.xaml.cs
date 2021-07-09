@@ -29,12 +29,15 @@ namespace Controltest
         public UserControl4()
         {
             InitializeComponent();
-            DataList=new ObservableCollection<string> {  "获取突发事件情况", "向公司领导汇报", "向上级汇报", "协调指挥运营企业" };
+             DataList=new ObservableCollection<string> {  "获取突发事件情况", "向公司领导汇报", "向上级汇报", "协调指挥运营企业" };
+            //DataList = new ObservableCollection<string>();
             DataList1 = GetDataList();
             Isread = true;
             DataString = "111112222";
             IsDrop = false;
-                DataContext = this;
+           
+         //   this.Carousels.ItemsSource = DataList;
+            DataContext = this;
         }
 
         private string _DataString;
@@ -129,6 +132,10 @@ namespace Controltest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+            //DataList = new ObservableCollection<string> { "获取突发事件情况", "向公司领导汇报" };
+            //DataList.Add("wwwww");
+            DataList.RemoveAt(0);
             if (Isread)
                 Isread = false;
             else
@@ -212,6 +219,11 @@ namespace Controltest
         private void DisposalPoint_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
            
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DataList.Add("获取突发事件情");
         }
     }
 

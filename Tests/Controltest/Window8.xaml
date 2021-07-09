@@ -5,12 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Controltest"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
     Title="Window8"
     Width="800"
     Height="450"
     mc:Ignorable="d">
     <Grid x:Name="myGrid">
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
@@ -19,6 +20,24 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
+
+        <!--<hj:Carousel></hj:Carousel>-->
+        <hj:Carousel ItemsSource="{Binding Data}"    Margin="95,175,383.333,75.667"  >
+            <hj:Carousel.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Red" >
+                        <TextBlock Text="{Binding}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                       
+                    </Border>
+                </DataTemplate>
+            </hj:Carousel.ItemTemplate>
+            
+         
+        </hj:Carousel>
+
+
+
+
     </Grid>
 </Window>

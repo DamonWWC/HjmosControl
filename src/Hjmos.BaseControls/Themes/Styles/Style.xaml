@@ -45,6 +45,7 @@
         <ResourceDictionary Source="TreeView.xaml" />
         <ResourceDictionary Source="ContentComboBox.xaml" />
         <ResourceDictionary Source="ImageSelector.xaml" />
-        <ResourceDictionary Source="Window.xaml"/>
+        <ResourceDictionary Source="Window.xaml" />
+        <ResourceDictionary Source="Carousel.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
