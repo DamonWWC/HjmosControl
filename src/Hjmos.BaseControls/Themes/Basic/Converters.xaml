@@ -29,5 +29,6 @@
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter" />
     <converter:BooleanArr2VisibilityConverter x:Key="BooleanArr2VisibilityConverter" />
     <converter:Long2FileSizeConverter x:Key="Long2FileSizeConverter" />
-    <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"/>
+    <converter:Object2BooleanConverter x:Key="Object2BooleanConverter" />
+    <converter:ThicknessSplitConverter x:Key="ThicknessSplitConverter" />
 </ResourceDictionary>

@@ -223,7 +223,11 @@ namespace Controltest
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DataList.Add("获取突发事件情");
+            //DataList.Add("获取突发事件情");
+            if (Isread)
+                Isread = false;
+            else
+                Isread = true;
         }
     }
 

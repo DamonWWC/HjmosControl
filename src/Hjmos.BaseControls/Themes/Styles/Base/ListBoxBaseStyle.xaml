@@ -2,7 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
-    xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools">
+    xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools"
+    xmlns:interactivity="clr-namespace:Hjmos.BaseControls.Interactivity">
 
     <!--<Style x:Key="ListBoxItemVerticalStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -158,6 +159,89 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CheckComboBoxItemBaseStyle" TargetType="controls:CheckComboBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CheckComboBoxItem">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
+                        <CheckBox Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" MinHeight="{TemplateBinding MinHeight}" FocusVisualStyle="{x:Null}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </CheckBox>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource SecondaryRegionBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ListBoxItemEditableBaseStyle" TargetType="{x:Type controls:CheckComboBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:CheckComboBoxItem}">
+                    <Border
+                        x:Name="Bd"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding controls:ListBoxAttach.ItemCornerRadius}"
+                        SnapsToDevicePixels="True">
+                        <Grid>
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <Button
+                                Width="24"
+                                Height="24"
+                                HorizontalAlignment="Right"
+                                controls:IconElement.Geometry="{StaticResource ClearGeometry}"
+                                Style="{StaticResource ButtonIcon}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.ItemSelectedBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                                <Condition Property="IsSelected" Value="False" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Bd" Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
 
 
     <Style x:Key="ListBoxBaseStyle" TargetType="ListBox">
@@ -325,6 +409,88 @@
     </Style>
 
 
+
+
+
+    <Style x:Key="ListBoxEditableItemStyle" TargetType="controls:ListBoxEditableItem">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="10,6" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="MinHeight" Value="30" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ListBoxEditableItem">
+                    <Border
+                        x:Name="Bd"
+                        Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,0,1,0'}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <Button
+                                Width="24"
+                                Height="24"
+                                HorizontalAlignment="Right"
+                                Foreground="Red" 
+                                Command="interactivity:ControlCommands.Close"
+                                controls:IconElement.Geometry="{StaticResource ClearGeometry}"
+                                Style="{StaticResource ButtonIcon}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Bd" Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <Style x:Key="ListBoxEditableBaseStyle" TargetType="controls:ListBoxEditable">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+        <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+        <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true" />
+        <Setter Property="controls:ScrollViewer.PanningMode" Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxEditableItemStyle}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ListBoxEditable">
+                    <Border
+                        x:Name="Bd"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <controls:ScrollViewer Focusable="false">
+                            <ItemsPresenter  x:Name="ItemsPresenter"  KeyboardNavigation.DirectionalNavigation="Contained"  Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </controls:ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
 </ResourceDictionary>

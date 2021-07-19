@@ -104,11 +104,16 @@
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\Other\Badge.cs" />
+    <Compile Include="Controls\Other\CheckComboBox\CheckComboBox.cs" />
+    <Compile Include="Controls\Other\CheckComboBox\CheckComboBoxItem.cs" />
     <Compile Include="Controls\Other\DashedBorder.cs" />
     <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
+    <Compile Include="Controls\Other\Empty.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
+    <Compile Include="Controls\Other\ListBoxEditable.cs" />
+    <Compile Include="Controls\Other\ListBoxEditableItem.cs" />
     <Compile Include="Controls\Other\Pagination.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Image\SvgBox.cs" />
@@ -218,6 +223,7 @@
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\Text2ForegroundConverter.cs" />
+    <Compile Include="Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
     <Compile Include="Tools\Extension\ColLayout.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
@@ -297,6 +303,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\CheckComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ContentComboBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -318,6 +328,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\Carousel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CheckComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

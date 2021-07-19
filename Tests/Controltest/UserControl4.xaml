@@ -9,8 +9,8 @@
     xmlns:local="clr-namespace:Controltest"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="user"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="960"
+    d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid x:Name="grid">
         <Grid.RowDefinitions>
@@ -18,7 +18,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <!--<hj:Carousel x:Name="Carousels"   Margin="113,15,120,20.333" RenderTransformOrigin="0.5,0.5"  >
-            
+
             <hj:Carousel.ItemTemplate>
                 <DataTemplate>
                     <Border Background="Red">
@@ -30,7 +30,7 @@
 
         </hj:Carousel>-->
 
-        <hj:Carousel1 IsCenter="True" Width="200" Background="Green" NoDataContent="当前无预警信息"  AutoRun="True" ItemsSource="{Binding DataList}">
+        <!--<hj:Carousel1 IsCenter="True" Width="200" Background="Green" NoDataContent="当前无预警信息"  AutoRun="True" ItemsSource="{Binding DataList}">
             <hj:Carousel1.NoDataTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" FontSize="24" Foreground="White"/>
@@ -43,18 +43,20 @@
                     </Border>
                 </DataTemplate>
             </hj:Carousel1.ItemTemplate>
-            <!--<Border Background="Red" HorizontalAlignment="Center" Width="200">
+        -->
+        <!--<Border Background="Red" HorizontalAlignment="Center" Width="200">
                 <TextBlock Text="1111"  Foreground="Black"  FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>
             <Border Background="Green">
                 <TextBlock Text="22222" Width="200" Foreground="Black" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Border>-->
+        <!--
         </hj:Carousel1>
-            <Button
+        <Button
             Margin="0,39,555,110.333"
             Click="Button_Click"
             Content="111" />
-        <!--<hj:EditButton Margin="740,75,0,110.333" Background="Black" />
+        <hj:EditButton Margin="680,75,60,123.333" Background="Black" />
         <TextBlock
             Margin="20,22,587,159"
             Text="111111111111111111111111111111111111111111111111111111111111"
@@ -130,7 +132,12 @@
             dd:DragDrop.IsDragSource="True"
             dd:DragDrop.IsDropTarget="True"
         -->
-        <ListBox
+
+
+
+
+
+        <!--<hj:ListBox
             x:Name="DisposalPoint"
             Grid.Row="1"
             Margin="8"
@@ -142,12 +149,15 @@
             AllowDrop="True"
             Background="Transparent"
             BorderThickness="0"
+            DisplayMemberPath="Name"
             ItemsSource="{Binding DataList1}">
-            <i:Interaction.Triggers>
+        -->
+        <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding DataContext.DisposalPointSelectionChanged, ElementName=AlarmDisposal}" CommandParameter="{Binding ElementName=DisposalPoint, Path=SelectedItem}" />
                 </i:EventTrigger>
-            </i:Interaction.Triggers>
+            </i:Interaction.Triggers>-->
+        <!--
             <ListBox.ItemContainerStyle>
                 <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
                     <Setter Property="Background" Value="#FF0A3B5A" />
@@ -155,14 +165,18 @@
                     <Setter Property="Margin" Value="3" />
                     <Setter Property="Padding" Value="15,8" />
                 </Style>
+
             </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
+        -->
+        <!--<ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <!--<TextBlock
+        -->
+        <!--<TextBlock
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Text="{Binding}" />-->
+        <!--
                         <TextBox
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
@@ -186,11 +200,51 @@
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
+            </ListBox.ItemTemplate>-->
+        <!--
+        </hj:ListBox>-->
+
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--<hj:CheckComboBox Grid.Row="0"  DisplayMemberPath="Name" ItemsSource="{Binding DataList1}" />-->
+            <!--<hj:CheckComboBox Grid.Row="0" Grid.Column="1"  DisplayMemberPath="Name" ItemsSource="{Binding DataList1}" Background="Red"  />-->
+            <TextBox
+                FontSize="40"
+                IsReadOnly="True"
+                Style="{StaticResource EditTextBoxBaseStyle}"
+                Text="12334" />
+            <Button
+                Grid.Column="1"
+                Click="Button_Click_1"
+                Content="111" />
+
+
+        </Grid>
+
+        <hj:ListBoxEditable
+            Grid.Row="1"
+            hj:ListBoxAttach.EnabledDrop="True"
+            ItemsSource="{Binding DataList1}"
+            Style="{StaticResource ListBoxEditable}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="24"
+                        IsReadOnly="{Binding DataContext.Isread, ElementName=user}"
+                        Style="{StaticResource EditTextBoxBaseStyle}"
+                        Text="{Binding Name}" />
+                </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox>
-        <Button
-            Margin="8,120,547,29.333"
-            Click="Button_Click_1"
-            Content="111" />
+        </hj:ListBoxEditable>
     </Grid>
 </UserControl>

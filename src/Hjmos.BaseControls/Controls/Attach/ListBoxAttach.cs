@@ -110,16 +110,16 @@ namespace Hjmos.BaseControls.Controls
 
         private static void Listbox_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
         {
-            //if (mAdornerLayer == null)
-            //{
-            //    return;
-            //}
-            //if (sender is System.Windows.Controls.ListBox listbox)
-            //{
-            //    var mAdornerLayer = AdornerLayer.GetAdornerLayer(listbox);
-            //    mAdornerLayer.Update();
-            //}
-                
+            if (mAdornerLayer == null)
+            {
+                return;
+            }
+            if (sender is System.Windows.Controls.ListBox listbox)
+            {
+                var mAdornerLayer = AdornerLayer.GetAdornerLayer(listbox);
+                mAdornerLayer.Update();
+            }
+
         }
 
         private static void Listbox_Drop(object sender, DragEventArgs e)
@@ -132,7 +132,7 @@ namespace Hjmos.BaseControls.Controls
                 {
                     return;
                 }
-                var sourcePerson = e.Data.GetData(typeof(ListBoxItem));
+                var sourcePerson = e.Data.GetData(typeof(ListBoxEditableItem));
                 if (sourcePerson == null) return;
 
                 var targetPerson = VisualHelper.GetParent<ListBoxItem>(result.VisualHit);
@@ -179,7 +179,7 @@ namespace Hjmos.BaseControls.Controls
 
 
         private static int num = 1;
-      //  private static AdornerLayer mAdornerLayer;
+        private static AdornerLayer mAdornerLayer;
         private static void Listbox_PreviewMouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (Mouse.LeftButton != MouseButtonState.Pressed) return;
@@ -195,20 +195,20 @@ namespace Hjmos.BaseControls.Controls
                     return;
                 }
                 //if (num == 2) MessageBox.Show("111");
-                //DragDropAdorner adorner = new DragDropAdorner(listBoxItem);
-                //var mAdornerLayer = AdornerLayer.GetAdornerLayer(listBox);
-                
-                //mAdornerLayer.Add(adorner);
+                DragDropAdorner adorner = new DragDropAdorner(listBoxItem);
+                mAdornerLayer = AdornerLayer.GetAdornerLayer(listBox);
+
+                mAdornerLayer.Add(adorner);
 
                 num++;
                 DragDrop.DoDragDrop(listBox, listBoxItem, DragDropEffects.Move);
 
-                //if(mAdornerLayer==null)
-                //{
-                //    mAdornerLayer= AdornerLayer.GetAdornerLayer(listBox);
-                //}
-                //mAdornerLayer.Remove(adorner);
-                //mAdornerLayer = null;
+                if (mAdornerLayer == null)
+                {
+                    mAdornerLayer = AdornerLayer.GetAdornerLayer(listBox);
+                }
+                mAdornerLayer.Remove(adorner);
+                mAdornerLayer = null;
 
             }
         }
