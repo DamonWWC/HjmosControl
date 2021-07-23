@@ -231,7 +231,9 @@
 
         <hj:ListBoxEditable
             Grid.Row="1"
-            hj:ListBoxAttach.EnabledDrop="True"
+            IsEditable="True"
+             hj:BackgroundSwitchElement.ItemSelectedBackground="#FF20ADC4"
+            hj:BackgroundSwitchElement.MouseHoverBackground="#FF20ADC4"
             ItemsSource="{Binding DataList1}"
             Style="{StaticResource ListBoxEditable}">
             <ListBox.ItemTemplate>

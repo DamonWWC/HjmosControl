@@ -202,14 +202,13 @@ namespace Hjmos.BaseControls.Controls
 
                 num++;
                 DragDrop.DoDragDrop(listBox, listBoxItem, DragDropEffects.Move);
-
+                MessageBox.Show(num.ToString());
                 if (mAdornerLayer == null)
                 {
                     mAdornerLayer = AdornerLayer.GetAdornerLayer(listBox);
                 }
                 mAdornerLayer.Remove(adorner);
                 mAdornerLayer = null;
-
             }
         }
     }

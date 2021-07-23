@@ -51,7 +51,7 @@ namespace Hjmos.BaseControls.Controls
         /// <summary>
         /// 操作事件
         /// </summary>
-        public event EventHandler Operation
+        public event EventHandler<FunctionEventArgs<EditType>> Operation
         {
             add => AddHandler(OperationEvent, value);
             remove => RemoveHandler(OperationEvent, value);
