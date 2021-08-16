@@ -136,6 +136,7 @@
     <Compile Include="Controls\Time\Clock\ClockBase.cs" />
     <Compile Include="Controls\Time\Clock\ListClock.cs" />
     <Compile Include="Controls\UserControl\PopupUserControl.cs" />
+    <Compile Include="Controls\UserControl\UserControl.cs" />
     <Compile Include="Controls\Window\FullScreenWindow.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\ExWindow.cs" />

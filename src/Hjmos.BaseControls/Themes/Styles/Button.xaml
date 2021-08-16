@@ -190,6 +190,7 @@
                             Background="{TemplateBinding Background}"
                             Command="interactivity:ControlCommands.EditCommand"
                             Cursor="Hand"
+                            Foreground="{TemplateBinding Foreground}"
                             Style="{StaticResource ButtonIcon}" />
                         <Button
                             Name="PART_add"
@@ -200,6 +201,7 @@
                             Background="{TemplateBinding Background}"
                             Command="interactivity:ControlCommands.AddCommand"
                             Cursor="Hand"
+                            Foreground="{TemplateBinding Foreground}"
                             Style="{StaticResource ButtonIcon}"
                             Visibility="Collapsed" />
                         <Button
@@ -211,6 +213,7 @@
                             Background="{TemplateBinding Background}"
                             Command="interactivity:ControlCommands.Confirm"
                             Cursor="Hand"
+                            Foreground="{TemplateBinding Foreground}"
                             Style="{StaticResource ButtonIcon}"
                             Visibility="Collapsed" />
                     </Grid>
