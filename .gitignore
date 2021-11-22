@@ -432,3 +432,5 @@
 /src/LiveCharts/obj/Debug
 /src/LiveCharts.WPF/obj/Debug
 /src/Hjmos.CustomCharts/obj/Debug
+/Tests/TestProject/obj
+/Tests/TestProject/bin/Debug/net5.0

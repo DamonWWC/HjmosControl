@@ -1,8 +1,12 @@
 ﻿using Hjmos.BaseControls.Interactivity;
+using MediatR;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +16,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using StructureMap;
+using Prism.Commands;
 
 namespace Controltest
 {
@@ -26,9 +32,67 @@ namespace Controltest
             InitializeComponent();
             //ListSource = new List<string> { "获取突发事件情况", "向公司领导汇报", "向上级汇报", "协调指挥运营企业" };
             //_dragHelper = new ItemsControlDragHelper(LBoxSort, this);
+
+
+            Window1 window1 = new Window1();
+            //window1.Owner = mTopLevelGrid;
+            window1.Show();
+            dynamic stuff = JsonConvert.DeserializeObject("{ 'Name': 'Jon Smith', 'Address': { 'City': 'New York', 'State': 'NY' }, 'Age': 42 }");
+
+            string name = stuff.Name;
+            string address = stuff.Address.City;
+
+            Items = new List<string> { "1", "2", "3" };
+
+            
+            Test();
+
             DataContext = this;
         }
 
+        public List<string> Items { get; set; }
+        private DelegateCommand<object> _SelectionChangedCommand;
+        /// <summary>
+        /// 条件选择命令
+        /// </summary>
+        public DelegateCommand<object> SelectionChangedCommand =>
+            _SelectionChangedCommand ?? (_SelectionChangedCommand = new DelegateCommand<object>(SelectionChanged));
+        private void SelectionChanged(object parameter)
+        {
+
+        }
+
+        public async void Test()
+        {
+            var builder = new StringBuilder();
+            var writer = new StringWriter(builder);
+
+            var container = new Container(cfg =>
+            {
+                cfg.Scan(scanner =>
+                {
+                    scanner.AssemblyContainingType(typeof(Window7));
+                    scanner.IncludeNamespaceContainingType<Ping>();
+                    scanner.WithDefaultConventions();
+                    scanner.AddAllTypesOf(typeof(INotificationHandler<>));
+                });
+                cfg.For<TextWriter>().Use(writer);
+                cfg.For<IMediator>().Use<Mediator>();
+                cfg.For<ServiceFactory>().Use<ServiceFactory>(ctx => t => ctx.GetInstance(t));
+            });
+        
+            var mediator = container.GetInstance<IMediator>();
+            Mediator mediatR = mediator as Mediator;
+
+           
+
+
+            await mediatR.Publish(new Ping { Message = "Ping" });
+
+            var result = builder.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+            //result.ShouldContain("Ping Pong");
+            //result.ShouldContain("Ping Pung");
+        }
 
         //public List<string> ListSource { get; set; }
 
@@ -160,6 +224,42 @@ namespace Controltest
                 obj = VisualTreeHelper.GetParent(obj);
             }
             return null;
+        }
+    }
+
+
+    public class Ping : INotification
+    {
+        public string Message { get; set; }
+    }
+
+    public class PongHandler : INotificationHandler<Ping>
+    {
+        private readonly TextWriter _writer;
+
+        public PongHandler(TextWriter writer)
+        {
+            _writer = writer;
+        }
+
+        public Task Handle(Ping notification, CancellationToken cancellationToken)
+        {
+            return _writer.WriteLineAsync(notification.Message + " Pong");
+        }
+    }
+
+    public class PungHandler : INotificationHandler<Ping>
+    {
+        private readonly TextWriter _writer;
+
+        public PungHandler(TextWriter writer)
+        {
+            _writer = writer;
+        }
+
+        public Task Handle(Ping notification, CancellationToken cancellationToken)
+        {
+            return _writer.WriteLineAsync(notification.Message + " Pung");
         }
     }
 }

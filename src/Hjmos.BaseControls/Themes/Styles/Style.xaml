@@ -49,5 +49,6 @@
         <ResourceDictionary Source="Carousel.xaml" />
         <ResourceDictionary Source="CheckComboBox.xaml" />
         <ResourceDictionary Source="UserControl.xaml" />
+        <ResourceDictionary Source="Menu.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

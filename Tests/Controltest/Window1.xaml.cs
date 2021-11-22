@@ -32,7 +32,7 @@ namespace Controltest
             //string daa = data.ToLongTimeString();
             //string daaa = data.ToShortDateString();
            
-            PreviewBrush = new ImageBrush(BitmapFrame.Create(new Uri("D:\\Users\\90462\\Desktop\\20200509094055.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None));
+            //PreviewBrush = new ImageBrush(BitmapFrame.Create(new Uri("D:\\Users\\90462\\Desktop\\20200509094055.png", UriKind.RelativeOrAbsolute), BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None));
 
 
 
@@ -103,7 +103,7 @@ namespace Controltest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             new ImageBrowser("D:\\Users\\90462\\Desktop\\20200509094055.png").Show();
+             //new ImageBrowser("D:\\Users\\90462\\Desktop\\20200509094055.png").Show();
         }
     }
 }

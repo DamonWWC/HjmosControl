@@ -114,9 +114,11 @@
     <Compile Include="Controls\Other\ListBox.cs" />
     <Compile Include="Controls\Other\ListBoxEditable.cs" />
     <Compile Include="Controls\Other\ListBoxEditableItem.cs" />
+    <Compile Include="Controls\Other\Menu.cs" />
     <Compile Include="Controls\Other\Pagination.cs" />
     <Compile Include="Controls\Other\ScrollViewer.cs" />
     <Compile Include="Controls\Image\SvgBox.cs" />
+    <Compile Include="Controls\Other\SimplePagination.cs" />
     <Compile Include="Controls\Other\Weather.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Panel\Grid\Col.cs" />
@@ -343,6 +345,10 @@
     <Page Include="Themes\Styles\ImageSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\StepBar.xaml">
       <SubType>Designer</SubType>
@@ -722,7 +728,9 @@
     <Resource Include="Resources\dropper.cur" />
     <Resource Include="Resources\Icon1.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Themes\Styles\展开_底部导航.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image\晴.svg" />
     <Resource Include="Resources\Image\水滴.svg" />
