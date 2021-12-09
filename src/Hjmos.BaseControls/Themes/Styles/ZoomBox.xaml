@@ -1,0 +1,121 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls"
+    xmlns:converter="clr-namespace:Hjmos.BaseControls.Tools.Converter">
+
+    <Style TargetType="{x:Type controls:ZoomBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:ZoomBox}">
+                    <Border
+                        Background="#EEE"
+                        BorderBrush="DimGray"
+                        BorderThickness="0"
+                        CornerRadius="1">
+                        <Grid>
+                            <Canvas Name="PART_ZoomCanvas" Margin="5">
+                                <Canvas.Background>
+                                    <VisualBrush Stretch="Uniform" Visual="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ScrollViewer.Content}" />
+                                </Canvas.Background>
+                                <Thumb Name="PART_ZoomThumb" Cursor="SizeAll">
+                                    <Thumb.Style>
+                                        <Style TargetType="Thumb">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Thumb">
+                                                        <Rectangle
+                                                            Fill="Transparent"
+                                                            Stroke="Black"
+                                                            StrokeThickness="1" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Thumb.Style>
+                                </Thumb>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style TargetType="{x:Type controls:ZoomBox}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:ZoomBox}">
+                    <Border
+                        Background="#EEE"
+                        BorderBrush="DimGray"
+                        BorderThickness="0"
+                        CornerRadius="1">
+                        <Expander IsExpanded="True">
+                            <Border
+                                Height="180"
+                                Background="Transparent"
+                                BorderBrush="{DynamicResource BorderBrush}"
+                                BorderThickness="1,0,1,1"
+                                CornerRadius="0,0,4,4">
+                                <Grid>
+                                    <Canvas Name="PART_ZoomCanvas" Margin="5">
+                                        <Canvas.Background>
+                                            <VisualBrush Stretch="Uniform" Visual="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ScrollViewer.Content}" />
+                                        </Canvas.Background>
+                                        <Thumb Name="PART_ZoomThumb" Cursor="SizeAll">
+                                            <Thumb.Style>
+                                                <Style TargetType="Thumb">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Thumb">
+                                                                <Rectangle
+                                                                    Fill="Transparent"
+                                                                    Stroke="Black"
+                                                                    StrokeThickness="1" />
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Thumb.Style>
+                                        </Thumb>
+                                    </Canvas>
+                                </Grid>
+                            </Border>
+                            <Expander.Header>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Slider
+                                        Name="PART_ZoomSlider"
+                                        MinWidth="104"
+                                        MinHeight="21"
+                                        Margin="0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        IsSnapToTickEnabled="True"
+                                        LargeChange="25"
+                                        Maximum="500"
+                                        Minimum="10"
+                                        SmallChange="25"
+                                        Ticks="10,25,50,75,100,125,150,200,300,400,500"
+                                        Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DesignSurface.ScrollViewer.CurrentZoom, Converter={x:Static converter:HundredFoldConverter.Instance}, StringFormat=P0}" />
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Margin="0,0,14,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DesignSurface.ScrollViewer.CurrentZoom, StringFormat=P0}" />
+                                </Grid>
+                            </Expander.Header>
+                        </Expander>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+</ResourceDictionary>

@@ -51,5 +51,8 @@
         <ResourceDictionary Source="UserControl.xaml" />
         <ResourceDictionary Source="Menu.xaml" />
         <ResourceDictionary Source="MessageBox.xaml" />
+        <ResourceDictionary Source="ZoomBox.xaml" />
+        <ResourceDictionary Source="ZoomScrollViewer.xaml" />
+        <ResourceDictionary Source="DesignSurface.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

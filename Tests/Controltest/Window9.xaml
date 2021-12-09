@@ -149,7 +149,6 @@
                                 Fill="Green"
                                 Stretch="Uniform" />
                         </controls:SimplePanel>-->
-
                 </Grid>
             </DataTemplate>
 
@@ -283,9 +282,7 @@
                                 Fill="Green"
                                 Stretch="Uniform" />
                         </controls:SimplePanel>-->
-
                 </Grid>
-
             </DataTemplate>
         </Grid.Resources>
 
@@ -293,7 +290,38 @@
             <RowDefinition Height="30*" />
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
-        <ItemsControl Margin="20" ItemsSource="{Binding itemsSource}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <controls:DesignSurface
+            x:Name="designSurface"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            Background="Red">
+            <ItemsControl Margin="20" ItemsSource="{Binding itemsSource}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplateSelector>
+                    <local:Datatemplate1Selector ChangeStationTemplate="{StaticResource ChangeStationStyle}" DefaultTemplate="{StaticResource DefaultStyle}" />
+                </ItemsControl.ItemTemplateSelector>
+            </ItemsControl>
+        </controls:DesignSurface>
+        <controls:ZoomBox
+            x:Name="ZoomBox"
+            Grid.Row="1"
+            Width="300"
+            Height="180"
+            Margin="0,5,25,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            DesignSurface="{Binding ElementName=designSurface}" />
+        <!--<ItemsControl Margin="20" ItemsSource="{Binding itemsSource}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" />
@@ -302,8 +330,6 @@
             <ItemsControl.ItemTemplateSelector>
                 <local:Datatemplate1Selector ChangeStationTemplate="{StaticResource ChangeStationStyle}" DefaultTemplate="{StaticResource DefaultStyle}" />
             </ItemsControl.ItemTemplateSelector>
-
-
-        </ItemsControl>
+        </ItemsControl>-->
     </Grid>
 </Window>

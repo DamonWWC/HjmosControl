@@ -11,7 +11,6 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 
-
 namespace Controltest
 {
     /// <summary>
@@ -22,12 +21,13 @@ namespace Controltest
         public App()
         {
             //Add Custom assembly resolver
-            AppDomain.CurrentDomain.AssemblyResolve += Resolver;
+            //AppDomain.CurrentDomain.AssemblyResolve += Resolver;
 
             //Any CefSharp references have to be in another method with NonInlining
             // attribute so the assembly rolver has time to do it's thing.
-            InitializeCefSharp();
+            // InitializeCefSharp();
         }
+
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static void InitializeCefSharp()
         {

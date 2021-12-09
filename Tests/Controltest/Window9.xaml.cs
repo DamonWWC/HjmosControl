@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 
 namespace Controltest
 {
@@ -13,11 +14,11 @@ namespace Controltest
             DataContext = this;
             itemsSource = new List<FloodInformation>
             {
-                //new FloodInformation{StationName="湖南工业大学"},
+                new FloodInformation{StationName="湖南工业大学"},
                 new FloodInformation{StationName ="白鸽站"},
-                //new FloodInformation{StationName ="湘雅三医院站"},
+                new FloodInformation{StationName ="湘雅三医院站"},
                 new FloodInformation{StationName ="六沟垅站",IsChangeStation=true},
-                //new FloodInformation{StationName ="文昌阁站" ,IsChangeStation=true},
+                new FloodInformation{StationName ="文昌阁站" ,IsChangeStation=true},
                 new FloodInformation{StationName ="湘雅医院站" ,IsLast=true}
             };
         }

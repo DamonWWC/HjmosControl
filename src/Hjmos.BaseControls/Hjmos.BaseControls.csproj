@@ -83,6 +83,9 @@
     <Compile Include="Controls\Carousel\CarouselItem.cs" />
     <Compile Include="Controls\ColorPicker\ColorDropper.cs" />
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
+    <Compile Include="Controls\DesignSurfaces\DesignSurface.cs" />
+    <Compile Include="Controls\DesignSurfaces\ZoomBox.cs" />
+    <Compile Include="Controls\DesignSurfaces\ZoomScrollViewer.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
     <Compile Include="Controls\Image\ImageViewer.cs" />
@@ -214,6 +217,7 @@
     <Compile Include="Tools\Converter\Double2StrConverter.cs" />
     <Compile Include="Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="Tools\Converter\HearderSelectAllVisibilityConverter.cs" />
+    <Compile Include="Tools\Converter\HundredFoldConverter.cs" />
     <Compile Include="Tools\Converter\IsFirstOrLastInContainerConverter.cs" />
     <Compile Include="Tools\Converter\Long2FileSizeConverter.cs" />
     <Compile Include="Tools\Converter\Name2ImageSourceConverter.cs" />
@@ -342,6 +346,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ContentComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DesignSurface.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -693,6 +701,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ZoomBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ZoomScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\Block\RunningBlock\RunningBlock.cs" />
@@ -741,6 +757,10 @@
   <ItemGroup>
     <Resource Include="Resources\Image\晴.svg" />
     <Resource Include="Resources\Image\水滴.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\PanToolCursor.cur" />
+    <Resource Include="Resources\PanToolCursorMouseDown.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
