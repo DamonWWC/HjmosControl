@@ -50,5 +50,6 @@
         <ResourceDictionary Source="CheckComboBox.xaml" />
         <ResourceDictionary Source="UserControl.xaml" />
         <ResourceDictionary Source="Menu.xaml" />
+        <ResourceDictionary Source="MessageBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

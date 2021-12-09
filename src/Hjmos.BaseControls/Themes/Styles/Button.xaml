@@ -8,6 +8,29 @@
         <ResourceDictionary Source="../Basic/Geometries.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style
+        x:Key="ButtonDefault"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style
+        x:Key="ButtonPrimary"
+        BasedOn="{StaticResource ButtonBaseStyle}"
+        TargetType="Button">
+        <Setter Property="Background" Value="#FF0196A3" />
+    </Style>
+
     <!--  基本样式的button，可加图形和内容  -->
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="BorderThickness" Value="1" />
@@ -27,7 +50,6 @@
         x:Key="ButtonBorder"
         BasedOn="{StaticResource ButtonBorderBaseStyle}"
         TargetType="Button" />
-
 
     <!--  内容只有图形的button  -->
     <Style
@@ -75,8 +97,6 @@
         </Setter>
     </Style>
 
-
-
     <!--  普通样式的button，不带边框和背景  -->
     <Style x:Key="ButtonCustom" TargetType="Button">
         <Setter Property="Background" Value="{x:Null}" />
@@ -121,55 +141,53 @@
     </Style>
 
     <!--<Style TargetType="Button" x:Key="ButtonLoading">
-        <Setter Property="Background" Value="{x:Null}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
-            <Setter.Value >
+            <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border x:Name="Chrome" SnapsToDevicePixels="True" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <controls:SimplePanel>
                             <ContentPresenter Name="Content" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                              RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             <controls:LoadingCircle x:Name="Loading" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    IsRunning="True" Visibility="Collapsed"/>
+                                                    IsRunning="True" Visibility="Collapsed" />
                         </controls:SimplePanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value=".9"/>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Opacity" Value=".9" />
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value=".6"/>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Opacity" Value=".6" />
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value=".4"/>
+                            <Setter Property="Opacity" Value=".4" />
                         </Trigger>
                         <EventTrigger RoutedEvent="Button.Click">
                             <EventTrigger.Actions>
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <BooleanAnimationUsingKeyFrames Storyboard.TargetName="Loading" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True"/>
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="True" />
                                         </BooleanAnimationUsingKeyFrames>
                                         <BooleanAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False"/>
+                                            <DiscreteBooleanKeyFrame KeyTime="0:0:0" Value="False" />
                                         </BooleanAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger.Actions>
                         </EventTrigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>-->
-
 
     <Style TargetType="controls:EditButton">
         <Setter Property="Background" Value="White" />
@@ -230,9 +248,7 @@
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>

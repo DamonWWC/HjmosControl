@@ -91,20 +91,20 @@
                                     VerticalAlignment="Center"
                                     Source="展开_底部导航.png" />
                             </ToggleButton>
-                            <ContentPresenter
+                            <!--<ContentPresenter
                                 x:Name="PART_Content"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Visibility="Collapsed" />
+                                Visibility="Collapsed" />-->
                         </Grid>
                     </Border>
 
-                    <ControlTemplate.Triggers>
+                    <!--<ControlTemplate.Triggers>
                         <Trigger Property="IsExpanded" Value="true">
                             <Setter TargetName="PART_Content" Property="Visibility" Value="Visible" />
                             <Setter TargetName="toggleButton" Property="Visibility" Value="Collapsed" />
                         </Trigger>
-                    </ControlTemplate.Triggers>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

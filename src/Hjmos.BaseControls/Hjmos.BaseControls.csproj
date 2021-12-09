@@ -142,6 +142,7 @@
     <Compile Include="Controls\Window\FullScreenWindow.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\ExWindow.cs" />
+    <Compile Include="Controls\Window\MessageBox.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Data\Args\MouseHookEventArgs.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Data\Enum\TitleAlignment.cs" />
     <Compile Include="Data\Enum\WeatherType.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\MessageBoxInfo.cs" />
     <Compile Include="Data\ModelBase.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
@@ -347,6 +349,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\MessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
