@@ -1,120 +1,165 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ToggleButtonBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/ToggleButtonBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonBaseStyle}">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+    <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=Self}}"/>
+                <Setter Property="Background" Value="red" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=Self}}"/>
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground), RelativeSource={RelativeSource Mode=Self}}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
+    <Style
+        x:Key="ToggleButtonNoBoardStyle"
+        BasedOn="{StaticResource ToggleButtonNoCheckBoardBaseStyle}"
+        TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="red" />
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="Blue" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
-    <Style TargetType="ToggleButton" x:Key="ToggleButtonNormalStyle">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#FF139ABE"/>
-        <Setter Property="Foreground" Value="#FF22B3D9 "/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="10,5"/>
+    <Style x:Key="ToggleButtonNormalStyle" TargetType="ToggleButton">
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#FF139ABE" />
+        <Setter Property="Foreground" Value="#FF22B3D9 " />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="10,5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                        <ContentPresenter x:Name="ContentPresenterMain" HorizontalAlignment="Center" RecognizesAccessKey="True" Margin="{TemplateBinding Padding}" VerticalAlignment="Center" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter
+                            x:Name="ContentPresenterMain"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"/>
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=Self}}"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Opacity" Value=".9" />
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground), RelativeSource={RelativeSource Mode=Self}}" />
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"/>
+                <Setter Property="Opacity" Value=".6" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".4"/>
+                <Setter Property="Opacity" Value=".4" />
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=Self}}"/>
-                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground), RelativeSource={RelativeSource Mode=Self}}" />
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-
-
-
-    <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+    <Style
+        x:Key="ToggleButtonIcon"
+        BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+        TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                <Setter Property="Background" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground), RelativeSource={RelativeSource Mode=TemplatedParent}}" />
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="ToggleButtonCustom" TargetType="ToggleButton">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                    <Border
+                        x:Name="Chrome"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
                         <controls:SimplePanel>
-                            <ContentPresenter Name="UnCheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                            <ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <ContentPresenter
+                                Name="UnCheckedElement"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ContentPresenter
+                                Name="CheckedElement"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement), RelativeSource={RelativeSource TemplatedParent}}"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                Visibility="Collapsed" />
                         </controls:SimplePanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value=".9"/>
+                            <Setter Property="Opacity" Value=".9" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value=".6"/>
+                            <Setter Property="Opacity" Value=".6" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="CheckedElement"/>
+                            <Setter TargetName="CheckedElement" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="controls:StatusSwitchElement.HideUncheckedElement" Value="True"/>
-                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="controls:StatusSwitchElement.HideUncheckedElement" Value="True" />
+                                <Condition Property="IsChecked" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="UnCheckedElement"/>
+                            <Setter TargetName="UnCheckedElement" Property="Visibility" Value="Collapsed" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="controls:StatusSwitchElement.CheckEnableElement" Value="True"/>
-                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="controls:StatusSwitchElement.CheckEnableElement" Value="True" />
+                                <Condition Property="IsChecked" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="IsEnabled" Value="False" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.4"/>
+                            <Setter Property="Opacity" Value="0.4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -122,42 +167,71 @@
         </Setter>
     </Style>
 
-    <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonBaseStyle}" x:Key="ToggleButtonLoadingPrimary">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+    <Style
+        x:Key="ToggleButtonLoadingPrimary"
+        BasedOn="{StaticResource ToggleButtonBaseStyle}"
+        TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border x:Name="Chrome" CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Border
+                        x:Name="Chrome"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding controls:BorderElement.CornerRadius}">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                             <controls:SimplePanel>
-                                <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                <ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <ContentPresenter
+                                    Name="UnCheckedElement"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <ContentPresenter
+                                    Name="CheckedElement"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement), RelativeSource={RelativeSource TemplatedParent}}"
+                                    RecognizesAccessKey="True"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    Visibility="Collapsed" />
                             </controls:SimplePanel>
                             <Viewbox Margin="0,4">
-                                <controls:LoadingCircle x:Name="Loading" Width="22" Height="22" Foreground="{TemplateBinding Foreground}" DotDiameter="3" IsRunning="{TemplateBinding IsChecked}" Visibility="Collapsed"/>
+                                <controls:LoadingCircle
+                                    x:Name="Loading"
+                                    Width="22"
+                                    Height="22"
+                                    DotDiameter="3"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    IsRunning="{TemplateBinding IsChecked}"
+                                    Visibility="Collapsed" />
                             </Viewbox>
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value=".9"/>
+                            <Setter Property="Opacity" Value=".9" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value=".6"/>
+                            <Setter Property="Opacity" Value=".6" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Visibility" Value="Visible" TargetName="Loading"/>
-                            <Setter Property="Visibility" Value="Visible" TargetName="CheckedElement"/>
+                            <Setter TargetName="Loading" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="CheckedElement" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="controls:StatusSwitchElement.HideUncheckedElement" Value="True"/>
-                                <Condition Property="IsChecked" Value="True"/>
+                                <Condition Property="controls:StatusSwitchElement.HideUncheckedElement" Value="True" />
+                                <Condition Property="IsChecked" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="UnCheckedElement"/>
+                            <Setter TargetName="UnCheckedElement" Property="Visibility" Value="Collapsed" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value=".4"/>
+                            <Setter Property="Opacity" Value=".4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -165,21 +239,36 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+    <Style
+        x:Key="ToggleButtonIconTransparent"
+        BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+        TargetType="ToggleButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
                         <ContentControl Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Path x:Name="PathIcon" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconSwitchElement.Geometry}"/>
+                            <Path
+                                x:Name="PathIcon"
+                                Width="{TemplateBinding controls:IconElement.Width}"
+                                Height="{TemplateBinding controls:IconElement.Height}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Data="{TemplateBinding controls:IconSwitchElement.Geometry}"
+                                Fill="{TemplateBinding Foreground}"
+                                SnapsToDevicePixels="True"
+                                Stretch="Uniform" />
                         </ContentControl>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"/>
+                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -187,21 +276,29 @@
         </Setter>
     </Style>
 
-
-    <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonLoadingPrimary}" x:Key="ToggleButtonLoading">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+    <Style
+        x:Key="ToggleButtonLoading"
+        BasedOn="{StaticResource ToggleButtonLoadingPrimary}"
+        TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton"/>
-    <Style x:Key="ToggleButtonOpacity" BasedOn="{StaticResource ToggleButtonOpacityStyle}" TargetType="ToggleButton"/>
+    <Style
+        x:Key="ToggleButtonSwitch"
+        BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}"
+        TargetType="ToggleButton" />
+    <Style
+        x:Key="ToggleButtonOpacity"
+        BasedOn="{StaticResource ToggleButtonOpacityStyle}"
+        TargetType="ToggleButton" />
 </ResourceDictionary>

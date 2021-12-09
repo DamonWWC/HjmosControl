@@ -1,8 +1,14 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
 
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Loading.xaml" />
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
 
     <!--<Style x:Key="PopupUserControlStyle" TargetType="controls:PopupUserControl">
@@ -15,8 +21,57 @@
             </Setter.Value>
         </Setter>
     </Style>-->
-    
-    
-    
-    
+
+    <!--  无数据样式  -->
+    <Style x:Key="UserControlPlus" TargetType="controls:UserControl">
+        <Setter Property="BorderBrush" Value="#FF17557F" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:UserControl">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{Binding BorderBrush, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                        BorderThickness="{Binding BorderThickness, RelativeSource={RelativeSource Mode=TemplatedParent}}">
+                        <controls:SimplePanel>
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <StackPanel
+                                Margin="0,40,0,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Visibility="{Binding IsShowData, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}">
+                                <Path
+                                    Width="40"
+                                    Height="40"
+                                    Data="{StaticResource NoDataGeometry}"
+                                    Stretch="Uniform"
+                                    Stroke="#FFB7EAFF"
+                                    StrokeThickness="2" />
+                                <TextBlock Foreground="#FFB7EAFF" Text="暂无数据" />
+                            </StackPanel>
+                            <Grid
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Background="White"
+                                Opacity="0.4"
+                                Visibility="{Binding IsBusy, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                            <StackPanel
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Visibility="{Binding IsBusy, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}">
+                                <controls:LoadingCircle Foreground="#FFF8661C" IsRunning="True" />
+                                <TextBlock
+                                    FontSize="14"
+                                    Foreground="#FFF8661C"
+                                    Text="正在加载中....." />
+                            </StackPanel>
+                        </controls:SimplePanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
 </ResourceDictionary>

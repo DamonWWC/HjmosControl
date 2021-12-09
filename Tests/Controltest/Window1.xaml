@@ -25,9 +25,9 @@
         <hj:ImageButton Width="100" Height="100"  FileName="http://10.38.2.12:30768/hjmos-dfs/commonfile/download/202106255501404890481152.png" Margin="525,160,168.333,160.667">
 
         </hj:ImageButton>
-        <hj:ImageButton Width="100" Height="100"  FileName="D:\\Users\\90462\\Desktop\\20200509094055.png" Margin="130,145,563.333,175.667">
+        <!--<hj:ImageButton Width="100" Height="100"  FileName="D:\\Users\\90462\\Desktop\\20200509094055.png" Margin="130,145,563.333,175.667">
 
-        </hj:ImageButton>
+        </hj:ImageButton>-->
         <ItemsControl ItemsSource="{Binding ImageList}" Margin="60,35,488.333,34.667">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

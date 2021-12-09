@@ -24,7 +24,7 @@ namespace Controltest
     /// <summary>
     /// UserControl4.xaml 的交互逻辑
     /// </summary>
-    public partial class UserControl4 : UserControl, INotifyPropertyChanged
+    public partial class UserControl4 : Hjmos.BaseControls.Controls.UserControl, INotifyPropertyChanged
     {
         public UserControl4()
         {
