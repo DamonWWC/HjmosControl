@@ -75,8 +75,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CuStaticResourceExtension.cs" />
+    <Compile Include="Datatemplate1Selector.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="ItemsComtrolDragHelper.cs" />
+    <Compile Include="PositionMultiConverter.cs" />
     <Compile Include="RadarControl.xaml.cs">
       <DependentUpon>RadarControl.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,9 @@
     </Compile>
     <Compile Include="Window8.xaml.cs">
       <DependentUpon>Window8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window9.xaml.cs">
+      <DependentUpon>Window9.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinformToWpfTest.cs" />
     <Page Include="MainWindow.xaml">
@@ -179,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window9.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

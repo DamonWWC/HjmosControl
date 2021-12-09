@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
-             mc:Ignorable="d" Height="245" Width="329.916">
+             mc:Ignorable="d" Height="245" Width="329.916"
+            >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>

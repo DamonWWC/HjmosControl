@@ -412,7 +412,7 @@
                                     Padding="0,6"
                                     controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"
                                     Command="interactivity:ControlCommands.Clear"
-                                    Foreground="{Binding ElementName=templateRoot, Path=BorderBrush}"
+                                    Foreground="Black"
                                     Style="{StaticResource ButtonIcon}"
                                     Visibility="Collapsed" />
                             </Grid>
@@ -433,7 +433,9 @@
                             <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="templateRoot" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter TargetName="PathMain" Property="Fill" Value="#FF13FFF5"/>
+                            <Setter TargetName="templateRoot" Property="BorderBrush" Value="#FF13FFF5"/>
+                            <!--<Setter TargetName="templateRoot" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />-->
                         </Trigger>
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter TargetName="PathMain" Property="Visibility" Value="Collapsed" />

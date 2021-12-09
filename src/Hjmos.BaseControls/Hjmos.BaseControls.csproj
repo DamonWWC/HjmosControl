@@ -100,6 +100,7 @@
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Internal\InternalCanvas.cs" />
+    <Compile Include="Controls\ItemControl\CustomItemControl.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
