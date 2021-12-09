@@ -11,38 +11,299 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <controls:SimplePagination
-            Height="50"
-            VerticalAlignment="Top"
-            controls:VisualElement.HighlightBackground="#00B2E1"
-            controls:VisualElement.HighlightBorderBrush="#00B2E1"
-            controls:VisualElement.HighlightForeground="White"
-            BorderBrush="#00B2E1"
-            BorderThickness="0"
-            MaxNum="100"
-            MaxPageInterval="4" />
-        <Button
-            Width="100"
-            Height="100"
-            HorizontalAlignment="Left"
-            Click="Button_Click">
-            <Button.Background>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Offset="0.1" Color="#FF0B2F4C" />
-                    <GradientStop Offset="1" Color="#E6093951" />
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <controls:Menu
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom"
-            Background="Beige"
-            ExpandDirection="Right"
-            Style="{StaticResource expander}">
-            <Button
-                Width="200"
-                Height="100"
-                Background="Red" />
-        </controls:Menu>
+        <Grid.Resources>
+            <local:PositionMultiConverter x:Key="PositionMultiConverter" />
+            <DataTemplate x:Key="ChangeStationStyle">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="180" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="22" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Height="6"
+                        Margin="0,0,-40,0"
+                        Panel.ZIndex="0"
+                        Fill="#FF0075C1"
+                        StrokeThickness="0"
+                        Visibility="{Binding IsLast, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    <controls:SimplePanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom">
+
+                        <Path
+                            Width="27"
+                            Height="32"
+                            Data="{StaticResource LocationGeometry}"
+                            Fill="#FF353D46"
+                            Stretch="Uniform" />
+                        <Button
+                            Margin="0,0,0,5"
+                            controls:IconElement.Geometry="{StaticResource FloodGeometry}"
+                            controls:IconElement.Height="16"
+                            controls:IconElement.Width="16"
+                            Foreground="Green"
+                            Style="{StaticResource ButtonIcon}" />
+                        <!--<Path
+                            Width="16"
+                            Height="16"
+                            Margin="0,0,0,5"
+                            Data="{StaticResource FloodGeometry}"
+                            Fill="Green"
+                            Stretch="Uniform" />-->
+                    </controls:SimplePanel>
+                    <controls:SimplePanel
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Width="32"
+                        Height="32"
+                        Margin="0,5"
+                        HorizontalAlignment="Center">
+                        <Ellipse Fill="Blue" />
+                        <Path
+                            Margin="2"
+                            Data="{StaticResource ChangeGeometry}"
+                            Fill="Orange"
+                            Stretch="Uniform" />
+                    </controls:SimplePanel>
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalAlignment="Left"
+                        FontSize="18"
+                        Foreground="Black"
+                        Text="{Binding StationName}">
+                        <TextBlock.Margin>
+                            <MultiBinding Converter="{StaticResource PositionMultiConverter}" ConverterParameter="40">
+                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=Self}" />
+                            </MultiBinding>
+                        </TextBlock.Margin>
+                    </TextBlock>
+                    <StackPanel
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Border
+                            Width="20"
+                            Height="20"
+                            Background="Blue">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="6" />
+                        </Border>
+                        <Path
+                            Width="10"
+                            Height="16"
+                            Margin="10,0"
+                            Data="{StaticResource Triangle3}"
+                            Fill="Black"
+                            Stretch="Uniform" />
+                        <Border
+                            Width="20"
+                            Height="20"
+                            Background="Pink">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="1" />
+                        </Border>
+                    </StackPanel>
+
+                    <!--<controls:SimplePanel
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                            <Path
+                                Width="27"
+                                Height="32"
+                                Data="{StaticResource LocationGeometry}"
+                                Fill="#FF353D46"
+                                Stretch="Uniform" />
+                            <Path
+                                Width="16"
+                                Height="16"
+                                Margin="0,0,0,5"
+                                Data="{StaticResource FloodGeometry}"
+                                Fill="Green"
+                                Stretch="Uniform" />
+                        </controls:SimplePanel>-->
+
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="DefaultStyle">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="180" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="42" />
+                        <RowDefinition Height="22" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Height="6"
+                        Margin="0,0,-40,0"
+                        Panel.ZIndex="0"
+                        Fill="#FF0075C1"
+                        StrokeThickness="0"
+                        Visibility="{Binding IsLast, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+                    <controls:SimplePanel
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Bottom">
+                        <Path
+                            Width="27"
+                            Height="32"
+                            Data="{StaticResource LocationGeometry}"
+                            Fill="#FF353D46"
+                            Stretch="Uniform" />
+                        <Button
+                            Margin="0,0,0,5"
+                            controls:IconElement.Geometry="{StaticResource FloodGeometry}"
+                            controls:IconElement.Height="16"
+                            controls:IconElement.Width="16"
+                            Foreground="Green"
+                            Style="{StaticResource ButtonIcon}" />
+                        <!--<Path
+                            Width="16"
+                            Height="16"
+                            Margin="0,0,0,5"
+                            Data="{StaticResource FloodGeometry}"
+                            Fill="Green"
+                            Stretch="Uniform" />-->
+                    </controls:SimplePanel>
+                    <Ellipse
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Width="24"
+                        Height="24"
+                        Margin="0,5"
+                        HorizontalAlignment="Center"
+                        Fill="Blue" />
+
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        HorizontalAlignment="Left"
+                        FontSize="18"
+                        Foreground="Black"
+                        Text="{Binding StationName}">
+                        <TextBlock.Margin>
+                            <MultiBinding Converter="{StaticResource PositionMultiConverter}" ConverterParameter="40">
+                                <Binding Path="ActualWidth" RelativeSource="{RelativeSource Mode=Self}" />
+                            </MultiBinding>
+                        </TextBlock.Margin>
+                    </TextBlock>
+                    <!--<StackPanel
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Border
+                            Width="20"
+                            Height="20"
+                            Background="Blue">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="6" />
+                        </Border>
+                        <Path
+                            Width="10"
+                            Height="16"
+                            Margin="10,0"
+                            Data="{StaticResource Triangle3}"
+                            Fill="Black"
+                            Stretch="Uniform" />
+                        <Border
+                            Width="20"
+                            Height="20"
+                            Background="Pink">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                Foreground="White"
+                                Text="1" />
+                        </Border>
+                    </StackPanel>-->
+
+                    <!--<controls:SimplePanel
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                            <Path
+                                Width="27"
+                                Height="32"
+                                Data="{StaticResource LocationGeometry}"
+                                Fill="#FF353D46"
+                                Stretch="Uniform" />
+                            <Path
+                                Width="16"
+                                Height="16"
+                                Margin="0,0,0,5"
+                                Data="{StaticResource FloodGeometry}"
+                                Fill="Green"
+                                Stretch="Uniform" />
+                        </controls:SimplePanel>-->
+
+                </Grid>
+
+            </DataTemplate>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="60*" />
+        </Grid.RowDefinitions>
+        <ItemsControl Margin="20" ItemsSource="{Binding itemsSource}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplateSelector>
+                <local:Datatemplate1Selector ChangeStationTemplate="{StaticResource ChangeStationStyle}" DefaultTemplate="{StaticResource DefaultStyle}" />
+            </ItemsControl.ItemTemplateSelector>
+
+
+        </ItemsControl>
     </Grid>
 </Window>

@@ -75,8 +75,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CuStaticResourceExtension.cs" />
+    <Compile Include="Datatemplate1Selector.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="ItemsComtrolDragHelper.cs" />
+    <Compile Include="PositionMultiConverter.cs" />
     <Compile Include="RadarControl.xaml.cs">
       <DependentUpon>RadarControl.xaml</DependentUpon>
     </Compile>

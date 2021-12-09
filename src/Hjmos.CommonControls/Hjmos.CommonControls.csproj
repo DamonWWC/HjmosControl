@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Common\CCTVPlayState.cs" />
     <Compile Include="Common\CCTVPlayStateSelector.cs" />
+    <Compile Include="Controls\SvgBox.cs" />
     <Compile Include="Controls\TrainCongestionStatus.cs" />
     <Compile Include="Controls\UserControl\CCTVControl.xaml.cs">
       <DependentUpon>CCTVControl.xaml</DependentUpon>
