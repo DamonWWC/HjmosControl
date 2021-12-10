@@ -7,8 +7,8 @@
     xmlns:local="clr-namespace:Controltest"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Window9"
-    Width="800"
-    Height="450"
+    Width="1200"
+    Height="600"
     mc:Ignorable="d">
     <Grid>
         <Grid.Resources>
@@ -36,13 +36,22 @@
                         Fill="#FF0075C1"
                         StrokeThickness="0"
                         Visibility="{Binding IsLast, Converter={StaticResource Boolean2VisibilityReConverter}}" />
+
+                    <!--<local:UserControl1
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Width="200"
+                        Height="200"
+                        Margin="-200,-300,-200,0"
+                        Background="Black" />-->
+
                     <controls:SimplePanel
                         Grid.Row="0"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Bottom">
-
                         <Path
                             Width="27"
                             Height="32"
@@ -54,6 +63,8 @@
                             controls:IconElement.Geometry="{StaticResource FloodGeometry}"
                             controls:IconElement.Height="16"
                             controls:IconElement.Width="16"
+                            Command="{Binding DataContext.ButtonCommand, RelativeSource={RelativeSource AncestorType=ItemsControl, Mode=FindAncestor}}"
+                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
                             Foreground="Green"
                             Style="{StaticResource ButtonIcon}" />
                         <!--<Path
@@ -291,17 +302,17 @@
             <RowDefinition Height="60*" />
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
         <controls:DesignSurface
             x:Name="designSurface"
             Grid.Row="0"
-            Grid.Column="0"
+            Grid.RowSpan="2"
+            Margin="50"
             HorizontalAlignment="Center"
             Background="Red">
-            <ItemsControl Margin="20" ItemsSource="{Binding itemsSource}">
+            <ItemsControl
+                Margin="20"
+                VerticalAlignment="Center"
+                ItemsSource="{Binding itemsSource}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Horizontal" />
@@ -316,7 +327,7 @@
             x:Name="ZoomBox"
             Grid.Row="1"
             Width="300"
-            Height="180"
+            Height="50"
             Margin="0,5,25,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
@@ -331,5 +342,11 @@
                 <local:Datatemplate1Selector ChangeStationTemplate="{StaticResource ChangeStationStyle}" DefaultTemplate="{StaticResource DefaultStyle}" />
             </ItemsControl.ItemTemplateSelector>
         </ItemsControl>-->
+        <TextBlock
+            x:Name="text"
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            FontSize="30" />
     </Grid>
 </Window>

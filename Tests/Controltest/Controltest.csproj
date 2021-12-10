@@ -96,6 +96,7 @@
       <DependentUpon>UserControl4.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControltest.cs" />
+    <Compile Include="WinApiHelper.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
