@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hjmos.BaseControls.Data;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Resources;
@@ -334,6 +335,20 @@ namespace Hjmos.BaseControls.Controls
         {
             ScrollToHorizontalOffset(_startHorizontalOffset - delta.X / this.CurrentZoom);
             ScrollToVerticalOffset(_startVericalOffset - delta.Y / this.CurrentZoom);
+            RaiseEvent(new FunctionEventArgs<Vector>(MoveEvent, this)
+            {
+                Info = delta
+            });
+        }
+
+        public static readonly RoutedEvent MoveEvent =
+            EventManager.RegisterRoutedEvent("Move", RoutingStrategy.Bubble,
+                typeof(EventHandler<FunctionEventArgs<Vector>>), typeof(ZoomScrollViewer));
+
+        public event EventHandler<FunctionEventArgs<Vector>> Move
+        {
+            add => AddHandler(MoveEvent, value);
+            remove => RemoveHandler(MoveEvent, value);
         }
 
         #endregion ZoomControl

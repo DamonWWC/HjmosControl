@@ -15,11 +15,11 @@ using WpfApp1;
 namespace Controltest
 {
     /// <summary>
-    /// Window9.xaml 的交互逻辑
+    /// Window11.xaml 的交互逻辑
     /// </summary>
-    public partial class Window9 : Window
+    public partial class Window11 : Window
     {
-        public Window9()
+        public Window11()
         {
             InitializeComponent();
             DataContext = this;
@@ -126,32 +126,6 @@ namespace Controltest
             //    WinApiHelper.SetParent(win, mainwindow);
             //    WinApiHelper.MoveWindow(win, (int)(x), (int)( y), 200, 200, false);
             //}
-        }
-    }
-
-    public class FloodInformation : INotifyPropertyChanged
-    {
-        public string StationName { get; set; }
-        public bool IsChangeStation { get; set; }
-
-        public bool IsLast { get; set; }
-
-        private bool _IsShow;
-
-        public bool IsShow
-        {
-            get { return _IsShow; }
-            set { _IsShow = value; OnPropertyChanged(); }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
     }
 }

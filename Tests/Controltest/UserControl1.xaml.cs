@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hjmos.BaseControls.Tools;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,9 +24,30 @@ namespace Controltest
         public UserControl1()
         {
             InitializeComponent();
+            this.MouseLeftButtonDown += UserControl1_MouseLeftButtonDown;
         }
 
-       
-     
+        private void UserControl1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var paren = VisualHelper.GetParent<ContentPresenter>(this);
+            var par1 = VisualHelper.GetParent<StackPanel>(paren);
+            int maxIndex = 0;
+            if (par1 is Panel panel)
+            {
+                foreach (UIElement item in panel.Children)
+                {
+                    if (maxIndex < Panel.GetZIndex(item))
+                        maxIndex = Panel.GetZIndex(item);
+                }
+            }
+            Panel.SetZIndex(paren, maxIndex + 1);
+
+            //Panel.SetZIndex(paren, 100);
+            //if(Parent is StackPanel parent)
+            //{
+            //    Canvas.SetZIndex(parent, 100);
+            //    //Panel.SetZIndex(parent, 100);
+            //}
+        }
     }
 }

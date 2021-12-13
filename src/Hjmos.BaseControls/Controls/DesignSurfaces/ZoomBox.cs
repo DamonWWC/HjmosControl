@@ -33,6 +33,9 @@ namespace Hjmos.BaseControls.Controls
 
         public ScrollViewer ScrollViewer => DesignSurface.ScrollViewer;
 
+        public ContentControl ContentControl => new() { Content = DesignSurface.MainContent.Content };
+
+        //public ContentControl ContentControl => DesignSurface.MainContent;
         // 主界面
         public DesignSurface DesignSurface
         {
@@ -69,14 +72,18 @@ namespace Hjmos.BaseControls.Controls
             InvalidateScale(out double scale, out double xOffset, out double yOffset);
             // ViewPortSize为主界面内容视区宽高（不超过缩放后MainContent宽高）
             ZoomThumb.Width = ViewPortSize.Width * scale;
-            ZoomThumb.Height = ViewPortSize.Height * scale;
+            //ZoomThumb.Height = ViewPortSize.Height * scale;
+
+            ZoomThumb.Height = this.ActualHeight;
+
             // ScrollViewer.ViewportWidth主界面内容视区宽高
             // this.ZoomThumb.Width = ScrollViewer.ViewportWidth * scale;
             // this.ZoomThumb.Height = ScrollViewer.ViewportHeight * scale;
 
             // 设置橡皮圈位置（误差偏移量+滚动条偏移量*缩放比例）
             Canvas.SetLeft(ZoomThumb, xOffset + ScrollViewer.HorizontalOffset * scale);
-            Canvas.SetTop(ZoomThumb, yOffset + ScrollViewer.VerticalOffset * scale);
+            //Canvas.SetTop(ZoomThumb, yOffset + ScrollViewer.VerticalOffset * scale);
+            Canvas.SetTop(ZoomThumb, 0);
         }
 
         public override void OnApplyTemplate()

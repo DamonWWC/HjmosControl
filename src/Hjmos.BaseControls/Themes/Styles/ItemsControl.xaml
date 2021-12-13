@@ -40,13 +40,12 @@
     </Style>
 
     <ControlTemplate x:Key="CustomItemsControlTemplate" TargetType="control:CustomItemControl">
-        <control:SimplePanel>
+        <control:SimplePanel Background="Yellow">
             <Rectangle
                 x:Name="PART_Rectangle"
                 Height="6"
-                Margin="{TemplateBinding Padding}"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Top"
+                VerticalAlignment="Center"
                 Fill="Red"
                 StrokeThickness="0" />
             <ItemsPresenter />

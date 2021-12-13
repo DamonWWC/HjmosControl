@@ -38,11 +38,31 @@ namespace Hjmos.BaseControls.Controls
 
         // static DesignSurface() => DefaultStyleKeyProperty.OverrideMetadata(typeof(DesignSurface), new FrameworkPropertyMetadata(typeof(DesignSurface)));
 
+        public static readonly RoutedEvent MoveEvent =
+             EventManager.RegisterRoutedEvent("Move", RoutingStrategy.Bubble,
+                 typeof(EventHandler<Data.FunctionEventArgs<Vector>>), typeof(DesignSurface));
+
+        public event EventHandler<Data.FunctionEventArgs<Vector>> Move
+        {
+            add => AddHandler(MoveEvent, value);
+            remove => RemoveHandler(MoveEvent, value);
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
             MainContent = GetTemplateChild(MainContentName) as ContentControl;
             ScrollViewer = GetTemplateChild(ScrollViewerName) as ZoomScrollViewer;
+            if (ScrollViewer != null)
+                ScrollViewer.Move += ScrollViewer_Move; ;
+        }
+
+        private void ScrollViewer_Move(object sender, Data.FunctionEventArgs<Vector> e)
+        {
+            RaiseEvent(new Data.FunctionEventArgs<Vector>(MoveEvent, this)
+            {
+                Info = e.Info
+            }); ;
         }
     }
 }
