@@ -110,6 +110,7 @@
     <Compile Include="Controls\Other\Badge.cs" />
     <Compile Include="Controls\Other\CheckComboBox\CheckComboBox.cs" />
     <Compile Include="Controls\Other\CheckComboBox\CheckComboBoxItem.cs" />
+    <Compile Include="Controls\Other\CompareTrack.cs" />
     <Compile Include="Controls\Other\DashedBorder.cs" />
     <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
@@ -761,6 +762,9 @@
   <ItemGroup>
     <Resource Include="Resources\PanToolCursor.cur" />
     <Resource Include="Resources\PanToolCursorMouseDown.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\缩略图.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

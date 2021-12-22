@@ -434,3 +434,6 @@
 /src/Hjmos.CustomCharts/obj/Debug
 /Tests/TestProject/obj
 /Tests/TestProject/bin/Debug/net5.0
+/Tests/ControltestTests/bin/Debug
+/Tests/ControltestTests/obj
+/.vs

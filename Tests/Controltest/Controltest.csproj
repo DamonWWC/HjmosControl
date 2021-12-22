@@ -79,6 +79,15 @@
     <Compile Include="Datatemplate1Selector.cs" />
     <Compile Include="Interface1.cs" />
     <Compile Include="ItemsComtrolDragHelper.cs" />
+    <Compile Include="LineFlood\FloodGate.xaml.cs">
+      <DependentUpon>FloodGate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LineFlood\LineMap.xaml.cs">
+      <DependentUpon>LineMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LineFlood\StationFloodSituation.xaml.cs">
+      <DependentUpon>StationFloodSituation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PositionMultiConverter.cs" />
     <Compile Include="RadarControl.xaml.cs">
       <DependentUpon>RadarControl.xaml</DependentUpon>
@@ -106,6 +115,9 @@
     <Compile Include="Window11.xaml.cs">
       <DependentUpon>Window11.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Window12.xaml.cs">
+      <DependentUpon>Window12.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
@@ -131,6 +143,18 @@
       <DependentUpon>Window9.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinformToWpfTest.cs" />
+    <Page Include="LineFlood\FloodGate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineFlood\LineMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineFlood\StationFloodSituation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -172,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window11.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window12.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -288,6 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="展开_底部导航.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\河流.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

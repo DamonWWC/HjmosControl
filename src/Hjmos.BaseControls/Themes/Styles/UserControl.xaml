@@ -7,6 +7,7 @@
         <ResourceDictionary Source="Loading.xaml" />
         <ResourceDictionary Source="../Basic/Converters.xaml" />
         <ResourceDictionary Source="../Basic/Geometries.xaml" />
+        <ResourceDictionary Source="Button.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <!--<Style x:Key="PopupUserControlStyle" TargetType="controls:PopupUserControl">
@@ -74,41 +75,54 @@
     <Style x:Key="DirectionUserControlStyle" TargetType="UserControl">
         <Setter Property="Focusable" Value="False" />
         <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="#FF144062" />
+        <Setter Property="BorderBrush" Value="#FF16547B" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="UserControl">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition Height="8" />
-                        </Grid.RowDefinitions>
                         <Border
-                            x:Name="PART_Triangle"
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Width="30"
-                            Height="30"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Bottom"
-                            Background="#FF144062"
-                            RenderTransformOrigin="0.5,0.5"
-                            Visibility="Visible">
-                            <Border.RenderTransform>
-                                <TransformGroup>
-                                    <TranslateTransform X="5" Y="5" />
-                                    <RotateTransform Angle="45" />
-                                </TransformGroup>
-                            </Border.RenderTransform>
+                            Margin="0,0,0,20"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="Pink"
+                            BorderThickness="1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Border
+                                    Grid.Row="0"
+                                    Padding="5,10"
+                                    BorderBrush="Red"
+                                    BorderThickness="0,0,0,1">
+                                    <Grid>
+                                        <TextBlock
+                                            HorizontalAlignment="Left"
+                                            FontSize="14"
+                                            Foreground="White"
+                                            Text="谢家桥-象鼻窝站区间" />
+                                        <Button
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            controls:IconElement.Geometry="{StaticResource CloseGeometry}"
+                                            controls:IconElement.Height="14"
+                                            controls:IconElement.Width="14"
+                                            Background="Transparent"
+                                            FontSize="14"
+                                            Foreground="#FFFFFFFF"
+                                            Style="{StaticResource ButtonIcon}" />
+                                    </Grid>
+                                </Border>
+                                <ContentPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </Grid>
                         </Border>
-                        <Border
-                            x:Name="PART_Content"
-                            Grid.Row="0"
-                            MinHeight="30"
-                            Background="#FF144062"
-                            BorderBrush="Red"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </Border>
+                        <Path
+                            Data="{StaticResource DirectGeomotry}"
+                            SnapsToDevicePixels="True"
+                            Stretch="Fill"
+                            Stroke="Yellow"
+                            StrokeThickness="1" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

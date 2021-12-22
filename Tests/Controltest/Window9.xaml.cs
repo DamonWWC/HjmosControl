@@ -56,62 +56,62 @@ namespace Controltest
 
         //Window window;
         public ICommand ButtonCommand => new DelegateCommand<object>((obj) =>
-         {
-             var oo = obj as StackPanel;
+           {
+               var oo = obj as StackPanel;
 
-             Window window = new Window
-             {
-                 Content = new UserControl1(),
-                 Owner = Application.Current.MainWindow,
-             };
-            //window.Show();
-            //IntPtr win = new WindowInteropHelper(window).Handle;
-            //WinApiHelper.SetParent(win, oo.Handle);
-            //WinApiHelper.MoveWindow(win, 0, 0, 200, 200, false);
-            oo.Children.Add(new UserControl1());
-            //itemsSource[3].IsShow = true;
+               Window window = new Window
+               {
+                   Content = new UserControl1(),
+                   Owner = Application.Current.MainWindow,
+               };
+              //window.Show();
+              //IntPtr win = new WindowInteropHelper(window).Handle;
+              //WinApiHelper.SetParent(win, oo.Handle);
+              //WinApiHelper.MoveWindow(win, 0, 0, 200, 200, false);
+              oo.Children.Add(new UserControl1());
+              //itemsSource[3].IsShow = true;
 
-            //if (obj is Button element)
-            //{
-            //    Vector vector = VisualTreeHelper.GetOffset(element);
+              //if (obj is Button element)
+              //{
+              //    Vector vector = VisualTreeHelper.GetOffset(element);
 
-            //    var po = Mouse.GetPosition(element);
+              //    var po = Mouse.GetPosition(element);
 
-            //    var po1 = Mouse.GetPosition(this);
+              //    var po1 = Mouse.GetPosition(this);
 
-            //    var point = element.PointToScreen(new Point(0, 0));
+              //    var point = element.PointToScreen(new Point(0, 0));
 
-            //    //Popup popup = new Popup();
-            //    //popup.PlacementTarget = element;
-            //    //popup.Child = new UserControl1();
-            //    //popup.IsOpen = true;
-            //    //popup.StaysOpen = true;
+              //    //Popup popup = new Popup();
+              //    //popup.PlacementTarget = element;
+              //    //popup.Child = new UserControl1();
+              //    //popup.IsOpen = true;
+              //    //popup.StaysOpen = true;
 
-            //    var point1 = element.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
+              //    var point1 = element.TransformToAncestor(Application.Current.MainWindow).Transform(new Point(0, 0));
 
-            //    IntPtr hwnd = ((HwndSource)PresentationSource.FromVisual(element)).Handle;
-            //    window = new Window
-            //    {
-            //        Content = new UserControl1(),
-            //        Width = 0,
-            //        Height = 0,
+              //    IntPtr hwnd = ((HwndSource)PresentationSource.FromVisual(element)).Handle;
+              //    window = new Window
+              //    {
+              //        Content = new UserControl1(),
+              //        Width = 0,
+              //        Height = 0,
 
-            //        Owner = Application.Current.MainWindow,
-            //        ShowInTaskbar = false
-            //    };
-            //    window.Show();
+              //        Owner = Application.Current.MainWindow,
+              //        ShowInTaskbar = false
+              //    };
+              //    window.Show();
 
-            //    IntPtr win = new WindowInteropHelper(window).Handle;
-            //    IntPtr mainwindow = new WindowInteropHelper(Application.Current.MainWindow).Handle;
-            //    WinApiHelper.SetParent(win, mainwindow);
-            //     x = po1.X - po.X - (100 - element.ActualWidth / 2);
-            //     y = po1.Y - po.Y - 200;
-            //    WinApiHelper.MoveWindow(win, (int)x, (int)y, 200, 200, false);
-            //    if (Windows == null)
-            //        Windows = new List<Window>();
-            //    Windows.Add(window);
-            //}
-        });
+              //    IntPtr win = new WindowInteropHelper(window).Handle;
+              //    IntPtr mainwindow = new WindowInteropHelper(Application.Current.MainWindow).Handle;
+              //    WinApiHelper.SetParent(win, mainwindow);
+              //     x = po1.X - po.X - (100 - element.ActualWidth / 2);
+              //     y = po1.Y - po.Y - 200;
+              //    WinApiHelper.MoveWindow(win, (int)x, (int)y, 200, 200, false);
+              //    if (Windows == null)
+              //        Windows = new List<Window>();
+              //    Windows.Add(window);
+              //}
+          });
 
         private void DesignSurface_Move(object sender, Hjmos.BaseControls.Data.FunctionEventArgs<Vector> e)
         {
@@ -134,9 +134,12 @@ namespace Controltest
         public string StationName { get; set; }
         public bool IsChangeStation { get; set; }
 
+        public bool HasFloodGate { get; set; }
         public bool IsLast { get; set; }
 
         private bool _IsShow;
+
+        public bool HasRiver { get; set; }
 
         public bool IsShow
         {

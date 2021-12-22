@@ -5,8 +5,10 @@
     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="400"
     Style="{StaticResource DirectionUserControlStyle}"
     mc:Ignorable="d">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />

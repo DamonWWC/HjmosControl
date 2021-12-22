@@ -49,5 +49,10 @@ namespace Controltest
             //    //Panel.SetZIndex(parent, 100);
             //}
         }
+
+        public int Add(int a, int b)
+        {
+            return a + b;
+        }
     }
 }
