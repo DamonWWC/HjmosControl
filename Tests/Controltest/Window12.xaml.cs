@@ -22,6 +22,27 @@ namespace Controltest
         public Window12()
         {
             InitializeComponent();
+            VideoInfos = new List<VideoInfo> { new VideoInfo {VideoType=2, Name="A出入口", VideoInfos=new List<VideoInfo> { new VideoInfo {Name="1摄像头",VideoType=0 },new VideoInfo {Name="2摄像头" , VideoType = 0 } } },
+                new VideoInfo { Name="B出入口", VideoInfos=new List<VideoInfo> { new VideoInfo {Name="1摄像头" },new VideoInfo {Name="2摄像头" } } },
+                new VideoInfo { Name="C出入口", VideoInfos=new List<VideoInfo> { new VideoInfo {Name="1摄像头" },new VideoInfo {Name="2摄像头" } } },
+                new VideoInfo { Name="D出入口", VideoInfos=new List<VideoInfo> { new VideoInfo {Name="1摄像头" },new VideoInfo {Name="2摄像头" } } },
+            };
+            DataContext = this;
         }
+
+        public List<VideoInfo> VideoInfos { get; set; }
+
+        protected override Size ArrangeOverride(Size arrangeSize)
+        {
+            base.ArrangeOverride(arrangeSize);
+            return arrangeSize;
+        }
+    }
+
+    public class VideoInfo
+    {
+        public string Name { get; set; }
+        public int VideoType { get; set; }
+        public List<VideoInfo> VideoInfos { get; set; }
     }
 }

@@ -320,5 +320,12 @@
   <ItemGroup>
     <Resource Include="image\河流.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\缩略图.png" />
+    <Resource Include="image\缩略图1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\缩略图2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -85,6 +85,8 @@
     <Compile Include="Controls\ColorPicker\ColorPicker.cs" />
     <Compile Include="Controls\DesignSurfaces\DesignSurface.cs" />
     <Compile Include="Controls\DesignSurfaces\ZoomBox.cs" />
+    <Compile Include="Controls\DesignSurfaces\ZoomBox1.cs" />
+    <Compile Include="Controls\DesignSurfaces\ZoomBoxCompareTrack.cs" />
     <Compile Include="Controls\DesignSurfaces\ZoomScrollViewer.cs" />
     <Compile Include="Controls\Growl\Growl.cs" />
     <Compile Include="Controls\Growl\GrowlWindow.cs" />
@@ -110,7 +112,6 @@
     <Compile Include="Controls\Other\Badge.cs" />
     <Compile Include="Controls\Other\CheckComboBox\CheckComboBox.cs" />
     <Compile Include="Controls\Other\CheckComboBox\CheckComboBoxItem.cs" />
-    <Compile Include="Controls\Other\CompareTrack.cs" />
     <Compile Include="Controls\Other\DashedBorder.cs" />
     <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
@@ -130,6 +131,8 @@
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\Panel\SlideSwitchPanel.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
+    <Compile Include="Controls\Slider\CompareSlider\CompareSlider.cs" />
+    <Compile Include="Controls\Slider\CompareSlider\CompareTrack.cs" />
     <Compile Include="Controls\SplashWindow\ISplashWindow.cs" />
     <Compile Include="Controls\SplashWindow\SplashWindow.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
@@ -765,6 +768,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Image\缩略图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Image\缩略图1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

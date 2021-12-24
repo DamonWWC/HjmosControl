@@ -1,9 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"                    
-                    xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/SliderBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/SliderBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="Slider"/>
-    
+
+    <Style BasedOn="{StaticResource CompareSliderBaseStyle}" TargetType="controls:CompareSlider" />
+    <Style BasedOn="{StaticResource SliderBaseStyle}" TargetType="Slider" />
 </ResourceDictionary>
