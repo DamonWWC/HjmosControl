@@ -17,6 +17,15 @@ namespace Hjmos.BaseControls.Controls
 
         public ZoomBox1()
         {
+            this.Loaded += ZoomBox1_Loaded;
+        }
+
+        private void ZoomBox1_Loaded(object sender, RoutedEventArgs e)
+        {
+            InvalidateScale();
+            // 设置橡皮圈位置（误差偏移量+滚动条偏移量*缩放比例）
+            _ZoomThumb.Width = ViewPortSize.Width * _scale;
+            ValueToOffset(0,Value);
         }
 
         public DesignSurface DesignSurface
@@ -33,35 +42,68 @@ namespace Hjmos.BaseControls.Controls
                 {
                     if (zoomBox.oldSurface != null)
                     {
-                        zoomBox.oldSurface.LayoutUpdated -= zoomBox.DesignSurface_LayoutUpdated;
+                        zoomBox.oldSurface.Move -= zoomBox.OldSurface_Move;
+
+                       //zoomBox.oldSurface.LayoutUpdated -= zoomBox.DesignSurface_LayoutUpdated;
                     }
                     zoomBox.oldSurface = zoomBox.DesignSurface;
 
                     if (zoomBox.DesignSurface != null)
                     {
+                        zoomBox.oldSurface.Move += zoomBox.OldSurface_Move;
                         // 添加布局改变事件
-                        zoomBox.DesignSurface.LayoutUpdated += zoomBox.DesignSurface_LayoutUpdated;
+                        //zoomBox.DesignSurface.LayoutUpdated += zoomBox.DesignSurface_LayoutUpdated;
                     }
                 }
             }));
-
-        private void DesignSurface_LayoutUpdated(object sender, EventArgs e)
-        {
-            if (_ZoomThumb == null || ScrollViewer == null || _isDrag || _isValueChange) return;
+        bool _isSurfaceMove = false;
+        private void OldSurface_Move(object sender, Data.FunctionEventArgs<Vector> e)
+             {
+            if (_ZoomThumb == null || ScrollViewer == null || _isDrag )
+            {                
+                return;
+            }
             InvalidateScale();
             // 设置橡皮圈位置（误差偏移量+滚动条偏移量*缩放比例）
             _ZoomThumb.Width = ViewPortSize.Width * _scale;
-            var molecular = _xOffset + ScrollViewer.HorizontalOffset * _scale;
-            var denominator = ActualWidth - _ZoomThumb.Width;
-            if (denominator == 0)
+            _isSurfaceMove = true;
+            OffsetToValue();
+            //var molecular = _xOffset + ScrollViewer.HorizontalOffset * _scale;
+            //var denominator = ActualWidth - _ZoomThumb.Width;
+            //if (denominator == 0)
+            //{
+            //    Value = 0;
+            //}
+            //else
+            //{
+            //    Value = molecular / denominator * 10;
+            //}
+        }
+
+        private void DesignSurface_LayoutUpdated(object sender, EventArgs e)
+        {
+            if (_ZoomThumb == null || ScrollViewer == null || _isDrag )
             {
-                Value = 0;
+               
+                return;
             }
-            else
-            {
-                Value = molecular / denominator * 10;
-            }
-            _isValueChange = false;
+            InvalidateScale();
+            // 设置橡皮圈位置（误差偏移量+滚动条偏移量*缩放比例）
+            _ZoomThumb.Width = ViewPortSize.Width * _scale;
+            OffsetToValue();
+
+
+            //var molecular = _xOffset + ScrollViewer.HorizontalOffset * _scale;
+            //var denominator = ActualWidth - _ZoomThumb.Width;
+            //if (denominator == 0)
+            //{
+            //    Value = 0;
+            //}
+            //else
+            //{
+            //    Value = molecular / denominator * 10;
+            //}
+
         }
 
         public override void OnApplyTemplate()
@@ -93,13 +135,54 @@ namespace Hjmos.BaseControls.Controls
             ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset + e.VerticalChange / _scale);
         }
 
-        private bool _isValueChange = false;
+       
 
         protected override void OnValueChanged(double oldValue, double newValue)
-        {
-            InvalidateScale();
-            _isValueChange = true;
+        {           
             base.OnValueChanged(oldValue, newValue);
+            InvalidateScale();
+            if (_isDrag || _isSurfaceMove)
+            {
+                _isSurfaceMove = false;       
+                return;
+            }
+
+            if (_ZoomThumb == null) return;
+
+            ValueToOffset(oldValue,newValue);
+        }
+
+
+
+        private void ValueToOffset(double oldValue, double newValue)
+        {
+            var denominator = ActualWidth - _ZoomThumb.Width;
+            var cc = (newValue * denominator) / 10.0;
+            ScrollViewer.ScrollToHorizontalOffset(cc / _scale);
+            //if(oldValue==0)
+            //{
+            //    ScrollViewer.ScrollToHorizontalOffset(0);
+            //    return;
+            //}
+            //double scale = newValue / oldValue;
+            //var cc = ScrollViewer.HorizontalOffset * scale;
+            //ScrollViewer.ScrollToHorizontalOffset(cc);
+
+
+        }
+
+        private void OffsetToValue()
+        {
+            var molecular = _xOffset + ScrollViewer.HorizontalOffset * _scale;
+            var denominator = ActualWidth - _ZoomThumb.Width;
+            if (denominator == 0)
+            {
+                Value = 0;
+            }
+            else
+            {
+                Value = molecular / denominator * 10;
+            }
         }
 
         private double _scale, _xOffset, _yOffset;

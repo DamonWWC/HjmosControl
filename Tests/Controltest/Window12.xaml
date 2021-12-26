@@ -202,7 +202,7 @@
             VerticalAlignment="Bottom"
             BorderThickness="0"
             DesignSurface="{Binding ElementName=designSurface}"
-            Value="5 ">
+            Value="0">
             <controls:ZoomBox1.Background>
                 <ImageBrush ImageSource="image/缩略图2.png" />
             </controls:ZoomBox1.Background>

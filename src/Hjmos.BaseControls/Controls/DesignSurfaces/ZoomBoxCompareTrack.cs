@@ -103,7 +103,12 @@ namespace Hjmos.BaseControls.Controls
 
             increaseButtonLength = remainingTrackLength - decreaseButtonLength;
             CoerceLength(ref increaseButtonLength, remainingTrackLength);
+            Density = range / remainingTrackLength;
         }
+
+        public double Density { get; set; }
+
+
 
         private static void CoerceLength(ref double componentLength, double trackLength)
         {
