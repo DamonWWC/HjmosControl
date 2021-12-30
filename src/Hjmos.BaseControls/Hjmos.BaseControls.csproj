@@ -131,6 +131,13 @@
     <Compile Include="Controls\Panel\Grid\Row.cs" />
     <Compile Include="Controls\Panel\SlideSwitchPanel.cs" />
     <Compile Include="Controls\ProgressBar\InfoProgressBar.cs" />
+    <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
+    <Compile Include="Controls\Radar\Indicator.cs" />
+    <Compile Include="Controls\Radar\IRadarChart.cs" />
+    <Compile Include="Controls\Radar\RadarChart.cs" />
+    <Compile Include="Controls\Radar\RadarChart1.cs" />
+    <Compile Include="Controls\Radar\RadarModel.cs" />
+    <Compile Include="Controls\Radar\RadarSeries.cs" />
     <Compile Include="Controls\Slider\CompareSlider\CompareSlider.cs" />
     <Compile Include="Controls\Slider\CompareSlider\CompareTrack.cs" />
     <Compile Include="Controls\SplashWindow\ISplashWindow.cs" />
@@ -250,6 +257,7 @@
     <Compile Include="Tools\Helper\ResourceHelper.cs" />
     <Compile Include="Tools\Helper\TokenizerHelper.cs" />
     <Compile Include="Tools\Helper\ValidateHelper.cs" />
+    <Compile Include="Tools\Helper\ViewModelBase.cs" />
     <Compile Include="Tools\Helper\VisualHelper.cs" />
     <Compile Include="Tools\Helper\WindowHelper.cs" />
     <Compile Include="Tools\Hook\MouseHook.cs" />
@@ -366,6 +374,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\RadarChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
