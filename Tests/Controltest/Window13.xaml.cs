@@ -94,6 +94,22 @@ namespace Controltest
         {
             RadarSeries[0].Values = new List<double> { 70, 34, 95, 26, 33, 72 };
         }
+
+        private void Border_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is Border border)
+            {
+                border.Background = Brushes.Red;
+            }
+        }
+
+        private void Border_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is Border border)
+            {
+                border.Background = Brushes.Yellow;
+            }
+        }
     }
 
     public class Player

@@ -54,5 +54,6 @@
         <ResourceDictionary Source="ZoomBox.xaml" />
         <ResourceDictionary Source="ZoomScrollViewer.xaml" />
         <ResourceDictionary Source="DesignSurface.xaml" />
+        <ResourceDictionary Source="RadarChart.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

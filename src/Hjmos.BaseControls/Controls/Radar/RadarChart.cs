@@ -129,10 +129,10 @@ namespace Hjmos.BaseControls.Controls
             for (int i = 0; i < 4; i++)
             {
                 var rr = r * (i + 1) / 4;
-                drawingContext.DrawEllipse(Brushes.Red, myPen, new Point(w, h), rr, rr);
+                drawingContext.DrawEllipse(Brushes.Transparent, myPen, new Point(w, h), rr, rr);
             }
 
-            drawingContext.DrawRectangle(Brushes.Yellow, new Pen(Brushes.SteelBlue, 3), new Rect(new Point(0, 0), new Size(50, 50)));
+            //drawingContext.DrawRectangle(Brushes.Yellow, new Pen(Brushes.SteelBlue, 3), new Rect(new Point(0, 0), new Size(50, 50)));
         }
 
         private void DrawIndicator(DrawingContext drawingContext)

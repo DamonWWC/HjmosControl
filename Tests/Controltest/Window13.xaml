@@ -118,9 +118,63 @@
         <controls:RadarChart
             Width="200"
             Height="200"
+            Margin="55,110,538.333,110.667"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Indicator="{Binding Indicators}"
             RadarSeries="{Binding RadarSeries}" />
+
+        <Grid
+            Width="500"
+            Height="500"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Background="#FF083153">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <controls:RadarChart1
+                Width="200"
+                Height="200"
+                FontSize="20"
+                Foreground="White"
+                Indicator="{Binding Indicators}"
+                RadarSeries="{Binding RadarSeries}"
+                SelectedIndex="2" />
+
+            <ItemsControl
+                Grid.Column="1"
+                Width="100"
+                ItemsSource="{Binding Indicators}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Margin="0,10"
+                            MouseEnter="Border_MouseEnter"
+                            MouseLeave="Border_MouseLeave">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                    <GradientStop Offset="1" Color="#001A4868" />
+                                    <GradientStop Offset="0" Color="#FF1A4868" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid Margin="0,10">
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    FontSize="10"
+                                    Foreground="White"
+                                    Text="{Binding Name}" />
+                                <TextBlock
+                                    HorizontalAlignment="Left"
+                                    FontSize="10"
+                                    Foreground="White"
+                                    Text="{Binding Name}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </Grid>
 </Window>

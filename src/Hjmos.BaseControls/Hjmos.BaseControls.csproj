@@ -253,6 +253,7 @@
     <Compile Include="Tools\Extension\ValueExtension.cs" />
     <Compile Include="Tools\Helper\AnimationHelper.cs" />
     <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
+    <Compile Include="Tools\Helper\ControlSizeHelper.cs" />
     <Compile Include="Tools\Helper\DpiHelper.cs" />
     <Compile Include="Tools\Helper\ResourceHelper.cs" />
     <Compile Include="Tools\Helper\TokenizerHelper.cs" />

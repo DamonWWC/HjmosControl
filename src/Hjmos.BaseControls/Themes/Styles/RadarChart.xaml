@@ -1,7 +1,55 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
 
-    <!--  <Style BasedOn=""  -->
+    <Style TargetType="controls:RadarChart1">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:RadarChart1">
+                    <Canvas x:Name="PART_canvas">
+                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <Ellipse
+                                Width="{c:Binding 'Math.Min(Width,Height)/4',
+                                                  RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                Height="{c:Binding 'Math.Min(Width,Height)/4',
+                                                   RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stroke="#FF1A4868"
+                                StrokeThickness="2" />
+                            <Ellipse
+                                Width="{c:Binding '2*Math.Min(Width,Height)/4',
+                                                  RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                Height="{c:Binding '2*Math.Min(Width,Height)/4',
+                                                   RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stroke="#FF1A4868"
+                                StrokeThickness="2" />
+                            <Ellipse
+                                Width="{c:Binding '3*Math.Min(Width,Height)/4',
+                                                  RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                Height="{c:Binding '3*Math.Min(Width,Height)/4',
+                                                   RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stroke="#FF1A4868"
+                                StrokeThickness="2" />
+                            <Ellipse
+                                Width="{c:Binding 'Math.Min(Width,Height)',
+                                                  RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                Height="{c:Binding 'Math.Min(Width,Height)',
+                                                   RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Stroke="#FF1A4868"
+                                StrokeThickness="2" />
+                        </Grid>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
