@@ -437,3 +437,9 @@
 /Tests/ControltestTests/bin/Debug
 /Tests/ControltestTests/obj
 /.vs
+/ConsoleApp1/bin/Debug/net6.0
+/ConsoleApp1/obj
+/RocketMQClient/bin/Debug/net6.0-windows
+/RocketMQClient/obj
+/Tests/Hjmos.MQProxy/bin
+/Tests/Hjmos.MQProxy/obj

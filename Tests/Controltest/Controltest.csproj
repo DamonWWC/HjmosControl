@@ -92,6 +92,7 @@
     <Compile Include="RadarControl.xaml.cs">
       <DependentUpon>RadarControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Test1.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
@@ -120,6 +121,9 @@
     </Compile>
     <Compile Include="Window13.xaml.cs">
       <DependentUpon>Window13.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window14.xaml.cs">
+      <DependentUpon>Window14.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
@@ -210,6 +214,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Window14.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,8 +301,15 @@
       <Project>{81203923-1260-4074-9666-535159155604}</Project>
       <Name>LiveCharts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hjmos.MQProxy\Hjmos.MQProxy.csproj">
+      <Project>{5AE5366F-588E-4099-80EA-2C9DA26E12E0}</Project>
+      <Name>Hjmos.MQProxy</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Ben.Demystifier">
+      <Version>0.4.1</Version>
+    </PackageReference>
     <PackageReference Include="CefSharp.Wpf">
       <Version>84.4.10</Version>
     </PackageReference>

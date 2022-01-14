@@ -1,5 +1,6 @@
 ﻿using Hjmos.BaseControls;
 using Hjmos.BaseControls.Controls;
+using Hjmos.MQProxy;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,9 +26,21 @@ namespace Controltest
     /// </summary>
     public partial class Window13 : Window, INotifyPropertyChanged
     {
+        private IConsumer consumer;
+
         public Window13()
         {
             InitializeComponent();
+
+            consumer = ConnectionFactory.PushConsumer(new RocketMQPara
+            {
+                //Topic= "device_systemAlarmCount",
+                NameServerAddress = "10.51.9.130:30899",
+                ConsumerGroupID = "Holoception"
+            });
+            consumer.Subscribe("emergency-command", "*");
+            consumer.OnConsume = Receive;
+            var ss1 = consumer.Start();
 
             RadarModels = new ObservableCollection<RadarModel>();
             Player theShy = new Player()
@@ -60,7 +73,14 @@ namespace Controltest
                 new RadarSeries{ SeriesName="11",Values=new List<double>{ 30,44,55,66,33,22} }
             };
 
+            Test1 test1 = new Test1();
+            var ss = test1.Sum(1, 20);
+
             DataContext = this;
+        }
+
+        private void Receive(IMessage message)
+        {
         }
 
         public List<Indicator> Indicators { get; set; }
