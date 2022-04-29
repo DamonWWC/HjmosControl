@@ -20,7 +20,7 @@ namespace Controltest
             if (this.DataContext is Interface1 interface1)
             {
                
-                    interface1.Call();
+                    //interface1.Call();
               
             }
         }

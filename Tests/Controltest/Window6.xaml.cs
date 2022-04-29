@@ -20,7 +20,7 @@ namespace Controltest
     /// <summary>
     /// Window6.xaml 的交互逻辑
     /// </summary>
-    public partial class Window6 : FullScreenWindow, INotifyPropertyChanged, Interface1
+    public partial class Window6 : FullScreenWindow, INotifyPropertyChanged
     {
         public Window6()
         {

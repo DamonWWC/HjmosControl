@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Window14" Height="450" Width="800">
     <Grid>
+        <local:UserControl5></local:UserControl5>
+        <ContentControl>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="80,75,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        </ContentControl>
         
     </Grid>
 </Window>

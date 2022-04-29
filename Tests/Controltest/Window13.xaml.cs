@@ -74,7 +74,7 @@ namespace Controltest
             };
 
             Test1 test1 = new Test1();
-            var ss = test1.Sum(1, 20);
+            //var ss = test1.Sum(1, 20);
 
             DataContext = this;
         }

@@ -2,10 +2,13 @@
 
 using Hjmos.MQProxy;
 
+//HelloGenerated.HelloGenerator.Test();
+//Console.ReadLine();
+
 var consumer = ConnectionFactory.PushConsumer(new RocketMQPara
 {
     //Topic= "device_systemAlarmCount",
-    NameServerAddress = "10.51.9.130:30899",
+    NameServerAddress = "http://10.51.9.130:30076",
     ConsumerGroupID = "Holoception"
 });
 consumer.Subscribe("emergency-command", "*");

@@ -443,3 +443,10 @@
 /RocketMQClient/obj
 /Tests/Hjmos.MQProxy/bin
 /Tests/Hjmos.MQProxy/obj
+/WebView2Client/bin/Debug/net6.0-windows
+/WebView2Client/obj
+/Tests/AutoMapper/bin
+/Tests/AutoMapper/obj
+/Tests/GeneratorTest/bin
+/Tests/GeneratorTest/obj
+/src/Hjmos.CustomCharts/bin

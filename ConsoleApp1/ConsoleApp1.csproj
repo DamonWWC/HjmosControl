@@ -9,10 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" />
     <PackageReference Include="NewLife.RocketMQ" Version="2.0.2022.101" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tests\GeneratorTest\GeneratorTest.csproj" OutputItemType="Analyzer"/>
     <ProjectReference Include="..\Tests\Hjmos.MQProxy\Hjmos.MQProxy.csproj" />
   </ItemGroup>
 
