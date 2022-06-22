@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -23,44 +24,95 @@ namespace Controltest
     /// </summary>
     public partial class Window14 : Window
     {
-        private IConsumer consumer;
+        private IConsumer consumer1;
+        private IConsumer consumer2;
 
+        BlockingCollection<string> linkEventInfos = new BlockingCollection<string>();
         public Window14()
         {
             InitializeComponent();
 
-           
 
-            var dic = new Dictionary<string, string>()
-            {
-                {"1","11" },
-                {"2", "22"}
-            };
-
-            set(dic);
-
-            var key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaiEkusx7F3oY/1lGCLol9SzE54znGJSjgRNRRmWsy1tQQMEA8l76Eqih36/Qv+67yZDJ6RTaewpD7mr+Qm7PwniR2y0iDQf7ieOHabxpCSgRSfBGJPO+YGjNk7R4od2QvAr1zwvvj7Bek0+PgCIrFNY20buMVRYmu6SVBHzEM9QIDAQAB";
-            //var ss = RSAEncrypt($"<RSAKeyValue><Modulus>{key}</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>", "123454");
-            var sss = RSAEncrypt(key, "123456");
-            string password = "1234";
-            string salt = BCrypt.Net.BCrypt.GenerateSalt(10, 'a');
-            string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, salt);
-
-            var aa = BCrypt.Net.BCrypt.Verify("1234", passwordHash);
+            linkEventInfos.Add("1");
+            linkEventInfos.Add("2");
+            linkEventInfos.Add("3");
+            linkEventInfos.Add("4");
 
 
-            //consumer = ConnectionFactory.PushConsumer(new RocketMQPara
+            linkEventInfos.TryTake(out string aa);
+            linkEventInfos.TryTake(out string bb);
+            linkEventInfos.TryTake(out string cc);
+            linkEventInfos.TryTake(out string dd);
+
+            //SetTime();
+
+
+            //var dic = new Dictionary<string, string>()
+            //{
+            //    {"1","11" },
+            //    {"2", "22"}
+            //};
+
+            //set(dic);
+
+            //var key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCaiEkusx7F3oY/1lGCLol9SzE54znGJSjgRNRRmWsy1tQQMEA8l76Eqih36/Qv+67yZDJ6RTaewpD7mr+Qm7PwniR2y0iDQf7ieOHabxpCSgRSfBGJPO+YGjNk7R4od2QvAr1zwvvj7Bek0+PgCIrFNY20buMVRYmu6SVBHzEM9QIDAQAB";
+            ////var ss = RSAEncrypt($"<RSAKeyValue><Modulus>{key}</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>", "123454");
+            //var sss = RSAEncrypt(key, "123456");
+            //string password = "1234";
+            //string salt = BCrypt.Net.BCrypt.GenerateSalt(10, 'a');
+            //string passwordHash = BCrypt.Net.BCrypt.HashPassword(password, salt);
+
+            //var aa = BCrypt.Net.BCrypt.Verify("1234", passwordHash);
+
+
+            //consumer1 = ConnectionFactory.PushConsumer(new RocketMQPara
             //{
             //    //Topic= "device_systemAlarmCount",
-            //    NameServerAddress = "http://10.51.9.130:30899",
-            //    ConsumerGroupID = "Holoception"
+            //    NameServerAddress = "http://10.51.9.130:30076",
+            //    ConsumerGroupID = "Holoception1"
             //});
-            //consumer.Subscribe("emergency-command", "*");
-            //consumer.OnConsume = Receive;
-            //var resutl = consumer.Start();
+            //consumer1.Subscribe("emergency-command", "*");
+            //consumer1.Subscribe("pflow_todayTypePflowTrend", "*");//线路/车站 PF1003 客流实时趋势
+            //consumer1.Subscribe("pflow_transferStationSituation", "*");//线路 PF1004 换乘站情况
+            //consumer1.OnConsume = Receive;
+            //var resutl = consumer1.Start();
+
+
+            //consumer2 = ConnectionFactory.PushConsumer(new RocketMQPara
+            //{
+
+            //    NameServerAddress = "http://10.51.9.130:30076",
+            //    ConsumerGroupID = "Holoception2"
+            //});
+            //consumer2.Subscribe("emergency-command", "*");
+            //consumer2.Subscribe("pflow_todayTypePflowTrend", "*");//线路/车站 PF1003 客流实时趋势
+            //consumer2.Subscribe("pflow_transferStationSituation", "*");//线路 PF1004 换乘站情况
+            //consumer2.OnConsume = Receive;
+            //var resut2 = consumer2.Start();
+
+
+
+
+
+
             //Test1 test1 = new Test1();
             //test1.Call(3);
         }
+
+        private void SetTime()
+        {
+            var time = DateTime.Now - DateTime.Now.AddMinutes(-6000);
+            int hour = (time.Days * 24 + time.Hours) ;
+            int mim = time.Minutes;
+            string tim = $"{time}小时{mim}分";
+        }
+
+
+
+
+
+
+
 
         private void Receive(IMessage message)
         {
