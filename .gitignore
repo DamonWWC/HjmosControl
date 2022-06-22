@@ -450,3 +450,6 @@
 /Tests/GeneratorTest/bin
 /Tests/GeneratorTest/obj
 /src/Hjmos.CustomCharts/bin
+/Tests/ConsoleApp2/bin/Debug/net6.0
+/Tests/ConsoleApp2/obj
+obj
