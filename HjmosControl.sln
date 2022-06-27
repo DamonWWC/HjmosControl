@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorTest", "Tests\Gene
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoMapperDemo", "Tests\AutoMapper\AutoMapperDemo.csproj", "{8512B1A9-9746-4713-BC57-4E36F602E67E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "Tests\ConsoleApp2\ConsoleApp2.csproj", "{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp2", "Tests\ConsoleApp2\ConsoleApp2.csproj", "{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "Tests\WpfApp1\WpfApp1.csproj", "{681139FB-930C-4EBC-AA35-D3EC95C8A4BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681139FB-930C-4EBC-AA35-D3EC95C8A4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681139FB-930C-4EBC-AA35-D3EC95C8A4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681139FB-930C-4EBC-AA35-D3EC95C8A4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681139FB-930C-4EBC-AA35-D3EC95C8A4BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{777B2A9F-820D-414D-BC45-0EB3BEB386F6} = {1ABD8763-AE00-4DB0-802B-7034D1E8A5A8}
 		{8512B1A9-9746-4713-BC57-4E36F602E67E} = {1ABD8763-AE00-4DB0-802B-7034D1E8A5A8}
 		{B4C16B46-F6B1-4748-A1B6-3DCDC12CDD8F} = {1ABD8763-AE00-4DB0-802B-7034D1E8A5A8}
+		{681139FB-930C-4EBC-AA35-D3EC95C8A4BF} = {1ABD8763-AE00-4DB0-802B-7034D1E8A5A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {015BA3E1-CA9C-46CF-8039-765B8AD2C281}

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,17 +33,15 @@ namespace Controltest
         {
             InitializeComponent();
 
-
-            linkEventInfos.Add("1");
-            linkEventInfos.Add("2");
-            linkEventInfos.Add("3");
-            linkEventInfos.Add("4");
+            NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
 
-            linkEventInfos.TryTake(out string aa);
-            linkEventInfos.TryTake(out string bb);
-            linkEventInfos.TryTake(out string cc);
-            linkEventInfos.TryTake(out string dd);
+            Logger.Info("Hello world");
+
+
+
+
+
 
             //SetTime();
 
@@ -160,8 +159,10 @@ namespace Controltest
             window.Owner = this;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Show();
-
+            
         }
+      
+
     }
 
 
