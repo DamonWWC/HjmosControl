@@ -27,11 +27,18 @@ namespace WpfApp1
             //ConfigurationBuilder configuration = new ConfigurationBuilder();
             
         }
-        Logger logger = LogManager.GetLogger("file"); //初始化日志类
+        Logger logge1r = LogManager.GetLogger("file"); //初始化日志类
+        Logger logger = LogManager.GetCurrentClassLogger(typeof(Logger));
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
             logger.Info("2222");
             logger.Warn(new Exception("sss"),"1111");
         }
+    }
+
+    public class aa
+    {
+
     }
 }
