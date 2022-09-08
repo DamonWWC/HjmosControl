@@ -1,0 +1,60 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+<# 
+    string ClassName = "Program";
+#>
+<# 
+    List<string> classNames = new List<string>() {"Hello","World"};
+    List<string> callMethods = new List<string>();
+#>
+
+namespace LinkTo.Test.ConsoleT4
+{
+<#    
+foreach (string className in classNames)
+{
+    callMethods.Add($"{className}.Show();");
+#>
+    class <#=className #>
+    {
+        /// <summary>
+        /// <#=className #>类Show()方法
+        /// </summary>
+        public static void Show()
+        {
+            Console.WriteLine("<#=className #>");
+        }
+    }
+    
+<#
+}
+#>
+    class <#=ClassName #>
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World");
+
+<#
+        foreach (string callMethod in callMethods)
+        {
+#>
+            //<#=callMethod #>方法调用
+            <#=callMethod #>
+<#
+        }
+#>
+
+            Console.Read();
+        }
+    }
+}

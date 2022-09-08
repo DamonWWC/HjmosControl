@@ -238,7 +238,7 @@
             hj:BackgroundSwitchElement.MouseHoverBackground="#FF20ADC4"
             ItemsSource="{Binding DataList1}"
             Style="{StaticResource ListBoxEditable}">
-            <ListBox.ItemTemplate>
+            <!--<ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBox
                         Background="Transparent"
@@ -248,7 +248,7 @@
                         Style="{StaticResource EditTextBoxBaseStyle}"
                         Text="{Binding Name}" />
                 </DataTemplate>
-            </ListBox.ItemTemplate>
+            </ListBox.ItemTemplate>-->
         </hj:ListBoxEditable>
     </Grid>
 </hj:UserControl>

@@ -39,13 +39,13 @@ namespace Controltest
             DateTimeFormatter = value => (new DateTime((long)value).Day != DateTime.Now.Day ? "24:00" : new DateTime((long)value).ToString("HH:mm"));
             //Formatter = value => value == 0 ? value.ToString() : string.Format("{0}K", value / 1000.0);
 
-            Labels = new string[] { "车站9", "车站8", "车站7", "车站6", "车站5", "车站4", "车站3", "车站2", "车站1"};
+            Labels = new string[] { "车站18", "车站17", "车站16", "车站15", "车站14", "车站13", "车站12", "车站11", "车站10", "车站9", "车站8", "车站7", "车站6", "车站5", "车站4", "车站3", "车站2", "车站1"};
             AxisMax = GetTicks(24);
             AxisMin = GetTicks(6);
             AxisStep = TimeSpan.FromHours(1).Ticks;
             AxisUnit = TimeSpan.TicksPerMinute;
             var passengerFlow = new SeriesCollection();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 200; i++)
             {
                 var hour = Math.Truncate(6d);
                 var min = (6 - hour) * 60;
@@ -77,37 +77,37 @@ namespace Controltest
                 passengerFlow.Add(CreateSeries(date, "ss"));
             }
 
-            for (int i = 0; i < 10; i++)
-            {
-                var hour = Math.Truncate(6d);
-                var min = (6 - hour) * 60;
-                DateTime data;
-                DateTime now = DateTime.Now;
+            //for (int i = 0; i < 50; i++)
+            //{
+            //    var hour = Math.Truncate(6d);
+            //    var min = (6 - hour) * 60;
+            //    DateTime data;
+            //    DateTime now = DateTime.Now;
 
-                data = new DateTime(now.Year, now.Month, now.Day, (int)hour, (int)min, 0);
-                data = data.AddMinutes(8 * i);
-                var date = new ChartValues<ChartDataModel>
-            {
-                new ChartDataModel{ DateTime=data, Value=0 },
-                new ChartDataModel{ DateTime=data.AddMinutes(5), Value=1 },
-                new ChartDataModel{ DateTime=data.AddMinutes(6), Value=1 },
-                new ChartDataModel{ DateTime=data.AddMinutes(11), Value=2 },
-                new ChartDataModel{ DateTime=data.AddMinutes(12), Value=2},
-                new ChartDataModel{ DateTime=data.AddMinutes(14), Value=3 },
-                new ChartDataModel{ DateTime=data.AddMinutes(15), Value=3 },
-                new ChartDataModel{ DateTime=data.AddMinutes(18), Value=4 },
-                new ChartDataModel{ DateTime=data.AddMinutes(20), Value=4 },
-                new ChartDataModel{ DateTime=data.AddMinutes(25), Value=5 },
-                new ChartDataModel{ DateTime=data.AddMinutes(27), Value=5 },
-                new ChartDataModel{ DateTime=data.AddMinutes(34), Value=6 },
-                new ChartDataModel{ DateTime=data.AddMinutes(36), Value=6 },
-                new ChartDataModel{ DateTime=data.AddMinutes(40), Value=7 },
-                new ChartDataModel{ DateTime=data.AddMinutes(43), Value=7 },
-                new ChartDataModel{ DateTime=data.AddMinutes(48), Value=8 },
-                new ChartDataModel{ DateTime=data.AddMinutes(50), Value=8 },
-            };
-                passengerFlow.Add(CreateSeries(date, "ss"));
-            }
+            //    data = new DateTime(now.Year, now.Month, now.Day, (int)hour, (int)min, 0);
+            //    data = data.AddMinutes(8 * i);
+            //    var date = new ChartValues<ChartDataModel>
+            //{
+            //    new ChartDataModel{ DateTime=data, Value=0 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(5), Value=1 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(6), Value=1 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(11), Value=2 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(12), Value=2},
+            //    new ChartDataModel{ DateTime=data.AddMinutes(14), Value=3 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(15), Value=3 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(18), Value=4 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(20), Value=4 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(25), Value=5 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(27), Value=5 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(34), Value=6 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(36), Value=6 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(40), Value=7 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(43), Value=7 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(48), Value=8 },
+            //    new ChartDataModel{ DateTime=data.AddMinutes(50), Value=8 },
+            //};
+            //    passengerFlow.Add(CreateSeries(date, "ss"));
+            //}
 
             PassengerFlowSeries = passengerFlow;
 

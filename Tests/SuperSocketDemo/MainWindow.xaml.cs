@@ -10,21 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace Controltest
+namespace SuperSocketDemo
 {
     /// <summary>
-    /// Window15.xaml 的交互逻辑
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Window15 : Window
+    public partial class MainWindow : Window
     {
-        public Window15()
+        public MainWindow()
         {
             InitializeComponent();
-            SvgToXamlConverter.SvgToXamlConverter svgToXamlConverter = new SvgToXamlConverter.SvgToXamlConverter();
-           
+        }
+
+        private void SocketServer()
+        {
+
         }
     }
 }
