@@ -1,13 +1,11 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    >
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="OneDayPassengerFlowTrend.xaml"/>
-        <ResourceDictionary Source="MoreDayPassengerFlowTrend.xaml"/>
-        <ResourceDictionary Source="AverageDailyPassengerFlowTop10.xaml"/>
-        <ResourceDictionary Source="BigDataMonitor.xaml"/>
-        <ResourceDictionary Source="PassengerFlowTrend.xaml"/>
-        <ResourceDictionary Source="DeviceAlarmBarChart.xaml"/>
-        <ResourceDictionary Source="SectionPassengerFlowDistribution.xaml"/>
+        <ResourceDictionary Source="OneDayPassengerFlowTrend.xaml" />
+        <ResourceDictionary Source="MoreDayPassengerFlowTrend.xaml" />
+        <ResourceDictionary Source="AverageDailyPassengerFlowTop10.xaml" />
+        <ResourceDictionary Source="BigDataMonitor.xaml" />
+        <ResourceDictionary Source="PassengerFlowTrend.xaml" />
+        <ResourceDictionary Source="DeviceAlarmBarChart.xaml" />
+        <ResourceDictionary Source="SectionPassengerFlowDistribution.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

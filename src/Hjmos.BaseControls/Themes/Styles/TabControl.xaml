@@ -1,11 +1,15 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Hjmos.BaseControls.Themes.Styles">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Hjmos.BaseControls.Themes.Styles">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/TabControlBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl"/>
-    <Style TargetType="TabControl" BasedOn="{StaticResource TabControlInLineBaseStyle}" x:Key="TabControlInLine"/>
+    <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl" />
+    <Style
+        x:Key="TabControlInLine"
+        BasedOn="{StaticResource TabControlInLineBaseStyle}"
+        TargetType="TabControl" />
 </ResourceDictionary>

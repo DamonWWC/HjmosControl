@@ -1,13 +1,14 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ContentComboBoxBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/ContentComboBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource ContentComboBoxExtendBaseStyle}" TargetType="hj:ContentComboBox"/>
-   
+    <Style BasedOn="{StaticResource ContentComboBoxExtendBaseStyle}" TargetType="hj:ContentComboBox" />
+
 
 
 </ResourceDictionary>

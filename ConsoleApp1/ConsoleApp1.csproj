@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tests\GeneratorTest\GeneratorTest.csproj" OutputItemType="Analyzer"/>
+	  <ProjectReference Include="..\Tests\GeneratorTest\GeneratorTest.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="true"/>
     <ProjectReference Include="..\Tests\Hjmos.MQProxy\Hjmos.MQProxy.csproj" />
   </ItemGroup>
 

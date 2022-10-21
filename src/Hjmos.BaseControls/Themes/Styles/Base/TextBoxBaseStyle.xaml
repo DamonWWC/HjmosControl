@@ -433,8 +433,8 @@
                             <Setter TargetName="ButtonClear" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="PathMain" Property="Fill" Value="#FF13FFF5"/>
-                            <Setter TargetName="templateRoot" Property="BorderBrush" Value="#FF13FFF5"/>
+                            <Setter TargetName="PathMain" Property="Fill" Value="#FF13FFF5" />
+                            <Setter TargetName="templateRoot" Property="BorderBrush" Value="#FF13FFF5" />
                             <!--<Setter TargetName="templateRoot" Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />-->
                         </Trigger>
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">

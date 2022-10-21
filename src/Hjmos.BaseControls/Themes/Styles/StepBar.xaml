@@ -1,12 +1,13 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls">
 
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/StepBarBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/StepBarBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource StepBarBaseStyle}" TargetType="hj:StepBar"/>
+    <Style BasedOn="{StaticResource StepBarBaseStyle}" TargetType="hj:StepBar" />
 
 </ResourceDictionary>

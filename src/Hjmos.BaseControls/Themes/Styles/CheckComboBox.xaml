@@ -4,7 +4,7 @@
     xmlns:hc="clr-namespace:Hjmos.BaseControls.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/CheckComboBoxBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/CheckComboBoxBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox" />
 

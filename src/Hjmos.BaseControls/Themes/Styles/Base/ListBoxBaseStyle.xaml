@@ -6,7 +6,7 @@
     xmlns:tools="clr-namespace:Hjmos.BaseControls.Tools">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../../Basic/Converters.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <!--<Style x:Key="ListBoxItemVerticalStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -457,20 +457,21 @@
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            <StackPanel Orientation="Horizontal" Grid.Column="1" Visibility="{Binding IsEditable,RelativeSource={RelativeSource AncestorType=ItemsControl},Converter={StaticResource Boolean2VisibilityConverter}}">
+                            <StackPanel
+                                Grid.Column="1"
+                                Orientation="Horizontal"
+                                Visibility="{Binding IsEditable, RelativeSource={RelativeSource AncestorType=ItemsControl}, Converter={StaticResource Boolean2VisibilityConverter}}">
                                 <Button
                                     x:Name="PART_DragButton"
                                     Width="24"
-                                    Height="24"                               
-                                    controls:IconElement.Geometry="{StaticResource DropGeometry}"                                 
-                                                                       
+                                    Height="24"
+                                    controls:IconElement.Geometry="{StaticResource DropGeometry}"
                                     Background="Red"
-                                    Style="{StaticResource ButtonIcon}">
-                                </Button>
+                                    Style="{StaticResource ButtonIcon}" />
                                 <Button
                                     Width="24"
                                     Height="24"
-                                    Margin="5,0"                                  
+                                    Margin="5,0"
                                     controls:IconElement.Geometry="{StaticResource ClearGeometry}"
                                     Command="interactivity:ControlCommands.Close"
                                     Foreground="Red"

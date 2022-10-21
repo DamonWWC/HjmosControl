@@ -9,7 +9,10 @@
         <ResourceDictionary Source="ScrollViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox" />
-    <Style BasedOn="{StaticResource ListBoxEditableBaseStyle}" TargetType="controls:ListBoxEditable" x:Key="ListBoxEditable"/>
+    <Style
+        x:Key="ListBoxEditable"
+        BasedOn="{StaticResource ListBoxEditableBaseStyle}"
+        TargetType="controls:ListBoxEditable" />
     <ItemsPanelTemplate x:Key="WrapPanelHorizonlItemsPanelTemplate">
         <WrapPanel
             HorizontalAlignment="Center"
@@ -126,12 +129,12 @@
         </Setter>
     </Style>
 
-   
 
-    
-    
-    
-    
+
+
+
+
+
     <Style x:Key="TitleListStyle" TargetType="ListBox">
         <Setter Property="ItemContainerStyle" Value="{StaticResource LisBoxItemNormalStyle}" />
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}" />

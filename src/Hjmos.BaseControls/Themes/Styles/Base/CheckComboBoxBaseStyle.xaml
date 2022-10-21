@@ -7,11 +7,11 @@
     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Effects.xaml"/>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="ComboBoxBaseStyle.xaml"/>
-        <ResourceDictionary Source="TagBaseStyle.xaml"/>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../../Basic/Effects.xaml" />
+        <ResourceDictionary Source="../../Basic/Converters.xaml" />
+        <ResourceDictionary Source="ComboBoxBaseStyle.xaml" />
+        <ResourceDictionary Source="TagBaseStyle.xaml" />
+        <ResourceDictionary Source="../../Basic/Geometries.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style
         x:Key="Tag4CheckComboBoxStyle"
@@ -129,8 +129,8 @@
         </Setter>
     </Style>
 
-    
-     <Style x:Key="CheckComboBoxItemBaseStyle" TargetType="hc:CheckComboBoxItem">
+
+    <Style x:Key="CheckComboBoxItemBaseStyle" TargetType="hc:CheckComboBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="Padding" Value="10,6" />
         <Setter Property="Background" Value="Transparent" />
@@ -158,7 +158,7 @@
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </CheckBox>                     
+                        </CheckBox>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

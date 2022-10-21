@@ -35,6 +35,7 @@ namespace Controltest
         SpeechSynthesizer synth;
         private void ExcelWindow_Loaded(object sender, RoutedEventArgs e)
         {
+           
             synth = new SpeechSynthesizer();
             //synth.SelectVoice("Microsoft Lili");
             //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
@@ -54,19 +55,19 @@ namespace Controltest
             //System.Media.SystemSounds.Beep.Play();
             //SoundPlayer player = new SoundPlayer(@"C:\Windows\media\Windows Proximity Notification.wav");
             //player.Play();
-            
+
             //player.PlayLooping();
-
-
-            synth = new SpeechSynthesizer();
-            //synth.SelectVoice("Microsoft Lili");
-            //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
-            synth.Volume = 100;
-            synth.Rate = 2;
-            synth.SpeakCompleted += Synth_SpeakCompleted;
-            //synth.SetOutputToDefaultAudioDevice();
-
-            Speak();
+            var bb = Application.Current.MainWindow.Width;
+            var ss = this.Width;
+            //synth = new SpeechSynthesizer();
+            ////synth.SelectVoice("Microsoft Lili");
+            ////synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
+            //synth.Volume = 100;
+            //synth.Rate = 1;
+            //synth.SpeakCompleted += Synth_SpeakCompleted;
+            ////synth.SetOutputToDefaultAudioDevice();
+            
+            //Speak();
 
         }
 
@@ -82,6 +83,7 @@ namespace Controltest
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            synth.Dispose();
             
         }
     }

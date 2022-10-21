@@ -1,11 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls"
-                    xmlns:common="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"
-                    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:Hjmos.CommonControls.Controls;assembly=Hjmos.CommonControls"
+    xmlns:controls="clr-namespace:Hjmos.CustomCharts.Controls"
+    xmlns:hj="clr-namespace:Hjmos.BaseControls.Controls;assembly=Hjmos.BaseControls">
 
-    <Style TargetType="controls:BigDataMonitor" x:Key="BigDataMonitorBaseStyle">
-        
+    <Style x:Key="BigDataMonitorBaseStyle" TargetType="controls:BigDataMonitor">
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:BigDataMonitor">
@@ -16,36 +17,79 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <TextBlock Text="实时数据总量"  FontSize="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,5"/>
-                            <common:RollingNumber NumStr="{Binding TotalQuanity,RelativeSource={RelativeSource Mode=TemplatedParent}}" Margin="0,5,0,25" ItemHeight="37" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <ItemsControl ItemsSource="{TemplateBinding BigDataList}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock
+                                Margin="0,0,0,5"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Foreground="White"
+                                Text="实时数据总量" />
+                            <common:RollingNumber
+                                Grid.Row="1"
+                                Margin="0,5,0,25"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ItemHeight="37"
+                                NumStr="{Binding TotalQuanity, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
+                            <ItemsControl
+                                Grid.Row="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                ItemsSource="{TemplateBinding BigDataList}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Grid Margin="5">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
                                             </Grid.RowDefinitions>
-                                            <Border x:Name="image" Width="40" Height="40" BorderThickness="1" BorderBrush="#FF11D4FF" CornerRadius="20" Grid.RowSpan="2">
+                                            <Border
+                                                x:Name="image"
+                                                Grid.RowSpan="2"
+                                                Width="40"
+                                                Height="40"
+                                                BorderBrush="#FF11D4FF"
+                                                BorderThickness="1"
+                                                CornerRadius="20">
                                                 <!--<hj:SvgBox VerticalAlignment="Center" HorizontalAlignment="Center" Width="22" Height="22" ImageSource="{Binding ImageSource}"/>-->
                                                 <!--<Image VerticalAlignment="Center" HorizontalAlignment="Center" Width="22" Height="22" Stretch="Uniform"  Source="{Binding ImageSource}" />-->
-                                                <hj:ImageViewer ImageSource="{Binding ImageSource}" Width="22" Height="22"/>
+                                                <hj:ImageViewer
+                                                    Width="22"
+                                                    Height="22"
+                                                    ImageSource="{Binding ImageSource}" />
                                             </Border>
-                                            <TextBlock Grid.Column="1" Text="{Binding BigDataType}" FontSize="12" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" >
-                                                <TextBlock Text="{Binding Quantity}" Foreground="#FF11D4FF" FontSize="30" Margin="5,0,0,0"/>
-                                                <TextBlock Text="{Binding Unit}" Foreground="#FF11D4FF" VerticalAlignment="Bottom" FontWeight="Light"/>
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Foreground="White"
+                                                Text="{Binding BigDataType}" />
+                                            <StackPanel
+                                                Grid.Row="1"
+                                                Grid.Column="1"
+                                                Orientation="Horizontal">
+                                                <TextBlock
+                                                    Margin="5,0,0,0"
+                                                    FontSize="30"
+                                                    Foreground="#FF11D4FF"
+                                                    Text="{Binding Quantity}" />
+                                                <TextBlock
+                                                    VerticalAlignment="Bottom"
+                                                    FontWeight="Light"
+                                                    Foreground="#FF11D4FF"
+                                                    Text="{Binding Unit}" />
                                             </StackPanel>
                                         </Grid>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"/>
+                                        <StackPanel Orientation="Horizontal" />
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
                             </ItemsControl>
@@ -55,6 +99,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
+
+
 </ResourceDictionary>

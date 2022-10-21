@@ -157,7 +157,7 @@
                                             Padding="2"
                                             BorderBrush="White"
                                             BorderThickness="1">
-                                            <TextBlock Text="1:1" Foreground="White" />
+                                            <TextBlock Foreground="White" Text="1:1" />
                                         </Border>
                                     </Button>
                                     <Border
