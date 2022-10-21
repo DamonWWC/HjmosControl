@@ -28,7 +28,7 @@ namespace Controltest
         public ExcelWindow()
         {
             InitializeComponent();
-            //this.Loaded += ExcelWindow_Loaded;
+            this.Loaded += ExcelWindow_Loaded;
             
 
         }
@@ -36,13 +36,13 @@ namespace Controltest
         private void ExcelWindow_Loaded(object sender, RoutedEventArgs e)
         {
            
-            synth = new SpeechSynthesizer();
-            //synth.SelectVoice("Microsoft Lili");
-            //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
-            synth.Volume = 100;
+            //synth = new SpeechSynthesizer();
+            ////synth.SelectVoice("Microsoft Lili");
+            ////synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
+            //synth.Volume = 100;
             synth.Rate = 2;
             //synth.SetOutputToDefaultAudioDevice();
-            synth.SpeakAsync("你好，当前有一条应急防汛报警信息，请及时处理！");
+           // synth.SpeakAsync("你好，");
         }
 
        
@@ -57,17 +57,16 @@ namespace Controltest
             //player.Play();
 
             //player.PlayLooping();
-            var bb = Application.Current.MainWindow.Width;
-            var ss = this.Width;
-            //synth = new SpeechSynthesizer();
-            ////synth.SelectVoice("Microsoft Lili");
-            ////synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
-            //synth.Volume = 100;
-            //synth.Rate = 1;
-            //synth.SpeakCompleted += Synth_SpeakCompleted;
-            ////synth.SetOutputToDefaultAudioDevice();
-            
-            //Speak();
+
+            synth = new SpeechSynthesizer();
+            //synth.SelectVoice("Microsoft Lili");
+            //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
+            synth.Volume = 100;
+            synth.Rate = 1;
+            synth.SpeakCompleted += Synth_SpeakCompleted;
+            //synth.SetOutputToDefaultAudioDevice();
+
+            Speak();
 
         }
 
