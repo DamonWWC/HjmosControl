@@ -36,7 +36,8 @@ namespace Controltest
         private void ExcelWindow_Loaded(object sender, RoutedEventArgs e)
         {
            
-            synth = new SpeechSynthesizer();
+            synth = new SpeechSynthesizer(); 
+
             //synth.SelectVoice("Microsoft Lili");
             //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
             synth.Volume = 100;
