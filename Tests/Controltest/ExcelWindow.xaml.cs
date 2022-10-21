@@ -28,6 +28,7 @@ namespace Controltest
         public ExcelWindow()
         {
             InitializeComponent();
+
             this.Loaded += ExcelWindow_Loaded;
             
 
