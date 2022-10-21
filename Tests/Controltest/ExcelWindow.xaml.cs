@@ -41,6 +41,7 @@ namespace Controltest
             ////synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
             //synth.Volume = 100;
             synth.Rate = 2;
+
             //synth.SetOutputToDefaultAudioDevice();
            // synth.SpeakAsync("你好，");
         }
