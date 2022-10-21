@@ -42,6 +42,10 @@ namespace Controltest
             //synth.SelectVoice("Microsoft Lili");
             //synth.SelectVoiceByHints(VoiceGender.Neutral, VoiceAge.Child);
             synth.Volume = 100;
+
+
+
+
             synth.Rate = 2;
             //synth.SetOutputToDefaultAudioDevice();
             synth.SpeakAsync("你好，当前有一条应急防汛报警信息，请及时处理！");
