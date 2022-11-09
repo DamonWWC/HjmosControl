@@ -460,3 +460,6 @@ obj
 /Tests/TrainDiagram/bin/Debug/net6.0-windows
 /PrintWindow/bin/Debug/net6.0-windows
 /Tests/SpeachDemo/bin/Debug/net6.0-windows
+/Tests/ClassLibrary1/bin/Debug/net6.0
+/Tests/WpfApp2/bin/Debug
+/Tests/WpfApp2/WpfApp2/bin/Debug

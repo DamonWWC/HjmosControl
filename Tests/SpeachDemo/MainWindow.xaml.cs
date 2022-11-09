@@ -44,7 +44,7 @@ namespace SpeachDemo
                     synth.Rate = 1;
                     synth.SetOutputToDefaultAudioDevice();
 
-                    //synth.SpeakAsync("你好,你好你好你好你好你好你好你好你好你好你好你好你好");
+                    synth.SpeakAsync("你好,你好你好你好你好你好你好你好你好你好你好你好你好");
 
                     synth.Speak("你好");
                    await Task.Delay(5000);
