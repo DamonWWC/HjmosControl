@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Windows;
 
 
@@ -19,23 +20,29 @@ namespace WpfApp2
         }
         //D:\A日常编程练习\C#\HjmosControl\Tests\Work
         //C:\Users\BAS\Documents\Projects\Mics3.0_Client\ISCSClient\Work
-       // Assembly ass = Assembly.LoadFrom(@"C:\Users\BAS\Desktop\WpfApp2\bin\Debug\WCFServerInterface.dll");
+        //Assembly ass = Assembly.LoadFrom(@"D:\A佳都工作资料\在线项目\HJMosClient\Client\综合监控\mics\MICSSystem\mics\bin\WCFServerInterface.dll");
 
-     //   Assembly assparam = Assembly.LoadFrom(@"C:\Users\BAS\Desktop\WpfApp2\bin\Debug\MICSClient.Core.dll");
+        // Assembly assparam = Assembly.LoadFrom(@"D:\A佳都工作资料\在线项目\HJMosClient\Client\综合监控\mics\MICSSystem\mics\bin\MICSClient.Core.dll");
         //Assembly aa= Assembly.LoadFrom(@"C:\Users\BAS\Documents\Projects\Mics3.0_Client\ISCSClient\Work\PCI.Framework.Log.dll");
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            var aa = System.IO.Directory.GetCurrentDirectory();
-            var bb = AppDomain.CurrentDomain.BaseDirectory;
-            var dd = Process.GetCurrentProcess().MainModule.FileName;
-            var cc = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+
+            ConsoleClient.Instance.InitClient();
+
+
+            //var aa = System.IO.Directory.GetCurrentDirectory();
+            //var bb = AppDomain.CurrentDomain.BaseDirectory;
+            //var dd = Process.GetCurrentProcess().MainModule.FileName;
+            //var cc = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
 
 
 
-            string ConfigPath = $"{AppDomain.CurrentDomain.BaseDirectory}\\config\\Hjmos_Ncc.config";
-            var isfile = File.Exists(ConfigPath);
-            ExecuteInCmd("mklink /d  \"D:\\A日常编程练习\\C#\\HjmosControl\\Tests\\WpfApp2\\bin\\Debug\\config\" \"D:\\A日常编程练习\\C#\\HjmosControl\\Tests\\mics\"");
+            //string ConfigPath = $"{AppDomain.CurrentDomain.BaseDirectory}\\config\\Hjmos_Ncc.config";
+            //var isfile = File.Exists(ConfigPath);
+            //ExecuteInCmd("mklink /d  \"D:\\A日常编程练习\\C#\\HjmosControl\\Tests\\WpfApp2\\bin\\Debug\\config\" \"D:\\A日常编程练习\\C#\\HjmosControl\\Tests\\mics\"");
+
+
             //Type wcfclient = ass.GetType("WCFServerInterface.ConsoleClient");
 
             //var instance = wcfclient?.GetField("Instance");
@@ -96,6 +103,8 @@ namespace WpfApp2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
+            ConsoleClient.Instance.SendCommand("MICSClient.BASManager.exe", "--type=4");
             //try
             //{
 
@@ -103,24 +112,13 @@ namespace WpfApp2
             //    var instance = wcfclient?.GetField("Instance");
             //    var sendcommand = wcfclient?.GetMethod("SendCommand");
 
-
             //    #region param
-
-
-
 
             //    #region cmdtype
 
             //    Type cmdtype = assparam.GetType("MICSClient.Core.Domain.DataDef.CmdType");
             //    var cmd = Enum.Parse(cmdtype, "StartProcess");
-
-
-
-
             //    #endregion
-
-
-
             //    Type consolecommand = assparam.GetType("MICSClient.Core.Domain.Model.ConsoleCommand");
             //    object obj = Activator.CreateInstance(consolecommand);
 
@@ -129,10 +127,10 @@ namespace WpfApp2
             //    var parameter = consolecommand.GetProperty("Parameter");
 
 
-            //    type.SetValue(obj, cmd,null);
-            //    argument?.SetValue(obj, "MICSClient.BASManager.exe",null);
+            //    type.SetValue(obj, cmd, null);
+            //    argument?.SetValue(obj, "MICSClient.BASManager.exe", null);
 
-            //    parameter?.SetValue(obj, $"--type=4 --Left=0",null);
+            //    parameter?.SetValue(obj, $"--type=4 --Left=0", null);
 
             //    #endregion
 

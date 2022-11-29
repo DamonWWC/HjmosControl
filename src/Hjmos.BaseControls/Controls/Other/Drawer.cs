@@ -13,7 +13,7 @@ using System.Windows.Media.Animation;
 namespace Hjmos.BaseControls.Controls
 {
     [ContentProperty("Content")]
-    public class Drawer : FrameworkElement
+    public class Drawer : ContentControl
     {
         private Storyboard _storyboard;
 
@@ -207,15 +207,15 @@ namespace Hjmos.BaseControls.Controls
             }
 
             _animationControl.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            var size = _animationControl.DesiredSize;
+            var size= _animationControl.DesiredSize;
 
             switch (Dock)
             {
                 case Dock.Left:
                     _animationControl.HorizontalAlignment = HorizontalAlignment.Left;
                     _animationControl.VerticalAlignment = VerticalAlignment.Stretch;
-                    _translateTransform.X = -size.Width;
-                    _animationLength = -size.Width;
+                    _translateTransform.X = -size.Width+100;
+                    _animationLength = -size.Width+100;
                     _animationPropertyName = "(UIElement.RenderTransform).(TranslateTransform.X)";
                     break;
                 case Dock.Top:

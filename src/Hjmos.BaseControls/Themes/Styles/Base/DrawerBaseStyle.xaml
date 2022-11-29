@@ -2,8 +2,110 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Hjmos.BaseControls.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <Style x:Key="DrawerBaseStyle" TargetType="controls:Drawer">
         <Setter Property="Dock" Value="Right" />
         <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
+        <!--<Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Drawer">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ToggleButton
+                            Width="100"
+                            Height="100"
+                            Grid.Column="1"
+                            Background="Red"
+                            IsChecked="{Binding IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>-->
+    </Style>
+    <Style x:Key="DrawerMenuToggleButton1" TargetType="ToggleButton">
+        <Setter Property="IsChecked" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <controls:SimplePanel>
+                        <Path
+                            Data="M 0,0 L 16,16 16,48 0,64 Z"
+                            Fill="#FF297AFF"
+                            Stretch="Uniform" />
+                        <Border
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentControl
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <Path
+                                    x:Name="PathIcon"
+                                    Width="{TemplateBinding controls:IconElement.Width}"
+                                    Height="{TemplateBinding controls:IconElement.Height}"
+                                    Data="{TemplateBinding controls:IconSwitchElement.Geometry}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    SnapsToDevicePixels="True"
+                                    Stretch="Uniform" />
+                            </ContentControl>
+                        </Border>
+                    </controls:SimplePanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.8" />
+                <Setter Property="Cursor" Value="Hand" />
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DrawerMenuStyle" TargetType="controls:DrawerMenu">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DrawerMenu">
+
+                    <StackPanel Orientation="Horizontal">
+                        <ContentPresenter
+                            Name="PART_Presenter"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Stretch"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ToggleButton
+                            x:Name="PART_ToggleButton"
+                            Width="16"
+                            Height="64"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            controls:IconSwitchElement.Geometry="{StaticResource RightGeometry}"
+                            controls:IconSwitchElement.GeometrySelected="{StaticResource LeftGeometry}"
+                            IsChecked="{Binding IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            Style="{StaticResource DrawerMenuToggleButton1}" />
+                    </StackPanel>
+         
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

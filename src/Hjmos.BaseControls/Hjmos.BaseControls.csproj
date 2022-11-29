@@ -116,6 +116,7 @@
     <Compile Include="Controls\Other\DataGrid.cs" />
     <Compile Include="Controls\Other\Divider.cs" />
     <Compile Include="Controls\Other\Drawer.cs" />
+    <Compile Include="Controls\Other\DrawerMenu.cs" />
     <Compile Include="Controls\Other\Empty.cs" />
     <Compile Include="Controls\Other\ListBox.cs" />
     <Compile Include="Controls\Other\ListBoxEditable.cs" />

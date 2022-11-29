@@ -6,4 +6,5 @@
         <ResourceDictionary Source="Base/DrawerBaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
     <Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="controls:Drawer" />
+    <Style  BasedOn="{StaticResource DrawerMenuStyle}" TargetType="controls:DrawerMenu" />
 </ResourceDictionary>
