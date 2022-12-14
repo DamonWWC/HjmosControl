@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows;
-
+using System.Windows.Input;
 
 namespace WpfApp2
 {
@@ -18,6 +18,38 @@ namespace WpfApp2
 
             //System.Environment.CurrentDirectory = "D:\\A日常编程练习\\C#\\HjmosControl\\Tests\\Work";
         }
+
+
+        //private void cmdCapture_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.AddHandler(
+        //           Mouse.LostMouseCaptureEvent,
+        //           new RoutedEventHandler(this.LostCapture));
+        //    Mouse.Capture(rect);
+
+        //    cmdCapture.Content = "[ Mouse is now captured ... ]";
+        //}
+
+        //private void MouseMoved(object sender, MouseEventArgs e)
+        //{
+        //    Point pt = e.GetPosition(this);
+        //    lblInfo.Text =
+        //        String.Format("You are at ({0},{1}) in window coordinates",
+        //        pt.X, pt.Y);
+        //}
+
+        //private void LostCapture(object sender, RoutedEventArgs e)
+        //{
+        //    //MessageBox.Show("Lost capture");
+        //    cmdCapture.Content = "Capture the Mouse";
+        //}
+
+
+
+
+
+
+
         //D:\A日常编程练习\C#\HjmosControl\Tests\Work
         //C:\Users\BAS\Documents\Projects\Mics3.0_Client\ISCSClient\Work
         //Assembly ass = Assembly.LoadFrom(@"D:\A佳都工作资料\在线项目\HJMosClient\Client\综合监控\mics\MICSSystem\mics\bin\WCFServerInterface.dll");

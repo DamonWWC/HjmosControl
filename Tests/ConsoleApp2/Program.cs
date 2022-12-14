@@ -13,10 +13,15 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Process cur = Process.GetCurrentProcess();
+            //Process cur = Process.GetCurrentProcess();
+
+            Process cur = Process.GetProcessesByName("Hjmos.Ncc.WS").FirstOrDefault() ;
             PerformanceCounter curpcp = new PerformanceCounter("Process", "Working Set - Private", cur.ProcessName);
             PerformanceCounter curpc = new PerformanceCounter("Process", "Working Set", cur.ProcessName);
             PerformanceCounter curtime = new PerformanceCounter("Process", "% Processor Time", cur.ProcessName);
+            PerformanceCounter ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use",cur.ProcessName);
+
+
             //上次记录CPU的时间
             TimeSpan prevCpuTime = TimeSpan.Zero;
             //Sleep的时间间隔
@@ -28,7 +33,7 @@ namespace ConsoleApp2
             const int KB_DIV = 1024;
             const int MB_DIV = 1024 * 1024;
             const int GB_DIV = 1024 * 1024 * 1024;
-            while (true)
+           // while (true)
             {
                 //第一种方法计算CPU使用率
                 //当前时间
@@ -36,6 +41,9 @@ namespace ConsoleApp2
                 //计算
                 double value = (curCpuTime - prevCpuTime).TotalMilliseconds / interval / Environment.ProcessorCount * 100;
                 prevCpuTime = curCpuTime;
+
+                Console.WriteLine("内存：{0}%", ramCounter.NextValue);
+
 
                 Console.WriteLine("{0}:{1}  {2:N}KB CPU使用率：{3}", cur.ProcessName, "工作集(进程类)", cur.WorkingSet64 / MB_DIV, value);//这个工作集只是在一开始初始化，后期不变
                 Console.WriteLine("{0}:{1}  {2:N}KB CPU使用率：{3}", cur.ProcessName, "工作集        ", curpc.NextValue() / MB_DIV, value);//这个工作集是动态更新的

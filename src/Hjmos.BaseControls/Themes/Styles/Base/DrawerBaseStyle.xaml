@@ -84,26 +84,36 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:DrawerMenu">
-
-                    <StackPanel Orientation="Horizontal">
+                    <controls:SimplePanel>
                         <ContentPresenter
-                            Name="PART_Presenter"
-                            HorizontalAlignment="Left"
+                            Name="PART_Content"
+                            HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             RecognizesAccessKey="True"
                             SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        <ToggleButton
-                            x:Name="PART_ToggleButton"
-                            Width="16"
-                            Height="64"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            controls:IconSwitchElement.Geometry="{StaticResource RightGeometry}"
-                            controls:IconSwitchElement.GeometrySelected="{StaticResource LeftGeometry}"
-                            IsChecked="{Binding IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                            Style="{StaticResource DrawerMenuToggleButton1}" />
-                    </StackPanel>
-         
+                        <StackPanel Orientation="Horizontal">
+                            <ContentPresenter
+                                Name="PART_Presenter"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Stretch"
+                                ContentSource="Menu"
+                                RecognizesAccessKey="True"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ToggleButton
+                                x:Name="PART_ToggleButton"
+                                Width="16"
+                                Height="64"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                controls:IconSwitchElement.Geometry="{StaticResource RightGeometry}"
+                                controls:IconSwitchElement.GeometrySelected="{StaticResource LeftGeometry}"
+                                IsChecked="{Binding IsOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                Style="{StaticResource DrawerMenuToggleButton1}" />
+                        </StackPanel>
+
+
+                    </controls:SimplePanel>
+
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

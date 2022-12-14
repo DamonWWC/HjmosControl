@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,18 +17,27 @@ namespace Hjmos.BaseControls.Controls
 {
 
     [TemplatePart(Name = "PART_Presenter", Type = typeof(ContentPresenter))]
+    [TemplatePart(Name = "PART_Content", Type = typeof(ContentPresenter))]
     [TemplatePart(Name = "PART_ToggleButton", Type = typeof(ToggleButton))]
     public class DrawerMenu : ContentControl
     {
         private const string PresentertName = "PART_Presenter";
         private const string ToggleButtonName = "PART_ToggleButton";
+        private const string ContentSource = "PART_Content";
         internal ContentPresenter _presenter;
+        internal ContentPresenter _contentSource;
         internal ToggleButton _toggleButton;
         public DrawerMenu()
         {
             Loaded += DrawerMenu_Loaded;
+            
         }
-
+        protected override void OnLostMouseCapture(MouseEventArgs e)
+        {
+            //base.OnLostMouseCapture(e);
+            //var a = Mouse.Captured;
+            //Mouse.Capture(this);
+        }
         private void DrawerMenu_Loaded(object sender, RoutedEventArgs e)
         {
             
@@ -38,6 +48,28 @@ namespace Hjmos.BaseControls.Controls
             get { return (bool)GetValue(IsOpenProperty); }
             set { SetValue(IsOpenProperty, value); }
         }
+
+
+        public object Menu
+        {
+            get { return (object)GetValue(MenuProperty); }
+            set { SetValue(MenuProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MenuProperty =
+            DependencyProperty.Register("Menu", typeof(object), typeof(DrawerMenu), new PropertyMetadata(default(object)));
+
+        public object Content1
+        {
+            get { return (object)GetValue(Content1Property); }
+            set { SetValue(Content1Property, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty Content1Property =
+            DependencyProperty.Register("Content1", typeof(object), typeof(DrawerMenu), new PropertyMetadata(default(object)));
+
 
         // Using a DependencyProperty as the backing store for IsOpen.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsOpenProperty =
@@ -54,6 +86,9 @@ namespace Hjmos.BaseControls.Controls
             base.OnApplyTemplate();
             _presenter = GetTemplateChild(PresentertName) as ContentPresenter;
             _toggleButton = GetTemplateChild(ToggleButtonName) as ToggleButton;
+            _contentSource = GetTemplateChild(ContentSource) as ContentPresenter;
+
+            _contentSource.MouseLeftButtonDown += _contentSource_MouseLeftButtonDown;
             _toggleButton.MouseEnter += _toggleButton_MouseEnter;
             _toggleButton.MouseLeave += _toggleButton_MouseLeave;
             _presenter.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
@@ -70,6 +105,11 @@ namespace Hjmos.BaseControls.Controls
 
         }
 
+        private void _contentSource_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SetCurrentValue(IsOpenProperty, false);
+        }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
@@ -79,8 +119,8 @@ namespace Hjmos.BaseControls.Controls
         {
             base.OnMouseLeave(e);
 
-            await Task.Delay(2000);
-            IsOpen = false;
+            //await Task.Delay(2000);
+            //IsOpen = false;
 
         }
         private void _toggleButton_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
@@ -92,7 +132,7 @@ namespace Hjmos.BaseControls.Controls
         private void _toggleButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
 
-            IsOpen = true;
+            //IsOpen = true;
         }
 
         private void OnIsOpenChanged(bool isOpen)
