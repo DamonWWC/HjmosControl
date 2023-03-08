@@ -212,7 +212,7 @@ namespace PDFDemo
                     int m = 5;
                     for (int j=0;j<n;j++)
                     {
-                        column2.Item().Text("谢家桥");
+                        column2.Item().Padding(5).Text("谢家桥");
                         for (int i = 0; i < m; i+=2)
                         {                       
                             column2.Item().Row(row =>
@@ -231,7 +231,8 @@ namespace PDFDemo
                                         {
                                             column.Spacing(2);
 
-                                            column.Item().AlignCenter().AlignMiddle().Width(150).Image("河流.png", ImageScaling.FitArea);
+                                            //column.Item().AlignCenter().AlignMiddle().Width(150).Image("河流.png", ImageScaling.FitArea);
+                                            column.Item().PaddingVertical(5).PaddingHorizontal(10).Height(200).Placeholder();
                                             column.Item().Padding(10).Row(row1 =>
                                             {
                                                 row1.RelativeItem().Table(table =>

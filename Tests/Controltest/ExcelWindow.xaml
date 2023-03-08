@@ -9,7 +9,16 @@
     Topmost="True"
     mc:Ignorable="d">
     <Grid>
-        <Button
+        <ComboBox
+            Width="144"
+            Height="36"
+            Margin="8,5"
+            VerticalAlignment="Top"
+            Background="#FF18486F"
+            BorderThickness="0"
+            Foreground="Red"
+            ItemsSource="{Binding list}" />
+        <!--<Button
             Width="80"
             Height="25"
             Margin="285,175,0,0"
@@ -25,6 +34,6 @@
         <ContentControl>
             <local:UserControl1></local:UserControl1>
         </ContentControl>
-        <ContentControl></ContentControl>
+        <ContentControl></ContentControl>-->
     </Grid>
 </Window>

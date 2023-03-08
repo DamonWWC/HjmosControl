@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Media;
 using System.Runtime.InteropServices;
@@ -21,7 +22,7 @@ namespace Controltest
     /// <summary>
     /// ExcelWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class ExcelWindow : Window
+    public partial class ExcelWindow : Window, INotifyPropertyChanged
     {
         [DllImport("user32.dll")]
         public static extern int MessageBeep(uint uType);
@@ -29,12 +30,22 @@ namespace Controltest
         public ExcelWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+            //this.Loaded += ExcelWindow_Loaded;
 
-            this.Loaded += ExcelWindow_Loaded;
-            
-
+            list = new List<string> { "1", "2", "3" };
         }
+
+        public List<string> list { get; set; }
+
+
+
+
+
         SpeechSynthesizer synth;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void ExcelWindow_Loaded(object sender, RoutedEventArgs e)
         {
            

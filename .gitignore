@@ -466,3 +466,14 @@ obj
 /Tests/AppWindowDemo/bin/Debug
 /PDFDemo/bin/Debug
 /Tests/WpfApp3/bin/Debug/net6.0-windows
+/Tests/RoslynDemo/bin/Debug/net6.0
+/Tests/SourceGenerator/bin/Debug/netstandard2.0
+/Tests/TaskDemo/bin/Debug/net6.0
+/Tests/Drop/bin/Debug/net6.0-windows
+/Tests/SignalRClient/bin/Debug/net6.0
+*.dll
+*.exe
+*.pdb
+/Tests/SignalRServer/bin/Debug/net6.0
+/Tests/WorkflowDemo/bin/Debug/net6.0
+/Tests/WpfWorkflowDemo/bin/Debug/net6.0-windows
