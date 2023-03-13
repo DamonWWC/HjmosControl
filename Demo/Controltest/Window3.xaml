@@ -1,0 +1,55 @@
+﻿<Window x:Class="Controltest.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Controltest"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="OuterGlowStyle" TargetType="{x:Type FrameworkElement}">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect x:Name="OG" BlurRadius="0" Color="Black" Direction="0"
+ Opacity="0.6" RenderingBias="Performance" ShadowDepth="0">
+                        <Storyboard.TargetProperty>
+                            BlurRadius
+                        </Storyboard.TargetProperty>
+                    </DropShadowEffect>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="GotFocus">
+                    <BeginStoryboard>
+                        <Storyboard  RepeatBehavior="Forever">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.1" Value="10"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.2" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.3" Value="10"/>
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <!--<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" BeginTime="00:00:00" From="0" To="10" Duration="00:00:00.1"  AutoReverse="True" 
+RepeatBehavior="Forever" />-->
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"  >
+            <TextBlock TextWrapping="Wrap"  FontSize="30">
+                  &#12288;  根据实时流监测数据，广州地铁已启动大流预警响应，休育西路站、嘉禾望岗站、广州南站、广州东站、广州塔站、天河客运站将视情况采取流控制。请留意车站告示及广播并配合工作人员的指引有序乘车
+            </TextBlock>
+        </ScrollViewer>
+        <!--<TextBox Width="150" Style="{StaticResource OuterGlowStyle}" Height="30"/>
+        <Button Width="150" Style="{StaticResource OuterGlowStyle}" Content="1234" Height="30" Margin="64,50,64,181" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>-->
+    </Grid>
+</Window>

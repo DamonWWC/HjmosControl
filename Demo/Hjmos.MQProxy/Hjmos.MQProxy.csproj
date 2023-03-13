@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5AE5366F-588E-4099-80EA-2C9DA26E12E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hjmos.MQProxy</RootNamespace>
+    <AssemblyName>Hjmos.MQProxy</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\ConnectionFactory.cs" />
+    <Compile Include="Client\ConsumerMQ.cs" />
+    <Compile Include="Client\MQConfig.cs" />
+    <Compile Include="Client\ObjectRocketMessage.cs" />
+    <Compile Include="Client\TextRocketMessage.cs" />
+    <Compile Include="Interface\IConsumer.cs" />
+    <Compile Include="Interface\IMessage.cs" />
+    <Compile Include="Client\ObjectMessage.cs" />
+    <Compile Include="Client\JsonNewtonsoft.cs" />
+    <Compile Include="Client\MessageExt.cs" />
+    <Compile Include="Client\MQBase.cs" />
+    <Compile Include="Client\ObjectMessageHelper.cs" />
+    <Compile Include="Client\ProducerMQ.cs" />
+    <Compile Include="Interface\IParameter.cs" />
+    <Compile Include="Client\TextMessage.cs" />
+    <Compile Include="Client\RocketMQPara.cs" />
+    <Compile Include="Interface\IParameterConfig.cs" />
+    <Compile Include="MQSDK\Action.cs" />
+    <Compile Include="MQSDK\ConsumeContext.cs" />
+    <Compile Include="MQSDK\ConsumeOrderContext.cs" />
+    <Compile Include="MQSDK\ConsumerAndProducerForEx.cs" />
+    <Compile Include="MQSDK\LocalTransactionChecker.cs" />
+    <Compile Include="MQSDK\LocalTransactionExecuter.cs" />
+    <Compile Include="MQSDK\Message.cs" />
+    <Compile Include="MQSDK\MessageListener.cs" />
+    <Compile Include="MQSDK\MessageOrderListener.cs" />
+    <Compile Include="MQSDK\MessageQueueONS.cs" />
+    <Compile Include="MQSDK\ONSChannel.cs" />
+    <Compile Include="MQSDK\ONSClient4CPP.cs" />
+    <Compile Include="MQSDK\ONSClient4CPPPINVOKE.cs" />
+    <Compile Include="MQSDK\ONSClientException.cs" />
+    <Compile Include="MQSDK\ONSFactory.cs" />
+    <Compile Include="MQSDK\ONSFactoryAPI.cs" />
+    <Compile Include="MQSDK\ONSFactoryProperty.cs" />
+    <Compile Include="MQSDK\ONSPullStatus.cs" />
+    <Compile Include="MQSDK\OrderAction.cs" />
+    <Compile Include="MQSDK\OrderConsumer.cs" />
+    <Compile Include="MQSDK\OrderProducer.cs" />
+    <Compile Include="MQSDK\Producer.cs" />
+    <Compile Include="MQSDK\PullConsumer.cs" />
+    <Compile Include="MQSDK\PullResultONS.cs" />
+    <Compile Include="MQSDK\PushConsumer.cs" />
+    <Compile Include="MQSDK\SendResultONS.cs" />
+    <Compile Include="MQSDK\SubscriptionMode.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_CONSTSTRING.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ConsumeContext.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ConsumeOrderContext.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_LocalTransactionChecker.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_Message.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_MessageOrderListener.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_MessageQueueONS.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_MQException.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ONSClientException.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ONSCLIENT_API.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__LocalTransactionChecker.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__OrderConsumer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__OrderProducer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__PullConsumer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__PushConsumer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_ons__TransactionProducer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_OrderConsumer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_OrderProducer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_PushConsumer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_SendResult.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_SendResultONS.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_std__mapT_std__string_std__string_t.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_std__string.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_std__vectorT_ons__MessageQueueONS_t.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_std__vectorT_ons__Message_t.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_TransactionProducer.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_TransactionStatus.cs" />
+    <Compile Include="MQSDK\SWIGTYPE_p_unsigned_char.cs" />
+    <Compile Include="MQSDK\SystemPropKey.cs" />
+    <Compile Include="MQSDK\TransactionProducer.cs" />
+    <Compile Include="MQSDK\TransactionStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ONSClient4CPP.exp" />
+    <None Include="ONSClient4CPP.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ONSClient4CPP.dll" />
+    <Content Include="ONSClient4CPP.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
