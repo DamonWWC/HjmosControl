@@ -510,3 +510,7 @@ obj
 /Demo/WpfApp2/bin/Debug
 /Demo/WpfApp3/bin/Debug/net6.0-windows
 /Demo/WpfWorkflowDemo/bin/Debug/net6.0-windows
+/Demo/Harmony/bin/Debug
+/Demo/HarmonyDemo/bin/Debug/net6.0
+/Demo/UtilityLibraries/bin/Debug/net6.0
+/Tests/StringLibraryTests/StringLibraryTests/bin/Debug/net6.0
