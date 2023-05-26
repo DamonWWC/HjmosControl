@@ -514,3 +514,5 @@ obj
 /Demo/HarmonyDemo/bin/Debug/net6.0
 /Demo/UtilityLibraries/bin/Debug/net6.0
 /Tests/StringLibraryTests/StringLibraryTests/bin/Debug/net6.0
+bin
+/cache

@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	  <OutputPath>$(SolutionDir)bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -13,5 +14,12 @@
 		<PackageReference Include="WorkflowCore" Version="3.8.1" />
 		<PackageReference Include="WorkflowCore.DSL" Version="3.8.1" />
 	</ItemGroup>
-
+	<ItemGroup>
+		<ReferenceCopyLocalPaths Include="..\UtilityLibraries\bin\$(Configuration)\*.dll">
+			<DestinationSubDirectory>$(Configuration)\$(AssemblyName)\dlld\</DestinationSubDirectory>
+		</ReferenceCopyLocalPaths>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\UtilityLibraries\UtilityLibraries.csproj" />
+	</ItemGroup>
 </Project>

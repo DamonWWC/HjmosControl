@@ -1,0 +1,19 @@
+﻿<Window
+    x:Class="CefSharpDemoPrism.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lo="clr-namespace:CefSharpDemoPrism.ViewModels"
+    xmlns:local="clr-namespace:CefSharpDemoPrism"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="525"
+    Height="350"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <Window.Resources>
+        <lo:BrowserDataContext x:Key="p" Address="https://www.baidu.com/" />
+    </Window.Resources>
+    <Grid>
+        <local:HjmosBrowser Address="https://www.baidu.com/" Cookie="{Binding Cookies}" />
+    </Grid>
+</Window>

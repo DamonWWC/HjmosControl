@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="LiteDB" Version="5.0.12" />
+    <PackageReference Include="MouseKeyHook.NetCore" Version="5.6.1.1" />
   </ItemGroup>
 
   <ItemGroup>

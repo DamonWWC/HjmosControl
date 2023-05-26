@@ -1,4 +1,5 @@
-﻿using LiteDB;
+﻿using Gma.System.MouseKeyHook;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,41 +25,54 @@ namespace WpfApp3
     /// </summary>
     public partial class MainWindow : Window
     {
+        private IKeyboardMouseEvents m_GlobalHook;
         public MainWindow()
         {
             InitializeComponent();
-            CreateDB();
+
+            m_GlobalHook = Hook.AppEvents();
+           
+            m_GlobalHook.MouseDownExt += M_GlobalHook_MouseDownExt; ;
+
+
+            //CreateDB();
+        }
+
+        private void M_GlobalHook_MouseDownExt(object? sender, MouseEventExtArgs e)
+        {
+            e.Handled = false;
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //using var db = new LiteDatabase(@"MyData.db");
+           // //using var db = new LiteDatabase(@"MyData.db");
 
-            using var db = new LiteDatabase(new ConnectionString("Filename=MyData1.db;Password=1234"));
-            // 获取 Customers 集合
-            var col = db.GetCollection<Customer>("customers1");
+           // using var db = new LiteDatabase(new ConnectionString("Filename=MyData1.db;Password=1234"));
+           // // 获取 Customers 集合
+           // var col = db.GetCollection<Customer>("customers1");
 
-            // 创建一个对象
-            var customer = new Customer
-            {
-                Name = "John Doe",
-                //Phones = new string[] { "8000-0000", "9000-0000" },
-                //Age = 39,
-                //IsActive = true
-            };
-           // Customer us=col.FindOne(x => x.Name == "John Doe");
-            // 在 Name 字段上创建唯一索引
-            //col.EnsureIndex(x => x.Name, true);
+           // // 创建一个对象
+           // var customer = new Customer
+           // {
+           //     Name = "John Doe",
+           //     //Phones = new string[] { "8000-0000", "9000-0000" },
+           //     //Age = 39,
+           //     //IsActive = true
+           // };
+           //// Customer us=col.FindOne(x => x.Name == "John Doe");
+           // // 在 Name 字段上创建唯一索引
+           // //col.EnsureIndex(x => x.Name, true);
 
-            // 数据插入
-            col.Insert(customer);
+           // // 数据插入
+           // col.Insert(customer);
 
-            //// 数据查询 
-            //List<Customer> list = col.Find(x => x.Age > 20).ToList();
-            //Customer user = col.FindOne(x => x.Age > 20);
+           // //// 数据查询 
+           // //List<Customer> list = col.Find(x => x.Age > 20).ToList();
+           // //Customer user = col.FindOne(x => x.Age > 20);
 
-            //// 数据删除 
-            //col.Delete(user.Id);
+           // //// 数据删除 
+           // //col.Delete(user.Id);
         }
 
 
@@ -290,7 +304,7 @@ namespace WpfApp3
         private static Configuration ConfigCommon(string path)
         {
             if (Config.TryGetValue(path, out Configuration configuration)) return configuration;
-            string ConfigPath = $"{AppDomain.CurrentDomain.BaseDirectory}{path}";
+               string ConfigPath = $"{AppDomain.CurrentDomain.BaseDirectory}{path}";
             var isFileExist = File.Exists(ConfigPath);
             if (isFileExist)
             {

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+	  <TargetFrameworks>net472;net6.0-windows</TargetFrameworks>
+	  <Nullable>enable</Nullable>
+	  <UseWPF>true</UseWPF>
+	  <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	  <LangVersion>preview</LangVersion>
+	  <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net472|AnyCPU'">
+		<OutputPath>bin\Debug\</OutputPath>
+		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
+		<OutputPath>bin\Debug\</OutputPath>
+		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net472|AnyCPU'">
+		<OutputPath>bin\Release\</OutputPath>
+		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-windows|AnyCPU'">
+		<OutputPath>bin\Release\</OutputPath>
+		<CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-windows'">
+		<PackageReference Include="CefSharp.Wpf.NETCore">
+			<Version>112.2.70</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+		<PackageReference Include="CefSharp.Wpf">
+			<Version>112.2.70</Version>
+		</PackageReference>
+	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+  </ItemGroup>
+</Project>
