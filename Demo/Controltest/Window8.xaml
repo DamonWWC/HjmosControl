@@ -79,6 +79,12 @@
             ShowClearButton="False"
             ShowEyeButton="True" />
 
-
+        <Button
+            Width="80"
+            Height="25"
+            Margin="285,175,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button_Click" />
     </Grid>
 </Window>

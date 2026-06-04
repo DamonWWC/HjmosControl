@@ -18,14 +18,14 @@
             BorderThickness="0"
             Foreground="Red"
             ItemsSource="{Binding list}" />
-        <!--<Button
+        <Button
             Width="80"
             Height="25"
             Margin="285,175,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="Button_Click" />
-        <Button
+        <!--<Button
             Margin="110,110,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"

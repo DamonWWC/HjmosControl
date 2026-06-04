@@ -516,3 +516,5 @@ obj
 /Tests/StringLibraryTests/StringLibraryTests/bin/Debug/net6.0
 bin
 /cache
+/Demo/EmbedWindow/Properties
+/Embed/Properties

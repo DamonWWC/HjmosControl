@@ -63,6 +63,13 @@ namespace Controltest
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+
+
+
+
+            Window8 window8 = new Window8();
+            window8.ShowDialog();
             //    uint beep = 0x00000030;
             //    MessageBeep(beep);
             //    System.Media.SystemSounds.Exclamation.Play();
@@ -70,13 +77,13 @@ namespace Controltest
 
 
 
-            var path = "D:\\A佳都工作资料\\在线项目\\HJMosClient\\Client\\CS6\\HJMos_NCC_Client\\Work\\Hjmos_Client\\Files\\Audio\\20221019361931699390464.mp3";
+            //var path = "D:\\A佳都工作资料\\在线项目\\HJMosClient\\Client\\CS6\\HJMos_NCC_Client\\Work\\Hjmos_Client\\Files\\Audio\\20221019361931699390464.mp3";
 
-            //SoundPlayer player = new SoundPlayer(@"C:\Windows\media\Windows Proximity Notification.wav");
-            SoundPlayer player = new SoundPlayer(path);
-            //player.Play();
+            ////SoundPlayer player = new SoundPlayer(@"C:\Windows\media\Windows Proximity Notification.wav");
+            //SoundPlayer player = new SoundPlayer(path);
+            ////player.Play();
        
-            player.PlayLooping();
+            //player.PlayLooping();
 
 
 

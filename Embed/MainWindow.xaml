@@ -1,0 +1,44 @@
+﻿<Window
+    x:Class="Embed.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Embed"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1920"
+    Height="1080"
+    mc:Ignorable="d">
+    <Grid Background="{Binding VisualBrush}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <!--<Image
+            Width="200"
+            Height="200"
+            Source="{Binding ImageSource}" />-->
+        <!--<Border
+            x:Name="border"
+            Margin="0,0,960,483"
+            Background="Pink" />-->
+        <local:EmbeddedApp1 Source="D:\Desktop\客户端\GridClient.exe" />
+        <!--<local:DispatcherContainer
+            x:Name="host"
+            Width="1000"
+            Height="1000" />
+        <Button
+            x:Name="button"
+            Grid.RowSpan="2"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Panel.ZIndex="1000"
+            Background="Red"
+            Click="Button_Click"
+            MouseDoubleClick="Button_MouseDoubleClick"
+            MouseLeftButtonDown="Button_MouseLeftButtonDown" />-->
+    </Grid>
+</Window>

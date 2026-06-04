@@ -241,5 +241,10 @@ namespace Controltest
             this._dragdropPopup.IsOpen = true;
         }
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            throw new Exception();
+        }
     }
 }
